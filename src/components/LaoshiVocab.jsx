@@ -10418,7 +10418,7 @@ export default function LaoshiVocab() {
       list = list.filter(v => v.h.includes(q) || v.py.toLowerCase().includes(q) || (TR13[v.h]||"").toLowerCase().includes(q));
     }
     return list;
-  }, [level, search, cache]);
+  }, [level, search]);
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const pageItems = useMemo(() => filtered.slice((page-1)*PER_PAGE, page*PER_PAGE), [filtered, page]);
