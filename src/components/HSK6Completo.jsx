@@ -1,0 +1,737 @@
+import { useState } from "react";
+const ink="#0F172A",sand="#FAFAF8",muted="#64748B",bdr="#E2E8F0";
+
+const WEEKS = [
+  { w:1, phase:"文言基础", emoji:"📜", color:"#374151",
+    theme:"文言文基础 — Introdução ao Chinês Clássico",
+    stats:{ words:"~15 HSK 6", grammar:"虚词 之·乎·者·也·而·以 · 文言判断句 · 文言被动句", chars:"文言经典" },
+    vocab:[
+      {h:"文言文",py:"wényánwén",pt:"chinês clássico/literário"},
+      {h:"白话文",py:"báihuàwén",pt:"chinês vernacular/moderno"},
+      {h:"经史子集",py:"jīng shǐ zǐ jí",pt:"quatro categorias clássicas da literatura chinesa"},
+      {h:"四书五经",py:"sìshū wǔjīng",pt:"os Quatro Livros e os Cinco Clássicos"},
+      {h:"古文运动",py:"gǔwén yùndòng",pt:"Movimento do Estilo Clássico (Tang-Song)"},
+      {h:"骈文",py:"piánwén",pt:"prosa paralela (estilo clássico)"},
+      {h:"散文",py:"sǎnwén",pt:"prosa ensaística/essay"},
+      {h:"辞赋",py:"cífù",pt:"forma poética fu (poesia-prosa clássica)"},
+      {h:"词曲",py:"cíqǔ",pt:"formas ci e qu da poesia clássica"},
+      {h:"注疏",py:"zhùshū",pt:"comentário e glosa de textos clássicos"},
+      {h:"训诂",py:"xùngǔ",pt:"exegese filológica clássica"},
+      {h:"音韵学",py:"yīnyùnxué",pt:"fonologia histórica do chinês"},
+      {h:"小学",py:"xiǎoxué",pt:"estudos clássicos de linguagem (fonologia+léxico+gramática)"},
+      {h:"经学",py:"jīngxué",pt:"estudos dos clássicos confucionistas"},
+      {h:"子学",py:"zǐxué",pt:"estudos filosóficos (as centenas de escolas)"},
+    ],
+    grammar:[
+      { struct:"文言虚词: 之·乎·者·也·而·以·于·乃", label:"Partículas e Palavras Funcionais do Chinês Clássico", color:"#374151",
+        exp:"之(possessivo/pronome/partícula), 乎(interrogativo/exclamativo), 者(aquele que/o que), 也(partícula conclusiva), 而(e/mas/ao mesmo tempo), 以(com/por/usar), 于(em/para/com), 乃(então/assim sendo/ser). Estas partículas são a chave da leitura clássica.",
+        exs:[{cn:"学而时习之，不亦说乎？（《论语》）",py:"Xué ér shí xí zhī, bù yì shuō hū? (Lúnyǔ)",pt:"Aprender e praticar regularmente — não é isso uma alegria? (Confúcio, Analetos)"},{cn:"知之者不如好之者，好之者不如乐之者。",py:"Zhī zhī zhě bù rú hào zhī zhě, hào zhī zhě bù rú lè zhī zhě.",pt:"Quem sabe não é como quem ama; quem ama não é como quem se alegra nisso. (Confúcio)"}] },
+      { struct:"文言判断句: ...者，...也 / ...，...也", label:"Frases Copulares no Chinês Clássico", color:"#6366F1",
+        exp:"No clássico, '是' raramente é cópula. Usa-se: ①...者，...也 (X é Y). ②...也 (é assim). ③...,非...也 (não é). ④...，...矣 (é/foi assim). A estrutura 者...也 é o padrão mais comum de definição.",
+        exs:[{cn:"仁者，爱人也。（《论语》）",py:"Rén zhě, ài rén yě.",pt:"A benevolência é amar as pessoas. (Confúcio)"},{cn:"吾所欲者，非金银也。",py:"Wú suǒ yù zhě, fēi jīn yín yě.",pt:"O que desejo não é ouro nem prata."}] },
+      { struct:"文言被动: 见...·为...所 · 被(古典用法)", label:"Construção Passiva no Chinês Clássico", color:"#D97706",
+        exp:"Clássico usa: ①见+V (ser feito). ②为...所+V (ser V por...). ③被(raro no clássico, diferente do moderno). 见=ser/estar em condição passiva. 为X所V=ser V por X.",
+        exs:[{cn:"信而见疑，忠而被谤，能无怨乎？（《史记》）",py:"Xìn ér jiàn yí, zhōng ér bèi bàng, néng wú yuàn hū?",pt:"Ser leal e ser suspeito; ser fiel e ser caluniado — como não se ressentir? (Registros Históricos)"},{cn:"不为五斗米折腰。（陶渊明）",py:"Bù wèi wǔ dǒu mǐ zhé yāo.",pt:"Não me curvo por cinco cestos de arroz. (Tao Yuanming — recusa de cargo governamental)"}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"学习文言文最大的难点是什么？",py:"Xuéxí wényánwén zuì dà de nándiǎn shì shénme?",pt:"Qual é a maior dificuldade no estudo do chinês clássico?"},
+      {sp:"B",cn:"归根结底，在于虚词的用法。同一个'之'字，在不同语境下意思迥异，犹如一把万能钥匙，掌握它便能开启古典文学的大门。",py:"Guī gēn jiédǐ, zàiyú xūcí de yòngfǎ.",pt:"Em última análise, está no uso das partículas. O mesmo caractere '之' tem significados muito diferentes em contextos distintos — como uma chave mestra; dominá-la abre a porta da literatura clássica."},
+      {sp:"A",cn:"那先读哪些经典比较好？",py:"Nà xiān dú nǎxiē jīngdiǎn bǐjiào hǎo?",pt:"Por onde começar na leitura dos clássicos?"},
+      {sp:"B",cn:"自古以来，《论语》被誉为入门之首。鉴于其语言简练而意蕴深远，不妨以它为核心，触类旁通，融会贯通。",py:"Zìgǔ yǐlái, Lúnyǔ bèi yù wéi rùmén zhī shǒu.",pt:"Desde tempos antigos, os Analetos são aclamados como a porta de entrada. Dado que sua linguagem é concisa mas profunda, não custa tomá-los como núcleo e a partir daí compreender os demais por analogia."},
+    ],
+    quiz:[
+      {q:"'学而时习之，不亦说乎' — 乎 é uma partícula:",opts:["declarativa","interrogativa/exclamativa retórica","concessiva","causal"],ans:1,exp:"✅ 乎 no clássico = partícula interrogativa/exclamativa. 不亦...乎 = 'não é/não seria...?'. É uma pergunta RETÓRICA que afirma ao perguntar. Equivalente moderno: 难道不...吗?"},
+      {q:"'仁者，爱人也' — qual é a estrutura?",opts:["文言被动句","文言判断句 (者...也 = definição)","文言倒装句","疑问句"],ans:1,exp:"✅ 者...也 é a estrutura de JULGAMENTO/DEFINIÇÃO no clássico. Sujeito+者+predicado+也. '仁'(benevolência) é o sujeito; '爱人'(amar as pessoas) é a definição. Equivalente moderno: 仁就是爱人."},
+      {q:"'信而见疑' — 见 aqui indica:",opts:["ver visualmente","ser o objeto de (construção passiva)","fazer ver","mostrar"],ans:1,exp:"✅ 见 no clássico como marcador PASSIVO = 'ser V' / 'sofrer ação de'. 见疑=ser suspeito de. 见弃=ser abandonado. Diferente do 见 moderno (ver). Muito frequente em textos clássicos!"},
+      {q:"文言文 é chamado 白话文 no contexto de:",opts:["são sinônimos","文言文=chinês clássico literário (antigo); 白话文=chinês vernacular/moderno","文言文 é mais moderno","são formas de poesia"],ans:1,exp:"✅ 文言文 = chinês clássico (usado até aprox. séc. XIX/XX). 白话文 = chinês vernacular moderno. O Movimento 4 de Maio (1919) promoveu a substituição do 文言文 pelo 白话文 na escrita."},
+      {q:"四书五经 refere-se a:",opts:["quatro poetas e cinco músicos","Os Quatro Livros (Confúcio, Mêncio, Grande Aprendizado, Doutrina do Meio) e Cinco Clássicos","quatro e cinco obras literárias","escolas filosóficas"],ans:1,exp:"✅ 四书 = Grande Aprendizado(大学), Doutrina do Meio(中庸), Analetos(论语), Mêncio(孟子). 五经 = Clássico das Mutações(易), Documentos(书), Odes(诗), Ritos(礼), Primaveras e Outonos(春秋). Base do confucionismo e do exame imperial(科举)."},
+    ] },
+
+  { w:2, phase:"政论文", emoji:"📰", color:"#DC2626",
+    theme:"政论文写作 — Ensaio Político Formal",
+    stats:{ words:"~15 HSK 6", grammar:"破题·立论·驳论 · 排比句 · 反问句", chars:"政论经典" },
+    vocab:[
+      {h:"破题",py:"pòtí",pt:"abrir o tema/apresentar a questão"},
+      {h:"立论",py:"lìlùn",pt:"estabelecer a tese"},
+      {h:"驳论",py:"bólùn",pt:"refutar a tese oposta"},
+      {h:"论断",py:"lùnduàn",pt:"afirmação/asserção definitiva"},
+      {h:"揭示",py:"jiēshì",pt:"revelar/desvelar"},
+      {h:"剖析",py:"pōuxī",pt:"dissecar/analisar em profundidade"},
+      {h:"透析",py:"tòuxī",pt:"análise penetrante/dialítica analítica"},
+      {h:"警示",py:"jǐngshì",pt:"alertar/advertência"},
+      {h:"诫勉",py:"jièmiǎn",pt:"admoestação/conselho"},
+      {h:"治国理政",py:"zhìguó lǐzhèng",pt:"governar e administrar o Estado"},
+      {h:"社会公义",py:"shèhuì gōngyì",pt:"justiça social"},
+      {h:"良性循环",py:"liángxìng xúnhuán",pt:"ciclo virtuoso"},
+      {h:"恶性循环",py:"èxìng xúnhuán",pt:"ciclo vicioso"},
+      {h:"积重难返",py:"jī zhòng nán fǎn",pt:"dificílimo reverter o acumulado (problema crônico)"},
+      {h:"防微杜渐",py:"fáng wēi dù jiàn",pt:"prevenir o problema quando ainda pequeno"},
+    ],
+    grammar:[
+      { struct:"破题→立论→论证→驳论→结论 (政论文结构)", label:"Estrutura do Ensaio Político Formal Chinês", color:"#DC2626",
+        exp:"Estrutura clássica do 政论文: ①破题(apresentar a questão de forma impactante) ②立论(estabelecer tese central) ③论证(argumentar com evidências e exemplos) ④驳论(refutar contraposição) ⑤结论(conclusão que amplia o significado). Cada seção com linguagem precisa e elevada.",
+        exs:[{cn:"破题: '防微杜渐，乃治国之道。'",py:"Pòtí: 'Fáng wēi dù jiàn, nǎi zhìguó zhī dào.'",pt:"Abertura: 'Prevenir o problema quando ainda pequeno é o caminho da governança.'"},{cn:"立论: '鉴于历史上诸多积重难返之弊端，良性循环的建立必须从制度根源着手。'",py:"Lìlùn: 'Jiànyú lìshǐ shàng zhū duō jī zhòng nán fǎn zhī bìduān, liángxìng xúnhuán de jiànlì bìxū cóng zhìdù gēnyuán zháoshǒu.'",pt:"Tese: 'Em vista dos inúmeros problemas crônicos na história, o estabelecimento de ciclos virtuosos deve partir da raiz institucional.'"}] },
+      { struct:"排比句: A，B，C (三句或更多平行)", label:"Paralelismo Retórico — Anáfora e Asíndeto", color:"#6366F1",
+        exp:"排比(paralelismo) é recurso retórico central na escrita formal chinesa. Cria ritmo e impacto através de 3+ frases com estrutura paralela. Muito usada em discursos políticos, ensaios e clássicos. 增强语势，朗朗上口.",
+        exs:[{cn:"无论是经济的繁荣，社会的公正，还是文化的昌盛，皆赖于良善的治国之道。",py:"Wúlùn shì jīngjì de fánróng, shèhuì de gōngzhèng, háishi wénhuà de chāngshèng, jiē lài yú liángshàn de zhìguó zhī dào.",pt:"Seja a prosperidade econômica, a justiça social, ou o florescimento cultural — todos dependem de uma boa governança."},{cn:"立德、立功、立言，古人谓之'三不朽'，皆为人生的最高追求。",py:"Lì dé, lì gōng, lì yán, gǔrén wèi zhī 'sān bù xiǔ', jiē wéi rénshēng de zuìgāo zhuīqiú.",pt:"Estabelecer virtude, feitos e palavras — os antigos chamavam isso de 'as três imortalidades', todas aspirações máximas da vida."}] },
+      { struct:"反问句: 难道...？岂...？ (rhetorical question)", label:"Pergunta Retórica Formal — Negação Veemente", color:"#D97706",
+        exp:"反问句 no registro formal: 难道(porventura/acaso), 岂(seria possível que), 何以(como assim/por que razão). A pergunta retórica NEGA ou AFIRMA com muito mais força que uma declaração direta. Tom de indignação, urgência ou profunda convicção.",
+        exs:[{cn:"岂能因一时之利而忘却长远之害？",py:"Qǐ néng yīn yīshí zhī lì ér wàngquè chángyuǎn zhī hài?",pt:"Como se pode, por um ganho momentâneo, esquecer os danos de longo prazo?"},{cn:"难道历史的教训还不够深刻吗？",py:"Nándào lìshǐ de jiāoxun hái bùgòu shēnkè ma?",pt:"Acaso as lições da história ainda não são profundas o suficiente?"}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"政论文跟一般议论文有什么本质区别？",py:"Zhènglùn wén gēn yìbān yìlùn wén yǒu shénme běnzhì qūbié?",pt:"Qual é a diferença essencial entre o ensaio político e o ensaio dissertativo comum?"},
+      {sp:"B",cn:"一言以蔽之：政论文的对象是公共政策和社会价值，用语须更具权威性和感召力。破题、立论、驳论三个环节缺一不可。",py:"Yī yán yǐ bì zhī: zhènglùn wén de duìxiàng shì gōnggòng zhèngcè hé shèhuì jiàzhí, yòngyǔ xū gèng jù quánwēi xìng hé gǎnzhào lì.",pt:"Em uma palavra: o objeto do ensaio político é a política pública e os valores sociais, exigindo linguagem mais autoritativa e mobilizadora. Os três elementos de abertura, tese e refutação são indispensáveis."},
+      {sp:"A",cn:"排比和反问这些修辞手法在政论文中有多重要？",py:"Páibǐ hé fǎnwèn zhèxiē xiūcí shǒufǎ zài zhènglùn wén zhōng yǒu duō zhòngyào?",pt:"Qual é a importância do paralelismo e das perguntas retóricas no ensaio político?"},
+      {sp:"B",cn:"至关重要！岂能轻视语言的力量？无论是排比的气势，反问的力度，还是论断的权威，皆是政论文震撼人心的手段。",py:"Zhì guān zhòngyào! Qǐ néng qīngshì yǔyán de lìliàng?",pt:"De suma importância! Como se pode subestimar o poder da linguagem? Seja o ímpeto do paralelismo, a força da pergunta retórica, ou a autoridade da asserção — todos são meios pelo qual o ensaio político abala as almas."},
+    ],
+    quiz:[
+      {q:"排比句 (páibǐ jù) é uma figura que:",opts:["usa uma palavra repetida","usa 3+ estruturas paralelas para criar ritmo e força retórica","contradiz a tese","faz perguntas"],ans:1,exp:"✅ 排比 = paralelismo (3+ frases com estrutura gramatical paralela). Cria ritmo, força retórica e facilidade de memorização. Muito frequente em discursos políticos, ensaios formais e textos clássicos."},
+      {q:"反问句 (fǎnwèn jù) em '岂能忘却历史' funciona como:",opts:["pergunta genuína","afirmação enfática através da forma de pergunta (retórica)","dúvida","pedido de informação"],ans:1,exp:"✅ 反问句 = pergunta retórica. '岂能忘却历史' = como poderia esquecer a história? A resposta implícita é: 'NUNCA se pode'. A pergunta retórica tem força muito maior que a declaração direta."},
+      {q:"破题 na estrutura do 政论文 refere-se a:",opts:["conclusão","refutação","abertura impactante que apresenta a questão central","desenvolvimento de argumentos"],ans:2,exp:"✅ 破题 = abrir/quebrar o tema. Primeiro passo do ensaio político: apresentar a questão de forma impactante e clara. 破=abrir + 题=tema/questão. Equivale à abertura (introduction hook) no ensaio ocidental."},
+      {q:"防微杜渐 (fáng wēi dù jiàn) aconselha:",opts:["aguardar o problema crescer","resolver problemas quando grandes","prevenir o problema quando ainda pequeno/incipiente","ignorar problemas pequenos"],ans:2,exp:"✅ 防微杜渐 = prevenir o problema quando ainda pequeno. 防微=deter o minúsculo + 杜渐=barrar o gradual. Princípio da governança proativa: não espere o problema crescer. Muito usado em contextos de prevenção e política pública."},
+      {q:"积重难返 (jī zhòng nán fǎn) descreve:",opts:["problema recente e fácil de resolver","problema crônico difícil de reverter por ter se acumulado","boa tradição","ciclo virtuoso"],ans:1,exp:"✅ 积重难返 = problema crônico difícil de reverter. 积=acumular + 重=pesado/grave + 难=difícil + 返=reverter. Descreve males sociais ou institucionais que se acumularam tanto que reverter é extremamente difícil."},
+    ] },
+
+  { w:3, phase:"学术写作", emoji:"📝", color:"#6366F1",
+    theme:"学术论文写作 — Redação Acadêmica de Alto Nível",
+    stats:{ words:"~15 HSK 6", grammar:"论文引言规范 · 学术语体 · 结论升华", chars:"学术经典" },
+    vocab:[
+      {h:"研究范式",py:"yánjiū fànshì",pt:"paradigma de pesquisa"},
+      {h:"理论建构",py:"lǐlùn jiàngòu",pt:"construção teórica"},
+      {h:"操作化",py:"cāozuòhuà",pt:"operacionalização"},
+      {h:"概念界定",py:"gàiniàn jièdìng",pt:"definição conceitual"},
+      {h:"分析框架",py:"fēnxī kuàngjià",pt:"framework analítico"},
+      {h:"研究局限",py:"yánjiū júxiàn",pt:"limitações da pesquisa"},
+      {h:"学术贡献",py:"xuéshù gòngxiàn",pt:"contribuição acadêmica"},
+      {h:"有待进一步研究",py:"yǒudài jìnyī bù yánjiū",pt:"requer investigação adicional"},
+      {h:"填补空白",py:"tiánbǔ kòngbái",pt:"preencher uma lacuna"},
+      {h:"前沿课题",py:"qiányán kètí",pt:"tópico de fronteira/estado da arte"},
+      {h:"跨学科视野",py:"kuà xuékē shìyě",pt:"visão interdisciplinar"},
+      {h:"实证支撑",py:"shízhèng zhīchēng",pt:"suporte empírico"},
+      {h:"理论深度",py:"lǐlùn shēndù",pt:"profundidade teórica"},
+      {h:"审稿意见",py:"shěngǎo yìjiàn",pt:"comentários dos revisores"},
+      {h:"修订完善",py:"xiūdìng wánshàn",pt:"revisar e aprimorar"},
+    ],
+    grammar:[
+      { struct:"引言规范: 研究背景→研究问题→研究意义→研究方法→论文结构", label:"Estrutura Padrão da Introdução Acadêmica", color:"#6366F1",
+        exp:"Introdução de artigo acadêmico em chinês: ①研究背景(contexto da pesquisa) ②研究问题(problema/questão) ③研究意义(significância) ④研究方法(metodologia) ⑤论文结构(organização do artigo). Usar linguagem formal, impessoal e precisa.",
+        exs:[{cn:"本文旨在通过系统分析，填补该领域在...方面的研究空白，并为...提供理论支撑。",py:"Běn wén zhǐ zài tōngguò xìtǒng fēnxī, tiánbǔ gāi lǐngyù zài...fāngmiàn de yánjiū kòngbái, bìng wèi...tígōng lǐlùn zhīchēng.",pt:"Este artigo visa, através de análise sistemática, preencher a lacuna de pesquisa no campo em relação a..., e fornecer suporte teórico para..."},{cn:"有鉴于现有研究的局限，本文采用跨学科视野，构建新的分析框架。",py:"Yǒu jiàn yú xiànyǒu yánjiū de júxiàn, běn wén cǎiyòng kuà xuékē shìyě, gòujiàn xīn de fēnxī kuàngjià.",pt:"Em vista das limitações das pesquisas existentes, este artigo adota uma visão interdisciplinar e constrói um novo framework analítico."}] },
+      { struct:"学术语体规范: 避免第一人称 · 被动语态 · 精确量化", label:"Registro Acadêmico: Impessoalidade e Precisão", color:"#D97706",
+        exp:"Escrita acadêmica chinesa formal: ①避免'我认为' → 使用'本文认为/据此可认为' ②多用被动/无主句 ③量化时需精确 ④连词要形式化 ⑤避免口语化表达. Regra básica: impessoal, preciso, fundamentado.",
+        exs:[{cn:"✅ 研究结果表明，两变量之间存在显著正相关（r=0.87, p<0.01）。",py:"Yánjiū jiéguǒ biǎomíng, liǎng biànliàng zhījiān cúnzài xiǎnzhù zhèng xiāngguān.",pt:"✅ Os resultados da pesquisa indicam que existe correlação positiva significativa entre as duas variáveis (r=0,87, p<0,01)."},{cn:"❌ 我觉得这个很重要。✅ 综上所述，该问题具有重要的理论与实践价值。",py:"Wǒ juéde zhège hěn zhòngyào (❌) → Zōng shàng suǒ shù, gāi wèntí jùyǒu zhòngyào de lǐlùn yǔ shíjiàn jiàzhí. (✅)",pt:"❌ Acho que isso é importante. → ✅ Conforme exposto, esta questão tem importante valor teórico e prático."}] },
+      { struct:"结论升华: 学术贡献→局限→展望", label:"Conclusão Acadêmica: Contribuição → Limitações → Perspectivas", color:"#059669",
+        exp:"Conclusão padrão de artigo acadêmico: ①学术贡献(o que este artigo acrescentou) ②研究局限(o que não foi coberto) ③未来展望(que pesquisas futuras são sugeridas). Usar 本文、本研究 e evitar 'eu'. Sempre terminar com perspectiva futura.",
+        exs:[{cn:"本研究的学术贡献在于首次系统梳理了...的理论框架，但仍有若干局限有待未来研究进一步弥补。",py:"Běn yánjiū de xuéshù gòngxiàn zàiyú shǒucì xìtǒng shūlǐ le...de lǐlùn kuàngjià, dàn réng yǒu ruògān júxiàn yǒudài wèilái yánjiū jìnyī bù mí bǔ.",pt:"A contribuição acadêmica desta pesquisa está em sistematizar pela primeira vez o framework teórico de...; porém, ainda existem algumas limitações a serem supridas por pesquisas futuras."},{cn:"",py:"",pt:""}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"中文学术论文的写作风格跟西方有什么不同？",py:"Zhōngwén xuéshù lùnwén de xiězuò fēnggé gēn xīfāng yǒu shénme bùtóng?",pt:"Em que o estilo de escrita acadêmica em chinês difere do ocidental?"},
+      {sp:"B",cn:"从结构层面来看，两者有共性，但中文学术写作更注重'理论建构'的完整性，论断须有充分的学术依据。",py:"Cóng jiégòu céngmiàn lái kàn, liǎng zhě yǒu gòng xìng, dàn Zhōngwén xuéshù xiězuò gèng zhùzhòng 'lǐlùn jiàngòu' de wánzhěng xìng.",pt:"Do ponto de vista estrutural há semelhanças, mas a escrita acadêmica em chinês preza mais pela completude da 'construção teórica', e as asserções requerem fundamentação acadêmica robusta."},
+      {sp:"A",cn:"如何让结论部分更有学术价值？",py:"Rúhé ràng jiélùn bùfen gèng yǒu xuéshù jiàzhí?",pt:"Como tornar a seção de conclusão mais academicamente valiosa?"},
+      {sp:"B",cn:"一方面要明确指出学术贡献，填补哪些空白；另一方面须坦诚说明研究局限；再者，提出有启发性的未来研究方向，方能使论文臻于完善。",py:"Yī fāngmiàn yào míngquè zhǐchū xuéshù gòngxiàn, tiánbǔ nǎxiē kòngbái; lìng yī fāngmiàn xū tǎnchéng shuōmíng yánjiū júxiàn.",pt:"Por um lado, é preciso indicar claramente a contribuição acadêmica e que lacunas são preenchidas; por outro, é necessário declarar honestamente as limitações; além disso, propor direções futuras de pesquisa inspiradoras — somente assim a dissertação atinge o nível de perfeição."},
+    ],
+    quiz:[
+      {q:"'填补空白' (tiánbǔ kòngbái) em contexto acadêmico significa:",opts:["escrever muito","preencher uma lacuna na literatura/pesquisa existente","repetir pesquisas anteriores","criticar outros pesquisadores"],ans:1,exp:"✅ 填补空白 = preencher uma lacuna. Afirmar que sua pesquisa contribui com algo que ainda não foi estudado. É uma das formas mais importantes de justificar a 研究意义(relevância da pesquisa) em artigos acadêmicos."},
+      {q:"Por que evitar '我认为' em artigos acadêmicos formais em chinês?",opts:["é proibido","a escrita acadêmica exige impessoalidade; usar '本文认为/研究认为' em vez disso","os revisores preferem expressões maiores","não faz sentido"],ans:1,exp:"✅ A escrita acadêmica formal em chinês exige IMPESSOALIDADE. '我认为' é coloquial e subjetivo. Use: 本文认为, 本研究表明, 据此可认为, 综合分析可得 — estas formas são formais e acadêmicas."},
+      {q:"Na conclusão acadêmica, o que deve vir APÓS indicar a contribuição?",opts:["mais argumentos","limitações da pesquisa e perspectivas futuras","nova introdução","referências bibliográficas"],ans:1,exp:"✅ Estrutura padrão da conclusão: ①贡献(contribuição) → ②局限(limitações) → ③展望(perspectivas futuras). Esta progressão é esperada em qualquer artigo acadêmico sério."},
+      {q:"研究范式 (yánjiū fànshì) é:",opts:["resultado de pesquisa","paradigma de pesquisa (conjunto de crenças e métodos que guiam a investigação)","campo de pesquisa","metodologia específica"],ans:1,exp:"✅ 研究范式 = paradigma de pesquisa. Conceito de Thomas Kuhn: conjunto de pressupostos, métodos e valores que guiam uma comunidade científica. 量化范式(paradigma quantitativo) vs 质化范式(qualitativo)."},
+      {q:"'有待进一步研究' (yǒudài jìnyī bù yánjiū) é usado:",opts:["para criticar a pesquisa atual","para indicar limitações e sugerir pesquisas futuras","para concluir definitivamente","para citar fontes"],ans:1,exp:"✅ 有待进一步研究 = requer investigação adicional. Frase padrão das seções de limitações e perspectivas futuras. Indica humildade acadêmica e abertura para pesquisas subsequentes. Essencial em qualquer conclusão acadêmica séria!"},
+    ] },
+
+  { w:4, phase:"古典文学", emoji:"🎋", color:"#059669",
+    theme:"中国古典文学精读 — Literatura Clássica Chinesa",
+    stats:{ words:"~15 HSK 6", grammar:"古诗词格律 · 赋比兴 · 意境创造", chars:"古典精华" },
+    vocab:[
+      {h:"唐诗宋词",py:"Táng shī Sòng cí",pt:"Poesia Tang e Ci Song (eras literárias)"},
+      {h:"律诗",py:"lǜshī",pt:"poesia regulada (8 versos, métrica estrita)"},
+      {h:"绝句",py:"juéjù",pt:"quarteto clássico"},
+      {h:"词牌",py:"cípái",pt:"forma métrica do ci (nome da melodia)"},
+      {h:"乐府",py:"yuèfǔ",pt:"Escritório de Música (poesia popular Han)"},
+      {h:"赋",py:"fù",pt:"fu (poesia-prosa narrativa)"},
+      {h:"比",py:"bǐ",pt:"comparação/metáfora direta (recurso clássico)"},
+      {h:"兴",py:"xìng",pt:"evocação/alusão indireta (recurso clássico)"},
+      {h:"寄情于景",py:"jì qíng yú jǐng",pt:"expressar emoção através da paisagem"},
+      {h:"借景抒情",py:"jiè jǐng shūqíng",pt:"usar a paisagem para expressar sentimentos"},
+      {h:"托物言志",py:"tuō wù yán zhì",pt:"usar objeto para expressar aspirações"},
+      {h:"意在言外",py:"yì zài yán wài",pt:"o significado vai além das palavras"},
+      {h:"含蓄隽永",py:"hánxù juànyǒng",pt:"contido e de beleza duradoura"},
+      {h:"沉郁顿挫",py:"chényù dùncuò",pt:"profundo e melancólico com pausas (estilo de Du Fu)"},
+      {h:"飘逸豪放",py:"piāoyì háofàng",pt:"desprendido e grandioso (estilo de Li Bai)"},
+    ],
+    grammar:[
+      { struct:"赋·比·兴 — Três Recursos Fundamentais da Poesia Clássica", label:"Os Três Pilares Retóricos da Poesia Clássica", color:"#059669",
+        exp:"赋=描述(descrição direta/narrativa). 比=比喻(comparação/metáfora). 兴=先言他物以引起所咏之词(evocar por alusão indireta — mencionar algo para introduzir o tema). Os três vêm do Clássico das Odes(诗经) e definem a retórica poética chinesa.",
+        exs:[{cn:"赋: '采采芣苢，薄言采之。' — Descrição direta do ato de colher.",py:"Cǎi cǎi fúyǐ, bó yán cǎi zhī.",pt:"赋(descrição): 'Colhendo, colhendo a erva-pata — coletando-a pouco a pouco.' (Shijing — descrição direta)"},{cn:"兴: '关关雎鸠，在河之洲——窈窕淑女，君子好逑。'",py:"Guān guān jū jiū, zài hé zhī zhōu — yǎotiǎo shū nǚ, jūnzǐ hǎo qiú.",pt:"兴(evocação): 'Os grous coaxam no banco do rio — uma dama gentil, o aspirante a pretende.' O canto dos pássaros EVOCA o desejo amoroso."}] },
+      { struct:"律诗格律: 首联·颔联·颈联·尾联 + 对仗", label:"Estrutura da Poesia Regulada (律诗)", color:"#6366F1",
+        exp:"律诗 tem 8 versos (四联): 首联(v1-2=abertura), 颔联(v3-4=desenvolvimento), 颈联(v5-6=expansão — OBRIGATORIAMENTE em 对仗), 尾联(v7-8=conclusão). 对仗=paralelismo gramatical e semântico perfeito nas duas estrofas centrais.",
+        exs:[{cn:"颈联对仗(Du Fu): '无边落木萧萧下，不尽长江滚滚来。'",py:"Jǐng lián duìzhàng (Dù Fǔ): 'Wú biān luò mù xiāo xiāo xià, bùjìn Cháng Jiāng gǔn gǔn lái.'",pt:"Paralelismo central (Du Fu): 'Folhas sem fim caem ruidosamente; o Rio Yangtze flui interminavelmente.' — 无边↔不尽, 落木↔长江, 萧萧↔滚滚 (perfeito paralelismo)."},{cn:"",py:"",pt:""}] },
+      { struct:"意境创造: 情景交融 (emoção + paisagem = atmosfera)", label:"Criação da Atmosfera Poética — Fusão de Emoção e Paisagem", color:"#D97706",
+        exp:"意境 é criada pela fusão de 情(emoção) e 景(paisagem/cena): ① 寄情于景(emoção na paisagem) ② 借景抒情(paisagem expressa emoção) ③ 托物言志(objeto como veículo de aspiração). A 意境 não descreve apenas — EVOCA e TRANSCENDE o literal.",
+        exs:[{cn:"'举头望明月，低头思故乡。'（李白）— 月亮不仅是月亮，更是乡愁的载体。",py:"'Jǔ tóu wàng míng yuè, dī tóu sī gùxiāng.' (Lǐ Bái)",pt:"'Levanto a cabeça e contemplo a lua brilhante; baixo a cabeça e penso na terra natal.' (Li Bai) — A lua não é apenas lua; é o veículo da saudade da terra natal."},{cn:"",py:"",pt:""}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"李白和杜甫风格差异那么大，你更喜欢哪一位？",py:"Lǐ Bái hé Dù Fǔ fēnggé chāyì nàme dà, nǐ gèng xǐhuan nǎ yī wèi?",pt:"Li Bai e Du Fu têm estilos tão distintos — qual você prefere?"},
+      {sp:"B",cn:"与其说我偏爱某一位，不如说两者相辅相成。李白飘逸豪放，意在言外；杜甫沉郁顿挫，寄情于景，各有其美。",py:"Yǔqí shuō wǒ piān'ài mǒu yī wèi, bùrú shuō liǎng zhě xiāng fǔ xiāng chéng.",pt:"Em vez de dizer que prefiro um em particular, é mais preciso dizer que os dois se complementam. Li Bai é desprendido e grandioso, com significado além das palavras; Du Fu é profundo e melancólico, expressando emoção pela paisagem — cada um tem sua beleza."},
+      {sp:"A",cn:"律诗的对仗要求是不是很难掌握？",py:"Lǜshī de duìzhàng yāoqiú shì bu shì hěn nán zhǎngwò?",pt:"Os requisitos de paralelismo na poesia regulada são muito difíceis de dominar?"},
+      {sp:"B",cn:"确实不易。颈联的对仗须做到字字对仗：无边对不尽，落木对长江，萧萧对滚滚——可谓字字珠玑，语重心长。",py:"Quèshí bù yì. Jǐng lián de duìzhàng xū zuòdào zì zì duìzhàng.",pt:"De fato não é fácil. O paralelismo das estrofas centrais deve ser perfeito em cada caractere: 无边↔不尽, 落木↔长江, 萧萧↔滚滚 — pode-se dizer que cada caractere é uma pérola, carregado de significado."},
+    ],
+    quiz:[
+      {q:"赋·比·兴 são os três recursos da:",opts:["prosa política","retórica poética clássica chinesa originada no Clássico das Odes","escrita acadêmica","narrativa histórica"],ans:1,exp:"✅ 赋(描述/narrativa) + 比(comparação/metáfora) + 兴(evocação/alusão indireta) são os três pilares da retórica poética clássica chinesa, originados no 诗经(Clássico das Odes). Fundamentais para analisar qualquer poema clássico!"},
+      {q:"律诗 tem quantos versos e qual parte OBRIGATORIAMENTE usa 对仗?",opts:["4 versos, todos","8 versos, os dois pares centrais (颔联 e 颈联)","6 versos, o central","8 versos, os dois últimos"],ans:1,exp:"✅ 律诗 tem 8 versos em 4 pares: 首联(abertura), 颔联(desenvolvimento), 颈联(expansão — OBRIGATÓRIO 对仗), 尾联(conclusão). O 对仗 das estrofas centrais (esp. 颈联) é uma das exigências técnicas mais rigorosas da poesia clássica!"},
+      {q:"'借景抒情' (jiè jǐng shūqíng) significa:",opts:["pintar paisagens sem emoção","usar a paisagem para expressar/transmitir sentimentos","descrever emoções sem paisagem","memorizar paisagens"],ans:1,exp:"✅ 借景抒情 = usar a paisagem (景) como meio para expressar emoções (情). A paisagem não é o fim — é o VEÍCULO da emoção do poeta. Ex: a lua = saudade; o salgueiro = despedida; o crisântemo = nobreza solitária."},
+      {q:"飘逸豪放 descreve o estilo de:",opts:["Du Fu","Li Bai","Wang Wei","Bai Juyi"],ans:1,exp:"✅ 飘逸豪放 = desprendido, livre e grandioso. Este é o estilo característico de 李白(Li Bai), o 'Poeta Imortals'. 杜甫(Du Fu) é 沉郁顿挫(profundo, melancólico e com pausas). Dois estilos opostos e complementares da poesia Tang!"},
+      {q:"意在言外 (yì zài yán wài) é o princípio estético de que:",opts:["as palavras explicam tudo","o significado vai além do que as palavras dizem literalmente","não há significado","deve-se ser muito direto"],ans:1,exp:"✅ 意在言外 = o significado vai além das palavras. Princípio central da estética literária chinesa: a melhor arte não diz TUDO explicitamente — sugere, evoca, convida à reflexão. O silêncio e o não-dito têm tanto peso quanto o dito."},
+    ] },
+
+  { w:5, phase:"成语典故", emoji:"📿", color:"#7C3AED",
+    theme:"高级成语与典故 — 成语 Avançadas e Alusões Literárias",
+    stats:{ words:"~18 成语 avançadas", grammar:"典故运用 · 成语辨析 · 活用成语", chars:"典故精髓" },
+    vocab:[
+      {h:"高山流水",py:"gāo shān liú shuǐ",pt:"amizade espiritual profunda (Boya e Zhong Ziqi)"},
+      {h:"伯乐相马",py:"bólè xiāng mǎ",pt:"reconhecer o talento; patrono que descobre gênios"},
+      {h:"韦编三绝",py:"wéi biān sān jué",pt:"estudar com dedicação extrema (Confúcio lendo o I Ching)"},
+      {h:"悬梁刺股",py:"xuán liáng cì gǔ",pt:"estudar com determinação extrema"},
+      {h:"程门立雪",py:"chéng mén lì xuě",pt:"respeitar profundamente o mestre"},
+      {h:"一字千金",py:"yī zì qiān jīn",pt:"cada caractere vale mil taéis (obra perfeita)"},
+      {h:"沧海桑田",py:"cānghǎi sāngtián",pt:"mudanças radicais ao longo do tempo"},
+      {h:"桃李满天下",py:"táo lǐ mǎn tiānxià",pt:"ter discípulos por todo o mundo"},
+      {h:"青出于蓝",py:"qīng chū yú lán",pt:"o discípulo supera o mestre"},
+      {h:"出类拔萃",py:"chū lèi bá cuì",pt:"sobressair-se entre os melhores"},
+      {h:"德高望重",py:"dé gāo wàng zhòng",pt:"virtuoso e de grande prestígio"},
+      {h:"学贯中西",py:"xué guàn zhōng xī",pt:"dominar tanto o saber oriental quanto o ocidental"},
+      {h:"博古通今",py:"bó gǔ tōng jīn",pt:"conhecer profundamente o passado e o presente"},
+      {h:"字斟句酌",py:"zì zhēn jù zhuó",pt:"escolher cada palavra e frase com cuidado extremo"},
+      {h:"力透纸背",py:"lì tòu zhǐ bèi",pt:"escrita tão poderosa que penetra o papel"},
+      {h:"笔力雄健",py:"bǐ lì xióng jiàn",pt:"escrita vigorosa e robusta"},
+      {h:"文思泉涌",py:"wén sī quán yǒng",pt:"pensamentos fluindo como fonte (criatividade)"},
+      {h:"炉火纯青",py:"lú huǒ chún qīng",pt:"atingir mestria perfeita (como metal purificado)"},
+    ],
+    grammar:[
+      { struct:"典故运用: 直用/暗用/化用 (três modos de usar alusões)", label:"Modos de Usar 典故 e 成语", color:"#7C3AED",
+        exp:"①直用=citar diretamente a alusão. ②暗用=aludir sem citar explicitamente. ③化用=transformar criativamente a expressão. 化用 é o nível mais sofisticado — usa a 典故 como inspiração e a transforma em algo novo.",
+        exs:[{cn:"直用: '悬梁刺股，方能韦编三绝，最终学贯中西。'",py:"Zhí yòng: 'Xuán liáng cì gǔ, fāng néng wéi biān sān jué, zuìzhōng xué guàn zhōng xī.'",pt:"Uso direto: 'Com dedicação extrema, somente assim se pode estudar como Confúcio, finalmente dominando o saber oriental e ocidental.'"},{cn:"化用: '今日之高山流水，不必依赖琴声，只需用心倾听彼此的语言。'",py:"Huàyòng: 'Jīnrì zhī gāo shān liú shuǐ, bù bì yīlài qínshēng, zhǐ xū yòngxīn qīngtīng bǐcǐ de yǔyán.'",pt:"Uso transformado: 'A profunda amizade de hoje não precisa da música do alaúde — basta escutar com atenção a linguagem um do outro.'"}] },
+      { struct:"成语辨析: 近义词的细微差别", label:"Distinguindo 成语 Similares", color:"#D97706",
+        exp:"Pares de 成语 com significados próximos mas usos distintos: ①出类拔萃(sobressair entre muitos) vs 鹤立鸡群(destacar-se visivelmente como superior). ②炉火纯青(maestria perfeita) vs 登峰造极(atingir o ponto máximo absoluto). ③字斟句酌(cuidado em escolher palavras) vs 惜字如金(economia máxima de palavras).",
+        exs:[{cn:"他的作品炉火纯青，已登峰造极，可谓德高望重的一代宗师。",py:"Tā de zuòpǐn lú huǒ chún qīng, yǐ dēng fēng zào jí, kě wèi dé gāo wàng zhòng de yī dài zōngshī.",pt:"Sua obra atingiu mestria perfeita e o ponto máximo absoluto — pode-se dizer que é um mestre de uma geração, virtuoso e de grande prestígio."},{cn:"",py:"",pt:""}] },
+      { struct:"成语在高级写作中的功能", label:"Funções dos 成语 na Escrita Avançada", color:"#059669",
+        exp:"成语 na escrita avançada servem para: ①凝练表达(expressar em 4 caracteres o que levaria uma frase) ②增添文化底蕴(enriquecer o substrato cultural) ③创造节奏感(criar ritmo) ④引发共鸣(gerar ressonância cultural). ATENÇÃO: usar 成语 errado é pior que não usar — verifica sempre o uso correto.",
+        exs:[{cn:"正如古人所言，青出于蓝而胜于蓝。今日之学子，站在巨人的肩上，博古通今，方能开创新局。",py:"Zhèng rú gǔrén suǒ yán, qīng chū yú lán ér shèng yú lán. Jīnrì zhī xuézi, zhàn zài jùrén de jiān shàng, bó gǔ tōng jīn, fāng néng kāichuàng xīn jú.",pt:"Tal como os antigos diziam, o azul que vem do índigo ultrapassa o próprio índigo. Os estudantes de hoje, de pé nos ombros dos gigantes, conhecendo profundamente passado e presente — somente assim podem abrir novos horizontes."},{cn:"",py:"",pt:""}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"成语典故在高级写作中是锦上添花还是必需品？",py:"Chéngyǔ diǎngù zài gāojí xiězuò zhōng shì jǐn shàng tiān huā háishi bìxūpǐn?",pt:"No nível de escrita avançado, os 成语 e as alusões são um adorno opcional ou são indispensáveis?"},
+      {sp:"B",cn:"鉴于汉语的文化底蕴，成语不仅是锦上添花，更是展现文化积淀的重要载体。字斟句酌地运用成语，方能使文章炉火纯青。",py:"Jiànyú Hànyǔ de wénhuà dǐyùn, chéngyǔ bùjǐn shì jǐn shàng tiān huā, gèng shì zhǎnxiàn wénhuà jīdiàn de zhòngyào zàitǐ.",pt:"Em vista do substrato cultural do mandarim, os 成语 não são apenas um adorno — são também um veículo importante de demonstração da acumulação cultural. Usar 成语 com extremo cuidado na escolha é o que faz a escrita atingir mestria perfeita."},
+      {sp:"A",cn:"那如何避免用错成语？",py:"Nà rúhé bìmiǎn yòng cuò chéngyǔ?",pt:"Como evitar usar 成语 erroneamente?"},
+      {sp:"B",cn:"追根溯源，了解每个成语的典故背景是根本。博古通今，方能活用而不误用。悬梁刺股地钻研，文思自然泉涌。",py:"Zhuī gēn sùyuán, liǎojiě měi gè chéngyǔ de diǎngù bèijǐng shì gēnběn.",pt:"Rastreando à origem, compreender o contexto histórico de cada 成语 é fundamental. Conhecer profundamente passado e presente é o que permite o uso criativo sem errar. Estudando com determinação extrema, os pensamentos criativos fluem naturalmente."},
+    ],
+    quiz:[
+      {q:"高山流水 (gāo shān liú shuǐ) refere-se a:",opts:["paisagem montanhosa","amizade espiritual profunda (alusão a Boya e Zhong Ziqi)","música clássica","viagem pela natureza"],ans:1,exp:"✅ 高山流水 = amizade espiritual profunda. Alusão a Boya (músico) e Zhong Ziqi (o único que entendia sua música). Quando Zhong morreu, Boya destruiu seu alaúde — sem o 知音(aquele que compreende a alma), para que tocar? 成语 HSK 6!"},
+      {q:"'炉火纯青' vs '登峰造极' — qual a diferença?",opts:["sinônimos","炉火纯青=mestria perfeita e purificada (processo); 登峰造极=atingir o ponto máximo absoluto (resultado)","炉火纯青 é negativo","登峰造极 é mais comum"],ans:1,exp:"✅ 炉火纯青=a chama do forno chegou ao azul puro (metal totalmente purificado) = maestria madura e refinada através de prática. 登峰造极=escalar o pico e tocar o cume = atingir o máximo absoluto. Ambos elogiam maestria, mas 炉火纯青 enfatiza o processo/maturidade."},
+      {q:"化用 (huàyòng) de 成语 significa:",opts:["citar diretamente","usar erroneamente","transformar criativamente a expressão original em algo novo","evitar usar"],ans:2,exp:"✅ 化用 = transformação criativa. Usar a 典故 ou 成语 como inspiração e reformulá-la de forma nova e pessoal. É o nível mais sofisticado de uso: direto(直用) < implícito(暗用) < transformado(化用)."},
+      {q:"青出于蓝 (qīng chū yú lán) significa:",opts:["imitar o mestre perfeitamente","o azul saído do índigo é mais azul que o índigo = o discípulo supera o mestre","ser igual ao mestre","nunca superar o mestre"],ans:1,exp:"✅ 青出于蓝（而胜于蓝）= o azul vem do índigo mas é mais intenso que o próprio índigo. Metáfora: o discípulo aprende do mestre mas o supera. Origem: Xunzi. Elogio máximo ao aprendiz que superou o professor!"},
+      {q:"韦编三绝 (wéi biān sān jué) conta que:",opts:["um estudante escreveu três livros","Confúcio estudou o I Ching tão intensamente que desgastou três vezes as correias de couro do livro","três pessoas estudaram juntas","três 成语 foram criadas"],ans:1,exp:"✅ 韦编三绝 = Confúcio estudou o 易经(I Ching) tão intensamente que as correias de couro(韦编) que seguravam as tiras de bambu se desgastaram três(三) vezes(绝). Metáfora de dedicação extrema aos estudos. 典故 do Shiji!"},
+    ] },
+
+  { w:6, phase:"高级语法", emoji:"🔬", color:"#0891B2",
+    theme:"现代汉语高级语法 — Gramática Avançada do Chinês Moderno",
+    stats:{ words:"~15 HSK 6", grammar:"补语系统总结 · 把字句高级用法 · 省略与隐含", chars:"语法精深" },
+    vocab:[
+      {h:"语气词",py:"yǔqìcí",pt:"partícula modal (吗/呢/啊/吧)"},
+      {h:"语境制约",py:"yǔjìng zhìyuē",pt:"restrição contextual"},
+      {h:"隐含义",py:"yǐnhányì",pt:"significado implícito"},
+      {h:"预设",py:"yùshè",pt:"pressuposto pragmático"},
+      {h:"言外之意",py:"yán wài zhī yì",pt:"implicatura/significado além das palavras"},
+      {h:"话语标记",py:"huàyǔ biāojì",pt:"marcador discursivo"},
+      {h:"语篇衔接",py:"yǔpiān xiānjié",pt:"coesão textual"},
+      {h:"语篇连贯",py:"yǔpiān liánguàn",pt:"coerência textual"},
+      {h:"焦点信息",py:"jiāodiǎn xìnxī",pt:"informação em foco"},
+      {h:"话题评述",py:"huàtí píngshù",pt:"estrutura tópico-comentário"},
+      {h:"复句关系",py:"fùjù guānxi",pt:"relações em orações complexas"},
+      {h:"语用推理",py:"yǔyòng tuīlǐ",pt:"inferência pragmática"},
+      {h:"主观化",py:"zhǔguānhuà",pt:"subjetivização"},
+      {h:"范畴化",py:"fànchóuhuà",pt:"categorização"},
+      {h:"认知语言学",py:"rènzhī yǔyánxué",pt:"linguística cognitiva"},
+    ],
+    grammar:[
+      { struct:"补语系统总结 (6 tipos completos)", label:"Sistema Completo de Complementos (HSK 6)", color:"#0891B2",
+        exp:"①结果补语(V+完/好/到/错) ②程度补语(V+得+adj) ③趋向补语(V+来/去/进/出) ④可能补语(V+得/不+结果) ⑤时量补语(V+时间) ⑥动量补语(V+次/遍/下). Em HSK 6, foco nos usos AMBÍGUOS e COMPLEXOS: 他说得好(能力) vs 他说好了(conclusão). Distinguir contextos é fundamental.",
+        exs:[{cn:"他把这首诗背得滚瓜烂熟了。(程度+结果)",py:"Tā bǎ zhè shǒu shī bèi de gǔnguā lànshú le.",pt:"Ele memorizou este poema de forma absolutamente perfeita. (complemento de grau extremo)"},{cn:"她一下子就想出来了解决方案。(趋向+可能)",py:"Tā yīxiàzi jiù xiǎng chūlái le jiějué fāng'àn.",pt:"Ela imediatamente encontrou a solução. (direcional: sair/emergir)"}] },
+      { struct:"话题-评述结构 (Topic-Comment) — Característica Central do Chinês", label:"Estrutura Tópico-Comentário: O Coração da Sintaxe Chinesa", color:"#D97706",
+        exp:"O chinês é língua de TÓPICO (不是SVO puro): TÓPICO+COMENTÁRIO é a estrutura básica. O tópico pode ser qualquer elemento que o falante quer destacar. 这部电影，我已经看了三遍了。('Este filme' = tópico; 'já assisti três vezes' = comentário). Fundamental entender para leitura e escrita avançadas.",
+        exs:[{cn:"这个问题，你怎么看？（话题前置）",py:"Zhège wèntí, nǐ zěnme kàn?",pt:"Este problema (tópico em destaque), o que você acha? — O 'problema' é anteposto como foco."},{cn:"他这个人，说话总是言外之意很多。（双重话题）",py:"Tā zhège rén, shuōhuà zǒng shì yán wài zhī yì hěn duō.",pt:"Essa pessoa (tópico duplo), quando fala, sempre tem muito além das palavras."}] },
+      { struct:"省略与隐含 — O que Não se Diz mas se Entende", label:"Elipse e Implicatura: Pragmática do Chinês Avançado", color:"#059669",
+        exp:"O chinês admite elipses extensas que seriam impossíveis em português. Sujeito, objeto, e até verbos são frequentemente omitidos quando inferíveis. Em HSK 6, compreender o NÃO-DITO é tão importante quanto o DITO. 你吃了吗？(已经省略了主语和宾语 — Você já comeu isso?)",
+        exs:[{cn:"A: 你去吗？B: 去。（省略主语、宾语、时间）",py:"A: Nǐ qù ma? B: Qù.",pt:"A: Você vai? B: Vou. (Elipse total: sujeito+para onde+quando — tudo inferível do contexto)"},{cn:"这道菜，你尝过吗？——尝过，不过没有（你做的）好。",py:"Zhè dào cài, nǐ cháng guò ma? — Cháng guò, bùguò méiyǒu (nǐ zuò de) hǎo.",pt:"Você já provou este prato? — Já provei, mas não é tão bom quanto (o que você faz). [elipse do predicado comparativo completo]"}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"话题-评述结构让中文语序比较灵活，对吗？",py:"Huàtí-píngjī jiégòu ràng Zhōngwén yǔxù bǐjiào línghuo, duì ma?",pt:"A estrutura tópico-comentário torna a ordem das palavras em chinês mais flexível, certo?"},
+      {sp:"B",cn:"正是。与其说中文是SVO语言，不如说它是话题优先语言。鉴于语境制约如此强大，说话者可以大量省略而不影响理解。",py:"Zhèng shì. Yǔqí shuō Zhōngwén shì SVO yǔyán, bùrú shuō tā shì huàtí yōuxiān yǔyán.",pt:"Exatamente. Em vez de dizer que o chinês é uma língua SVO, é mais preciso dizer que é uma língua de tópico prioritário. Dado que a restrição contextual é tão poderosa, o falante pode omitir muito sem afetar a compreensão."},
+      {sp:"A",cn:"那言外之意和隐含义在高级阅读中有多重要？",py:"Nà yán wài zhī yì hé yǐnhányì zài gāojí yuèdú zhōng yǒu duō zhòngyào?",pt:"Qual é a importância do sentido implícito e da implicatura na leitura avançada?"},
+      {sp:"B",cn:"至关重要！归根结底，高级汉语理解不仅在于读懂字面，更在于把握语用推理。意在言外——这正是汉语文化独特的审美智慧。",py:"Zhì guān zhòngyào! Guī gēn jiédǐ, gāojí Hànyǔ lǐjiě bùjǐn zàiyú dú dǒng zìmiàn, gèng zàiyú bǎwò yǔyòng tuīlǐ.",pt:"De suma importância! Em última análise, a compreensão avançada do mandarim não está apenas em entender o literal — está em dominar a inferência pragmática. 意在言外 — esta é exatamente a sabedoria estética única da cultura chinesa."},
+    ],
+    quiz:[
+      {q:"话题-评述结构 difere do SVO porque:",opts:["é mais simples","prioriza o TÓPICO (elemento em foco) antes do comentário, não necessariamente o sujeito gramatical","usa sempre a ordem verbo-sujeito","não tem sujeito"],ans:1,exp:"✅ Chinês é uma língua de TÓPICO-COMENTÁRIO. O que vem primeiro não precisa ser o sujeito gramatical — é o que o falante quer DESTACAR como tópico. '这部电影，我看了' (Este filme, eu assisti) — '电影' é tópico, não sujeito da ação."},
+      {q:"省略 (shěnglüè) em '你去吗？— 去。' elimina:",opts:["nada","sujeito, objeto e marcadores de tempo (tudo inferível pelo contexto)","apenas o verbo","apenas o sujeito"],ans:1,exp:"✅ No segundo turno '去', o sujeito(我), o destino(para onde) e o tempo(quando) foram todos ELIDIDOS. O chinês admite elipses extensas quando o contexto permite inferência. Isso é uma característica fundamental que separa o chinês de línguas mais sintéticas!"},
+      {q:"预设 (yùshè) em pragmática refere-se a:",opts:["suposição do falante sobre o que o ouvinte não sabe","pressuposto compartilhado que não precisa ser explicitado","gramática implícita","vocabulário implícito"],ans:1,exp:"✅ 预设 = pressuposto pragmático. Informação que o falante assume que o ouvinte JÁ SABE e portanto não precisa enunciar. '你弟弟来了吗?' pressupõe que você TEM um irmão mais novo. Os pressupostos são fundamentais na análise pragmática avançada!"},
+      {q:"言外之意 (yán wài zhī yì) refere-se a:",opts:["palavras ditas claramente","significado além das palavras / implicatura","idioma ou dialeto","vocabulário técnico"],ans:1,exp:"✅ 言外之意 = significado além das palavras / implicatura. O que o falante comunica mas não diz explicitamente. Fundamental na linguística pragmática (Grice) e na estética literária chinesa. A implicatura é a diferença entre o que se diz e o que se comunica."},
+      {q:"补语系统no chinês HSK 6 tem quantos tipos principais?",opts:["3","4","6 (结果/程度/趋向/可能/时量/动量)","8"],ans:2,exp:"✅ 6 tipos: ①结果补语(V+完/好/到/错) ②程度补语(V+得+adj) ③趋向补语(V+来/去系列) ④可能补语(V+得/不+resultado) ⑤时量补语(V+时间量) ⑥动量补语(V+次/遍/下). Dominar todos é requisito HSK 6!"},
+    ] },
+
+  { w:7, phase:"专业术语", emoji:"🔭", color:"#D97706",
+    theme:"专业领域术语 — Terminologia de Domínios Especializados",
+    stats:{ words:"~18 HSK 6 especializadas", grammar:"术语界定 · 跨领域概念 · 专业写作规范", chars:"专业精深" },
+    vocab:[
+      {h:"基因编辑",py:"jīyīn biānjí",pt:"edição genética (CRISPR)"},
+      {h:"量子纠缠",py:"liàngzǐ jiūchán",pt:"emaranhamento quântico"},
+      {h:"神经网络",py:"shénjīng wǎngluò",pt:"rede neural"},
+      {h:"深度学习",py:"shēndù xuéxí",pt:"aprendizado profundo"},
+      {h:"生物伦理",py:"shēngwù lúnlǐ",pt:"bioética"},
+      {h:"数字孪生",py:"shùzì luánshēng",pt:"gêmeo digital"},
+      {h:"元宇宙",py:"yuányǔzhòu",pt:"metaverso"},
+      {h:"区块链",py:"qūkuài liàn",pt:"blockchain"},
+      {h:"碳捕集",py:"tàn bǔjí",pt:"captura de carbono"},
+      {h:"绿色氢能",py:"lǜsè qīng néng",pt:"hidrogênio verde"},
+      {h:"脑机接口",py:"nǎo jī jiēkǒu",pt:"interface cérebro-computador"},
+      {h:"合成生物学",py:"héchéng shēngwùxué",pt:"biologia sintética"},
+      {h:"纳米医学",py:"nàmǐ yīxué",pt:"nanomedicina"},
+      {h:"精准医疗",py:"jīngzhǔn yīliáo",pt:"medicina de precisão"},
+      {h:"社会工程学",py:"shèhuì gōngchéngxué",pt:"engenharia social"},
+      {h:"系统性风险",py:"xìtǒng xìng fēngxiǎn",pt:"risco sistêmico"},
+      {h:"去中心化",py:"qù zhōngxīnhuà",pt:"descentralização"},
+      {h:"超级智能",py:"chāojí zhìnéng",pt:"superinteligência"},
+    ],
+    grammar:[
+      { struct:"术语的准确界定: 所谓X，是指... (在...领域中)", label:"Definição Precisa de Termos Técnicos", color:"#D97706",
+        exp:"Em escrita especializada, definir termos com precisão é fundamental. Fórmula: 所谓X（在Y领域中），是指Z，具有A、B、C等特征。Evite definições circulares e ambíguas. Use referências às fontes quando possível.",
+        exs:[{cn:"所谓量子纠缠，是指两个或多个量子粒子在物理上分离后，其量子态之间仍然存在的相关性——测量其中一个，即刻影响另一个的状态，无论距离多远。",py:"Suǒwèi liàngzǐ jiūchán, shì zhǐ liǎng gè huò duō gè liàngzǐ lìzǐ zài wùlǐ shàng fēnlí hòu, qí liàngzǐ tài zhījiān réng rán cúnzài de xiāngguān xìng.",pt:"O chamado emaranhamento quântico refere-se à correlação que persiste entre os estados quânticos de duas ou mais partículas após separação física — medir uma delas afeta imediatamente o estado da outra, independentemente da distância."},{cn:"",py:"",pt:""}] },
+      { struct:"专业文章的交叉引用与层次递进", label:"Referências Cruzadas e Progressão Temática em Artigos Especializados", color:"#6366F1",
+        exp:"Artigos especializados em chinês usam: ①如上所述(como mencionado acima) ②详见第X章(ver detalhes no cap.X) ③有别于传统观点(diferente das visões tradicionais) ④本文认为(este artigo propõe) ⑤未来研究可进一步探索(futuras pesquisas podem explorar). A progressão deve ser lógica e cada parágrafo avança o argumento.",
+        exs:[{cn:"有别于传统生物学的线性思维，合成生物学采用工程学视角，将生命系统视为可设计、可编程的复杂系统。",py:"Yǒu bié yú chuántǒng shēngwùxué de xiànxìng sīwéi, héchéng shēngwùxué cǎiyòng gōngchéng xué shìjiǎo, jiāng shēngmìng xìtǒng shì wéi kě shèjì, kě biānchéng de fùzá xìtǒng.",pt:"Diferente do pensamento linear da biologia tradicional, a biologia sintética adota a perspectiva da engenharia, tratando sistemas vivos como sistemas complexos projetáveis e programáveis."},{cn:"",py:"",pt:""}] },
+      { struct:"风险与伦理: 专业术语的责任性使用", label:"Responsabilidade no Uso de Terminologia em Ética e Risco", color:"#DC2626",
+        exp:"Ao escrever sobre tecnologias emergentes, é fundamental contextualizar riscos: ①系统性风险(risco sistêmico) ②伦理困境(dilema ético) ③潜在威胁(ameaça potencial) ④监管框架(framework regulatório). Evite sensacionalismo mas não minimize riscos reais.",
+        exs:[{cn:"超级智能的潜在威胁不容忽视，但亦不应将其与科幻小说混淆。归根结底，系统性风险管理与负责任的生物伦理框架是应对这一挑战的根本途径。",py:"Chāojí zhìnéng de qiánzài wēixié bùróng hūshì, dàn yì bù yīng jiāng qí yǔ kēhuàn xiǎoshuō hùn xiáo.",pt:"A ameaça potencial da superinteligência não pode ser ignorada, mas também não deve ser confundida com ficção científica. Em última análise, gestão de riscos sistêmicos e um framework de bioética responsável são os caminhos fundamentais para enfrentar este desafio."},{cn:"",py:"",pt:""}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"在专业写作中，如何平衡术语的精确性和可读性？",py:"Zài zhuānyè xiězuò zhōng, rúhé pínghéng shùyǔ de jīngquè xìng hé kědú xìng?",pt:"Na escrita especializada, como equilibrar a precisão terminológica e a legibilidade?"},
+      {sp:"B",cn:"鉴于目标读者的专业水平不同，有效的策略是：先以所谓X，是指Y来精确界定，再用通俗语言举例说明，深入浅出。",py:"Jiànyú mùbiāo dúzhě de zhuānyè shuǐpíng bùtóng, yǒuxiào de cèlüè shì: xiān yǐ suǒwèi X, shì zhǐ Y lái jīngquè jièdìng, zài yòng tōngsú yǔyán jǔlì shuōmíng, shēnrù qiǎn chū.",pt:"Dado que o nível especializado dos leitores-alvo varia, a estratégia eficaz é: primeiro definir com precisão usando 'o que se chama X refere-se a Y', depois exemplificar com linguagem acessível — explicando o profundo de forma simples."},
+      {sp:"A",cn:"生物伦理和科技伦理这两个领域有什么核心的交叉点？",py:"Shēngwù lúnlǐ hé kējì lúnlǐ zhè liǎng gè lǐngyù yǒu shénme héxīn de jiāochā diǎn?",pt:"Qual é o ponto de interseção central entre bioética e ética tecnológica?"},
+      {sp:"B",cn:"综上所述，两者共同的核心是'人的尊严'和'风险-收益评估'。无论是基因编辑还是脑机接口，皆需以人类福祉为核心，防微杜渐地建立监管框架。",py:"Zōng shàng suǒ shù, liǎng zhě gòngtóng de héxīn shì 'rén de zūnyán' hé 'fēngxiǎn-shōuyì pínggū'.",pt:"Em suma, o núcleo comum de ambas é a 'dignidade humana' e a 'avaliação de risco-benefício'. Seja edição genética ou interface cérebro-computador — todos requerem o bem-estar humano como núcleo, construindo frameworks regulatórios preventivamente."},
+    ],
+    quiz:[
+      {q:"量子纠缠 (liàngzǐ jiūchán) é o fenômeno de:",opts:["duas partículas que se repelem","correlação quântica entre partículas separadas (medir uma afeta a outra instantaneamente)","computação quântica","encriptação quântica"],ans:1,exp:"✅ 量子纠缠 = emaranhamento quântico. Quando duas partículas estão emaranhadas, o estado quântico de uma está imediatamente correlacionado com o da outra, mesmo separadas por grande distância. Fenômeno verificado experimentalmente, base para computação e comunicação quânticas."},
+      {q:"深度学习 (shēndù xuéxí) na IA refere-se a:",opts:["estudar profundamente qualquer assunto","aprendizado de máquina usando redes neurais com múltiplas camadas","aprendizado humano avançado","leitura de textos profundos"],ans:1,exp:"✅ 深度学习 = Deep Learning. Subcampo da IA que usa 神经网络(redes neurais) com múltiplas camadas para aprender representações de dados. Base de reconhecimento de voz, visão computacional e modelos de linguagem."},
+      {q:"数字孪生 (shùzì luánshēng) significa:",opts:["inteligência artificial","gêmeo digital (modelo virtual de entidade física)","cópia de segurança digital","computação em nuvem"],ans:1,exp:"✅ 数字孪生 = gêmeo digital (Digital Twin). Modelo virtual de uma entidade física (máquina, prédio, cidade) que espelha o comportamento real em tempo real. Usado em manufactura, smart cities, medicina de precisão."},
+      {q:"去中心化 (qù zhōngxīnhuà) descreve sistemas que:",opts:["têm um centro muito forte","não têm autoridade central única; poder/controle distribuído entre participantes","eliminam todos os usuários","são centralizados digitalmente"],ans:1,exp:"✅ 去中心化 = descentralização. Sistemas onde não há autoridade central única — o controle é distribuído entre participantes. Base da tecnologia 区块链(blockchain) e das criptomoedas. Oposto de 中心化(centralizado)."},
+      {q:"合成生物学 (héchéng shēngwùxué) combina:",opts:["química e biologia","biologia com engenharia (design e programação de sistemas biológicos)","física e biologia","computação e medicina"],ans:1,exp:"✅ 合成生物学 = biologia sintética. Combina biologia com princípios de engenharia: design, construção e reprogramação de sistemas biológicos. Inclui: síntese de DNA, CRISPR, células artificiais, biocombustíveis."},
+    ] },
+
+  { w:8, phase:"演讲辩论", emoji:"🎤", color:"#DC2626",
+    theme:"演讲与辩论技巧 — Oratória e Debate em Nível HSK 6",
+    stats:{ words:"~15 HSK 6", grammar:"演讲开篇技巧 · 辩论逻辑结构 · 反驳艺术", chars:"口语书面" },
+    vocab:[
+      {h:"开门见山",py:"kāimén jiànshān",pt:"ir direto ao ponto (abertura direta)"},
+      {h:"抛砖引玉",py:"pāo zhuān yǐn yù",pt:"jogar um tijolo para receber jade (humildade ao apresentar)"},
+      {h:"振聋发聩",py:"zhèn lóng fā kuì",pt:"despertar os surdos/impactar profundamente"},
+      {h:"掷地有声",py:"zhì dì yǒu shēng",pt:"palavras de peso que ressoam"},
+      {h:"引人深思",py:"yǐn rén shēnsī",pt:"levar à reflexão profunda"},
+      {h:"发人深省",py:"fā rén shēn xǐng",pt:"provocar reflexão interior"},
+      {h:"鞭辟入里",py:"biān pì rù lǐ",pt:"análise penetrante e incisiva"},
+      {h:"切中要害",py:"qiē zhòng yàohài",pt:"acertar o ponto vital/essencial"},
+      {h:"以理服人",py:"yǐ lǐ fú rén",pt:"persuadir pela razão"},
+      {h:"以情动人",py:"yǐ qíng dòng rén",pt:"mover as pessoas pela emoção"},
+      {h:"逻辑严密",py:"luójí yánmì",pt:"logicamente rigoroso"},
+      {h:"论证有力",py:"lùnzhèng yǒulì",pt:"argumentação eficaz"},
+      {h:"滴水不漏",py:"dī shuǐ bù lòu",pt:"sem brechas/completamente impermeável"},
+      {h:"以子之矛攻子之盾",py:"yǐ zǐ zhī máo gōng zǐ zhī dùn",pt:"usar os próprios argumentos do adversário contra ele"},
+      {h:"论据充分",py:"lùnjù chōngfèn",pt:"evidências e argumentos suficientes"},
+    ],
+    grammar:[
+      { struct:"演讲三段式: 开门见山→展开论述→升华结语", label:"Estrutura Clássica de Discurso Formal Chinês", color:"#DC2626",
+        exp:"①开门见山(ir direto ao ponto): apresentar tese em 1-2 frases impactantes. ②展开论述(desenvolver): 3 pontos com evidências, 排比 e exemplos. ③升华结语(conclusão elevada): transcender o imediato, conectar ao universal. Regra: abertura deve ser 振聋发聩 (impactar); conclusão deve ser 引人深思.",
+        exs:[{cn:"开门见山示例: '今日之挑战，无非是明日之机遇的前奏。我们站在历史的十字路口，无可回避地面临一个抉择……'",py:"Kāimén jiànshān shìlì: 'Jīnrì zhī tiǎozhàn, wúfēi shì míng rì zhī jīyù de qiánzòu.'",pt:"Exemplo de abertura direta: 'O desafio de hoje não é nada mais que o prelúdio da oportunidade de amanhã. Estamos na encruzilhada da história, inevitavelmente enfrentando uma escolha...'"},{cn:"",py:"",pt:""}] },
+      { struct:"辩论反驳四步法: 承认→限制→反驳→重申", label:"Método de Refutação em 4 Passos", color:"#6366F1",
+        exp:"Refutação eficaz: ①承认(conceder o ponto válido do adversário — mostra boa fé) ②限制(mas este ponto tem limitações: '然而，这一论点仅在...范围内成立') ③反驳(o ponto central do adversário falha porque...) ④重申(reafirmar sua própria tese, agora mais fortalecida). Nunca ataque a pessoa — ataque o ARGUMENTO.",
+        exs:[{cn:"①'诚然，对方所言有一定道理。②然而，这一观点仅在特定条件下成立。③更为关键的是，对方忽视了…… ④因此，我方立场更具说服力。'",py:"'Chéngrán, duìfāng suǒ yán yǒu yīdìng dàoli. Rán'ér, zhè yī guāndiǎn jǐn zài tèdìng tiáojiàn xià chénglì. Gèng wéi guānjiàn de shì, duìfāng hūshì le…… Yīncǐ, wǒ fāng lìchǎng gèng jù shuōfú lì.'",pt:"①'Certamente, o que o adversário disse tem certa razão. ②Porém, este ponto só se sustenta em condições específicas. ③Mais crucialmente, o adversário ignora... ④Portanto, nossa posição é mais convincente.'"}] },
+      { struct:"以子之矛攻子之盾 (使用对方论据)", label:"Usar o Argumento do Adversário Contra Ele", color:"#D97706",
+        exp:"Técnica avançada de debate: redirecionar a evidência ou premissa do adversário para apoiar sua própria tese. '以子之矛攻子之盾' (usar a lança do adversário para penetrar seu próprio escudo). Requer análise rápida e profunda dos pontos opostos.",
+        exs:[{cn:"对方说：'技术进步使效率提高。' 反驳：'正因技术使效率提高，更凸显了公平分配技术红利的迫切性——而这正是我方论点的核心。'",py:"Duìfāng shuō: 'Jìshù jìnbù shǐ xiàolǜ tígāo.' Fǎnbó: 'Zhèng yīn jìshù shǐ xiàolǜ tígāo, gèng tūxiǎn le gōngpíng fēnpèi jìshù hónglì de pòqiè xìng.'",pt:"Adversário: 'O progresso tecnológico aumenta a eficiência.' Refutação: 'Precisamente porque a tecnologia aumenta a eficiência, isso torna ainda mais urgente a distribuição equitativa dos benefícios tecnológicos — e este é exatamente o núcleo de nossa tese.'"}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"一场成功的演讲和一场失败的演讲最根本的区别是什么？",py:"Yī chǎng chénggōng de yǎnjiǎng hé yī chǎng shībài de yǎnjiǎng zuì gēnběn de qūbié shì shénme?",pt:"Qual é a diferença mais fundamental entre um discurso bem-sucedido e um fracassado?"},
+      {sp:"B",cn:"开门见山地说：是否做到了以理服人和以情动人的统一。演讲若只有逻辑严密而缺乏情感，犹如无光之月；若只有情感而缺乏论证有力，则如无根之木。",py:"Kāimén jiànshān de shuō: shìfǒu zuòdào le yǐ lǐ fú rén hé yǐ qíng dòng rén de tǒngyī.",pt:"Indo direto ao ponto: se há unidade entre persuadir pela razão e mover pela emoção. Um discurso com apenas lógica rigorosa mas sem emoção é como uma lua sem luz; com apenas emoção mas sem argumentação eficaz, é como árvore sem raízes."},
+      {sp:"A",cn:"那辩论中最难的技巧是什么？",py:"Nà biànlùn zhōng zuì nán de jìqiǎo shì shénme?",pt:"E qual é a técnica mais difícil no debate?"},
+      {sp:"B",cn:"莫过于以子之矛攻子之盾——需要在极短时间内，切中要害地将对方的论据转化为支持己方的论点。这需要逻辑严密、反应敏捷，可谓辩论艺术的最高境界。",py:"Mòguòyú yǐ zǐ zhī máo gōng zǐ zhī dùn — xūyào zài jí duǎn shíjiān nèi, qiē zhòng yàohài de jiāng duìfāng de lùnjù zhuǎnhuà wéi zhīchí jǐ fāng de lùndiǎn.",pt:"Nada supera usar a lança do adversário contra seu próprio escudo — exige, em tempo curtíssimo, transformar com precisão os argumentos adversários em suporte para a própria tese. Isso requer rigor lógico e agilidade de raciocínio — pode-se dizer que é o nível supremo da arte do debate."},
+    ],
+    quiz:[
+      {q:"开门见山 (kāimén jiànshān) como estratégia de abertura significa:",opts:["começar com uma história longa","ir diretamente ao tema/tese sem rodeios","começar com perguntas","começar com citação"],ans:1,exp:"✅ 开门见山 = abrir a porta e ver a montanha imediatamente. Ir DIRETO ao ponto/tese sem introdução longa. Estratégia recomendada para discursos formais e ensaios: apresentar a tese central na primeira frase, com impacto."},
+      {q:"以子之矛攻子之盾 é uma técnica de debate que:",opts:["usa argumentos de terceiros","usa os próprios argumentos/premissas do adversário para refutá-lo","evita refutar diretamente","concorda com o adversário"],ans:1,exp:"✅ 以子之矛攻子之盾 = usar a lança do adversário para penetrar seu próprio escudo. Redirecionar o argumento do oponente para apoiar SUA tese. A técnica mais sofisticada de debate — transforma a força do adversário em sua própria fraqueza!"},
+      {q:"Na estrutura de refutação em 4 passos, qual é o PRIMEIRO passo?",opts:["atacar o adversário","conceder o ponto válido do adversário (承认)","reafirmar sua tese","apresentar evidências"],ans:1,exp:"✅ Primeiro passo: 承认(conceder o ponto válido do adversário). Isso demonstra boa fé, objetividade e aumenta sua credibilidade. NUNCA comece atacando — conceda primeiro, depois limite e refute. Esta sequência é muito mais persuasiva!"},
+      {q:"振聋发聩 (zhèn lóng fā kuì) como objetivo de abertura significa:",opts:["ser muito ruidoso","criar um impacto tão forte que desperta até os indiferentes","ser muito suave","começar com humor"],ans:1,exp:"✅ 振聋发聩 = fazer vibrar os surdos e despertar os adormecidos. Uma abertura tão impactante que choca e desperta até os desinteressados. Objetivo: fazer o público IMEDIATAMENTE engajar com seu argumento."},
+      {q:"以理服人 vs 以情动人 — na oratória, qual combinar?",opts:["apenas razão","apenas emoção","ambos: razão (lógica + evidências) + emoção (valores + histórias + empatia)","nenhum dos dois"],ans:2,exp:"✅ Os melhores discursos combinam AMBOS: 以理服人(persuadir pela razão: lógica, evidências, dados) + 以情动人(mover pela emoção: valores, histórias, empatia). A razão convence a mente; a emoção convence o coração. É a unidade dos dois que torna o discurso verdadeiramente impactante!"},
+    ] },
+
+  { w:9, phase:"新闻评论", emoji:"📡", color:"#374151",
+    theme:"新闻写作与评论 — Jornalismo e Comentário Crítico",
+    stats:{ words:"~15 HSK 6", grammar:"新闻标题写法 · 评论文体 · 客观与主观的平衡", chars:"新闻语体" },
+    vocab:[
+      {h:"新闻导语",py:"xīnwén dǎoyǔ",pt:"lide jornalístico (primeira frase/parágrafo)"},
+      {h:"倒金字塔",py:"dào jīnzìtǎ",pt:"pirâmide invertida (estrutura jornalística)"},
+      {h:"社论",py:"shèlùn",pt:"editorial"},
+      {h:"时评",py:"shípíng",pt:"comentário de atualidade"},
+      {h:"深度报道",py:"shēndù bàodào",pt:"reportagem aprofundada"},
+      {h:"调查性报道",py:"diàochá xìng bàodào",pt:"jornalismo investigativo"},
+      {h:"新闻价值",py:"xīnwén jiàzhí",pt:"valor notícia"},
+      {h:"公信力",py:"gōngxìnlì",pt:"credibilidade/confiabilidade"},
+      {h:"舆论导向",py:"yúlùn dǎoxiàng",pt:"orientação da opinião pública"},
+      {h:"标题党",py:"biāotídǎng",pt:"jornalismo de títulos sensacionalistas/clickbait"},
+      {h:"深挖",py:"shēn wā",pt:"investigar em profundidade"},
+      {h:"核实",py:"héshí",pt:"verificar/confirmar (fato)"},
+      {h:"信源",py:"xìnyuán",pt:"fonte de informação"},
+      {h:"独家报道",py:"dújiā bàodào",pt:"furo jornalístico/exclusiva"},
+      {h:"跟踪报道",py:"gēnzōng bàodào",pt:"cobertura de acompanhamento/follow-up"},
+    ],
+    grammar:[
+      { struct:"新闻导语: 5W1H (何时·何地·何事·何人·为何·如何)", label:"O Lide Jornalístico: Estrutura 5W1H", color:"#374151",
+        exp:"导语(lide) em jornalismo chinês: responder as 6 perguntas essenciais na primeira frase ou parágrafo. 何时(quando)、何地(onde)、何事(o quê)、何人(quem)、为何(por quê)、如何(como). Princípio da 倒金字塔: informação mais importante primeiro.",
+        exs:[{cn:"示例导语: '当地时间X日，北京（何地）一位青年科学家（何人）在量子计算领域（何事）取得重大突破（如何），在国际学术界（何处）引发广泛关注。'",py:"Shìlì dǎoyǔ: 'Dāngdì shíjiān X rì, Běijīng yī wèi qīngnián kēxuéjiā zài liàngzǐ jìsuàn lǐngyù qǔdé zhòngdà tūpò...'",pt:"Exemplo de lide: 'No dia X (horário local), um jovem cientista de Pequim (quem) alcançou um avanço significativo (o quê) no campo da computação quântica (onde), gerando ampla atenção na comunidade acadêmica internacional.'"},{cn:"",py:"",pt:""}] },
+      { struct:"时评写作: 现象→分析→建议 (três movimentos)", label:"Estrutura do Comentário Jornalístico Chinês", color:"#6366F1",
+        exp:"时评(comentário de atualidade) em chinês: ①描述现象(descrever o fenômeno noticiado de forma concisa) ②深度分析(análise causal e contextual — o 'porquê profundo') ③提出建议/展望(proposta ou perspectiva). Linguagem: entre o jornalístico e o ensaístico. Evite ser excessivamente acadêmico ou sensacionalista.",
+        exs:[{cn:"现象: '近年来，'标题党'现象愈演愈烈，点击量驱动的媒体环境使深度内容举步维艰。' 分析: '追根溯源，这无非是流量经济和媒体商业化压力下的必然产物。'",py:"Xiànxiàng: 'Jìn nián lái, biāotídǎng xiànxiàng yù yǎn yù liè...' Fēnxī: 'Zhuī gēn sùyuán, zhè wúfēi shì liúliàng jīngjì...'",pt:"Fenômeno: 'Nos últimos anos, o sensacionalismo de títulos tem se agravado progressivamente, tornando o conteúdo aprofundado muito difícil em ambiente midiático guiado por cliques.' Análise: 'Rastreando à origem, isso não é nada mais que produto inevitável da economia de tráfego e da pressão de comercialização midiática.'"},{cn:"",py:"",pt:""}] },
+      { struct:"客观与主观的平衡 (jornalismo de qualidade)", label:"Equilíbrio entre Objetividade e Perspectiva", color:"#D97706",
+        exp:"Jornalismo de qualidade em chinês equilibra: ①事实核实(verificação dos fatos) ②信源多元(fontes diversas) ③分离事实与观点(separar fatos de opiniões). Na 时评, a opinião é explícita mas fundamentada. Use: 据...报道(fato citado) vs 本文认为(opinião do autor). Nunca confunda os dois sem sinalizar.",
+        exs:[{cn:"据多方信源证实，该事件确实发生。然而，本文认为，其影响被部分媒体所夸大，有损公信力。",py:"Jù duō fāng xìnyuán zhèngshí, gāi shìjiàn quèshí fāshēng. Rán'ér, běn wén rènwéi, qí yǐngxiǎng bèi bùfèn méitǐ suǒ kuāzhāng, yǒu sǔn gōngxìnlì.",pt:"Confirmado por múltiplas fontes, o evento de fato ocorreu. Porém, este artigo considera que seu impacto foi exagerado por parte da mídia, prejudicando a credibilidade."},{cn:"",py:"",pt:""}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"在媒体信息泛滥的时代，如何判断新闻报道的质量？",py:"Zài méitǐ xìnxī fàlàn de shídài, rúhé pànduàn xīnwén bàodào de zhìliàng?",pt:"Na era de inundação de informações midiáticas, como avaliar a qualidade de uma notícia?"},
+      {sp:"B",cn:"有鉴于此，有几个关键指标：信源是否多元且可核实？事实与观点是否明确分离？有无调查性报道的深度？是否有'标题党'之嫌？",py:"Yǒu jiàn yú cǐ, yǒu jǐ gè guānjiàn zhǐbiāo: xìnyuán shìfǒu duōyuán qiě kě héshí? Shìshí yǔ guāndiǎn shìfǒu míngquè fēnlí?",pt:"Em vista disso, há vários indicadores-chave: as fontes são diversas e verificáveis? Fatos e opiniões são claramente separados? Há a profundidade de um jornalismo investigativo? Existe suspeita de sensacionalismo de títulos?"},
+      {sp:"A",cn:"那时评和社论有什么根本区别？",py:"Nà shípíng hé shèlùn yǒu shénme gēnběn qūbié?",pt:"E qual é a diferença fundamental entre comentário de atualidade (时评) e editorial (社论)?"},
+      {sp:"B",cn:"从根本上来说：社论代表媒体机构立场，权威性更强；时评则是个人视角的深度分析，鞭辟入里且言简意赅更受读者欢迎。两者各有千秋，殊途同归。",py:"Cóng gēnběn shàng lái shuō: shèlùn dàibiǎo méitǐ jīgòu lìchǎng, quánwēi xìng gèng qiáng; shípíng zé shì gèrén shìjiǎo de shēndù fēnxī.",pt:"Fundamentalmente: o editorial representa a posição da instituição midiática, com maior autoridade; o comentário de atualidade é uma análise aprofundada de perspectiva individual — penetrante e concisa, mais apreciado pelos leitores. Cada um tem seus méritos; caminhos diferentes, mesmo destino."},
+    ],
+    quiz:[
+      {q:"导语 (dǎoyǔ) em jornalismo corresponde ao:",opts:["título","conclusão","lide (primeiro parágrafo com as informações essenciais)","editorial"],ans:2,exp:"✅ 导语 = lide jornalístico (a primeira frase ou parágrafo de uma notícia que responde às questões essenciais 5W1H). Princípio da 倒金字塔(pirâmide invertida): as informações mais importantes vêm PRIMEIRO."},
+      {q:"倒金字塔 (dào jīnzìtǎ) é a estrutura jornalística que:",opts:["começa com detalhes e termina com o fato principal","coloca as informações mais importantes primeiro e vai reduzindo a importância","tem forma triangular ascendente","usa apenas perguntas retóricas"],ans:1,exp:"✅ 倒金字塔 = pirâmide invertida. As informações MAIS IMPORTANTES vêm primeiro (lide), seguidas de detalhes em ordem decrescente de importância. Permite ao leitor interromper a leitura a qualquer momento e ainda ter entendido o essencial."},
+      {q:"标题党 (biāotídǎng) refere-se a:",opts:["partido político","editores de títulos","prática de usar títulos sensacionalistas/enganosos para atrair cliques (clickbait)","jornalistas especializados"],ans:2,exp:"✅ 标题党 = 'partido dos títulos'. Prática de criar títulos exagerados, enganosos ou sensacionalistas para gerar cliques, mesmo que o conteúdo não corresponda. Fenômeno crítico do jornalismo digital que prejudica a credibilidade midiática."},
+      {q:"时评 difere de 社论 porque:",opts:["sinônimos","时评=perspectiva individual do comentarista; 社论=posição oficial da instituição midiática","时评 é mais formal","社论 é mais curto"],ans:1,exp:"✅ 时评=comentário de atualidade (perspectiva pessoal de um comentarista/analista). 社论=editorial (posição oficial do veículo de comunicação). O editorial tem maior peso institucional; o 时评 pode ser mais criativo e analítico."},
+      {q:"公信力 (gōngxìnlì) em contexto jornalístico significa:",opts:["poder de publicação","credibilidade/confiabilidade do veículo de comunicação","audiência","velocidade de publicação"],ans:1,exp:"✅ 公信力 = credibilidade/confiabilidade (do veículo de comunicação ou do jornalista). 公=público + 信=confiança + 力=capacidade. A confiança que o público deposita na veracidade e imparcialidade das reportagens. Fundamental para a saúde do ecossistema informacional."},
+    ] },
+
+  { w:10, phase:"文化比较", emoji:"🌐", color:"#059669",
+    theme:"中西文化比较 — Comparação Cultural Sino-Ocidental",
+    stats:{ words:"~15 HSK 6", grammar:"文化比较框架 · 跨文化分析方法 · 文明对话", chars:"比较文化" },
+    vocab:[
+      {h:"天人合一",py:"tiān rén hé yī",pt:"unidade entre Céu e Humanidade (filosofia chinesa)"},
+      {h:"中庸之道",py:"zhōngyōng zhī dào",pt:"Doutrina do Meio/Caminho do equilíbrio"},
+      {h:"知行合一",py:"zhīxíng hé yī",pt:"unidade de conhecimento e ação (Wang Yangming)"},
+      {h:"仁义礼智信",py:"rén yì lǐ zhì xìn",pt:"as cinco virtudes confucionistas"},
+      {h:"家国情怀",py:"jiā guó qínghuái",pt:"sentimento de devoção à família e ao Estado"},
+      {h:"文明多样性",py:"wénmíng duōyàngxìng",pt:"diversidade das civilizações"},
+      {h:"文明冲突",py:"wénmíng chōngtū",pt:"choque de civilizações (Huntington)"},
+      {h:"文明交融",py:"wénmíng jiāoróng",pt:"fusão/encontro de civilizações"},
+      {h:"东方主义",py:"dōngfāng zhǔyì",pt:"orientalismo (Said)"},
+      {h:"他者建构",py:"tāzhě jiàngòu",pt:"construção do outro"},
+      {h:"文化霸权",py:"wénhuà bàquán",pt:"hegemonia cultural (Gramsci)"},
+      {h:"异质文化",py:"yìzhì wénhuà",pt:"cultura heterogênea/outra"},
+      {h:"文化本质主义",py:"wénhuà běnzhí zhǔyì",pt:"essencialismo cultural"},
+      {h:"跨文明对话",py:"kuà wénmíng duìhuà",pt:"diálogo entre civilizações"},
+      {h:"文化建构主义",py:"wénhuà jiàngòu zhǔyì",pt:"construtivismo cultural"},
+    ],
+    grammar:[
+      { struct:"比较分析框架: 相同点→差异→根源→启示", label:"Framework de Análise Comparativa Sino-Ocidental", color:"#059669",
+        exp:"Análise comparativa de alto nível: ①相同点(pontos de convergência — mostrar que há universais) ②主要差异(diferenças principais) ③根源分析(raízes históricas/filosóficas das diferenças) ④相互启示(o que cada civilização pode aprender da outra). Evitar o 本质主义(essencialismo) — culturas não são estáticas.",
+        exs:[{cn:"相同点: '中西哲学皆追求人的完善与和谐，只是路径不同：西方偏重理性个体，东方重视关系与整体。'",py:"Xiāngtóng diǎn: 'Zhōng xī zhéxué jiē zhuīqiú rén de wánshàn yǔ héxié...'",pt:"Convergência: 'As filosofias oriental e ocidental buscam a perfeição humana e a harmonia — apenas os caminhos diferem: o Ocidente prioriza o indivíduo racional; o Oriente valoriza as relações e o todo.'"},{cn:"",py:"",pt:""}] },
+      { struct:"避免本质主义: '并非所有...都' (refutação de generalizações)", label:"Evitar Essencialismo nas Comparações Culturais", color:"#6366F1",
+        exp:"Essencialismo cultural = tratar culturas como homogêneas e fixas. Evite: '中国人都...', '西方人总是...'. Use: '从历史上看，部分...的文化传统...', '总体而言...但有显著例外', '不同群体内存在多元声音'. Culturas são complexas, dinâmicas e internamente diversas.",
+        exs:[{cn:"与其说'东方是集体主义，西方是个人主义'，不如说两者皆存在着内部多样性，只是历史传统在某些方面有所侧重。",py:"Yǔqí shuō 'dōngfāng shì jítǐ zhǔyì, xīfāng shì gèrén zhǔyì', bùrú shuō liǎng zhě jiē cúnzài zhe nèibù duōyàngxìng, zhǐshì lìshǐ chuántǒng zài mǒuxiē fāngmiàn yǒusuǒ zhòng diǎn.",pt:"Em vez de dizer 'o Oriente é coletivista e o Ocidente é individualista', é mais preciso dizer que ambos têm diversidade interna — apenas suas tradições históricas enfatizaram certos aspectos."},{cn:"",py:"",pt:""}] },
+      { struct:"文明对话原则: 互鉴·互尊·互信", label:"Três Princípios do Diálogo Intercultural", color:"#D97706",
+        exp:"Diálogo civilizacional de alto nível requer: ①互鉴(aprendizado mútuo — reconhecer o que cada civilização tem a oferecer) ②互尊(respeito mútuo — não hierarquizar civilizações) ③互信(confiança mútua — base para cooperação). Oposto de 文明冲突: 文明交融.",
+        exs:[{cn:"文明互鉴是超越文明冲突论的根本路径。鉴于每种文明皆有其独特贡献，惟有相互尊重与学习，方能实现人类共同福祉。",py:"Wénmíng hùjiàn shì chāoyuè wénmíng chōngtū lùn de gēnběn lùjìng. Jiànyú měi zhǒng wénmíng jiē yǒu qí dútè gòngxiàn, wéiyǒu xiānghù zūnzhòng yǔ xuéxí, fāng néng shíxiàn rénlèi gòngtóng fúzhǐ.",pt:"O aprendizado mútuo entre civilizações é o caminho fundamental para transcender a teoria do choque de civilizações. Em vista de que cada civilização tem sua contribuição única, somente com respeito e aprendizado mútuos é que se pode alcançar o bem-estar humano comum."},{cn:"",py:"",pt:""}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"天人合一和西方的人与自然对立观念有什么本质区别？",py:"Tiān rén hé yī hé xīfāng de rén yǔ zìrán duìlì guānniàn yǒu shénme běnzhì qūbié?",pt:"Qual é a diferença essencial entre o conceito chinês de 'unidade entre Céu e Humanidade' e a visão ocidental de oposição entre humano e natureza?"},
+      {sp:"B",cn:"与其说是'对立'与'合一'的区别，不如说是历史时期与哲学传统的侧重差异。现代西方生态哲学也在重新拥抱人与自然的和谐关系。",py:"Yǔqí shuō shì 'duìlì' yǔ 'hé yī' de qūbié, bùrú shuō shì lìshǐ shíqī yǔ zhéxué chuántǒng de zhòng diǎn chāyì.",pt:"Em vez de dizer que é a diferença entre 'oposição' e 'unidade', é mais preciso dizer que é uma diferença de ênfase entre períodos históricos e tradições filosóficas. A filosofia ecológica ocidental moderna também está redescubrindo a harmonia entre humanidade e natureza."},
+      {sp:"A",cn:"那如何避免将比较变成简单化的刻板印象？",py:"Nà rúhé bìmiǎn jiāng bǐjiào biànchéng jiǎndān huà de kèbǎn yìnxiàng?",pt:"Como evitar que a comparação se torne estereótipo simplificador?"},
+      {sp:"B",cn:"归根结底，文化本质主义是比较研究的大忌。鉴于每种文化内部的多样性，惟有以跨文明对话为框架，方能超越表面差异，实现深层的文明互鉴。",py:"Guī gēn jiédǐ, wénhuà běnzhí zhǔyì shì bǐjiào yánjiū de dàjì.",pt:"Em última análise, o essencialismo cultural é o grande erro da pesquisa comparativa. Dado que há diversidade interna em cada cultura, somente tendo o diálogo entre civilizações como framework é que se pode transcender as diferenças superficiais e alcançar o aprendizado mútuo profundo."},
+    ],
+    quiz:[
+      {q:"天人合一 (tiān rén hé yī) é o conceito filosófico de:",opts:["domínio da natureza pelo humano","separação total entre Céu e Humanidade","unidade e harmonia entre Céu/Natureza e Humanidade","superioridade do Céu sobre a Humanidade"],ans:2,exp:"✅ 天人合一 = Unidade entre Céu (Natureza/Cosmos) e Humanidade. Conceito central do taoísmo e confucionismo: humanos são PARTE da natureza, não superiores a ela. Opõe-se à visão cartesiana de domínio humano sobre a natureza."},
+      {q:"中庸之道 (zhōngyōng zhī dào) aconselha:",opts:["ser passivo","ser extremista","buscar o equilíbrio entre extremos — o caminho do meio","ser indiferente"],ans:2,exp:"✅ 中庸之道 = Doutrina do Meio / Caminho do Equilíbrio. Conceito confucionista: evitar extremos, buscar o equilíbrio adequado em cada situação. 中=meio + 庸=regular/constante + 道=caminho. Não é mediocridade — é sabedoria contextual e equilíbrio."},
+      {q:"东方主义 (dōngfāng zhǔyì) conforme Edward Said refere-se a:",opts:["a filosofia oriental","a posição geográfica oriental","a construção ocidental do 'Oriente' como outro exótico, inferior e objeto de domínio","o estudo das línguas orientais"],ans:2,exp:"✅ 东方主义 = Orientalismo (Said, 1978). Crítica de como o Ocidente CONSTRUIU a imagem do 'Oriente' como exótico, atrasado e objeto de domínio colonial. É uma criação discursiva que servia aos interesses do imperialismo. Conceito fundamental nos estudos pós-coloniais."},
+      {q:"文化本质主义 (wénhuà běnzhí zhǔyì) é o erro de:",opts:["comparar culturas","tratar culturas como homogêneas, estáticas e com essência imutável","respeitar culturas","estudar culturas"],ans:1,exp:"✅ 文化本质主义 = essencialismo cultural. O erro de tratar uma cultura como se fosse homogênea, estática e definida por uma 'essência' imutável. Ex: 'todos os chineses são coletivistas'. As culturas são dinâmicas, internamente diversas e em constante transformação!"},
+      {q:"知行合一 (zhīxíng hé yī) é o princípio de Wang Yangming que afirma:",opts:["conhecimento teórico é superior à prática","ação é superior ao conhecimento","conhecimento e ação são indissociáveis e se constituem mutuamente","o conhecimento precede sempre a ação"],ans:2,exp:"✅ 知行合一 = Unidade de Conhecimento e Ação (Wang Yangming, séc. XV-XVI). Conhecimento sem ação não é conhecimento verdadeiro; ação sem conhecimento é cega. Os dois se constituem mutuamente. Opõe-se ao dualismo teoria-prática da filosofia ocidental clássica."},
+    ] },
+
+  { w:11, phase:"综合复习", emoji:"🔍", color:"#374151",
+    theme:"综合复习 — Revisão Abrangente HSK 6",
+    stats:{ words:"Consolidação HSK 6", grammar:"Síntese de todos os padrões", chars:"Revisão total" },
+    vocab:[
+      {h:"一气呵成",py:"yī qì hē chéng",pt:"feito de um fôlego só/fluente e contínuo"},
+      {h:"妙趣横生",py:"miào qù héng shēng",pt:"repleto de interesse e charme"},
+      {h:"文以载道",py:"wén yǐ zài dào",pt:"a literatura é veículo do Dao/da verdade"},
+      {h:"言之有物",py:"yán zhī yǒu wù",pt:"discurso substancial/com conteúdo real"},
+      {h:"入情入理",py:"rù qíng rù lǐ",pt:"emocionalmente e racionalmente convincente"},
+      {h:"雅俗共赏",py:"yǎ sú gòng shǎng",pt:"apreciado tanto pelos cultos quanto pelo povo"},
+      {h:"兼收并蓄",py:"jiān shōu bìng xù",pt:"absorver e integrar coisas diferentes"},
+      {h:"博采众长",py:"bó cǎi zhòng cháng",pt:"absorver o melhor de muitas fontes"},
+      {h:"去伪存真",py:"qù wěi cún zhēn",pt:"eliminar o falso e preservar o verdadeiro"},
+      {h:"推陈出新",py:"tuī chén chū xīn",pt:"criar o novo a partir do antigo"},
+      {h:"继往开来",py:"jì wǎng kāi lái",pt:"herdar o passado e abrir o futuro"},
+      {h:"温故知新",py:"wēn gù zhī xīn",pt:"rever o antigo e descobrir o novo"},
+      {h:"学无止境",py:"xué wú zhǐ jìng",pt:"o aprendizado não tem fim"},
+      {h:"百尺竿头更进一步",py:"bǎi chǐ gāntóu gèng jìn yī bù",pt:"avançar ainda mais do nível mais alto"},
+      {h:"止于至善",py:"zhǐ yú zhì shàn",pt:"buscar o bem supremo (Grande Aprendizado)"},
+    ],
+    grammar:[
+      { struct:"HSK 6 大总结 — Todos os Registros", label:"Síntese: Do Vernacular ao Clássico", color:"#374151",
+        exp:"HSK 6 integra: ①文言文虚词(之/乎/者/也/而) ②经典修辞(排比/反问/对仗) ③成语典故(直用/暗用/化用) ④学术语体(客观/精确/引用) ⑤政论文体(破题/立论/驳论) ⑥新闻语体(5W1H/倒金字塔) ⑦演讲技巧(以理/以情/反驳四步) ⑧跨文化分析(框架/避免本质主义). O domínio HSK 6 = saber QUANDO usar cada registro.",
+        exs:[{cn:"同一主题，四种写法: ①新闻: '昨日，一项颠覆性技术引发广泛关注。' ②时评: '这一技术的崛起，折射出当代科技伦理的深层张力。' ③政论: '防微杜渐，莫使技术之利，成社会之害。' ④文言: '智在善用，技以载道，慎之慎之。'",py:"Tóngyī zhǔtí, sì zhǒng xiěfǎ...",pt:"Mesmo tema, quatro estilos: ①Notícia: 'Ontem, uma tecnologia disruptiva gerou ampla atenção.' ②Comentário: 'A ascensão desta tecnologia reflete a tensão profunda da ética tecnológica contemporânea.' ③Ensaio político: 'Prevenir o problema cedo; não transformar o benefício da tecnologia em dano social.' ④Clássico: 'A sabedoria está no bom uso; a tecnologia como veículo do Dao; prudência, sempre prudência.'"},{cn:"",py:"",pt:""}] },
+      { struct:"Erros Mais Comuns no HSK 6", label:"Os 8 Erros Mais Frequentes", color:"#DC2626",
+        exp:"①文言虚词用错语境(使用文言词在白话文中) ②成语误用(不知典故来源) ③化用不当(强行改写成语) ④排比不均衡(句型不平行) ⑤反问用在陈述语境 ⑥学术文体口语化 ⑦新闻导语不完整(缺少5W中的要素) ⑧比较文化时犯本质主义错误",
+        exs:[{cn:"❌错: '他这个人之品德很高尚。'（之字误用在现代汉语中）",py:"Cuò: 'Tā zhège rén zhī pǐndé hěn gāoshàng.'",pt:"❌ Erro: misturar 之(clássico) em contexto de chinês moderno. ✅ Correto: '他这个人的品德很高尚' (usar 的 em vez de 之 no moderno)."},{cn:"✅正: '学贯中西（直用成语），深入浅出地呈现了两种思维方式的互补性。'",py:"Zhèng: 'Xué guàn zhōng xī, shēnrù qiǎn chū de chéngxiàn le liǎng zhǒng sīwéi fāngshì de hùbǔ xìng.'",pt:"✅ Correto: usar 成语 diretamente no contexto certo, sem forçar."}] },
+      { struct:"HSK 6 综合题型策略", label:"Estratégias para Todos os Tipos de Questões HSK 6", color:"#6366F1",
+        exp:"Writing(写作): ①先列提纲后写(esboce antes) ②用3-5个高级成语 ③以文言虚词开头或结尾增文采 ④最后一段必须升华. Reading(阅读): ①先读问题后读文章 ②把握文章的中心论点和论证结构 ③注意成语和典故的实际用法. Listening(听力): ①速记关键词 ②把握论述逻辑 ③注意说话人的立场变化.",
+        exs:[{cn:"综合句示例(集成多种HSK 6特征): '自古以来，文以载道。鉴于当今媒体环境的复杂性，追根溯源，我们不难发现，公信力的缺失，无非是价值迷失的外在表现。'",py:"Zìgǔ yǐlái, wén yǐ zài dào. Jiànyú dāngjīn méitǐ huánjìng de fùzá xìng, zhuī gēn sùyuán, wǒmen bù nán fāxiàn, gōngxìnlì de quēshī, wúfēi shì jiàzhí mí shī de wàizài biǎoxiàn.",pt:"Frase modelo integrada (múltiplas características HSK 6): 'Desde tempos antigos, a literatura é veículo do Dao. Em vista da complexidade do ambiente midiático atual, rastreando à origem, não é difícil perceber que a perda de credibilidade não é nada mais que a manifestação externa da perda de valores.'"},{cn:"",py:"",pt:""}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"学完HSK六级，语言学习的路上还有什么在等着我们？",py:"Xué wán HSK liù jí, yǔyán xuéxí de lùshàng hái yǒu shénme zài děngzhe wǒmen?",pt:"Após completar o HSK 6, o que mais nos espera na jornada do aprendizado da língua?"},
+      {sp:"B",cn:"学无止境。自古以来，即便博学如孔子，也以'学而不已'自勉。HSK六级不过是通向真正语言融合的起点，而非终点。",py:"Xué wú zhǐ jìng. Zìgǔ yǐlái, jíbiàn bóxué rú Kǒngzǐ, yě yǐ 'xué ér bù yǐ' zìmiǎn.",pt:"O aprendizado não tem fim. Desde tempos antigos, mesmo um erudito como Confúcio se encorajava com 'estudar sem parar'. O HSK 6 não é nada mais que o ponto de partida para a verdadeira integração linguística, não o ponto final."},
+      {sp:"A",cn:"那下一步应该怎么继续？",py:"Nà xià yī bù yīnggāi zěnme jìxù?",pt:"Então, como continuar os próximos passos?"},
+      {sp:"B",cn:"继往开来：一方面温故知新，深化对经典的理解；另一方面推陈出新，在真实语境中不断运用。最终止于至善——使语言成为你思维本身，而非翻译的工具。",py:"Jì wǎng kāi lái: yī fāngmiàn wēn gù zhī xīn, shēnhuà duì jīngdiǎn de lǐjiě; lìng yī fāngmiàn tuī chén chū xīn, zài zhēnshí yǔjìng zhōng bùduàn yùnyòng.",pt:"Herdar e abrir o futuro: por um lado, rever o antigo para descobrir o novo, aprofundando a compreensão dos clássicos; por outro, criar o novo a partir do antigo, usando continuamente em contextos reais. A aspiração final é 止于至善 — fazer da língua o próprio pensamento, não um instrumento de tradução."},
+    ],
+    quiz:[
+      {q:"文以载道 (wén yǐ zài dào) é o princípio de que:",opts:["a literatura não tem propósito","a literatura deve ser puramente estética","a literatura é o veículo do Dao/da verdade/dos valores morais","a literatura é entretenimento"],ans:2,exp:"✅ 文以载道 = a literatura como veículo do Dao (verdade/valores). Princípio confucionista da criação literária: a escrita não é fim em si — é meio de transmitir valores, sabedoria e a 'maneira correta'. Atribuído a Han Yu (唐代韩愈). Base da visão tradicional chinesa sobre a literatura."},
+      {q:"继往开来 (jì wǎng kāi lái) expressa a ideia de:",opts:["ignorar o passado","herdar o legado do passado e abrir o caminho para o futuro","apenas olhar para o futuro","apenas preservar o passado"],ans:1,exp:"✅ 继往开来 = herdar o passado e abrir o futuro. 继=continuar + 往=o passado + 开=abrir + 来=o que vem. A responsabilidade de cada geração: receber o legado e criar novos horizontes. Frase muito usada em contextos educacionais e de liderança."},
+      {q:"止于至善 (zhǐ yú zhì shàn) do Grande Aprendizado significa:",opts:["parar de melhorar","contentamento com o suficiente","aspirar ao bem supremo como meta final","limite do crescimento"],ans:2,exp:"✅ 止于至善 = buscar/repousar no bem supremo. Do 大学(Grande Aprendizado): 'O caminho da grande aprendizagem está em manifestar a virtude brilhante, renovar o povo, e repousar no bem supremo.' É a aspiração máxima do cultivo moral confucionista."},
+      {q:"温故知新 (wēn gù zhī xīn) de Confúcio aconselha:",opts:["esquecer o passado","estudar apenas o novo","rever o antigo e descobrir novos insights/significados a partir dele","repetir memorização"],ans:2,exp:"✅ 温故知新 = reaquecer o antigo e descobrir o novo. Confúcio: 'Aquele que, ao rever o antigo, descobre o novo — pode ser professor.' Princípio de que o estudo profundo dos clássicos continua revelando insights novos. Fundamento do método confucionista de aprendizagem!"},
+      {q:"兼收并蓄 (jiān shōu bìng xù) como princípio intelectual significa:",opts:["rejeitar o diferente","absorver e integrar elementos diferentes de múltiplas fontes","usar apenas uma fonte","manter pureza doutrinária"],ans:1,exp:"✅ 兼收并蓄 = absorver e integrar (elementos de fontes diferentes). 兼=ao mesmo tempo + 收=recolher + 并=junto + 蓄=acumular. Abertura intelectual que integra o que é útil de múltiplas tradições sem preconceito. Princípio do pensamento eclético e da síntese criativa."},
+    ] },
+
+  { w:12, phase:"最终模拟", emoji:"🏆", color:"#059669",
+    theme:"最终模拟 — Simulado Final HSK 6",
+    stats:{ words:"Vocabulário de elite HSK 6", grammar:"Estratégias finais de prova", chars:"Simulado integrado" },
+    vocab:[
+      {h:"纵横捭阖",py:"zòng héng bǎi hé",pt:"operar com habilidade em situações complexas/estratégia"},
+      {h:"登峰造极",py:"dēng fēng zào jí",pt:"atingir o ponto mais alto/a perfeição absoluta"},
+      {h:"炉火纯青",py:"lú huǒ chún qīng",pt:"maestria perfeita e madura"},
+      {h:"鬼斧神工",py:"guǐ fǔ shén gōng",pt:"habilidade quase sobrenatural/obra-prima"},
+      {h:"叹为观止",py:"tàn wéi guān zhǐ",pt:"ficar admirado/extasiado (não consegue ver mais belo)"},
+      {h:"出神入化",py:"chū shén rù huà",pt:"transcender o espírito e transformar — maestria suprema"},
+      {h:"浑然一体",py:"hún rán yī tǐ",pt:"completamente integrado/uno"},
+      {h:"天衣无缝",py:"tiān yī wú féng",pt:"sem costura (perfeição absoluta/nenhuma brecha)"},
+      {h:"无懈可击",py:"wú xiè kě jī",pt:"sem ponto fraco/irrefutável"},
+      {h:"首屈一指",py:"shǒu qū yī zhǐ",pt:"o melhor/o número um"},
+      {h:"无与伦比",py:"wú yǔ lún bǐ",pt:"incomparável/sem igual"},
+      {h:"卓尔不群",py:"zhuó ěr bù qún",pt:"destacar-se por excelência (raramente igualado)"},
+      {h:"出类拔萃",py:"chū lèi bá cuì",pt:"sobressair entre os melhores"},
+      {h:"学富五车",py:"xué fù wǔ chē",pt:"erudito como cinco carroças de livros (vastamente erudito)"},
+      {h:"才高八斗",py:"cái gāo bā dǒu",pt:"extremamente talentoso (oito cestos de talento)"},
+    ],
+    grammar:[
+      { struct:"HSK 6 Writing — Técnica de Alto Nível", label:"Escrita HSK 6: Integração de Todos os Recursos", color:"#059669",
+        exp:"Redação HSK 6 de elite: ①Abertura: 文言虚词 ou 成语 impactante. ②Desenvolvimento: 排比(3 pontos paralelos) + evidências históricas/comparativas + 反问 estratégica. ③Transição: 归根结底/追根溯源/有鉴于此. ④Conclusão: 升华到人类普遍价值 + 文以载道的格调. ⑤Estilo: 雅俗共赏 + 言简意赅 + 字斟句酌. Meta: 天衣无缝 — sem brechas argumentativas.",
+        exs:[{cn:"模板开篇(文言起势): '自古以来，知之者众，行之者稀。今日之课题，无非是这一古老命题的现代回响……'",py:"Zìgǔ yǐlái, zhī zhī zhě zhòng, xíng zhī zhě xī. Jīnrì zhī kètí, wúfēi shì zhè yī gǔlǎo mìngtí de xiàndài huíxiǎng……",pt:"Abertura modelo (ímpeto clássico): 'Desde tempos antigos, muitos sabem, poucos agem. O tema de hoje não é nada mais que o eco moderno deste antigo problema...'"},{cn:"",py:"",pt:""}] },
+      { struct:"HSK 6 Reading — Estratégias de Elite", label:"Leitura HSK 6: Do Superficial ao Profundo", color:"#6366F1",
+        exp:"Reading HSK 6: ①先读题后读文(sempre). ②Identifique: 文章体裁(gênero), 中心论点(tese central), 论证方式(modo de argumentação). ③Questões de inferência(推断题): busque o que o texto implica, não apenas o que diz. ④成语和典故题: conheça a origem. ⑤文言段落: aplique conhecimento de 虚词 para inferir sentido. ⑥Velocidade: HSK 6 exige processamento rápido — treine com textos autênticos.",
+        exs:[{cn:"典型错误: 看到题目中有原文词语就选——HSK 6 频繁使用'陷阱选项'，即包含原文词但意思偏差。",py:"Diǎnxíng cuòwù: kàn dào títù zhōng yǒu yuánwén cíyǔ jiù xuǎn.",pt:"Erro típico: escolher a opção que contém palavras do texto original. O HSK 6 frequentemente usa 'opções armadilha' — com vocabulário do texto mas sentido distorcido. Sempre verifique o SIGNIFICADO, não apenas as palavras."},{cn:"",py:"",pt:""}] },
+      { struct:"最后的忠告 — Conselhos Finais", label:"De Laoshi para Mari: O Caminho da Excelência", color:"#D97706",
+        exp:"①学无止境 — O HSK 6 não é o fim, é a base do verdadeiro profissionalismo. ②文以载道 — Use o mandarim como veículo de suas ideias mais profundas. ③博采众长 — Continue absorvendo o melhor: clássicos, jornalismo, literatura, filosofia. ④继往开来 — Honre a tradição enquanto cria algo novo. ⑤止于至善 — Nunca se contente — sempre busque o próximo nível.",
+        exs:[{cn:"最终寄语: '学贯中西，知行合一，温故知新。汉语之门，一旦打开，永无止境。愿你在这条路上，炉火纯青，登峰造极，成为无与伦比的自己。加油！'",py:"Zuìzhōng jìyǔ: 'Xué guàn zhōng xī, zhīxíng hé yī, wēn gù zhī xīn. Hànyǔ zhī mén, yīdàn dǎkāi, yǒng wú zhǐ jìng.'",pt:"Palavras finais do Laoshi: 'Dominando o saber oriental e ocidental, unindo conhecimento e ação, revisando o antigo para descobrir o novo. A porta do mandarim, uma vez aberta, não tem fim. Que você neste caminho alcance maestria perfeita e o ponto máximo — tornando-se a melhor versão incomparável de si. 加油！'"}] },
+    ],
+    dialogue:[
+      {sp:"A",cn:"完成了HSK六级的学习，你最大的感悟是什么？",py:"Wánchéng le HSK liù jí de xuéxí, nǐ zuì dà de gǎnwù shì shénme?",pt:"Tendo completado o HSK 6, qual é sua maior percepção/epifania?"},
+      {sp:"B",cn:"一言以蔽之：语言学到最深处，便是思维本身。自从能用汉语思考，方才真正体悟到这一语言的精髓与独特之美。",py:"Yī yán yǐ bì zhī: yǔyán xué dào zuì shēn chù, biàn shì sīwéi běnshēn.",pt:"Em uma palavra: quando se aprende uma língua em sua maior profundidade, ela se torna o próprio pensamento. Desde que passei a pensar em mandarim, foi somente então que verdadeiramente compreendi pela experiência a essência e a beleza única desta língua."},
+      {sp:"A",cn:"从HSK一级到六级，回首这段旅程，你有什么想说的？",py:"Cóng HSK yī jí dào liù jí, huíshǒu zhè duàn lǚchéng, nǐ yǒu shénme xiǎng shuō de?",pt:"Do HSK 1 ao HSK 6, olhando para trás nesta jornada, o que você quer dizer?"},
+      {sp:"B",cn:"正如古人所言：百尺竿头，更进一步。这六年的学习，犹如高山流水——每一阶段皆有知音，每一层次皆是崭新世界。继往开来，止于至善——汉语的旅程，永无终点。",py:"Zhèng rú gǔrén suǒ yán: bǎi chǐ gāntóu, gèng jìn yī bù.",pt:"Tal como os antigos diziam: do cume mais alto, avançar ainda um passo. Estes seis anos de estudo foram como a amizade espiritual das montanhas e rios — em cada etapa há quem compreenda sua alma; em cada nível há um mundo completamente novo. Herdar e abrir, buscar o bem supremo — a jornada do mandarim não tem fim."},
+    ],
+    quiz:[
+      {q:"天衣无缝 (tiān yī wú féng) como objetivo de redação significa:",opts:["escrita muito colorida","perfeição absoluta sem falhas ou brechas argumentativas","escrita muito simples","argumentação incompleta"],ans:1,exp:"✅ 天衣无缝 = sem costura na roupa celestial. Perfeição absoluta, sem a menor brecha. Na redação HSK 6: argumentação logicamente rigorosa, sem pontos fracos. 'A roupa feita pelos deuses não tem costuras visíveis.'"},
+      {q:"无懈可击 (wú xiè kě jī) descreve:",opts:["argumento fraco","algo completamente irrefutável/sem pontos fracos","argumento emocional","argumento muito longo"],ans:1,exp:"✅ 无懈可击 = sem ponto vulnerável/irrefutável. 无=sem + 懈=ponto fraco/frouxo + 可=pode + 击=atacar. Um argumento, plano ou obra que não tem vulnerabilidade alguma. Objetivo máximo da argumentação no HSK 6!"},
+      {q:"学富五车 (xué fù wǔ chē) elogia alguém que:",opts:["tem cinco carros","é imensamente erudito (como transportar cinco carroças de livros)","viajou muito","ensina bem"],ans:1,exp:"✅ 学富五车 = erudição equivalente a cinco carroças de livros. Alusão a 惠施(Huì Shī), filósofo que carregava cinco carroças de livros. Hoje: alguém de vastíssima erudição. Par com 才高八斗(oito cestos de talento) — os dois maiores elogios de erudição no chinês clássico!"},
+      {q:"出神入化 (chū shén rù huà) descreve:",opts:["estar sonâmbulo","sair do espírito e entrar na transformação = maestria que transcende o humano","ser normal","estudar muito"],ans:1,exp:"✅ 出神入化 = sair do espírito e entrar na transformação. Nível de maestria que transcende a habilidade humana normal — como se a arte tomasse vida própria. Superior a 炉火纯青 em grau de superlatividade. O elogio máximo de maestria artística ou técnica!"},
+      {q:"止于至善 do Grande Aprendizado (大学) como aspiração de HSK 6 significa:",opts:["parar de estudar após o HSK 6","contentamento com o nível alcançado","continuar buscando a excelência máxima mesmo após atingir alto nível","ignorar o nível atual"],ans:2,exp:"✅ 止于至善 como aspiração = nunca parar de buscar a excelência. Após o HSK 6, o verdadeiro aprendizado continua: literatura clássica, especialização profissional, uso nativo real. 学无止境 — 止于至善 é a bússola permanente, não um destino final!"},
+    ] },
+];
+
+export default function HSK6Completo() {
+  const [week, setWeek] = useState(1);
+  const [tab, setTab] = useState("vocab");
+  const [showPy, setShowPy] = useState(true);
+  const [openG, setOpenG] = useState(0);
+  const [dlPy, setDlPy] = useState(true);
+  const [answers, setAnswers] = useState({});
+  const [revealed, setRevealed] = useState({});
+  const w = WEEKS[week-1], dc = w.color;
+  const correct = Object.entries(answers).filter(([i,a])=>a===w.quiz[+i].ans).length;
+  const answered = Object.keys(answers).length;
+  const resetQuiz = ()=>{setAnswers({});setRevealed({});};
+
+  return (
+    <div style={{fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",background:sand,minHeight:"100vh",paddingBottom:"48px"}}>
+      <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b,#374151)",color:"white",padding:"24px 20px 20px"}}>
+        <div style={{maxWidth:"900px",margin:"0 auto"}}>
+          <div style={{display:"flex",gap:"8px",marginBottom:"10px",flexWrap:"wrap"}}>
+            <span style={{background:"#374151",borderRadius:"6px",padding:"3px 12px",fontSize:"12px",fontWeight:"700"}}>🇨🇳 HSK 6 · Programa Completo</span>
+            <span style={{background:"rgba(255,255,255,0.12)",borderRadius:"6px",padding:"3px 12px",fontSize:"12px",fontWeight:"600"}}>12 Semanas · ~1.140 novas palavras · Nível Quase-Nativo</span>
+          </div>
+          <h1 style={{margin:"0 0 14px",fontSize:"clamp(18px,3.5vw,26px)",fontWeight:"900"}}>老师 · HSK 6 — Todas as 12 Semanas</h1>
+          <div style={{display:"flex",gap:"4px",overflowX:"auto",paddingBottom:"4px"}}>
+            {WEEKS.map(wx=>(
+              <button key={wx.w} onClick={()=>{setWeek(wx.w);setTab("vocab");resetQuiz();}}
+                style={{padding:"7px 12px",borderRadius:"10px",border:"2px solid",borderColor:week===wx.w?"white":"rgba(255,255,255,0.2)",background:week===wx.w?"white":"transparent",color:week===wx.w?"#0f172a":"rgba(255,255,255,0.8)",fontWeight:"800",fontSize:"11px",cursor:"pointer",whiteSpace:"nowrap",flexShrink:0,display:"flex",flexDirection:"column",alignItems:"center",gap:"2px"}}>
+                <span style={{fontSize:"14px"}}>{wx.emoji}</span>
+                <span>S{wx.w}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div style={{maxWidth:"900px",margin:"0 auto",padding:"0 16px"}}>
+        <div style={{background:"white",borderRadius:"14px",padding:"14px 18px",margin:"14px 0 4px",border:"1px solid #E2E8F0",boxShadow:"0 2px 8px rgba(15,23,42,0.06)",borderLeft:`5px solid ${dc}`}}>
+          <div style={{display:"flex",alignItems:"flex-start",gap:"12px",flexWrap:"wrap"}}>
+            <div style={{width:"46px",height:"46px",borderRadius:"12px",background:dc,color:"white",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+              <span style={{fontSize:"10px",fontWeight:"700",opacity:0.8}}>SEM</span>
+              <span style={{fontSize:"20px",fontWeight:"900",lineHeight:1}}>{w.w}</span>
+            </div>
+            <div style={{flex:1}}>
+              <div style={{display:"flex",gap:"8px",alignItems:"center",marginBottom:"3px",flexWrap:"wrap"}}>
+                <span style={{fontWeight:"900",color:ink,fontSize:"14px"}}>{w.theme}</span>
+                <span style={{fontSize:"11px",fontWeight:"700",color:dc,background:`${dc}15`,padding:"2px 8px",borderRadius:"10px"}}>{w.phase}</span>
+              </div>
+              <div style={{display:"flex",gap:"10px",flexWrap:"wrap"}}>
+                {[["📖",w.stats.words],["📐",w.stats.grammar],["✍️",w.stats.chars]].map(([e,v])=>(
+                  <span key={v} style={{fontSize:"11px",color:muted}}>{e} {v}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style={{display:"flex",gap:"6px",padding:"8px 0 4px",overflowX:"auto"}}>
+          {[["vocab","📚 Vocab"],["grammar","📐 Gramática"],["dialogue","💬 Diálogo"],["quiz","✏️ Quiz"]].map(([id,lbl])=>(
+            <button key={id} onClick={()=>setTab(id)} style={{padding:"8px 16px",borderRadius:"9px",border:"2px solid",borderColor:tab===id?dc:bdr,background:tab===id?dc:"white",color:tab===id?"white":muted,fontWeight:"700",fontSize:"13px",cursor:"pointer",whiteSpace:"nowrap",flexShrink:0}}>{lbl}</button>
+          ))}
+        </div>
+        {tab==="vocab"&&(
+          <div style={{paddingTop:"14px"}}>
+            <div style={{display:"flex",gap:"8px",marginBottom:"12px"}}>
+              <button onClick={()=>setShowPy(v=>!v)} style={{padding:"6px 12px",borderRadius:"8px",border:`2px solid ${showPy?"#D97706":bdr}`,background:showPy?"#FFFBEB":"white",color:showPy?"#92400E":muted,fontWeight:"700",fontSize:"12px",cursor:"pointer"}}>{showPy?"🙈 Desafio":"👁 Pinyin"}</button>
+              <span style={{fontSize:"12px",color:muted,alignSelf:"center"}}>{w.vocab.length} palavras</span>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(148px,1fr))",gap:"9px"}}>
+              {w.vocab.map((wd,i)=>(
+                <div key={i} style={{background:"white",borderRadius:"11px",padding:"10px 8px",textAlign:"center",boxShadow:"0 2px 8px rgba(15,23,42,0.07)",border:"1px solid #E2E8F0",borderTop:`3px solid ${dc}`}}>
+                  <div style={{fontSize:"14px",fontWeight:"900",color:dc,fontFamily:"'Noto Sans SC','PingFang SC',sans-serif",marginBottom:"4px"}}>{wd.h}</div>
+                  {showPy&&<div style={{fontSize:"11px",fontWeight:"700",color:"#6366F1",marginBottom:"2px"}}>{wd.py}</div>}
+                  <div style={{fontSize:"11px",color:muted,lineHeight:"1.3"}}>{wd.pt}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+        {tab==="grammar"&&(
+          <div style={{paddingTop:"14px"}}>
+            {w.grammar.map((g,i)=>(
+              <div key={i} style={{background:"white",borderRadius:"14px",overflow:"hidden",boxShadow:"0 2px 12px rgba(15,23,42,0.07)",border:"1px solid #E2E8F0",marginBottom:"10px"}}>
+                <button onClick={()=>setOpenG(openG===i?-1:i)} style={{width:"100%",padding:"14px 18px",background:"none",border:"none",cursor:"pointer",display:"flex",alignItems:"center",gap:"12px",textAlign:"left"}}>
+                  <div style={{width:"4px",alignSelf:"stretch",borderRadius:"2px",background:g.color,flexShrink:0}}/>
+                  <div style={{flex:1}}>
+                    <div style={{fontSize:"11px",fontWeight:"700",color:g.color,textTransform:"uppercase",letterSpacing:"1px",marginBottom:"2px"}}>{g.label}</div>
+                    <div style={{fontFamily:"monospace",fontWeight:"800",color:ink,fontSize:"12px",lineHeight:"1.4"}}>{g.struct}</div>
+                  </div>
+                  <span style={{color:muted,fontSize:"16px",transform:openG===i?"rotate(180deg)":"none"}}>▾</span>
+                </button>
+                {openG===i&&(
+                  <div style={{padding:"0 18px 16px",borderTop:"1px solid #E2E8F0"}}>
+                    <div style={{background:`${g.color}08`,border:`1px solid ${g.color}20`,borderRadius:"10px",padding:"12px 14px",margin:"10px 0",fontSize:"13px",color:"#334155",lineHeight:"1.7"}}>{g.exp}</div>
+                    {g.exs.filter(e=>e.cn).map((ex,ei)=>(
+                      <div key={ei} style={{borderLeft:`3px solid ${g.color}`,paddingLeft:"12px",marginBottom:"10px"}}>
+                        <div style={{fontSize:"15px",fontWeight:"700",color:ink,fontFamily:"'Noto Sans SC',sans-serif",marginBottom:"3px"}}>{ex.cn}</div>
+                        <div style={{fontSize:"12px",color:"#6366F1",fontWeight:"600",marginBottom:"2px"}}>{ex.py}</div>
+                        <div style={{fontSize:"12px",color:muted}}>{ex.pt}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+        {tab==="dialogue"&&(
+          <div style={{paddingTop:"14px"}}>
+            <div style={{display:"flex",justifyContent:"flex-end",marginBottom:"10px"}}>
+              <button onClick={()=>setDlPy(v=>!v)} style={{padding:"5px 10px",borderRadius:"7px",border:`2px solid ${dlPy?"#D97706":bdr}`,background:dlPy?"#FFFBEB":"white",color:dlPy?"#92400E":muted,fontWeight:"700",fontSize:"12px",cursor:"pointer"}}>{dlPy?"🙈":"👁"} Pinyin</button>
+            </div>
+            <div style={{background:"white",borderRadius:"14px",overflow:"hidden",boxShadow:"0 2px 12px rgba(15,23,42,0.07)",border:"1px solid #E2E8F0"}}>
+              <div style={{background:dc,color:"white",padding:"12px 16px"}}><div style={{fontWeight:"800",fontSize:"14px"}}>💬 Diálogo — Semana {w.w} · {w.emoji} {w.phase}</div></div>
+              {w.dialogue.map((line,i)=>{
+                const isA=line.sp==="A";
+                return (
+                  <div key={i} style={{display:"flex",flexDirection:isA?"row":"row-reverse",gap:"10px",padding:"12px 14px",borderBottom:i<w.dialogue.length-1?"1px solid #E2E8F0":"none",background:i%2===0?"white":"#FAFAF8",alignItems:"flex-start"}}>
+                    <div style={{width:"26px",height:"26px",borderRadius:"50%",background:isA?dc:"#94A3B8",color:"white",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:"800",fontSize:"11px",flexShrink:0}}>{line.sp}</div>
+                    <div style={{flex:1,textAlign:isA?"left":"right"}}>
+                      <div style={{fontSize:"14px",fontWeight:"700",color:ink,fontFamily:"'Noto Sans SC',sans-serif",marginBottom:"3px",lineHeight:"1.5"}}>{line.cn}</div>
+                      {dlPy&&<div style={{fontSize:"12px",color:"#6366F1",fontWeight:"600",marginBottom:"2px"}}>{line.py}</div>}
+                      <div style={{fontSize:"12px",color:muted}}>{line.pt}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {tab==="quiz"&&(
+          <div style={{paddingTop:"14px"}}>
+            {answered===w.quiz.length&&(
+              <div style={{background:correct>=4?"#ECFDF5":"#FFFBEB",border:`2px solid ${correct>=4?"#059669":"#D97706"}`,borderRadius:"12px",padding:"16px",marginBottom:"14px",textAlign:"center"}}>
+                <div style={{fontSize:"30px",marginBottom:"6px"}}>{correct===5?"🏆":correct>=3?"🎉":"💪"}</div>
+                <div style={{fontWeight:"800",fontSize:"18px",color:correct>=4?"#065F46":"#92400E"}}>{correct}/5</div>
+                <button onClick={resetQuiz} style={{marginTop:"10px",padding:"6px 16px",borderRadius:"8px",background:ink,color:"white",border:"none",fontWeight:"700",fontSize:"12px",cursor:"pointer"}}>🔄 Tentar novamente</button>
+              </div>
+            )}
+            {w.quiz.map((q,i)=>{
+              const sel=answers[i],rev=revealed[i];
+              return (
+                <div key={i} style={{background:"white",borderRadius:"12px",padding:"14px",border:"1px solid #E2E8F0",marginBottom:"10px",boxShadow:"0 2px 8px rgba(15,23,42,0.06)"}}>
+                  <div style={{display:"flex",gap:"8px",marginBottom:"10px"}}>
+                    <div style={{width:"22px",height:"22px",borderRadius:"6px",background:ink,color:"white",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:"800",fontSize:"11px",flexShrink:0}}>{i+1}</div>
+                    <div style={{fontSize:"13px",fontWeight:"700",color:ink,lineHeight:"1.5"}}>{q.q}</div>
+                  </div>
+                  <div style={{display:"flex",flexDirection:"column",gap:"6px",marginBottom:"10px"}}>
+                    {q.opts.map((opt,j)=>{
+                      const chosen=sel===j,right=j===q.ans;
+                      let bg="white",bc=bdr,col="#374151";
+                      if(chosen||rev){if(right){bg="#ECFDF5";bc="#059669";col="#065F46";}else if(chosen){bg="#FEF2F2";bc="#DC2626";col="#991B1B";}}
+                      return <button key={j} onClick={()=>{if(sel===undefined){setAnswers(a=>({...a,[i]:j}));setRevealed(r=>({...r,[i]:true}));}}} style={{padding:"8px 11px",borderRadius:"8px",border:`2px solid ${bc}`,background:bg,color:col,textAlign:"left",fontWeight:(chosen||(rev&&right))?"700":"500",fontSize:"12px",cursor:sel===undefined?"pointer":"default",display:"flex",alignItems:"center",gap:"8px"}}>
+                        <span style={{width:"18px",height:"18px",borderRadius:"50%",border:`2px solid ${bc}`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:"10px",fontWeight:"800",flexShrink:0,background:(right&&rev)?"#059669":(chosen&&!right)?"#DC2626":"transparent",color:(right&&rev)||(chosen&&!right)?"white":col}}>
+                          {rev?(right?"✓":chosen?"✗":String.fromCharCode(65+j)):String.fromCharCode(65+j)}
+                        </span>{opt}
+                      </button>;
+                    })}
+                  </div>
+                  {rev&&<div style={{background:sel===q.ans?"#ECFDF5":"#FFFBEB",border:`1px solid ${sel===q.ans?"#6EE7B7":"#FDE68A"}`,borderRadius:"8px",padding:"8px 10px",fontSize:"12px",color:sel===q.ans?"#065F46":"#92400E",lineHeight:"1.6"}}>{q.exp}</div>}
+                </div>
+              );
+            })}
+            {answered<w.quiz.length&&<div style={{textAlign:"center",color:muted,fontSize:"12px",padding:"6px"}}>{answered}/{w.quiz.length} respondidas</div>}
+          </div>
+        )}
+        <div style={{background:"white",border:"1px solid #E2E8F0",borderRadius:"12px",padding:"12px 16px",marginTop:"16px",display:"flex",justifyContent:"space-between",alignItems:"center",gap:"10px"}}>
+          <button onClick={()=>{if(week>1){setWeek(w=>w-1);setTab("vocab");resetQuiz();}}} style={{padding:"7px 14px",borderRadius:"9px",border:"2px solid #E2E8F0",background:"white",color:muted,fontWeight:"700",fontSize:"12px",cursor:"pointer",opacity:week===1?0.3:1}}>← Anterior</button>
+          <div style={{textAlign:"center"}}>
+            <div style={{fontSize:"13px",fontWeight:"800",color:ink}}>Semana {week} / 12</div>
+            <div style={{fontSize:"11px",color:muted}}>{w.phase} · {w.emoji}</div>
+          </div>
+          <button onClick={()=>{if(week<12){setWeek(w=>w+1);setTab("vocab");resetQuiz();}}} style={{padding:"7px 14px",borderRadius:"9px",border:`2px solid ${dc}`,background:dc,color:"white",fontWeight:"700",fontSize:"12px",cursor:"pointer",opacity:week===12?0.3:1}}>Próxima →</button>
+        </div>
+        {week===12&&(
+          <div style={{background:"linear-gradient(135deg,#0f172a,#1e293b,#374151)",color:"white",borderRadius:"14px",padding:"24px",marginTop:"14px",textAlign:"center"}}>
+            <div style={{fontSize:"40px",marginBottom:"10px"}}>🏆</div>
+            <div style={{fontWeight:"900",fontSize:"22px",marginBottom:"8px"}}>HSK 6 — 登峰造极！</div>
+            <div style={{opacity:0.8,fontSize:"14px",lineHeight:"1.8",marginBottom:"12px"}}>
+              12 semanas · ~1.140 novas palavras · Nível quase-nativo<br/>
+              博学多才，炉火纯青，无与伦比！
+            </div>
+            <div style={{fontSize:"18px",fontWeight:"900",color:"#FCD34D",marginBottom:"8px"}}>恭喜！学贯中西，止于至善！🎓</div>
+            <div style={{fontSize:"13px",opacity:0.6}}>O caminho continua: HSK 7-9 aguarda os verdadeiros mestres</div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
