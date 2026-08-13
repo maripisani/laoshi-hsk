@@ -1,4 +1,5 @@
-import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
+import{r as a,j as n}from"./index-IPYOG_TL.js";const I=`
+爱|ài|动|1
 八|bā|数|1
 爸爸|bàba|名|1
 吧|ba|助|1
@@ -7,9 +8,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 半|bàn|数·(副)|1
 包子|bāozi|名|1
 杯子|bēizi|名|1
+本|běn|量|1
 边|biān|名·后缀|1
 病|bìng|名·动|1
 不|bù|副|1
+不客气|bú kèqi||1
 不要|búyào|副|1
 菜|cài|名|1
 茶|chá|名|1
@@ -19,6 +22,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 吃|chī|动|1
 出租车|chūzūchē|名|1
 穿|chuān|动|1
+打电话|dǎ diànhuà||1
 大|dà|形|1
 大家|dàjiā|代|1
 大学|dàxué|名|1
@@ -27,6 +31,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 的|de|助|1
 第|dì|前缀|1
 弟弟|dìdi|名|1
+点|diǎn|量·(名)|1
 店|diàn|名|1
 电话|diànhuà|名|1
 电脑|diànnǎo|名|1
@@ -71,9 +76,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 好玩儿|hǎowánr|形|1
 号|hào|名·量|1
 喝|hē|动|1
+和|hé|介·连|1
 很|hěn|副|1
 后|hòu|名|1
 回|huí|动·(量)|1
+会|huì|动|1
 火车|huǒchē|名|1
 鸡蛋|jīdàn|名|1
 几|jǐ|代·数|1
@@ -102,6 +109,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 了|le|助|1
 冷|lěng|形|1
 里|lǐ|名|1
+两|liǎng|数|1
 零|líng|数|1
 六|liù|数|1
 妈妈|māma|名|1
@@ -110,6 +118,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 卖|mài|动|1
 忙|máng|形·动|1
 猫|māo|名|1
+没关系|méi guānxi||1
 没事|méishì|动|1
 没有|méiyǒu|动·副|1
 妹妹|mèimei|名|1
@@ -136,11 +145,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 呢|ne|助|1
 能|néng|动|1
 你|nǐ|代|1
+你好|nǐhǎo||1
 你们|nǐmen|代|1
 年|nián|名·量|1
 您|nín|代|1
 牛奶|niúnǎi|名|1
 女|nǚ|形|1
+女儿|nǚ’ér|名|1
 女朋友|nǚpéngyou|名|1
 女士|nǚshì|名|1
 朋友|péngyou|名|1
@@ -168,7 +179,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 上午|shàngwǔ|名|1
 上学|shàngxué|动|1
 少|shǎo|形·动|1
-谁|shéi/shuí|代|1
+谁|shéi|代|1
 什么|shénme|代|1
 生病|shēngbìng|动|1
 十|shí|数|1
@@ -205,6 +216,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 晚|wǎn|形|1
 晚饭|wǎnfàn|名|1
 晚上|wǎnshang|名|1
+喂|wèi|叹|1
 问|wèn|动|1
 问题|wèntí|名|1
 我|wǒ|代|1
@@ -213,6 +225,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 午饭|wǔfàn|名|1
 喜欢|xǐhuan|动|1
 下|xià|名·动·量|1
+下雨|xià yǔ||1
 下班|xiàbān|动|1
 下课|xiàkè|动|1
 下午|xiàwǔ|名|1
@@ -285,6 +298,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 昨天|zuótiān|名|1
 坐|zuò|动|1
 做|zuò|动|1
+做饭|zuò fàn||1
 啊|a|助|2
 爱好|àihào|动·名|2
 白色|báisè|名|2
@@ -295,7 +309,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 本子|běnzi|名|2
 比|bǐ|动·介|2
 笔|bǐ|名·(量)|2
+别|bié|副|2
 不错|búcuò|形|2
+不好意思|bù hǎoyìsi||2
 长|cháng|形|2
 车站|chēzhàn|名|2
 出|chū|动|2
@@ -309,13 +325,16 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 从|cóng|介·(副)|2
 从小|cóngxiǎo|副|2
 错|cuò|形|2
+打|dǎ|动|2
 打车|dǎchē|动|2
 打开|dǎkāi|动|2
 但|dàn|连·(副)|2
 但是|dànshì|连|2
 得|de|助|2
 地|de|助|2
+等|děng|动·(介)|2
 地铁|dìtiě|名|2
+点|diǎn|动·(名·量)|2
 懂|dǒng|动|2
 动|dòng|动|2
 饭馆|fànguǎn|名|2
@@ -329,11 +348,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 过|guò|动|2
 过来|guòlái|动|2
 过年|guònián|动|2
+过去|guòqù|动|2
+过|guo|助|2
 还是|háishi|副·连|2
 黑色|hēisè|名|2
 红茶|hóngchá|名|2
 红色|hóngsè|名|2
 后面|hòumiàn|名|2
+花|huā|动·名·(形)|2
 画|huà|动·名|2
 坏|huài|形|2
 回来|huílái|动|2
@@ -373,10 +395,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 绿茶|lǜchá|名|2
 绿色|lǜsè|名·(形)|2
 慢|màn|形|2
+没意思|méi yìsi||2
 每|měi|代·(副)|2
 门|mén|名|2
 门口|ménkǒu|名|2
 门票|ménpiào|名|2
+面|miàn|后缀·(动·名·量)|2
 名|míng|名·量|2
 拿|ná|动|2
 那么|nàme|代·连|2
@@ -427,6 +451,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 网上|wǎngshang|名|2
 忘|wàng|动|2
 位|wèi|量|2
+为什么|wèi shénme||2
 希望|xīwàng|动|2
 洗|xǐ|动|2
 洗手间|xǐshǒujiān|名|2
@@ -451,12 +476,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 因为|yīnwèi|介·连|2
 游|yóu|动|2
 游泳|yóuyǒng|动|2
+有意思|yǒu yìsi||2
 有时|yǒushí|副|2
 右|yòu|名|2
 右边|yòubian|名|2
 鱼|yú|名|2
 远|yuǎn|形|2
 运动|yùndòng|动·名|2
+站|zhàn|名|2
 丈夫|zhàngfu|名|2
 这么|zhème|代|2
 这样|zhèyàng|代|2
@@ -511,8 +538,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 不但|búdàn|连|3
 不见|bújiàn|动|3
 不用|búyòng|副|3
+不同|bù tóng||3
 不久|bùjiǔ|形|3
 不行|bùxíng|动·形|3
+才|cái|副|3
 菜单|càidān|名|3
 参加|cānjiā|动|3
 草|cǎo|名|3
@@ -523,6 +552,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 差不多|chàbuduō|形·副|3
 尝|cháng|动|3
 常|cháng|副|3
+常见|cháng jiàn||3
+常用|cháng yòng||3
 常常|chángcháng|副|3
 衬衫|chènshān|名|3
 成绩|chéngjì|名|3
@@ -553,6 +584,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 得到|dédào|动|3
 得分|défēn|动·名|3
 的话|dehuà|助|3
+得|děi|动|3
 灯|dēng|名|3
 地|dì|名|3
 地点|dìdiǎn|名|3
@@ -600,7 +632,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 服务|fúwù|动|3
 附近|fùjìn|名|3
 复习|fùxí|动|3
+该|gāi|动|3
 干净|gānjìng|形|3
+感兴趣|gǎn xìngqù||3
 感到|gǎndào|动|3
 感冒|gǎnmào|名·动|3
 干|gàn|动|3
@@ -623,6 +657,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 关注|guānzhù|动|3
 国家|guójiā|名|3
 过节|guòjié|动|3
+过去|guòqù|名|3
 海|hǎi|名|3
 害怕|hàipà|动|3
 好多|hǎoduō|数|3
@@ -632,6 +667,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 河|hé|名|3
 合适|héshì|形|3
 黑板|hēibǎn|名|3
+红绿灯|hóng-lǜdēng|名|3
 后来|hòulái|名|3
 后年|hòunián|名|3
 后天|hòutiān|名|3
@@ -644,6 +680,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 换|huàn|动|3
 黄色|huángsè|名|3
 回答|huídá|动|3
+会|huì|名|3
 会议|huìyì|名|3
 或|huò|连·(副)|3
 或者|huòzhě|连|3
@@ -693,6 +730,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 看来|kànlái|动|3
 可|kě|连·(副)|3
 渴|kě|形|3
+可爱|kě’ài|形|3
 可是|kěshì|连|3
 刻|kè|量·(动)|3
 课本|kèběn|名|3
@@ -845,6 +883,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 西瓜|xīguā|名|3
 西南|xīnán|名|3
 习惯|xíguàn|动·名|3
+喜爱|xǐ’ài|动|3
 洗衣机|xǐyījī|名|3
 洗澡|xǐzǎo|动|3
 夏天|xiàtiān|名|3
@@ -922,7 +961,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 运动员|yùndòngyuán|名|3
 咱们|zánmen|代|3
 脏|zāng|形|3
+怎么办|zěnme bàn||3
 怎样|zěnyàng|代|3
+站|zhàn|动|3
 张|zhāng|动·量|3
 长|zhǎng|动·后缀|3
 着急|zháojí|形|3
@@ -933,6 +974,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 直到|zhídào|动|3
 只|zhǐ|副|3
 纸|zhǐ|名|3
+只能|zhǐ néng||3
 只是|zhǐshì|副·连|3
 只要|zhǐyào|连|3
 只有|zhǐyǒu|连|3
@@ -1033,6 +1075,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 车速|chēsù|名|4
 车位|chēwèi|名|4
 城|chéng|名|4
+乘|chéng|动|4
 成功|chénggōng|动·形|4
 乘客|chéngkè|名|4
 诚实|chéngshí|形|4
@@ -1054,6 +1097,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 吹|chuī|动|4
 词语|cíyǔ|名|4
 此|cǐ|代|4
+此次|cǐ cì||4
 此外|cǐwài|连|4
 从此|cóngcǐ|副|4
 从来|cónglái|副|4
@@ -1066,7 +1110,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 错误|cuòwù|形·名|4
 答应|dāying|动|4
 答|dá|动|4
+答案|dá’àn|名|4
 达到|dádào|动|4
+打招呼|dǎ zhāohu||4
 打败|dǎbài|动|4
 打工|dǎgōng|动|4
 打扰|dǎrǎo|动|4
@@ -1098,6 +1144,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 道歉|dàoqiàn|动|4
 得意|déyì|形|4
 登机|dēngjī|动|4
+等|děng|助·(名·量)|4
 等到|děngdào|介|4
 低|dī|形·动|4
 低价|dījià|名|4
@@ -1230,6 +1277,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 逛|guàng|动|4
 规定|guīdìng|动·名|4
 国籍|guójí|名|4
+国际|guójì|形·名|4
 果汁|guǒzhī|名|4
 过程|guòchéng|名|4
 海洋|hǎiyáng|名|4
@@ -1317,6 +1365,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 降落|jiàngluò|动|4
 降温|jiàngwēn|动|4
 交|jiāo|动·(名)|4
+骄傲|jiāo’ào|形·名|4
 交警|jiāojǐng|名|4
 交流|jiāoliú|动|4
 郊区|jiāoqū|名|4
@@ -1367,6 +1416,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 拒绝|jùjué|动|4
 距离|jùlí|动·名|4
 剧院|jùyuàn|名|4
+开玩笑|kāi wánxiào||4
 看法|kànfǎ|名|4
 烤|kǎo|动|4
 考虑|kǎolǜ|动|4
@@ -1386,6 +1436,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 空|kōng|形·(副)|4
 空气|kōngqì|名|4
 恐怕|kǒngpà|动·副|4
+空|kòng|动·形·名|4
 口语|kǒuyǔ|名|4
 苦|kǔ|形|4
 快餐|kuàicān|名|4
@@ -1419,8 +1470,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 联系|liánxì|动|4
 凉|liáng|形|4
 量|liáng|动|4
+两|liǎng|量|4
 亮|liàng|形·动|4
 列|liè|动·量|4
+零下|líng xià||4
 零花钱|línghuāqián|名|4
 零钱|língqián|名|4
 零食|língshí|名|4
@@ -1475,14 +1528,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 内|nèi|名|4
 内容|nèiróng|名|4
 内心|nèixīn|名|4
+能否|néng fǒu||4
 能够|nénggòu|动|4
 能力|nénglì|名|4
+嗯|ǹg|叹|4
 年底|niándǐ|名|4
 年龄|niánlíng|名|4
 农村|nóngcūn|名|4
 弄|nòng|动|4
 女性|nǚxìng|名|4
 暖和|nuǎnhuo|形·动|4
+偶尔|ǒu’ěr|副·形|4
 拍|pāi|动·名|4
 排|pái|动·名·量|4
 牌|pái|名|4
@@ -1549,6 +1605,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 缺少|quēshǎo|动|4
 却|què|副|4
 确实|quèshí|副|4
+然而|rán’ér|连|4
 热闹|rènao|形·动·名|4
 人生|rénshēng|名|4
 人数|rénshù|名|4
@@ -1586,8 +1643,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 身份证|shēnfènzhèng|名|4
 申请|shēnqǐng|动|4
 甚至|shènzhì|连|4
+生|shēng|动·形·(副)|4
 生命|shēngmìng|名|4
 生意|shēngyi|名|4
+省|shěng|名|4
 剩|shèng|动|4
 失败|shībài|动·形|4
 师傅|shīfu|名|4
@@ -1595,12 +1654,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 师生|shīshēng|名|4
 失望|shīwàng|动·形|4
 十分|shífēn|副|4
+实际|shíjì|名·形|4
 时间表|shíjiānbiǎo|名|4
-实上|shíjìshàng|副|4
+实际上|shíjìshàng|副|4
 食品|shípǐn|名|4
 食堂|shítáng|名|4
 食物|shíwù|名|4
 实在|shízài|形·副|4
+十字路口|shízì lùkǒu||4
 使|shǐ|动|4
 使馆|shǐguǎn|名|4
 使用|shǐyòng|动|4
@@ -1623,7 +1684,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 售票员|shòupiàoyuán|名|4
 受伤|shòushāng|动|4
 输|shū|动|4
-熟|shú/shóu|形|4
+熟|shú|形|4
 熟悉|shúxi|动|4
 暑假|shǔjià|名|4
 数|shù|名·数|4
@@ -1698,6 +1759,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 外出|wàichū|动|4
 外套|wàitào|名|4
 完全|wánquán|形·副|4
+晚安|wǎn’ān|动|4
 晚餐|wǎncān|名|4
 网购|wǎnggòu|动|4
 往往|wǎngwǎng|副|4
@@ -1705,6 +1767,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 网友|wǎngyǒu|名|4
 网址|wǎngzhǐ|名|4
 危险|wēixiǎn|形·名|4
+为|wéi|动|4
 味|wèi|名|4
 味道|wèidào|名|4
 卫生|wèishēng|形·名|4
@@ -1871,6 +1934,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 证明|zhèngmíng|动·名|4
 正确|zhèngquè|形|4
 正式|zhèngshì|形|4
+之|zhī|助|4
 支持|zhīchí|动|4
 支付|zhīfù|动|4
 之后|zhīhòu|名|4
@@ -1892,6 +1956,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 中餐|zhōngcān|名|4
 中年|zhōngnián|名|4
 种|zhòng|动|4
+重|zhòng|名·形|4
 重点|zhòngdiǎn|名·副|4
 重视|zhòngshì|动|4
 周围|zhōuwéi|名|4
@@ -1903,6 +1968,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 专业|zhuānyè|名·形|4
 转|zhuǎn|动|4
 转发|zhuǎnfā|动|4
+转机|zhuǎnjī|动|4
 赚|zhuàn|动|4
 装|zhuāng|动|4
 准|zhǔn|形·(副)|4
@@ -1926,6 +1992,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 作家|zuòjiā|名|4
 做梦|zuòmèng|动|4
 作品|zuòpǐn|名|4
+作为|zuòwéi|动·介|4
 座位|zuòwèi|名|4
 作文|zuòwén|动·名|4
 作用|zuòyòng|名·(动)|4
@@ -1951,6 +2018,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 薄|báo|形|5
 宝|bǎo|名|5
 保|bǎo|动·名|5
+保安|bǎo’ān|动·名|5
 宝贝|bǎobèi|名|5
 保持|bǎochí|动|5
 保存|bǎocún|动|5
@@ -1968,6 +2036,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 背后|bèihòu|名|5
 背景|bèijǐng|名|5
 被子|bèizi|名|5
+本|běn|副·代|5
 本地|běndì|名|5
 本领|běnlǐng|名|5
 本人|běnrén|代|5
@@ -1993,6 +2062,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 表面|biǎomiàn|名|5
 表明|biǎomíng|动|5
 表情|biǎoqíng|名|5
+别|bié|动|5
 饼|bǐng|名|5
 病房|bìngfáng|名|5
 病情|bìngqíng|名|5
@@ -2009,6 +2079,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 不然|bùrán|连·(形)|5
 步行|bùxíng|动|5
 不足|bùzú|动·名|5
+才|cái|名|5
 裁判|cáipàn|动·名|5
 采访|cǎifǎng|动|5
 采取|cǎiqǔ|动|5
@@ -2057,6 +2128,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 彻底|chèdǐ|形|5
 沉|chén|动·形|5
 沉默|chénmò|动|5
+称|chēng|动|5
 称为|chēngwéi|动|5
 称赞|chēngzàn|动|5
 成本|chéngběn|名|5
@@ -2066,6 +2138,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 成果|chéngguǒ|名|5
 成就|chéngjiù|名·动|5
 成立|chénglì|动|5
+成年|chéngnián|动|5
 城区|chéngqū|名|5
 成人|chéngrén|动·名|5
 承认|chéngrèn|动|5
@@ -2104,6 +2177,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 处|chǔ|动|5
 处理|chǔlǐ|动|5
 处于|chǔyú|动|5
+处|chù|名|5
 传|chuán|动|5
 传播|chuánbō|动|5
 传递|chuándì|动|5
@@ -2121,6 +2195,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 此前|cǐqián|名|5
 此时|cǐshí|名|5
 刺激|cìjī|动·名|5
+从不|cóng bù||5
+从而|cóng’ér|连|5
 从前|cóngqián|名|5
 从事|cóngshì|动|5
 促进|cùjìn|动|5
@@ -2203,6 +2279,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 电商|diànshāng|名|5
 电视台|diànshìtái|名|5
 电子版|diànzǐbǎn|名|5
+调|diào|动|5
 调研|diàoyán|动|5
 定期|dìngqī|动·形|5
 丢失|diūshī|动|5
@@ -2249,6 +2326,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 番茄|fānqié|名|5
 繁荣|fánróng|形·动|5
 反|fǎn|形·动·副|5
+反而|fǎn’ér|副|5
 反复|fǎnfù|副·动·名|5
 返回|fǎnhuí|动|5
 反应|fǎnyìng|动·名|5
@@ -2256,6 +2334,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 反正|fǎnzhèng|副|5
 范围|fànwéi|名|5
 方|fāng|形·名|5
+方案|fāng’àn|名|5
 防|fáng|动|5
 房屋|fángwū|名|5
 防止|fángzhǐ|动|5
@@ -2274,6 +2353,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 分析|fēnxī|动|5
 分享|fēnxiǎng|动|5
 奋斗|fèndòu|动|5
+丰富多彩|fēngfù-duōcǎi||5
 风格|fēnggé|名|5
 疯狂|fēngkuáng|形|5
 风俗|fēngsú|名|5
@@ -2284,6 +2364,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 扶|fú|动|5
 福|fú|名|5
 服装|fúzhuāng|名|5
+副|fù|量|5
 富|fù|形|5
 付出|fùchū|动|5
 负担|fùdān|动·名|5
@@ -2313,6 +2394,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 隔|gé|动|5
 格外|géwài|副|5
 个别|gèbié|副·形|5
+各行各业|gèháng-gèyè||5
 个人|gèrén|名|5
 个性|gèxìng|名|5
 各自|gèzì|代|5
@@ -2372,6 +2454,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 过敏|guòmǐn|动|5
 过期|guòqī|动|5
 过于|guòyú|副|5
+哈|hā|拟声·叹|5
 海关|hǎiguān|名|5
 海外|hǎiwài|名|5
 海鲜|hǎixiān|名|5
@@ -2529,6 +2612,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 近代|jìndài|名|5
 进口|jìnkǒu|动|5
 尽力|jìnlì|动|5
+近年来|jìnnián lái||5
 近期|jìnqī|名|5
 近日|jìnrì|名|5
 进一步|jìnyíbù|副|5
@@ -2627,6 +2711,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 连忙|liánmáng|副|5
 连续|liánxù|动|5
 脸色|liǎnsè|名|5
+恋爱|liàn’ài|动·名|5
 良好|liánghǎo|形|5
 粮食|liángshi|名|5
 量|liàng|名|5
@@ -2677,6 +2762,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 秘密|mìmì|形·名|5
 密切|mìqiè|形·动|5
 秘书|mìshū|名|5
+面|miàn|名|5
 面积|miànjī|名|5
 面临|miànlín|动|5
 面向|miànxiàng|动|5
@@ -2688,6 +2774,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 明确|míngquè|形·动|5
 明显|míngxiǎn|形|5
 明星|míngxīng|名|5
+命|mìng|名|5
 命运|mìngyùn|名|5
 摸|mō|动|5
 模糊|móhu|形·动|5
@@ -2716,6 +2803,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 农业|nóngyè|名|5
 女子|nǚzǐ|名|5
 哦|ò|叹|5
+欧洲|Ōuzhōu|名|5
 偶然|ǒurán|形|5
 拍摄|pāishè|动|5
 排列|páiliè|动|5
@@ -2732,6 +2820,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 盆|pén|名|5
 碰|pèng|动|5
 碰见|pèngjiàn|动|5
+批|pī|量·动|5
 批准|pīzhǔn|动|5
 匹|pǐ|量|5
 骗|piàn|动|5
@@ -2745,6 +2834,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 平|píng|形·(动)|5
 评|píng|动|5
 凭|píng|动·介|5
+平安|píng’ān|形|5
 平衡|pínghéng|形·动|5
 评价|píngjià|动·名|5
 凭借|píngjiè|动|5
@@ -2763,6 +2853,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 企业|qǐyè|名|5
 气球|qìqiú|名|5
 汽油|qìyóu|名|5
+签|qiān|动|5
 签订|qiāndìng|动|5
 签名|qiānmíng|动·名|5
 签字|qiānzì|动·名|5
@@ -2782,6 +2873,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 悄悄|qiāoqiāo|副|5
 切|qiē|动|5
 亲|qīn|形·动|5
+亲爱|qīn’ài|形|5
+亲朋好友|qīnpéng-hǎoyǒu||5
 亲切|qīnqiè|形|5
 亲情|qīnqíng|名|5
 亲人|qīnrén|名|5
@@ -2814,11 +2907,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 群体|qúntǐ|名|5
 燃烧|ránshāo|动|5
 绕|rào|动|5
+热爱|rè’ài|动|5
 热量|rèliàng|名|5
 热烈|rèliè|形|5
 热心|rèxīn|形|5
 人才|réncái|名|5
 人工|réngōng|形·名|5
+人际|rénjì|形|5
 人口|rénkǒu|名|5
 人类|rénlèi|名|5
 人力|rénlì|名|5
@@ -2888,6 +2983,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 深远|shēnyuǎn|形|5
 神话|shénhuà|名|5
 神秘|shénmì|形|5
+升|shēng|动|5
 生产|shēngchǎn|动|5
 生存|shēngcún|动|5
 生动|shēngdòng|形|5
@@ -2896,6 +2992,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 生物|shēngwù|名|5
 生肖|shēngxiào|名|5
 生长|shēngzhǎng|动|5
+省|shěng|动|5
 省份|shěngfèn|名|5
 省会|shěnghuì|名|5
 胜|shèng|动|5
@@ -2984,6 +3081,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 搜|sōu|动|5
 搜索|sōusuǒ|动|5
 宿舍|sùshè|名|5
+酸甜苦辣|suān-tián-kǔ-là||5
 随|suí|动|5
 随后|suíhòu|副|5
 随时|suíshí|副|5
@@ -2994,6 +3092,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 损失|sǔnshī|动·名|5
 缩短|suōduǎn|动|5
 缩小|suōxiǎo|动|5
+所|suǒ|量·名|5
 锁|suǒ|名·动|5
 他人|tārén|代|5
 台灯|táidēng|名|5
@@ -3079,6 +3178,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 微笑|wēixiào|动·名|5
 威胁|wēixié|动|5
 围|wéi|动|5
+为|wéi|介|5
 维持|wéichí|动|5
 违法|wéifǎ|动|5
 违反|wéifǎn|动|5
@@ -3089,6 +3189,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 尾巴|wěiba|名|5
 伟大|wěidà|形|5
 胃|wèi|名|5
+喂|wèi|动|5
 未来|wèilái|形·名|5
 位于|wèiyú|动|5
 位置|wèizhì|名|5
@@ -3107,6 +3208,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 舞蹈|wǔdǎo|名|5
 武术|wǔshù|名|5
 舞台|wǔtái|名|5
+五颜六色|wǔyán-liùsè||5
 雾|wù|名|5
 物价|wùjià|名|5
 物理|wùlǐ|名|5
@@ -3118,6 +3220,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 吸收|xīshōu|动|5
 西装|xīzhuāng|名|5
 戏|xì|名|5
+系|xì|名|5
 细节|xìjié|名|5
 戏剧|xìjù|名|5
 系统|xìtǒng|名·形|5
@@ -3249,6 +3352,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 移动|yídòng|动|5
 遗憾|yíhàn|名·形|5
 一路|yílù|名·副|5
+一路顺风|yílù-shùnfēng||5
 疑问|yíwèn|名|5
 一致|yízhì|形·副|5
 乙|yǐ|名|5
@@ -3261,6 +3365,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 意味着|yìwèizhe|动|5
 义务|yìwù|名·形|5
 意义|yìyì|名|5
+因而|yīn’ér|连|5
 音量|yīnliàng|名|5
 因素|yīnsù|名|5
 引进|yǐnjìn|动|5
@@ -3291,17 +3396,20 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 优美|yōuměi|形|5
 优势|yōushì|名|5
 优质|yōuzhì|形|5
+由此|yóu cǐ||5
 邮寄|yóujì|动|5
 邮局|yóujú|名|5
 游览|yóulǎn|动|5
 邮票|yóupiào|名|5
 油条|yóutiáo|名|5
 犹豫|yóuyù|形|5
+有害|yǒu hài||5
 有力|yǒulì|形|5
 有利|yǒulì|形|5
 有限|yǒuxiàn|形|5
 有益|yǒuyì|形|5
 有助于|yǒuzhùyú|动|5
+幼儿园|yòu’éryuán|名|5
 娱乐|yúlè|动·名|5
 语气|yǔqì|名|5
 雨水|yǔshuǐ|名|5
@@ -3316,6 +3424,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 预约|yùyuē|动|5
 原|yuán|形|5
 圆|yuán|名·形|5
+原有|yuán yǒu||5
 元旦|Yuándàn|名|5
 员工|yuángōng|名|5
 原则|yuánzé|名|5
@@ -3384,6 +3493,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 正如|zhèngrú|动|5
 证书|zhèngshū|名|5
 政治|zhèngzhì|名|5
+支|zhī|量|5
 知名|zhīmíng|形|5
 直|zhí|形·动·副|5
 直播|zhíbō|动|5
@@ -3405,6 +3515,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 制造|zhìzào|动|5
 制作|zhìzuò|动|5
 中华|Zhōnghuá|名|5
+中华民族|Zhōnghuá Mínzú||5
 中级|zhōngjí|形|5
 中介|zhōngjiè|名|5
 中期|zhōngqī|名|5
@@ -3550,6 +3661,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 博览会|bólǎnhuì|名|6
 薄弱|bóruò|形|6
 脖子|bózi|名|6
+不耐烦|bú nàifán||6
 不顾|búgù|动|6
 不料|búliào|连|6
 不适|búshì|形|6
@@ -3561,6 +3673,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 补贴|bǔtiē|动·名|6
 补习|bǔxí|动|6
 布|bù|名|6
+不安|bù’ān|形|6
 不曾|bùcéng|副|6
 不成|bùchéng|动·形·助|6
 不得|bùdé|动|6
@@ -3638,11 +3751,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 称呼|chēnghu|动·名|6
 称作|chēngzuò|动|6
 成|chéng|量|6
+乘|chéng|动|6
 盛|chéng|动|6
 承办|chéngbàn|动|6
 惩罚|chéngfá|动|6
 成交|chéngjiāo|动|6
 承诺|chéngnuò|动|6
+成千上万|chéngqiān-shàngwàn||6
 呈现|chéngxiàn|动|6
 成效|chéngxiào|名|6
 诚信|chéngxìn|形|6
@@ -3715,6 +3830,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 搭|dā|动|6
 搭配|dāpèi|动·形|6
 答复|dáfù|动|6
+打交道|dǎ jiāodao||6
 打动|dǎdòng|动|6
 打击|dǎjī|动|6
 打架|dǎjià|动|6
@@ -3723,6 +3839,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 打造|dǎzào|动|6
 打仗|dǎzhàng|动|6
 大臣|dàchén|名|6
+大吃一惊|dàchī-yìjīng||6
 大地|dàdì|名|6
 大都|dàdū|副|6
 大方|dàfang|形|6
@@ -3751,6 +3868,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 当面|dāngmiàn|副|6
 当下|dāngxià|名·副|6
 当选|dāngxuǎn|动|6
+档案|dàng’àn|名|6
 当天|dàngtiān|名|6
 岛|dǎo|名|6
 倒闭|dǎobì|动|6
@@ -3812,6 +3930,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 对应|duìyìng|动·形|6
 蹲|dūn|动|6
 顿时|dùnshí|副|6
+多才多艺|duōcái-duōyì||6
 多亏|duōkuī|动|6
 多媒体|duōméitǐ|名|6
 多余|duōyú|动·形|6
@@ -3847,6 +3966,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 方方面面|fāngfāngmiànmiàn|名|6
 方位|fāngwèi|名|6
 方言|fāngyán|名|6
+妨碍|fáng’ài|动|6
 房价|fángjià|名|6
 防治|fángzhì|动|6
 访谈|fǎngtán|动|6
@@ -3881,11 +4001,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 服用|fúyòng|动|6
 辅导|fǔdǎo|动|6
 辅助|fǔzhù|动·形|6
+副|fù|形|6
 覆盖|fùgài|动|6
 附件|fùjiàn|名|6
 负面|fùmiàn|形|6
 富裕|fùyù|形·动|6
 赋予|fùyǔ|动|6
+该|gāi|代|6
 改编|gǎibiān|动|6
 改造|gǎizào|动|6
 概率|gàilǜ|名|6
@@ -3909,6 +4031,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 高峰|gāofēng|名|6
 高尚|gāoshàng|形|6
 高手|gāoshǒu|名|6
+高新技术|gāoxīn-jìshù||6
 高原|gāoyuán|名|6
 稿件|gǎojiàn|名|6
 稿子|gǎozi|名|6
@@ -3923,6 +4046,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 跟踪|gēnzōng|动|6
 公|gōng|形|6
 宫|gōng|名|6
+公安|gōng’ān|名|6
 工地|gōngdì|名|6
 工夫|gōngfu|名|6
 公告|gōnggào|动·名|6
@@ -3959,6 +4083,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 拐|guǎi|动|6
 拐弯|guǎiwān|动|6
 官|guān|名|6
+关爱|guān’ài|动|6
 官方|guānfāng|名|6
 观光|guānguāng|动|6
 关怀|guānhuái|动|6
@@ -3986,6 +4111,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 过渡|guòdù|动|6
 过后|guòhòu|名|6
 过时|guòshí|动·形|6
+海内外|hǎi nèiwài||6
+海岸|hǎi’àn|名|6
 海拔|hǎibá|名|6
 海面|hǎimiàn|名|6
 海域|hǎiyù|名|6
@@ -3995,6 +4122,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 罕见|hǎnjiàn|形|6
 旱灾|hànzāi|名|6
 航空|hángkōng|动|6
+毫不|háo bù||6
+毫无|háowú||6
 毫米|háomǐ|量|6
 毫升|háoshēng|量|6
 好不|hǎobù|副|6
@@ -4009,6 +4138,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 和谐|héxié|形|6
 核心|héxīn|名|6
 嘿|hēi|叹|6
+黑暗|hēi’àn|形|6
 痕迹|hénjì|名|6
 狠|hěn|形·动·副|6
 恨|hèn|动|6
@@ -4070,6 +4200,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 击败|jībài|动|6
 基地|jīdì|名|6
 机动车|jīdòngchē|名|6
+饥饿|jī’è|形|6
 激发|jīfā|动|6
 基金|jījīn|名|6
 激励|jīlì|动|6
@@ -4135,6 +4266,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 酱油|jiàngyóu|名|6
 胶带|jiāodài|名|6
 焦点|jiāodiǎn|名|6
+交际|jiāojì|动|6
 焦虑|jiāolǜ|形|6
 胶水|jiāoshuǐ|名|6
 交谈|jiāotán|动|6
@@ -4162,12 +4294,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 借鉴|jièjiàn|动|6
 戒指|jièzhi|名|6
 借助|jièzhù|动|6
+金额|jīn’é|名|6
 金牌|jīnpái|名|6
 金钱|jīnqián|名|6
 金融|jīnróng|名|6
 金属|jīnshǔ|名|6
 金子|jīnzi|名|6
 尽|jìn|动·(副)|6
+进而|jìn’ér|连|6
 进度|jìndù|名|6
 进化|jìnhuà|动|6
 近来|jìnlái|名|6
@@ -4201,6 +4335,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 救援|jiùyuán|动|6
 救灾|jiùzāi|动|6
 救助|jiùzhù|动|6
+局|jú|量·名|6
 菊花|júhuā|名|6
 局面|júmiàn|名|6
 局限|júxiàn|动|6
@@ -4212,6 +4347,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 捐款|juānkuǎn|动·名|6
 捐赠|juānzèng|动|6
 卷|juǎn|动·名·量|6
+卷|juàn|量·名|6
 决策|juécè|动·名|6
 绝望|juéwàng|动|6
 军队|jūnduì|名|6
@@ -4304,8 +4440,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 联网|liánwǎng|动|6
 联想|liánxiǎng|动|6
 链接|liànjiē|动|6
+两岸|liǎng’àn|名|6
 两极|liǎngjí|名|6
 晾|liàng|动|6
+料|liào|名·动|6
 淋|lín|动|6
 凌晨|língchén|名|6
 流程|liúchéng|名|6
@@ -4317,6 +4455,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 楼道|lóudào|名|6
 露|lòu|动|6
 漏洞|lòudòng|名|6
+露|lù|动|6
 路程|lùchéng|名|6
 路况|lùkuàng|名|6
 路面|lùmiàn|名|6
@@ -4377,6 +4516,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 民宿|mínsù|名|6
 民众|mínzhòng|名|6
 民主|mínzhǔ|名·形|6
+名额|míng’é|名|6
 明亮|míngliàng|形|6
 明明|míngmíng|副|6
 名气|míngqi|名|6
@@ -4485,6 +4625,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 恰好|qiàhǎo|副|6
 恰恰|qiàqià|副|6
 牵|qiān|动|6
+千家万户|qiānjiā-wànhù||6
 谦虚|qiānxū|形·动|6
 前景|qiánjǐng|名|6
 潜力|qiánlì|名|6
@@ -4545,8 +4686,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 热水器|rèshuǐqì|名|6
 热线|rèxiàn|名|6
 热议|rèyì|动|6
+人工智能|réngōng zhìnéng||6
 人家|rénjia|代|6
 人均|rénjūn|动|6
+人山人海|rénshān-rénhǎi||6
 人士|rénshì|名|6
 人事|rénshì|名|6
 人为|rénwéi|形|6
@@ -4577,6 +4720,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 赛事|sàishì|名|6
 散|sǎn|动|6
 散文|sǎnwén|名|6
+散|sàn|动|6
 散发|sànfā|动|6
 嗓子|sǎngzi|名|6
 丧失|sàngshī|动|6
@@ -4602,6 +4746,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 上述|shàngshù|形|6
 上台|shàngtái|动|6
 上旬|shàngxún|名|6
+少儿|shào’ér|名|6
 舌头|shétou|名|6
 社|shè|名|6
 射|shè|动|6
@@ -4616,6 +4761,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 神经|shénjīng|名|6
 神奇|shénqí|形|6
 审美|shěnměi|动|6
+升|shēng|量|6
 生成|shēngchéng|动|6
 声调|shēngdiào|名|6
 生命力|shēngmìnglì|名|6
@@ -4700,6 +4846,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 岁月|suìyuè|名|6
 损坏|sǔnhuài|动|6
 损伤|sǔnshāng|动|6
+所|suǒ|助|6
 踏实|tāshi|形|6
 塔|tǎ|名|6
 台风|táifēng|名|6
@@ -4773,12 +4920,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 透明|tòumíng|形|6
 突发|tūfā|动|6
 突破|tūpò|动|6
+图案|tú’àn|名|6
 图表|túbiǎo|名|6
 徒弟|túdì|名|6
 途径|tújìng|名|6
 图像|túxiàng|名|6
 吐|tǔ|动|6
 土壤|tǔrǎng|名|6
+吐|tù|动|6
 团结|tuánjié|动·形|6
 团体|tuántǐ|名|6
 团圆|tuányuán|动|6
@@ -4791,6 +4940,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 拖延|tuōyán|动|6
 托运|tuōyùn|动|6
 挖|wā|动|6
+哇|wā|拟声|6
 娃娃|wáwa|名|6
 歪|wāi|形|6
 外表|wàibiǎo|名|6
@@ -4856,6 +5006,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 戏曲|xìqǔ|名|6
 细致|xìzhì|形|6
 吓|xià|动|6
+下功夫|xià gōngfu||6
 下单|xiàdān|动|6
 夏令营|xiàlìngyíng|名|6
 下线|xiàxiàn|动|6
@@ -4901,6 +5052,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 协会|xiéhuì|名|6
 协调|xiétiáo|形·动|6
 协助|xiézhù|动|6
+心爱|xīn’ài|形|6
 心底|xīndǐ|名|6
 新款|xīnkuǎn|名|6
 心灵|xīnlíng|名|6
@@ -4979,6 +5131,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 依旧|yījiù|动·副|6
 依赖|yīlài|动|6
 一流|yīliú|形|6
+衣食住行|yī-shí-zhù-xíng||6
 医药|yīyào|名|6
 一一|yīyī|副|6
 姨|yí|名|6
@@ -5003,8 +5156,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 以往|yǐwǎng|名|6
 异常|yìcháng|形·副|6
 益处|yìchù|名|6
+一帆风顺|yìfān-fēngshùn||6
 一口气|yìkǒuqì|副|6
 议论|yìlùn|动·名|6
+一模一样|yìmú-yíyàng||6
 艺人|yìrén|名|6
 一身|yìshēn|名|6
 一时|yìshí|名·副|6
@@ -5023,6 +5178,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 隐私|yǐnsī|名|6
 饮用水|yǐnyòngshuǐ|名|6
 印|yìn|名·动|6
+婴儿|yīng’ér|名|6
 英雄|yīngxióng|名|6
 影子|yǐngzi|名|6
 拥挤|yōngjǐ|动·形|6
@@ -5043,6 +5199,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 有劲|yǒujìn|动·形|6
 有序|yǒuxù|形|6
 于|yú|介|6
+余额|yú’é|名|6
 与其|yǔqí|连|6
 羽绒服|yǔróngfú|名|6
 预定|yùdìng|动|6
@@ -5088,6 +5245,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 遭遇|zāoyù|动·名|6
 噪声|zàoshēng|名|6
 造型|zàoxíng|动·名|6
+则|zé|连·(助)|6
 扎|zhā|动|6
 炸|zhà|动|6
 粘|zhān|动|6
@@ -5101,6 +5259,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 战争|zhànzhēng|名|6
 章|zhāng|量|6
 长辈|zhǎngbèi|名|6
+障碍|zhàng’ài|名·动|6
 账单|zhàngdān|名|6
 招|zhāo|动|6
 招待|zhāodài|动|6
@@ -5127,6 +5286,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 证实|zhèngshí|动|6
 正义|zhèngyì|名·形|6
 症状|zhèngzhuàng|名|6
+支|zhī|动|6
 枝|zhī|名·量|6
 支撑|zhīchēng|动|6
 支出|zhīchū|动·名|6
@@ -5145,6 +5305,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 指示|zhǐshì|动·名|6
 指责|zhǐzé|动|6
 制|zhì|动|6
+至关重要|zhìguān-zhòngyào||6
 智力|zhìlì|名|6
 治理|zhìlǐ|动|6
 制品|zhìpǐn|名|6
@@ -5165,6 +5326,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 中奖|zhòngjiǎng|动|6
 众人|zhòngrén|名|6
 中暑|zhòngshǔ|名·动|6
+众所周知|zhòngsuǒzhōuzhī||6
 重心|zhòngxīn|名|6
 州|zhōu|名|6
 粥|zhōu|名|6
@@ -5213,6 +5375,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 字幕|zìmù|名|6
 自杀|zìshā|动|6
 自我|zìwǒ|代|6
+自言自语|zìyán-zìyǔ||6
 自愿|zìyuàn|动|6
 自助|zìzhù|动|6
 棕色|zōngsè|名|6
@@ -5224,15 +5387,19 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 走廊|zǒuláng|名|6
 足|zú|形·副|6
 足以|zúyǐ|动|6
+阻碍|zǔ’ài|动·名|6
 阻挡|zǔdǎng|动|6
 祖国|zǔguó|名|6
 祖先|zǔxiān|名|6
 钻|zuān|动|6
 罪|zuì|名|6
 挨|āi|动·介|7
+挨家挨户|āijiā-āihù||7
 哀求|āiqiú|动|7
+挨|ái|动|7
 癌|ái|名|7
 癌症|áizhèng|名|7
+爱不释手|àibúshìshǒu||7
 爱戴|àidài|动|7
 暧昧|àimèi|形|7
 爱慕|àimù|动|7
@@ -5284,6 +5451,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 摆动|bǎidòng|动|7
 百分比|bǎifēnbǐ|名|7
 百合|bǎihé|名|7
+百科全书|bǎikēquánshū||7
 摆平|bǎipíng|动|7
 摆设|bǎishe|名|7
 柏树|bǎishù|名|7
@@ -5312,6 +5480,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 伴侣|bànlǚ|名|7
 办事处|bànshìchù|名|7
 半数|bànshù|名|7
+半途而废|bàntú’érfèi||7
+半信半疑|bànxìn-bànyí||7
 办学|bànxué|动|7
 伴奏|bànzòu|动|7
 帮手|bāngshou|名|7
@@ -5323,10 +5493,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 包庇|bāobì|动|7
 褒贬|bāobiǎn|动|7
 包袱|bāofu|名|7
+包罗万象|bāoluó-wànxiàng||7
 包容|bāoróng|动|7
 包围|bāowéi|动|7
 包扎|bāozā|动|7
 饱和|bǎohé|动|7
+饱经沧桑|bǎojīng-cāngsāng||7
 宝库|bǎokù|名|7
 堡垒|bǎolěi|名|7
 饱满|bǎomǎn|形|7
@@ -5342,10 +5514,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 保重|bǎozhòng|动|7
 报|bào|动|7
 豹|bào|名|7
+报案|bào’àn|动|7
 报酬|bàochou|名|7
 报仇|bàochóu|动|7
 报答|bàodá|动|7
 报废|bàofèi|动|7
+暴风骤雨|bàofēng-zhòuyǔ||7
 报复|bàofù|动|7
 抱负|bàofù|名|7
 曝光|bàoguāng|动|7
@@ -5355,9 +5529,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 暴躁|bàozào|形|7
 爆竹|bàozhú|名|7
 碑|bēi|名|7
+悲哀|bēi’āi|形|7
 卑鄙|bēibǐ|形|7
 悲惨|bēicǎn|形|7
 背负|bēifù|动|7
+悲欢离合|bēihuān-líhé||7
 悲痛|bēitòng|形|7
 卑微|bēiwēi|形|7
 备|bèi|动·副|7
@@ -5394,10 +5570,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 逼迫|bīpò|动|7
 逼真|bīzhēn|形|7
 鼻涕|bítì|名|7
+比比皆是|bǐbǐ-jiēshì||7
 笔墨|bǐmò|名|7
 比试|bǐshi|动|7
 鄙视|bǐshì|动|7
 弊病|bìbìng|名|7
+必不可少|bìbùkěshǎo||7
 必定|bìdìng|副|7
 弊端|bìduān|名|7
 壁画|bìhuà|名|7
@@ -5434,6 +5612,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 变故|biàngù|名|7
 辩护|biànhù|动|7
 变换|biànhuàn|动|7
+变幻莫测|biànhuàn-mòcè||7
 辩解|biànjiě|动|7
 辩论|biànlùn|动|7
 变迁|biànqiān|动|7
@@ -5462,16 +5641,20 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 表态|biǎotài|动|7
 表彰|biǎozhāng|动|7
 憋|biē|动·形|7
+别具匠心|biéjù-jiàngxīn||7
 别看|biékàn|连|7
 别墅|biéshù|名|7
 别说|biéshuō|连|7
 别致|biézhì|形|7
 别扭|bièniu|形|7
+彬彬有礼|bīnbīn-yǒulǐ||7
 缤纷|bīnfēn|形|7
 濒临|bīnlín|动|7
 濒危|bīnwēi|动|7
 冰雹|bīngbáo|名|7
 冰棍儿|bīnggùnr|名|7
+冰山一角|bīngshān-yìjiǎo||7
+冰天雪地|bīngtiān-xuědì||7
 丙|bǐng|名|7
 秉承|bǐngchéng|动|7
 秉持|bǐngchí|动|7
@@ -5494,12 +5677,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 剥削|bōxuē|动|7
 波折|bōzhé|名|7
 伯伯|bóbo|名|7
+博大精深|bódà-jīngshēn||7
 搏斗|bódòu|动|7
 伯父|bófù|名|7
 驳回|bóhuí|动|7
 伯母|bómǔ|名|7
 博学|bóxué|形|7
 博弈|bóyì|动|7
+不算|bú suàn||7
 不当|búdàng|形|7
 不定|búdìng|形·副|7
 不动产|búdòngchǎn|名|7
@@ -5513,7 +5698,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 不肖|búxiào|形|7
 不屑|búxiè|动|7
 不懈|búxiè|形|7
+不厌其烦|búyàn-qífán||7
 不亚于|búyàyú|动|7
+不翼而飞|búyì’érfēi||7
+不亦乐乎|búyìlèhū||7
+不正之风|búzhèngzhīfēng||7
 捕获|bǔhuò|动|7
 补给|bǔjǐ|动·名|7
 补救|bǔjiù|动|7
@@ -5522,6 +5711,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 哺育|bǔyù|动|7
 补助|bǔzhù|动·名|7
 捕捉|bǔzhuō|动|7
+不经意|bù jīngyì||7
+不予|bù yǔ||7
+不准|bù zhǔn||7
+不耻下问|bùchǐ-xiàwèn||7
+不辞而别|bùcí’érbié||7
+不得而知|bùdé’érzhī||7
 不得已|bùdéyǐ|形|7
 不乏|bùfá|动|7
 步伐|bùfá|名|7
@@ -5531,10 +5726,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 不敢当|bùgǎndāng|动|7
 不及|bùjí|动|7
 部件|bùjiàn|名|7
+不假思索|bùjiǎ-sīsuǒ||7
 不解|bùjiě|动|7
 不景气|bùjǐngqì|形|7
 布局|bùjú|动·名|7
 不堪|bùkān|动·形|7
+不可或缺|bùkě-huòquē||7
+不可思议|bùkě-sīyì||7
+不了了之|bùliǎo-liǎozhī||7
 不免|bùmiǎn|副|7
 不平|bùpíng|形|7
 不容|bùróng|动|7
@@ -5542,7 +5741,15 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 部首|bùshǒu|名|7
 部署|bùshǔ|动|7
 不惜|bùxī|动|7
+不相上下|bùxiāng-shàngxià||7
+不言而喻|bùyán’éryù||7
+不以为然|bùyǐwéirán||7
 不由得|bùyóude|动·副|7
+不由自主|bùyóuzìzhǔ||7
+不约而同|bùyuē’értóng||7
+不折不扣|bùzhé-búkòu||7
+不知不觉|bùzhī-bùjué||7
+不知所措|bùzhī-suǒcuò||7
 猜想|cāixiǎng|动|7
 裁|cái|动|7
 裁定|cáidìng|动|7
@@ -5585,6 +5792,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 操心|cāoxīn|动|7
 操纵|cāozòng|动|7
 嘈杂|cáozá|形|7
+草案|cǎo’àn|名|7
 草丛|cǎocóng|名|7
 草坪|cǎopíng|名|7
 草率|cǎoshuài|形|7
@@ -5594,8 +5802,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 测算|cèsuàn|动|7
 测验|cèyàn|动·名|7
 侧重|cèzhòng|动|7
+层出不穷|céngchū-bùqióng||7
 蹭|cèng|动|7
 差错|chācuò|名|7
+差额|chā’é|名·形|7
 插曲|chāqǔ|名|7
 插手|chāshǒu|动|7
 插图|chātú|名|7
@@ -5627,6 +5837,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 昌盛|chāngshèng|形|7
 偿还|chánghuán|动|7
 常理|chánglǐ|名|7
+长期以来|chángqī yǐlái||7
 常人|chángrén|名|7
 常态|chángtài|名|7
 长效|chángxiào|名·形|7
@@ -5666,17 +5877,21 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 沉着|chénzhuó|形|7
 趁机|chènjī|副|7
 衬托|chèntuō|动|7
+称心如意|chènxīn-rúyì||7
 趁早|chènzǎo|副|7
 呈|chéng|动|7
 承包|chéngbāo|动|7
 成才|chéngcái|动|7
 成家|chéngjiā|动|7
+成家立业|chéngjiā-lìyè||7
 承接|chéngjiē|动|7
 诚恳|chéngkěn|形|7
+成年|chéngnián|副|7
 成品|chéngpǐn|名|7
 城墙|chéngqiáng|名|7
 澄清|chéngqīng|形·动|7
 成全|chéngquán|动|7
+成群结队|chéngqún-jiéduì||7
 成天|chéngtiān|副|7
 成心|chéngxīn|副|7
 成型|chéngxíng|动|7
@@ -5686,6 +5901,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 逞强|chěngqiáng|动|7
 秤|chèng|名|7
 痴呆|chīdāi|形|7
+吃喝玩乐|chī-hē-wán-lè||7
 吃苦|chīkǔ|动|7
 吃亏|chīkuī|动|7
 吃力|chīlì|形|7
@@ -5700,6 +5916,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 池塘|chítáng|名|7
 迟疑|chíyí|形|7
 迟早|chízǎo|副|7
+持之以恒|chízhī-yǐhéng||7
 尺度|chǐdù|名|7
 耻辱|chǐrǔ|名|7
 耻笑|chǐxiào|动|7
@@ -5726,6 +5943,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 重现|chóngxiàn|动|7
 重组|chóngzǔ|动|7
 宠|chǒng|动|7
+宠爱|chǒng’ài|动|7
 抽查|chōuchá|动|7
 抽签|chōuqiān|动|7
 抽屉|chōuti|名|7
@@ -5739,9 +5957,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 筹划|chóuhuà|动|7
 筹集|chóují|动|7
 筹码|chóumǎ|名|7
+愁眉苦脸|chóuméi-kǔliǎn||7
 稠密|chóumì|形|7
 仇人|chóurén|名|7
 瞅|chǒu|动|7
+丑恶|chǒu’è|形|7
 丑陋|chǒulòu|形|7
 丑闻|chǒuwén|名|7
 出厂|chūchǎng|动|7
@@ -5751,10 +5971,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 出访|chūfǎng|动|7
 出局|chūjú|动|7
 出具|chūjù|动|7
+出口成章|chūkǒu-chéngzhāng||7
 出路|chūlù|名|7
 出卖|chūmài|动|7
 出面|chūmiàn|动|7
 出任|chūrèn|动|7
+出人意料|chūrényìliào||7
 出神|chūshén|动|7
 出身|chūshēn|动·名|7
 出手|chūshǒu|动·名|7
@@ -5783,10 +6005,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 触觉|chùjué|名|7
 矗立|chùlì|动|7
 触摸|chùmō|动|7
+触目惊心|chùmù-jīngxīn||7
 揣|chuāi|动|7
 揣测|chuǎicè|动|7
 揣摩|chuǎimó|动|7
 踹|chuài|动|7
+川流不息|chuānliú-bùxī||7
 穿梭|chuānsuō|动|7
 穿越|chuānyuè|动|7
 穿着|chuānzhuó|名|7
@@ -5811,6 +6035,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 垂|chuí|动|7
 捶|chuí|动|7
 锤|chuí|名·动|7
+垂头丧气|chuítóu-sàngqì||7
 纯粹|chúncuì|形·副|7
 醇厚|chúnhòu|形|7
 纯洁|chúnjié|形·动|7
@@ -5828,8 +6053,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 辞退|cítuì|动|7
 慈祥|cíxiáng|形|7
 雌性|cíxìng|名|7
+此起彼伏|cǐqǐ-bǐfú||7
 此致|cǐzhì|动|7
 赐|cì|动|7
+刺耳|cì’ěr|形|7
 刺骨|cìgǔ|动|7
 伺候|cìhou|动|7
 赐教|cìjiào|动|7
@@ -5843,6 +6070,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 丛|cóng|量|7
 丛林|cónglín|名|7
 从容|cóngróng|形|7
+从容不迫|cóngróng-búpò||7
 从头|cóngtóu|副|7
 凑|còu|动|7
 凑合|còuhe|动|7
@@ -5851,6 +6079,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 粗糙|cūcāo|形|7
 粗鲁|cūlǔ|形|7
 粗略|cūlüè|形|7
+粗心大意|cūxīn-dàyì||7
 促成|cùchéng|动|7
 簇拥|cùyōng|动|7
 窜|cuàn|动|7
@@ -5869,12 +6098,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 挫败|cuòbài|动|7
 错别字|cuòbiézì|名|7
 错觉|cuòjué|名|7
+措手不及|cuòshǒu-bùjí||7
 错位|cuòwèi|动|7
+错综复杂|cuòzōng-fùzá||7
 搭乘|dāchéng|动|7
 搭档|dādàng|动·名|7
 搭建|dājiàn|动|7
 答辩|dábiàn|动|7
 达标|dábiāo|动|7
+打|dǎ|介|7
+打喷嚏|dǎ pēntì||7
+打下手|dǎ xiàshǒu||7
 打岔|dǎchà|动|7
 打倒|dǎdǎo|动|7
 打赌|dǎdǔ|动|7
@@ -5889,16 +6123,23 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 大不了|dàbuliǎo|形·副|7
 大大咧咧|dàdaliēliē|形|7
 大纲|dàgāng|名|7
+大公无私|dàgōng-wúsī||7
+大街小巷|dàjiē-xiǎoxiàng||7
+大惊小怪|dàjīng-xiǎoguài||7
 大局|dàjú|名|7
 大陆|dàlù|名|7
+大名鼎鼎|dàmíng-dǐngdǐng||7
 大片|dàpiàn|名|7
 大气|dàqì|名·形|7
 大数据|dàshùjù|名|7
 大肆|dàsì|副|7
 大体|dàtǐ|名·副|7
+大同小异|dàtóng-xiǎoyì||7
 大为|dàwéi|副|7
 大雁|dàyàn|名|7
 大意|dàyi|形|7
+大意|dàyì|名|7
+大有可为|dàyǒu-kěwéi||7
 大宗|dàzōng|形·名|7
 逮|dǎi|动|7
 歹徒|dǎitú|名|7
@@ -5924,6 +6165,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 胆量|dǎnliàng|名|7
 胆怯|dǎnqiè|形|7
 胆小鬼|dǎnxiǎoguǐ|名|7
+担|dàn|名·量|7
 诞辰|dànchén|名|7
 淡化|dànhuà|动|7
 淡季|dànjì|名|7
@@ -5931,9 +6173,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 但愿|dànyuàn|动|7
 担子|dànzi|名|7
 当即|dāngjí|副|7
+当机立断|dāngjī-lìduàn||7
 当日|dāngrì|名|7
 当事人|dāngshìrén|名|7
+当务之急|dāngwùzhījí||7
 当心|dāngxīn|动|7
+当之无愧|dāngzhīwúkuì||7
 当众|dāngzhòng|副|7
 党|dǎng|名|7
 档次|dàngcì|名|7
@@ -5960,12 +6205,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 到头来|dàotóulái|副|7
 倒退|dàotuì|动|7
 到位|dàowèi|动·形|7
+得不偿失|débùchángshī||7
+德才兼备|décái-jiānbèi||7
 得当|dédàng|形|7
 得力|délì|形|7
 得失|déshī|名|7
 得手|déshǒu|形|7
 得体|détǐ|形|7
+得天独厚|détiāndúhòu||7
+得心应手|déxīn-yìngshǒu||7
 得益|déyì|动|7
+得意扬扬|déyì-yángyáng||7
 得罪|dézuì|动|7
 蹬|dēng|动|7
 登场|dēngchǎng|动|7
@@ -6013,6 +6263,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 弟子|dìzǐ|名|7
 颠簸|diānbǒ|动|7
 颠倒|diāndǎo|动|7
+颠倒黑白|diāndǎo-hēibái||7
 巅峰|diānfēng|名|7
 颠覆|diānfù|动|7
 典范|diǎnfàn|名|7
@@ -6039,6 +6290,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 雕塑|diāosù|动·名|7
 雕像|diāoxiàng|名|7
 凋谢|diāoxiè|动|7
+调|diào|名|7
 调度|diàodù|动·名|7
 掉队|diàoduì|动|7
 掉头|diàotóu|动|7
@@ -6069,7 +6321,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 丢脸|diūliǎn|动|7
 丢弃|diūqì|动|7
 丢人|diūrén|动|7
+丢三落四|diūsān-làsì||7
+东奔西走|dōngbēn-xīzǒu||7
 东道主|dōngdàozhǔ|名|7
+东张西望|dōngzhāng-xīwàng||7
 董事|dǒngshì|名|7
 懂事|dǒngshì|形|7
 董事会|dǒngshìhuì|名|7
@@ -6105,6 +6360,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 毒品|dúpǐn|名|7
 独身|dúshēn|动|7
 读物|dúwù|名|7
+独一无二|dúyī-wú’èr||7
 赌|dǔ|动|7
 赌博|dǔbó|动|7
 堵塞|dǔsè|动|7
@@ -6117,9 +6373,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 断裂|duànliè|动|7
 段落|duànluò|名|7
 断然|duànrán|形·副|7
+断章取义|duànzhāng-qǔyì||7
 堆积|duījī|动|7
 堆砌|duīqì|动|7
 兑|duì|动|7
+对岸|duì’àn|名|7
 对白|duìbái|名|7
 对策|duìcè|名|7
 对得起|duìdeqǐ|动|7
@@ -6127,14 +6385,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 兑换|duìhuàn|动|7
 对联|duìlián|名|7
 对流|duìliú|动|7
+对牛弹琴|duìniú-tánqín||7
 兑现|duìxiàn|动|7
 队形|duìxíng|名|7
 对弈|duìyì|动|7
 对照|duìzhào|动|7
+对症下药|duìzhèng-xiàyào||7
 对峙|duìzhì|动|7
 敦促|dūncù|动|7
 敦厚|dūnhòu|形|7
 炖|dùn|动|7
+多年来|duō nián lái||7
 多半|duōbàn|数·副|7
 多边|duōbiān|形|7
 哆嗦|duōsuo|动|7
@@ -6155,11 +6416,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 厄运|èyùn|名|7
 遏制|èzhì|动|7
 恶作剧|èzuòjù|动·名|7
+恩爱|ēn’ài|形|7
 恩情|ēnqíng|名|7
 恩人|ēnrén|名|7
 恩怨|ēnyuàn|名|7
 而已|éryǐ|助|7
 耳光|ěrguāng|名|7
+耳目一新|ěrmù-yìxīn||7
+耳熟能详|ěrshú-néngxiáng||7
 发财|fācái|动|7
 发呆|fādāi|动|7
 发抖|fādǒu|动|7
@@ -6175,6 +6439,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 发泄|fāxiè|动|7
 发芽|fāyá|动|7
 发扬|fāyáng|动|7
+发扬光大|fāyáng-guāngdà||7
 发言人|fāyánrén|名|7
 发源|fāyuán|动|7
 发源地|fāyuándì|名|7
@@ -6190,7 +6455,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 帆|fān|名|7
 帆船|fānchuán|名|7
 翻番|fānfān|动|7
+翻来覆去|fānlái-fùqù||7
 翻身|fānshēn|动|7
+翻天覆地|fāntiān-fùdì||7
 翻新|fānxīn|动|7
 繁多|fánduō|形|7
 繁华|fánhuá|形|7
@@ -6254,6 +6521,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 飞碟|fēidié|名|7
 非法|fēifǎ|形|7
 非凡|fēifán|形|7
+飞禽走兽|fēiqín-zǒushòu||7
 绯闻|fēiwén|名|7
 飞翔|fēixiáng|动|7
 飞跃|fēiyuè|动|7
@@ -6262,11 +6530,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 诽谤|fěibàng|动|7
 废|fèi|动·形|7
 废除|fèichú|动|7
+沸沸扬扬|fèifèiyángyáng||7
 废话|fèihuà|名·动|7
 费劲|fèijìn|动|7
 费力|fèilì|动|7
 废品|fèipǐn|名|7
 废弃|fèiqì|动|7
+废寝忘食|fèiqǐn-wàngshí||7
 沸腾|fèiténg|动|7
 废物|fèiwù|名|7
 废墟|fèixū|名|7
@@ -6290,9 +6560,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 坟墓|fénmù|名|7
 焚烧|fénshāo|动|7
 粉末|fěnmò|名|7
+粉丝|fěnsī|名|7
 粉碎|fěnsuì|形·动|7
 粪|fèn|名|7
 粪便|fènbiàn|名|7
+份额|fèn’é|名|7
 奋力|fènlì|副|7
 分量|fènliàng|名|7
 分外|fènwài|副·形|7
@@ -6301,11 +6573,15 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 风暴|fēngbào|名|7
 风波|fēngbō|名|7
 风采|fēngcǎi|名|7
+风餐露宿|fēngcān-lùsù||7
+风吹雨打|fēngchuī-yǔdǎ||7
 封顶|fēngdǐng|动|7
 风度|fēngdù|名|7
 风范|fēngfàn|名|7
+风和日丽|fēnghé-rìlì||7
 丰厚|fēnghòu|形|7
 峰会|fēnghuì|名|7
+峰回路转|fēnghuí-lùzhuǎn||7
 封建|fēngjiàn|名·形|7
 风景线|fēngjǐngxiàn|名|7
 风浪|fēnglàng|名|7
@@ -6324,15 +6600,19 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 风水|fēngshuǐ|名|7
 丰硕|fēngshuò|形|7
 封锁|fēngsuǒ|动|7
+风土人情|fēngtǔ-rénqíng||7
 风味|fēngwèi|名|7
 风云|fēngyún|名|7
+风雨无阻|fēngyǔ-wúzǔ||7
 风筝|fēngzheng|名|7
 疯子|fēngzi|名|7
 逢|féng|动|7
 缝|féng|动|7
 缝合|fénghé|动|7
 讽刺|fěngcì|动|7
+缝|fèng|名|7
 凤凰|fènghuáng|名|7
+凤毛麟角|fèngmáo-línjiǎo||7
 佛|fó|名|7
 否决|fǒujué|动|7
 敷|fū|动|7
@@ -6390,6 +6670,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 改观|gǎiguān|动|7
 改良|gǎiliáng|动|7
 改日|gǎirì|副|7
+改邪归正|gǎixié-guīzhèng||7
 改装|gǎizhuāng|动|7
 钙|gài|名|7
 概|gài|副|7
@@ -6418,12 +6699,15 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 港|gǎng|名|7
 港湾|gǎngwān|名|7
 杠杆|gànggǎn|名|7
+高额|gāo’é|形|7
+高昂|gāo’áng|动·形|7
+高傲|gāo’ào|形|7
 高潮|gāocháo|名|7
 高调|gāodiào|名·形|7
 高贵|gāoguì|形|7
 高见|gāojiàn|名|7
 高空|gāokōng|名|7
-高龄|gāolíng|名·|7
+高龄|gāolíng|名·形|7
 高明|gāomíng|形·名|7
 高血压|gāoxuèyā|名|7
 高雅|gāoyǎ|形|7
@@ -6447,6 +6731,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 歌谣|gēyáo|名|7
 搁置|gēzhì|动|7
 鸽子|gēzi|名|7
+格格不入|gégé-búrù||7
 隔阂|géhé|名|7
 格局|géjú|名|7
 隔离|gélí|动|7
@@ -6454,9 +6739,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 格式|géshi|名|7
 革新|géxīn|动|7
 格子|gézi|名|7
+个案|gè’àn|名|7
+各抒己见|gèshū-jǐjiàn||7
 个头儿|gètóur|名|7
 根基|gēnjī|名|7
 跟进|gēnjìn|动|7
+根深蒂固|gēnshēn-dìgù||7
 根源|gēnyuán|名·动|7
 根治|gēnzhì|动|7
 耕|gēng|动|7
@@ -6472,6 +6760,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 攻|gōng|动|7
 供|gōng|动|7
 公办|gōngbàn|形|7
+供不应求|gōngbúyìngqiú||7
 功臣|gōngchén|名|7
 公道|gōngdao|形|7
 功底|gōngdǐ|名|7
@@ -6528,9 +6817,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 构思|gòusī|动|7
 构想|gòuxiǎng|动·名|7
 孤单|gūdān|形|7
+孤儿|gū’ér|名|7
 辜负|gūfù|动|7
 孤立|gūlì|形·动|7
 孤零零|gūlínglíng|形|7
+孤陋寡闻|gūlòu-guǎwén||7
 姑且|gūqiě|副|7
 估算|gūsuàn|动|7
 股|gǔ|量|7
@@ -6543,6 +6834,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 古怪|gǔguài|形|7
 古籍|gǔjí|名|7
 骨架|gǔjià|名|7
+古今中外|gǔjīn-zhōngwài||7
 股民|gǔmín|名|7
 古朴|gǔpǔ|形|7
 骨气|gǔqì|名|7
@@ -6553,6 +6845,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 固化|gùhuà|动|7
 顾及|gùjí|动|7
 顾虑|gùlǜ|动·名|7
+顾名思义|gùmíng-sīyì||7
+顾全大局|gùquán-dàjú||7
 固然|gùrán|连|7
 雇佣|gùyōng|动|7
 固有|gùyǒu|形|7
@@ -6560,6 +6854,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 固执|gùzhi|形|7
 雇主|gùzhǔ|名|7
 瓜分|guāfēn|动|7
+刮目相看|guāmù-xiāngkàn||7
 瓜子|guāzǐ|名|7
 寡妇|guǎfu|名|7
 挂钩|guàgōu|动·名|7
@@ -6606,6 +6901,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 光辉|guānghuī|名·形|7
 光缆|guānglǎn|名|7
 光芒|guāngmáng|名|7
+光明磊落|guāngmíng-lěiluò||7
 光盘|guāngpán|名|7
 光荣|guāngróng|形·名|7
 光泽|guāngzé|名|7
@@ -6613,6 +6909,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 龟|guī|名|7
 瑰宝|guībǎo|名|7
 规格|guīgé|名|7
+归根到底|guīgēn-dàodǐ||7
 归结|guījié|动|7
 归来|guīlái|动|7
 归纳|guīnà|动|7
@@ -6639,6 +6936,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 裹|guǒ|动|7
 果断|guǒduàn|形|7
 果真|guǒzhēn|副·连|7
+过意不去|guò yì búqù||7
 过半|guòbàn|动|7
 过不去|guòbuqù|动|7
 过错|guòcuò|名|7
@@ -6669,6 +6967,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 海运|hǎiyùn|动|7
 海藻|hǎizǎo|名|7
 害虫|hàichóng|名|7
+骇人听闻|hàiréntīngwén||7
 酣畅|hānchàng|形|7
 憨厚|hānhòu|形|7
 酣睡|hānshuì|动|7
@@ -6679,6 +6978,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 含蓄|hánxù|动·形|7
 寒暄|hánxuān|动|7
 汉服|Hànfú|名|7
+汗马功劳|hànmǎ-gōngláo||7
 捍卫|hànwèi|动|7
 夯实|hāngshí|动|7
 航海|hánghǎi|动|7
@@ -6709,7 +7009,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 呵|hē|动|7
 呵护|hēhù|动|7
 何|hé|代|7
+和|hé|形|7
 核|hé|名|7
+和蔼|hé’ǎi|形|7
 何必|hébì|副|7
 核查|héchá|动|7
 合唱|héchàng|动|7
@@ -6728,6 +7030,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 和睦|hémù|形|7
 核能|hénéng|名|7
 河畔|hépàn|名|7
+和平共处|hépíng gòngchǔ||7
 和气|héqi|形·名|7
 和尚|héshang|名|7
 核实|héshí|动|7
@@ -6738,6 +7041,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 合资|hézī|动|7
 喝彩|hècǎi|动|7
 贺电|hèdiàn|名|7
+鹤立鸡群|hèlìjīqún||7
 赫然|hèrán|形|7
 贺信|hèxìn|名|7
 黑客|hēikè|名|7
@@ -6748,10 +7052,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 横|héng|形|7
 横向|héngxiàng|形|7
 恒星|héngxīng|名|7
+轰|hōng|拟声·动|7
 烘|hōng|动|7
 烘焙|hōngbèi|动|7
 轰动|hōngdòng|动|7
 烘干|hōnggān|动|7
+哄堂大笑|hōngtáng-dàxiào||7
 烘托|hōngtuō|动|7
 轰炸|hōngzhà|动|7
 宏观|hóngguān|形|7
@@ -6770,6 +7076,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 后备箱|hòubèixiāng|名|7
 厚道|hòudao|形|7
 后盾|hòudùn|名|7
+后顾之忧|hòugùzhīyōu||7
 后勤|hòuqín|名|7
 后世|hòushì|名|7
 后台|hòutái|名|7
@@ -6780,6 +7087,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 呼|hū|动|7
 呼唤|hūhuàn|动|7
 呼救|hūjiù|动|7
+忽冷忽热|hūlěng-hūrè||7
 呼声|hūshēng|名|7
 呼啸|hūxiào|动|7
 呼应|hūyìng|动|7
@@ -6791,6 +7099,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 胡闹|húnào|动|7
 湖泊|húpō|名|7
 胡说|húshuō|动|7
+胡思乱想|húsī-luànxiǎng||7
 糊涂|hútu|形|7
 护|hù|动|7
 互补|hùbǔ|动|7
@@ -6813,8 +7122,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 画册|huàcè|名|7
 化肥|huàféi|名|7
 化解|huàjiě|动|7
+画龙点睛|huàlóng-diǎnjīng||7
 化身|huàshēn|名|7
+画蛇添足|huàshé-tiānzú||7
 划时代|huàshídài|形|7
+化险为夷|huàxiǎnwéiyí||7
 化验|huàyàn|动|7
 话语|huàyǔ|名|7
 怀抱|huáibào|动·名|7
@@ -6823,6 +7135,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 欢呼|huānhū|动|7
 欢聚|huānjù|动|7
 欢快|huānkuài|形|7
+欢声笑语|huānshēng-xiàoyǔ||7
 环比|huánbǐ|动|7
 环球|huánqiú|动|7
 环绕|huánrào|动|7
@@ -6832,6 +7145,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 幻觉|huànjué|名|7
 唤起|huànqǐ|动|7
 换取|huànqǔ|动|7
+焕然一新|huànrán-yìxīn||7
 唤醒|huànxǐng|动|7
 幻影|huànyǐng|名|7
 荒|huāng|动|7
@@ -6850,7 +7164,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 皇室|huángshì|名|7
 晃|huǎng|动|7
 谎话|huǎnghuà|名|7
+恍然大悟|huǎngrán-dàwù||7
 谎言|huǎngyán|名|7
+晃|huàng|动|7
 晃荡|huàngdang|动|7
 辉煌|huīhuáng|形|7
 挥霍|huīhuò|动|7
@@ -6876,6 +7192,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 汇聚|huìjù|动|7
 贿赂|huìlù|动·名|7
 会面|huìmiàn|动|7
+绘声绘色|huìshēng-huìsè||7
 会谈|huìtán|动|7
 会晤|huìwù|动|7
 会意|huìyì|动|7
@@ -6905,6 +7222,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 火腿|huǒtuǐ|名|7
 火焰|huǒyàn|名|7
 豁达|huòdá|形|7
+或多或少|huòduō-huòshǎo||7
 祸害|huòhai|名·动|7
 获悉|huòxī|动|7
 货运|huòyùn|名|7
@@ -6939,6 +7257,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 急促|jícù|形|7
 极度|jídù|副|7
 嫉妒|jídù|动|7
+急功近利|jígōng-jìnlì||7
 籍贯|jíguàn|名|7
 集会|jíhuì|动·名|7
 急剧|jíjù|形|7
@@ -6951,13 +7270,16 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 即时|jíshí|副|7
 集市|jíshì|名|7
 棘手|jíshǒu|形|7
+集思广益|jísī-guǎngyì||7
 吉他|jítā|名|7
 极限|jíxiàn|名|7
 吉祥物|jíxiángwù|名|7
 急性|jíxìng|形|7
 急于|jíyú|动|7
+急于求成|jíyú-qiúchéng||7
 急躁|jízào|形|7
 及早|jízǎo|副|7
+急中生智|jízhōng-shēngzhì||7
 集装箱|jízhuāngxiāng|名|7
 集资|jízī|动|7
 脊梁|jǐliáng|名|7
@@ -6968,6 +7290,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 继|jì|连|7
 祭|jì|动|7
 暨|jì|连|7
+继而|jì’ér|连|7
 计策|jìcè|名|7
 祭奠|jìdiàn|动|7
 忌妒|jìdu|动|7
@@ -6987,6 +7310,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 绩效|jìxiào|名|7
 记性|jìxing|名|7
 纪要|jìyào|名|7
+记忆犹新|jìyì-yóuxīn||7
 家伙|jiāhuo|名|7
 家教|jiājiào|名|7
 佳节|jiājié|名|7
@@ -6998,6 +7322,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 家世|jiāshì|名|7
 佳肴|jiāyáo|名|7
 家用|jiāyòng|名·形|7
+家喻户晓|jiāyù-hùxiǎo||7
 夹杂|jiāzá|动|7
 家政|jiāzhèng|名|7
 加之|jiāzhī|连|7
@@ -7016,6 +7341,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 架子|jiàzi|名|7
 兼|jiān|动|7
 煎|jiān|动|7
+煎熬|jiān’áo|动|7
 监察|jiānchá|动|7
 尖端|jiānduān|名·形|7
 肩负|jiānfù|动|7
@@ -7058,8 +7384,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 鉴别|jiànbié|动|7
 间谍|jiàndié|名|7
 间断|jiànduàn|动|7
+见多识广|jiànduō-shíguǎng||7
 见解|jiànjiě|名|7
+见利忘义|jiànlì-wàngyì||7
 健美|jiànměi|形·名|7
+见仁见智|jiànrén-jiànzhì||7
 鉴赏|jiànshǎng|动|7
 见识|jiànshi|动·名|7
 建树|jiànshù|动·名|7
@@ -7069,6 +7398,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 间隙|jiànxì|名|7
 见效|jiànxiào|动|7
 间歇|jiànxiē|动|7
+见义勇为|jiànyì-yǒngwéi||7
 鉴于|jiànyú|介·连|7
 见证|jiànzhèng|动·名|7
 健壮|jiànzhuàng|形|7
@@ -7103,6 +7433,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 交涉|jiāoshè|动|7
 礁石|jiāoshí|名|7
 交替|jiāotì|动|7
+交头接耳|jiāotóu-jiē’ěr||7
 交响乐|jiāoxiǎngyuè|名|7
 郊游|jiāoyóu|动|7
 焦躁|jiāozào|形|7
@@ -7114,6 +7445,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 搅拌|jiǎobàn|动|7
 狡猾|jiǎohuá|形|7
 缴纳|jiǎonà|动|7
+脚踏实地|jiǎotāshídì||7
 侥幸|jiǎoxìng|形|7
 矫正|jiǎozhèng|动|7
 叫板|jiàobǎn|动|7
@@ -7126,9 +7458,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 教养|jiàoyǎng|动·名|7
 皆|jiē|副|7
 揭|jiē|动|7
+接二连三|jiē’èr-liánsān||7
 接班|jiēbān|动|7
 接班人|jiēbānrén|名|7
 阶层|jiēcéng|名|7
+皆大欢喜|jiēdàhuānxǐ||7
 揭发|jiēfā|动|7
 街坊|jiēfang|名|7
 接轨|jiēguǐ|动|7
@@ -7151,11 +7485,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 洁净|jiéjìng|形|7
 捷径|jiéjìng|名|7
 结晶|jiéjīng|动·名|7
+竭尽全力|jiéjìn-quánlì||7
 结局|jiéjú|名|7
 竭力|jiélì|副|7
 节气|jiéqì|名|7
+截然不同|jiérán-bùtóng||7
 结识|jiéshí|动|7
 结算|jiésuàn|动|7
+节衣缩食|jiéyī-suōshí||7
 节制|jiézhì|动|7
 解除|jiěchú|动|7
 解雇|jiěgù|动|7
@@ -7183,11 +7520,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 介于|jièyú|动|7
 筋|jīn|名|7
 禁不住|jīnbuzhù|动|7
+津津有味|jīnjīn-yǒuwèi||7
 尽|jǐn|动·副|7
 紧凑|jǐncòu|形|7
 紧迫|jǐnpò|形|7
 锦旗|jǐnqí|名|7
 紧缺|jǐnquē|形|7
+锦上添花|jǐnshàng-tiānhuā||7
 紧缩|jǐnsuō|动|7
 尽早|jǐnzǎo|副|7
 劲|jìn|名|7
@@ -7208,20 +7547,25 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 经|jīng|动|7
 精|jīng|形|7
 鲸|jīng|名|7
+精彩纷呈|jīngcǎi-fēnchéng||7
+精打细算|jīngdǎ-xìsuàn||7
 惊动|jīngdòng|动|7
 经度|jīngdù|名|7
 精度|jīngdù|名|7
 经费|jīngfèi|名|7
 精华|jīnghuá|名|7
 惊慌|jīnghuāng|形|7
+惊慌失措|jīnghuāng-shīcuò||7
 荆棘|jīngjí|名|7
 精简|jīngjiǎn|动|7
 兢兢业业|jīngjīngyèyè|形|7
+经久不息|jīngjiǔ-bùxī||7
 精练|jīngliàn|形|7
 经贸|jīngmào|名|7
 精密|jīngmì|形|7
 精妙|jīngmiào|形|7
 精明|jīngmíng|形|7
+精疲力竭|jīngpí-lìjié||7
 精品|jīngpǐn|名|7
 惊奇|jīngqí|形|7
 精巧|jīngqiǎo|形|7
@@ -7230,13 +7574,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 经受|jīngshòu|动|7
 精髓|jīngsuǐ|名|7
 惊叹|jīngtàn|动|7
+惊天动地|jīngtiān-dòngdì||7
 精细|jīngxì|形|7
 惊吓|jīngxià|动|7
 惊险|jīngxiǎn|形|7
+惊心动魄|jīngxīn-dòngpò||7
 晶莹|jīngyíng|形|7
 精英|jīngyīng|名|7
+精益求精|jīngyìqiújīng||7
 精湛|jīngzhàn|形|7
 警报|jǐngbào|名|7
+井底之蛙|jǐngdǐzhīwā||7
 警戒|jǐngjiè|动|7
 警犬|jǐngquǎn|名|7
 警示|jǐngshì|动|7
@@ -7244,6 +7592,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 警钟|jǐngzhōng|名|7
 竟|jìng|副|7
 敬|jìng|动|7
+敬爱|jìng’ài|动|7
+敬而远之|jìng’éryuǎnzhī||7
 境地|jìngdì|名|7
 净化|jìnghuà|动|7
 竞技|jìngjì|动|7
@@ -7274,12 +7624,15 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 救济|jiùjì|动|7
 就近|jiùjìn|副|7
 就任|jiùrèn|动|7
+救死扶伤|jiùsǐ-fúshāng||7
 就绪|jiùxù|动|7
 就医|jiùyī|动|7
 就诊|jiùzhěn|动|7
 就职|jiùzhí|动|7
 救治|jiùzhì|动|7
 就座|jiùzuò|动|7
+居安思危|jū’ān-sīwēi||7
+居高不下|jūgāo bú xià||7
 鞠躬|jūgōng|动|7
 拘留|jūliú|动|7
 拘束|jūshù|动·形|7
@@ -7289,11 +7642,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 举报|jǔbào|动|7
 举措|jǔcuò|名|7
 咀嚼|jǔjué|动|7
+举棋不定|jǔqí-búdìng||7
 沮丧|jǔsàng|形|7
+举世瞩目|jǔshì-zhǔmù||7
+举一反三|jǔyī-fǎnsān||7
 举止|jǔzhǐ|名|7
 举重|jǔzhòng|名|7
+举足轻重|jǔzú-qīngzhòng||7
 剧变|jùbiàn|动|7
+巨额|jù’é|形|7
 聚焦|jùjiāo|动|7
+聚精会神|jùjīng-huìshén||7
 剧目|jùmù|名|7
 剧情|jùqíng|名|7
 巨人|jùrén|名|7
@@ -7302,6 +7661,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 圈|juān|动|7
 捐献|juānxiàn|动|7
 卷入|juǎnrù|动|7
+圈|juàn|名|7
 绝|jué|动·形·副|7
 绝技|juéjì|名|7
 绝迹|juéjì|动|7
@@ -7341,6 +7701,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 开朗|kāilǎng|形|7
 开明|kāimíng|形|7
 开辟|kāipì|动|7
+开天辟地|kāitiān-pìdì||7
 开庭|kāitíng|动|7
 开拓|kāituò|动|7
 开销|kāixiāo|动·名|7
@@ -7355,6 +7716,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 勘探|kāntàn|动|7
 刊物|kānwù|名|7
 砍伐|kǎnfá|动|7
+侃侃而谈|kǎnkǎn’értán||7
 坎坷|kǎnkě|形|7
 看台|kàntái|名|7
 慷慨|kāngkǎi|形|7
@@ -7374,13 +7736,16 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 壳|ké|名|7
 可悲|kěbēi|形|7
 可不是|kěbúshi|副|7
+可乘之机|kěchéngzhījī||7
 可耻|kěchǐ|形|7
 可观|kěguān|形|7
 可贵|kěguì|形|7
 可谓|kěwèi|动|7
 可恶|kěwù|形|7
+可想而知|kěxiǎng’érzhī||7
 可笑|kěxiào|形|7
 可疑|kěyí|形|7
+刻不容缓|kèbùrónghuǎn||7
 客房|kèfáng|名|7
 刻画|kèhuà|动|7
 客机|kèjī|名|7
@@ -7390,6 +7755,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 刻意|kèyì|副|7
 客运|kèyùn|名|7
 克制|kèzhì|动|7
+刻舟求剑|kèzhōu-qiújiàn||7
 啃|kěn|动|7
 恳切|kěnqiè|形|7
 恳求|kěnqiú|动|7
@@ -7411,6 +7777,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 控告|kònggào|动|7
 空隙|kòngxì|名|7
 抠|kōu|动·形|7
+口岸|kǒu’àn|名|7
 口碑|kǒubēi|名|7
 口才|kǒucái|名|7
 口吃|kǒuchī|动|7
@@ -7426,11 +7793,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 口子|kǒuzi|名|7
 扣除|kòuchú|动|7
 扣留|kòuliú|动|7
+扣人心弦|kòurénxīnxián||7
 扣押|kòuyā|动|7
 枯竭|kūjié|形|7
 窟窿|kūlong|名|7
 哭泣|kūqì|动|7
 枯萎|kūwěi|形|7
+哭笑不得|kūxiào-bùdé||7
+苦尽甘来|kǔjìn-gānlái||7
 苦难|kǔnàn|名|7
 苦恼|kǔnǎo|形|7
 苦涩|kǔsè|形|7
@@ -7439,6 +7809,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 库存|kùcún|名|7
 酷似|kùsì|动|7
 夸大|kuādà|动|7
+夸夸其谈|kuākuā-qítán||7
 夸耀|kuāyào|动|7
 垮|kuǎ|动|7
 挎|kuà|动|7
@@ -7493,7 +7864,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 来访|láifǎng|动|7
 来回|láihuí|动·名·副|7
 来历|láilì|名|7
+来龙去脉|láilóng-qùmài||7
 来年|láinián|名|7
+来之不易|láizhī-búyì||7
 栏杆|lángān|名|7
 栏目|lánmù|名|7
 蓝图|lántú|名|7
@@ -7503,6 +7876,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 懒惰|lǎnduò|形|7
 滥用|lànyòng|动|7
 狼狈|lángbèi|形|7
+狼吞虎咽|lángtūn-hǔyàn||7
 朗诵|lǎngsòng|动|7
 捞|lāo|动|7
 唠叨|láodao|动|7
@@ -7520,6 +7894,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 老乡|lǎoxiāng|名|7
 老字号|lǎozìhao|名|7
 涝|lào|形|7
+乐此不疲|lècǐ-bùpí||7
 乐意|lèyì|动·形|7
 乐园|lèyuán|名|7
 勒|lēi|动|7
@@ -7548,12 +7923,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 理会|lǐhuì|动|7
 礼节|lǐjié|名|7
 礼品|lǐpǐn|名|7
+礼尚往来|lǐshàngwǎnglái||7
 理事|lǐshì|动·名|7
+理所当然|lǐsuǒdāngrán||7
 礼堂|lǐtáng|名|7
 礼仪|lǐyí|名|7
 鲤鱼|lǐyú|名|7
 理智|lǐzhì|名·形|7
+理直气壮|lǐzhí-qìzhuàng||7
+立案|lì’àn|动|7
 利弊|lìbì|名|7
+力不从心|lìbùcóngxīn||7
 历程|lìchéng|名|7
 历代|lìdài|名|7
 立法|lìfǎ|动|7
@@ -7569,6 +7949,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 力求|lìqiú|动|7
 历时|lìshí|动·形|7
 利索|lìsuo|形|7
+力所能及|lìsuǒnéngjí||7
 立体|lìtǐ|形·名|7
 力争|lìzhēng|动|7
 励志|lìzhì|动|7
@@ -7594,6 +7975,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 莲子|liánzǐ|名|7
 脸颊|liǎnjiá|名|7
 炼|liàn|动|7
+恋恋不舍|liànliàn-bùshě||7
 良|liáng|副|7
 凉爽|liángshuǎng|形|7
 良心|liángxīn|名|7
@@ -7611,6 +7993,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 潦草|liáocǎo|形|7
 疗法|liáofǎ|名|7
 辽阔|liáokuò|形|7
+寥寥无几|liáoliáo-wújǐ||7
 疗效|liáoxiào|名|7
 疗养|liáoyǎng|动|7
 了结|liǎojié|动|7
@@ -7636,6 +8019,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 灵感|línggǎn|名|7
 灵魂|línghún|名|7
 零件|língjiàn|名|7
+灵机一动|língjī-yídòng||7
 灵敏|língmǐn|形|7
 灵巧|língqiǎo|形|7
 零售|língshòu|动|7
@@ -7688,6 +8072,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 鲁莽|lǔmǎng|形|7
 卤味|lǔwèi|名|7
 鹿|lù|名|7
+露|lù|名|7
 路段|lùduàn|名|7
 路径|lùjìng|名|7
 陆军|lùjūn|名|7
@@ -7703,6 +8088,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 绿洲|lǜzhōu|名|7
 孪生|luánshēng|形|7
 卵|luǎn|名|7
+乱七八糟|luànqībāzāo||7
 略|lüè|形·动·副|7
 掠夺|lüèduó|动|7
 略微|lüèwēi|副|7
@@ -7723,17 +8109,21 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 落成|luòchéng|动|7
 落户|luòhù|动|7
 落实|luòshí|动|7
+络绎不绝|luòyì-bùjué||7
+麻|má|形·名|7
 麻痹|mábì|动·形|7
 麻将|májiàng|名|7
 麻辣|málà|形|7
 麻木|mámù|形|7
 麻醉|mázuì|动|7
+码|mǎ|量·动|7
 马后炮|mǎhòupào|名|7
 马力|mǎlì|量|7
 马桶|mǎtǒng|名|7
 埋藏|máicáng|动|7
 埋伏|máifú|动|7
 埋没|máimò|动|7
+埋头苦干|máitóu-kǔgàn||7
 埋葬|máizàng|动|7
 脉搏|màibó|名|7
 脉络|màiluò|名|7
@@ -7758,8 +8148,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 枚|méi|量|7
 媒介|méijiè|名|7
 没劲|méijìn|动·形|7
+眉开眼笑|méikāi-yǎnxiào||7
 煤气|méiqì|名|7
 煤炭|méitàn|名|7
+没完没了|méiwán-méiliǎo||7
 没辙|méizhé|动|7
 没准儿|méizhǔnr|动|7
 美德|měidé|名|7
@@ -7769,12 +8161,15 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 美容|měiróng|动|7
 美学|měixué|名|7
 美誉|měiyù|名|7
+美中不足|měizhōng-bùzú||7
 美滋滋|měizīzī|形|7
 闷|mēn|形·动|7
 闷热|mēnrè|形|7
 门槛|ménkǎn|名|7
 门路|ménlu|名|7
+闷|mèn|形|7
 蒙|mēng|动|7
+蒙|méng|动|7
 萌发|méngfā|动|7
 朦胧|ménglóng|形|7
 萌芽|méngyá|动·名|7
@@ -7783,6 +8178,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 猛烈|měngliè|形|7
 猛然|měngrán|副|7
 梦幻|mènghuàn|名|7
+梦寐以求|mèngmèiyǐqiú||7
 眯|mī|动|7
 谜|mí|名|7
 谜底|mídǐ|名|7
@@ -7806,8 +8202,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 勉励|miǎnlì|动|7
 腼腆|miǎntiǎn|形|7
 免职|miǎnzhí|动|7
+面红耳赤|miànhóng-ěrchì||7
 面孔|miànkǒng|名|7
 面貌|miànmào|名|7
+面面俱到|miànmiàn-jùdào||7
+面目全非|miànmù-quánfēi||7
 苗|miáo|名|7
 苗条|miáotiao|形|7
 苗头|miáotou|名|7
@@ -7830,6 +8229,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 敏锐|mǐnruì|形|7
 鸣|míng|动|7
 名次|míngcì|名|7
+名副其实|míngfùqíshí||7
 名贵|míngguì|形|7
 铭记|míngjì|动|7
 明朗|mínglǎng|形|7
@@ -7841,6 +8241,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 名誉|míngyù|名·形|7
 明智|míngzhì|形|7
 名著|míngzhù|名|7
+命|mìng|动|7
 摸索|mōsuǒ|动|7
 膜|mó|名|7
 磨|mó|动|7
@@ -7862,6 +8263,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 莫非|mòfēi|副|7
 茉莉|mòlì|名|7
 没落|mòluò|动|7
+莫名其妙|mòmíngqímiào||7
+默默无闻|mòmò-wúwén||7
 默契|mòqì|形·名|7
 漠然|mòrán|形|7
 末日|mòrì|名|7
@@ -7878,14 +8281,18 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 墓|mù|名|7
 幕|mù|量|7
 墓碑|mùbēi|名|7
+目不转睛|mùbùzhuǎnjīng||7
 牧场|mùchǎng|名|7
+目瞪口呆|mùdèng-kǒudāi||7
 墓地|mùdì|名|7
 目睹|mùdǔ|动|7
 幕后|mùhòu|名|7
 木匠|mùjiàng|名|7
 募捐|mùjuān|动|7
 牧民|mùmín|名|7
+木偶|mù’ǒu|名|7
 沐浴|mùyù|动|7
+目中无人|mùzhōng-wúrén||7
 拿手|náshǒu|形|7
 呐喊|nàhǎn|动|7
 纳闷儿|nàmènr|动|7
@@ -7896,17 +8303,23 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 奶酪|nǎilào|名|7
 乃至|nǎizhì|连|7
 耐|nài|动|7
+耐人寻味|nàirénxúnwèi||7
 耐用|nàiyòng|形|7
 难处|nánchù|名|7
+难得一见|nándé yí jiàn||7
 男方|nánfāng|名|7
 南瓜|nánguā|名|7
 难怪|nánguài|动·副|7
 难关|nánguān|名|7
 难堪|nánkān|动·形|7
+难能可贵|nánnéng-kěguì||7
 难为情|nánwéiqíng|形|7
+难以置信|nányǐ-zhìxìn||7
+南辕北辙|nányuán-běizhé||7
 挠|náo|动|7
 脑海|nǎohǎi|名|7
 恼火|nǎohuǒ|形|7
+恼羞成怒|nǎoxiū-chéngnù||7
 闹事|nàoshì|动|7
 内存|nèicún|名|7
 内地|nèidì|名|7
@@ -7939,6 +8352,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 年限|niánxiàn|名|7
 年薪|niánxīn|名|7
 撵|niǎn|动|7
+念念不忘|niànniàn-búwàng||7
 念头|niàntou|名|7
 娘|niáng|名|7
 酿造|niàngzào|动|7
@@ -7951,6 +8365,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 宁静|níngjìng|形|7
 凝聚|níngjù|动|7
 凝视|níngshì|动|7
+拧|nǐng|动|7
 宁可|nìngkě|副|7
 宁愿|nìngyuàn|副|7
 纽带|niǔdài|名|7
@@ -7964,6 +8379,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 浓缩|nóngsuō|动|7
 浓郁|nóngyù|形|7
 浓重|nóngzhòng|形|7
+弄虚作假|nòngxū-zuòjiǎ||7
 奴隶|núlì|名|7
 女方|nǚfāng|名|7
 女婿|nǚxu|名|7
@@ -7999,6 +8415,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 胖乎乎|pànghūhū|形|7
 抛弃|pāoqì|动|7
 刨|páo|动|7
+跑龙套|pǎo lóngtào||7
 炮|pào|名|7
 泡沫|pàomò|名|7
 胚胎|pēitāi|名|7
@@ -8006,6 +8423,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 配方|pèifāng|动·名|7
 配件|pèijiàn|名|7
 配角|pèijué|名|7
+配偶|pèi’ǒu|名|7
 配音|pèiyīn|动|7
 配置|pèizhì|动|7
 喷泉|pēnquán|名|7
@@ -8015,9 +8433,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 烹调|pēngtiáo|动|7
 棚|péng|名|7
 蓬勃|péngbó|形|7
+鹏程万里|péngchéng-wànlǐ||7
 澎湃|péngpài|形|7
 膨胀|péngzhàng|动|7
 捧场|pěngchǎng|动|7
+碰钉子|pèng dīngzi||7
 碰巧|pèngqiǎo|副|7
 劈|pī|动|7
 批发|pīfā|动|7
@@ -8033,6 +8453,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 媲美|pìměi|动|7
 譬如|pìrú|动|7
 偏|piān|形·动·副|7
+偏爱|piān’ài|动|7
 偏差|piānchā|名|7
 篇幅|piānfú|名|7
 偏见|piānjiàn|名|7
@@ -8075,6 +8496,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 评判|píngpàn|动|7
 平日|píngrì|名|7
 评审|píngshěn|动·名|7
+萍水相逢|píngshuǐ-xiāngféng||7
 平坦|píngtǎn|形|7
 评委|píngwěi|名|7
 平稳|píngwěn|形|7
@@ -8085,6 +8507,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 屏障|píngzhàng|名|7
 凭证|píngzhèng|名|7
 颇|pō|副|7
+泼冷水|pō lěngshuǐ||7
+破案|pò’àn|动|7
+迫不及待|pòbùjídài||7
 破除|pòchú|动|7
 迫害|pòhài|动|7
 破解|pòjiě|动|7
@@ -8097,6 +8522,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 破碎|pòsuì|动|7
 扑克|pūkè|名|7
 铺路|pūlù|动|7
+扑面而来|pūmiàn’érlái||7
 菩萨|púsà|名|7
 谱|pǔ|名·动|7
 朴实|pǔshí|形|7
@@ -8109,6 +8535,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 期盼|qīpàn|动|7
 蹊跷|qīqiao|形|7
 欺诈|qīzhà|动|7
+七嘴八舌|qīzuǐ-bāshé||7
 祈祷|qídǎo|动|7
 奇观|qíguān|名|7
 奇妙|qímiào|形|7
@@ -8116,6 +8543,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 崎岖|qíqū|形|7
 歧视|qíshì|动|7
 奇特|qítè|形|7
+齐心协力|qíxīn-xiélì||7
 旗帜|qízhì|名|7
 起步|qǐbù|动|7
 起草|qǐcǎo|动|7
@@ -8134,6 +8562,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 乞讨|qǐtǎo|动|7
 企图|qǐtú|动·名|7
 启用|qǐyòng|动|7
+岂有此理|qǐyǒucǐlǐ||7
 器材|qìcái|名|7
 气愤|qìfèn|形|7
 气管|qìguǎn|名|7
@@ -8157,12 +8586,19 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 器重|qìzhòng|动|7
 掐|qiā|动|7
 卡|qiǎ|动·名|7
+恰到好处|qiàdào-hǎochù||7
 恰巧|qiàqiǎo|副|7
+恰如其分|qiàrú-qífèn||7
 洽谈|qiàtán|动|7
 迁|qiān|动|7
+签|qiān|名|7
+千变万化|qiānbiàn-wànhuà||7
 牵扯|qiānchě|动|7
+千方百计|qiānfāng-bǎijì||7
 牵挂|qiānguà|动|7
 迁就|qiānjiù|动|7
+千军万马|qiānjūn-wànmǎ||7
+千钧一发|qiānjūn-yífà||7
 牵涉|qiānshè|动|7
 签署|qiānshǔ|动|7
 牵头|qiāntóu|动|7
@@ -8171,21 +8607,26 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 迁移|qiānyí|动|7
 签约|qiānyuē|动|7
 牵制|qiānzhì|动|7
+千姿百态|qiānzī-bǎitài||7
 前辈|qiánbèi|名|7
 钱财|qiáncái|名|7
 前程|qiánchéng|名|7
 虔诚|qiánchéng|形|7
 潜伏|qiánfú|动|7
+前赴后继|qiánfù-hòujì||7
 潜能|qiánnéng|名|7
 前任|qiánrèn|名|7
 潜入|qiánrù|动|7
 潜水|qiánshuǐ|动|7
+前所未有|qiánsuǒwèiyǒu||7
 前台|qiántái|名|7
 潜艇|qiántǐng|名|7
+前无古人|qiánwúgǔrén||7
 前夕|qiánxī|名|7
 前线|qiánxiàn|名|7
 潜心|qiánxīn|动|7
 前沿|qiányán|名|7
+潜移默化|qiányí-mòhuà||7
 潜在|qiánzài|形|7
 浅显|qiǎnxiǎn|形|7
 谴责|qiǎnzé|动|7
@@ -8207,6 +8648,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 抢夺|qiǎngduó|动|7
 抢劫|qiǎngjié|动|7
 抢眼|qiǎngyǎn|形|7
+呛|qiàng|动|7
 敲诈|qiāozhà|动|7
 憔悴|qiáocuì|形|7
 巧合|qiǎohé|形|7
@@ -8218,6 +8660,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 切割|qiēgē|动|7
 切换|qiēhuàn|动|7
 且|qiě|连|7
+锲而不舍|qiè’érbùshě||7
 切记|qièjì|动|7
 切忌|qièjì|动|7
 窃取|qièqǔ|动|7
@@ -8236,14 +8679,18 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 亲手|qīnshǒu|副|7
 亲眼|qīnyǎn|副|7
 侵占|qīnzhàn|动|7
+勤工俭学|qíngōng-jiǎnxué||7
 勤俭|qínjiǎn|形|7
 勤快|qínkuai|形|7
+琴棋书画|qín-qí-shū-huà||7
 寝室|qǐnshì|名|7
+轻而易举|qīng’éryìjǔ||7
 清澈|qīngchè|形|7
 清除|qīngchú|动|7
 清脆|qīngcuì|形|7
 清单|qīngdān|名|7
 倾倒|qīngdǎo|动|7
+倾家荡产|qīngjiā-dàngchǎn||7
 清静|qīngjìng|形|7
 青睐|qīnglài|动|7
 清凉|qīngliáng|形|7
@@ -8257,6 +8704,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 清新|qīngxīn|形|7
 轻型|qīngxíng|形|7
 情报|qíngbào|名|7
+情不自禁|qíngbúzìjīn||7
 情调|qíngdiào|名|7
 情怀|qínghuái|名|7
 情结|qíngjié|名|7
@@ -8275,6 +8723,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 庆幸|qìngxìng|动|7
 丘陵|qiūlíng|名|7
 囚犯|qiúfàn|名|7
+求同存异|qiútóng-cúnyì||7
 求学|qiúxué|动|7
 求医|qiúyī|动|7
 求证|qiúzhèng|动|7
@@ -8286,6 +8735,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 趋于|qūyú|动|7
 曲折|qūzhé|形|7
 驱逐|qūzhú|动|7
+取而代之|qǔ’érdàizhī||7
 取材|qǔcái|动|7
 取缔|qǔdì|动|7
 取经|qǔjīng|动|7
@@ -8304,12 +8754,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 权衡|quánhéng|动|7
 拳击|quánjī|名|7
 全局|quánjú|名|7
+全力以赴|quánlìyǐfù||7
 全能|quánnéng|形|7
 全身心|quánshēnxīn|副|7
 诠释|quánshì|动|7
 拳头|quántóu|名|7
 权威|quánwēi|名·形|7
 权限|quánxiàn|名|7
+全心全意|quánxīn-quányì||7
 权益|quányì|名|7
 劝告|quàngào|动·名|7
 劝说|quànshuō|动|7
@@ -8335,6 +8787,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 惹|rě|动|7
 热潮|rècháo|名|7
 热带|rèdài|名|7
+热泪盈眶|rèlèi-yíngkuàng||7
 热腾腾|rèténgténg|形|7
 热销|rèxiāo|动|7
 热衷|rèzhōng|动|7
@@ -8365,9 +8818,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 任意|rènyì|副·形|7
 认证|rènzhèng|动|7
 任职|rènzhí|动|7
+任重道远|rènzhòng-dàoyuǎn||7
 日程|rìchéng|名|7
+日复一日|rìfùyírì||7
 日趋|rìqū|副|7
+日新月异|rìxīn-yuèyì||7
 融|róng|动|7
+容光焕发|róngguāng-huànfā||7
 荣获|rónghuò|动|7
 溶解|róngjiě|动|7
 容貌|róngmào|名|7
@@ -8383,10 +8840,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 冗长|rǒngcháng|形|7
 揉|róu|动|7
 柔和|róuhé|形|7
+如痴如醉|rúchī-rúzuì||7
 如期|rúqī|副|7
 如实|rúshí|副|7
 如意|rúyì|动·名|7
 如一|rúyī|动|7
+如愿以偿|rúyuànyǐcháng||7
 乳制品|rǔzhìpǐn|名|7
 入场|rùchǎng|动|7
 入场券|rùchǎngquàn|名|7
@@ -8407,6 +8866,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 赛车|sàichē|动·名|7
 赛季|sàijì|名|7
 赛跑|sàipǎo|动|7
+三番五次|sānfān-wǔcì||7
 三角|sānjiǎo|名·形|7
 三维|sānwéi|名·形|7
 散布|sànbù|动|7
@@ -8443,6 +8903,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 赡养|shànyǎng|动|7
 善意|shànyì|名|7
 擅自|shànzì|副|7
+伤脑筋|shāng nǎojīn||7
 伤残|shāngcán|动|7
 商贩|shāngfàn|名|7
 伤感|shānggǎn|形|7
@@ -8487,19 +8948,24 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 设|shè|动|7
 设定|shèdìng|动|7
 设法|shèfǎ|动|7
+社会主义|shèhuì zhǔyì||7
 社交|shèjiāo|名|7
 涉猎|shèliè|动|7
 社团|shètuán|名|7
 涉嫌|shèxián|动|7
+深奥|shēn’ào|形|7
 申办|shēnbàn|动|7
 申报|shēnbào|动|7
+身不由己|shēnbùyóujǐ||7
 深沉|shēnchén|形|7
 深化|shēnhuà|动|7
 身价|shēnjià|名|7
 申领|shēnlǐng|动|7
 深切|shēnqiè|形|7
 深情|shēnqíng|名·形|7
+深情厚谊|shēnqíng-hòuyì||7
 身躯|shēnqū|名|7
+深入人心|shēnrù-rénxīn||7
 绅士|shēnshì|名·形|7
 伸手|shēnshǒu|动|7
 深思|shēnsī|动|7
@@ -8559,6 +9025,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 胜负|shèngfù|名|7
 盛会|shènghuì|名|7
 盛开|shèngkāi|动|7
+盛气凌人|shèngqì-língrén||7
 盛情|shèngqíng|名|7
 胜任|shèngrèn|动|7
 盛夏|shèngxià|名|7
@@ -8587,14 +9054,19 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 师长|shīzhǎng|名|7
 师资|shīzī|名|7
 失踪|shīzōng|动|7
+时隔|shí gé||7
+时而|shí’ér|副|7
 实地|shídì|名·副|7
 时段|shíduàn|名|7
+时好时坏|shíhǎo-shíhuài||7
+实话实说|shíhuà-shíshuō||7
 时节|shíjié|名|7
 时空|shíkōng|名|7
 实况|shíkuàng|名|7
 时髦|shímáo|形|7
 时时|shíshí|副|7
 时事|shíshì|名|7
+实事求是|shíshì-qiúshì||7
 食宿|shísù|名|7
 实体|shítǐ|名|7
 实物|shíwù|名|7
@@ -8602,9 +9074,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 屎|shǐ|名|7
 使唤|shǐhuan|动|7
 使命|shǐmìng|名|7
+史无前例|shǐwúqiánlì||7
 使者|shǐzhě|名|7
 势必|shìbì|副|7
+势不可当|shìbùkědāng||7
 视察|shìchá|动|7
+市场经济|shìchǎng jīngjì||7
 世代|shìdài|名|7
 试点|shìdiǎn|动·名|7
 是非|shìfēi|名|7
@@ -8661,6 +9136,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 守信|shǒuxìn|动|7
 手艺|shǒuyì|名|7
 手掌|shǒuzhǎng|名|7
+守株待兔|shǒuzhū-dàitù||7
+受宠若惊|shòuchǒng-ruòjīng||7
 受挫|shòucuò|动|7
 受害|shòuhài|动|7
 受害人|shòuhàirén|名|7
@@ -8671,6 +9148,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 受骗|shòupiàn|动|7
 授权|shòuquán|动|7
 受益|shòuyì|动|7
+受益匪浅|shòuyì-fěiqiǎn||7
 授予|shòuyǔ|动|7
 受罪|shòuzuì|动|7
 梳|shū|动|7
@@ -8692,12 +9170,15 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 曙光|shǔguāng|名|7
 属相|shǔxiàng|名|7
 属性|shǔxìng|名|7
+数一数二|shǔyī-shǔ’èr||7
+数额|shù’é|名|7
 束缚|shùfù|动|7
 树干|shùgàn|名|7
 数据库|shùjùkù|名|7
 竖立|shùlì|动|7
 数码|shùmǎ|形|7
 树梢|shùshāo|名|7
+束手无策|shùshǒu-wúcè||7
 树荫|shùyīn|名|7
 刷新|shuāxīn|动|7
 耍|shuǎ|动|7
@@ -8721,13 +9202,16 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 爽|shuǎng|形|7
 爽快|shuǎngkuai|形|7
 水产|shuǐchǎn|名|7
+水滴石穿|shuǐdī-shíchuān||7
 水晶|shuǐjīng|名|7
 水利|shuǐlì|名|7
 水龙头|shuǐlóngtóu|名|7
+水落石出|shuǐluò-shíchū||7
 水汽|shuǐqì|名|7
 水土|shuǐtǔ|名|7
 水域|shuǐyù|名|7
 水源|shuǐyuán|名|7
+水涨船高|shuǐzhǎng-chuángāo||7
 水准|shuǐzhǔn|名|7
 睡袋|shuìdài|名|7
 税收|shuìshōu|名|7
@@ -8735,7 +9219,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 顺差|shùnchā|名|7
 顺畅|shùnchàng|形|7
 顺从|shùncóng|动|7
+顺理成章|shùnlǐ-chéngzhāng||7
 顺路|shùnlù|副·形|7
+顺其自然|shùnqízìrán||7
 顺势|shùnshì|副|7
 顺手|shùnshǒu|形·副|7
 顺心|shùnxīn|形|7
@@ -8751,8 +9237,10 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 司法|sīfǎ|动|7
 丝毫|sīháo|形|7
 私家车|sījiāchē|名|7
+司空见惯|sīkōng-jiànguàn||7
 私立|sīlì|动·形|7
 司令|sīlìng|名|7
+思前想后|sīqián-xiǎnghòu||7
 私事|sīshì|名|7
 思索|sīsuǒ|动|7
 私下|sīxià|名|7
@@ -8762,10 +9250,15 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 私自|sīzì|副|7
 死心|sǐxīn|动|7
 寺|sì|名|7
+似曾相识|sìcéng-xiāngshí||7
 四方|sìfāng|名|7
 伺机|sìjī|动|7
 饲料|sìliào|名|7
+四面八方|sìmiàn-bāfāng||7
 寺庙|sìmiào|名|7
+似是而非|sìshì-érfēi||7
+四通八达|sìtōng-bādá||7
+肆无忌惮|sìwú-jìdàn||7
 饲养|sìyǎng|动|7
 四肢|sìzhī|名|7
 松弛|sōngchí|形|7
@@ -8786,6 +9279,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 俗话|súhuà|名|7
 俗语|súyǔ|名|7
 素|sù|形·名|7
+素不相识|sùbùxiāngshí||7
 素材|sùcái|名|7
 诉苦|sùkǔ|动|7
 诉求|sùqiú|动·名|7
@@ -8800,10 +9294,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 算数|suànshù|动|7
 算账|suànzhàng|动|7
 虽说|suīshuō|连|7
+随处可见|suíchù kě jiàn||7
 随即|suíjí|副|7
 随机|suíjī|副·形|7
 随身|suíshēn|形|7
+随时随地|suíshí-suídì||7
+随心所欲|suíxīnsuǒyù||7
 隧道|suìdào|名|7
+损人利己|sǔnrén-lìjǐ||7
 缩|suō|动|7
 缩减|suōjiǎn|动|7
 缩水|suōshuǐ|动|7
@@ -8816,9 +9314,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 所谓|suǒwèi|形|7
 索性|suǒxìng|副|7
 所在|suǒzài|名|7
+所作所为|suǒzuò-suǒwéi||7
 塌|tā|动|7
 踏|tà|动|7
 胎|tāi|量·名|7
+胎儿|tāi’ér|名|7
 泰斗|tàidǒu|名|7
 太极|tàijí|名|7
 太平|tàipíng|形|7
@@ -8853,6 +9353,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 糖尿病|tángniàobìng|名|7
 淌|tǎng|动|7
 倘若|tǎngruò|连|7
+掏腰包|tāoyāobāo||7
+滔滔不绝|tāotāo-bùjué||7
 淘|táo|动|7
 逃避|táobì|动|7
 陶瓷|táocí|名|7
@@ -8862,6 +9364,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 陶醉|táozuì|动|7
 讨|tǎo|动|7
 讨好|tǎohǎo|动|7
+讨价还价|tǎojià-huánjià||7
 特此|tècǐ|副|7
 特例|tèlì|名|7
 特权|tèquán|名|7
@@ -8879,6 +9382,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 提炼|tíliàn|动|7
 提名|tímíng|动|7
 提速|tísù|动|7
+提心吊胆|tíxīn-diàodǎn||7
 提议|tíyì|动·名|7
 体裁|tǐcái|名|7
 体谅|tǐliàng|动|7
@@ -8892,12 +9396,16 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 剃|tì|动|7
 替补|tìbǔ|动·名|7
 替换|tìhuàn|动|7
+天长地久|tiāncháng-dìjiǔ||7
 天敌|tiāndí|名|7
 天地|tiāndì|名|7
+天鹅|tiān’é|名|7
 天分|tiānfèn|名|7
 天赋|tiānfù|动·名|7
 天花板|tiānhuābǎn|名|7
 添加剂|tiānjiājì|名|7
+天经地义|tiānjīng-dìyì||7
+天伦之乐|tiānlúnzhīlè||7
 天平|tiānpíng|名|7
 天桥|tiānqiáo|名|7
 天生|tiānshēng|形|7
@@ -8949,6 +9457,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 通车|tōngchē|动|7
 通告|tōnggào|动·名|7
 通红|tōnghóng|形|7
+通货膨胀|tōnghuò péngzhàng||7
 通缉|tōngjī|动|7
 通顺|tōngshùn|形|7
 通俗|tōngsú|形|7
@@ -8964,6 +9473,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 同期|tóngqī|名|7
 同仁|tóngrén|名|7
 同志|tóngzhì|名|7
+同舟共济|tóngzhōu-gòngjì||7
 捅|tǒng|动|7
 筒|tǒng|名|7
 统筹|tǒngchóu|动|7
@@ -8980,6 +9490,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 投射|tóushè|动|7
 投身|tóushēn|动|7
 头条|tóutiáo|名|7
+头头是道|tóutóu-shìdào||7
 头衔|tóuxián|名|7
 投降|tóuxiáng|动|7
 投掷|tóuzhì|动|7
@@ -8990,6 +9501,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 秃|tū|形|7
 突击|tūjī|动|7
 突破口|tūpòkǒu|名|7
+突如其来|tūrú-qílái||7
 突兀|tūwù|形|7
 凸显|tūxiǎn|动|7
 涂|tú|动|7
@@ -8999,6 +9511,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 图形|túxíng|名|7
 图纸|túzhǐ|名|7
 吐槽|tǔcáo|动|7
+土生土长|tǔshēng-tǔzhǎng||7
 团伙|tuánhuǒ|名|7
 团聚|tuánjù|动|7
 团员|tuányuán|名|7
@@ -9026,11 +9539,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 托|tuō|动·名|7
 托付|tuōfù|动|7
 脱节|tuōjié|动|7
+脱口而出|tuōkǒu’érchū||7
 拖累|tuōlěi|动|7
 脱离|tuōlí|动|7
 脱落|tuōluò|动|7
 拖欠|tuōqiàn|动|7
 脱身|tuōshēn|动|7
+脱颖而出|tuōyǐng’érchū||7
 驮|tuó|动|7
 妥|tuǒ|形|7
 妥当|tuǒdàng|形|7
@@ -9078,10 +9593,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 万分|wànfēn|副|7
 万能|wànnéng|形|7
 万万|wànwàn|副|7
+万无一失|wànwú-yìshī||7
 汪洋|wāngyáng|形|7
 王朝|wángcháo|名|7
 王国|wángguó|名|7
 王牌|wángpái|名|7
+亡羊补牢|wángyáng-bǔláo||7
 往常|wǎngcháng|名|7
 网点|wǎngdiǎn|名|7
 网民|wǎngmín|名|7
@@ -9094,6 +9611,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 望远镜|wàngyuǎnjìng|名|7
 微|wēi|副|7
 微波炉|wēibōlú|名|7
+微不足道|wēibùzúdào||7
 威风|wēifēng|名·形|7
 微观|wēiguān|形|7
 危及|wēijí|动|7
@@ -9173,31 +9691,49 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 呜咽|wūyè|动|7
 乌云|wūyún|名|7
 无比|wúbǐ|动|7
+无边无际|wúbiān-wújì||7
 无不|wúbù|副|7
 无偿|wúcháng|形|7
 无耻|wúchǐ|形|7
 无从|wúcóng|副|7
 无敌|wúdí|动|7
+无动于衷|wúdòngyúzhōng||7
 无非|wúfēi|副|7
 无故|wúgù|副|7
 无辜|wúgū|形·名|7
+无关紧要|wúguān-jǐnyào||7
+无话可说|wúhuà-kěshuō||7
+无家可归|wújiā-kěguī||7
+无价之宝|wújiàzhībǎo||7
+无精打采|wújīng-dǎcǎi||7
+无济于事|wújìyúshì||7
+无可厚非|wúkěhòufēi||7
+无可奈何|wúkěnàihé||7
 无赖|wúlài|形·名|7
 无力|wúlì|动|7
 无理|wúlǐ|动|7
+无论如何|wúlùn-rúhé||7
 无能|wúnéng|形|7
+无能为力|wúnéngwéilì||7
 无情|wúqíng|形|7
 无穷|wúqióng|动|7
 无私|wúsī|形|7
+无所事事|wúsuǒshìshì||7
+无所作为|wúsuǒzuòwéi||7
 无条件|wútiáojiàn|动|7
+无微不至|wúwēi-búzhì||7
 无线|wúxiàn|形|7
 无形|wúxíng|形·副|7
 无须|wúxū|副|7
 无意|wúyì|动·副|7
+无忧无虑|wúyōu-wúlǜ||7
 无缘|wúyuán|动·副|7
 无知|wúzhī|形|7
 捂|wǔ|动|7
 舞|wǔ|名·动|7
 五官|wǔguān|名|7
+五花八门|wǔhuā-bāmén||7
+五湖四海|wǔhú-sìhǎi||7
 武力|wǔlì|名|7
 侮辱|wǔrǔ|动|7
 武侠|wǔxiá|名|7
@@ -9209,6 +9745,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 务工|wùgōng|动|7
 物力|wùlì|名|7
 物流|wùliú|名|7
+物美价廉|wùměi-jiàlián||7
 误区|wùqū|名|7
 物色|wùsè|动|7
 务实|wùshí|动·形|7
@@ -9230,24 +9767,30 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 稀少|xīshǎo|形|7
 牺牲|xīshēng|动|7
 嬉笑|xīxiào|动|7
+熙熙攘攘|xīxī-rǎngrǎng|形|7
+息息相关|xīxī-xiāngguān||7
 夕阳|xīyáng|名·形|7
 稀有|xīyǒu|形|7
 锡纸|xīzhǐ|名|7
 席|xí|名·量|7
 袭击|xíjī|动|7
 席位|xíwèi|名|7
+喜出望外|xǐchūwàngwài||7
 洗涤|xǐdí|动|7
 喜好|xǐhào|动|7
 喜酒|xǐjiǔ|名|7
 洗礼|xǐlǐ|名|7
+喜怒哀乐|xǐ-nù-āi-lè||7
 喜庆|xǐqìng|形·名|7
 喜糖|xǐtáng|名|7
+喜闻乐见|xǐwén-lèjiàn||7
 喜洋洋|xǐyángyáng|形|7
 喜悦|xǐyuè|形|7
 细腻|xìnì|形|7
 细微|xìwēi|形|7
 虾|xiā|名|7
 瞎|xiā|动·副|7
+狭隘|xiá’ài|形|7
 瑕疵|xiácī|名|7
 峡谷|xiágǔ|名|7
 辖区|xiáqū|名|7
@@ -9289,10 +9832,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 嫌弃|xiánqì|动|7
 嫌疑|xiányí|名|7
 闲置|xiánzhì|动|7
+显而易见|xiǎn’éryìjiàn||7
 显赫|xiǎnhè|形|7
 显露|xiǎnlù|动|7
 显示器|xiǎnshìqì|名|7
 显微镜|xiǎnwēijìng|名|7
+鲜为人知|xiǎnwéirénzhī||7
 显现|xiǎnxiàn|动|7
 显性|xiǎnxìng|形|7
 显眼|xiǎnyǎn|形|7
@@ -9309,12 +9854,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 现行|xiànxíng|形|7
 镶|xiāng|动|7
 相伴|xiāngbàn|动|7
+相辅相成|xiāngfǔ-xiāngchéng||7
 相继|xiāngjì|副|7
 相近|xiāngjìn|形|7
 香料|xiāngliào|名|7
 镶嵌|xiāngqiàn|动|7
 乡亲|xiāngqīn|名|7
 相识|xiāngshí|动·名|7
+相提并论|xiāngtí-bìnglùn||7
 相通|xiāngtōng|动|7
 乡下|xiāngxia|名|7
 香油|xiāngyóu|名|7
@@ -9323,6 +9870,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 祥和|xiánghé|形|7
 详尽|xiángjìn|形|7
 享|xiǎng|动|7
+想方设法|xiǎngfāng-shèfǎ||7
 响亮|xiǎngliàng|形|7
 响应|xiǎngyìng|动|7
 享用|xiǎngyòng|动|7
@@ -9343,6 +9891,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 潇洒|xiāosǎ|形|7
 萧条|xiāotiáo|形|7
 嚣张|xiāozhāng|形|7
+小菜一碟|xiǎocài-yìdié||7
 小丑|xiǎochǒu|名|7
 小费|xiǎofèi|名|7
 小看|xiǎokàn|动|7
@@ -9350,6 +9899,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 小品|xiǎopǐn|名|7
 小人|xiǎorén|名|7
 小提琴|xiǎotíqín|名|7
+小心翼翼|xiǎoxīn-yìyì||7
 效仿|xiàofǎng|动|7
 孝敬|xiàojìng|动|7
 效力|xiàolì|动·名|7
@@ -9359,6 +9909,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 邪|xié|形|7
 挟持|xiéchí|动|7
 协定|xiédìng|名·动|7
+邪恶|xié’è|形|7
 协商|xiéshāng|动|7
 携手|xiéshǒu|动|7
 协同|xiétóng|动|7
@@ -9374,13 +9925,18 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 泄气|xièqì|动·形|7
 卸任|xièrèn|动|7
 卸载|xièzài|动|7
+心安理得|xīn’ān-lǐdé||7
 心病|xīnbìng|名|7
 心肠|xīncháng|名|7
 新潮|xīncháo|名·形|7
+新陈代谢|xīnchén-dàixiè||7
 薪酬|xīnchóu|名|7
 新春|xīnchūn|名|7
 心得|xīndé|名|7
+心甘情愿|xīngān-qíngyuàn||7
 心慌|xīnhuāng|形|7
+心急如焚|xīnjí-rúfén||7
+心灵手巧|xīnlíng-shǒuqiǎo||7
 芯片|xīnpiàn|名|7
 新奇|xīnqí|形|7
 辛勤|xīnqín|形|7
@@ -9394,6 +9950,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 辛酸|xīnsuān|形|7
 欣慰|xīnwèi|形|7
 欣喜|xīnxǐ|形|7
+心想事成|xīnxiǎng-shìchéng||7
+欣欣向荣|xīnxīn-xiàngróng||7
 心胸|xīnxiōng|名|7
 心血|xīnxuè|名|7
 心眼儿|xīnyǎnr|名|7
@@ -9418,11 +9976,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 行使|xíngshǐ|动|7
 行星|xíngxīng|名|7
 形形色色|xíngxíngsèsè|形|7
+形影不离|xíngyǐng-bùlí||7
 行政|xíngzhèng|动·名|7
 醒目|xǐngmù|形|7
 醒悟|xǐngwù|动|7
 幸存|xìngcún|动|7
 性感|xìnggǎn|形|7
+兴高采烈|xìnggāo-cǎiliè||7
 幸好|xìnghǎo|副|7
 幸亏|xìngkuī|副|7
 幸免|xìngmiǎn|动|7
@@ -9432,12 +9992,14 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 兴致|xìngzhì|名|7
 凶|xiōng|形|7
 凶残|xiōngcán|形|7
+凶恶|xiōng’è|形|7
 凶狠|xiōnghěn|形|7
 胸怀|xiōnghuái|动·名|7
 凶猛|xiōngměng|形|7
 凶手|xiōngshǒu|名|7
 胸膛|xiōngtáng|名|7
 汹涌|xiōngyǒng|动|7
+胸有成竹|xiōngyǒuchéngzhú||7
 雄厚|xiónghòu|形|7
 雄伟|xióngwěi|形|7
 雄性|xióngxìng|名|7
@@ -9457,6 +10019,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 嗅觉|xiùjué|名|7
 秀丽|xiùlì|形|7
 秀美|xiùměi|形|7
+袖手旁观|xiùshǒu-pángguān||7
 袖珍|xiùzhēn|形|7
 须|xū|动|7
 虚|xū|形·副|7
@@ -9514,6 +10077,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 学业|xuéyè|名|7
 学子|xuézǐ|名|7
 雪山|xuěshān|名|7
+雪上加霜|xuěshàng-jiāshuāng||7
 血脉|xuèmài|名|7
 血缘|xuèyuán|名|7
 熏|xūn|动|7
@@ -9526,6 +10090,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 巡逻|xúnluó|动|7
 寻觅|xúnmì|动|7
 巡视|xúnshì|动|7
+循序渐进|xúnxù-jiànjìn||7
 训|xùn|动|7
 驯|xùn|动|7
 迅猛|xùnměng|形|7
@@ -9533,6 +10098,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 押|yā|动|7
 压倒|yādǎo|动|7
 压迫|yāpò|动|7
+鸦雀无声|yāquè-wúshēng||7
 丫头|yātou|名|7
 压抑|yāyì|动|7
 压榨|yāzhà|动|7
@@ -9540,11 +10106,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 压轴|yāzhòu|动·名|7
 芽|yá|名|7
 哑|yǎ|形|7
+揠苗助长|yàmiáo-zhùzhǎng||7
 烟囱|yāncōng|名|7
 咽喉|yānhóu|名|7
 烟花|yānhuā|名|7
 烟火|yānhuǒ|名|7
 延|yán|动|7
+沿岸|yán’àn|名|7
 言辞|yáncí|名|7
 延缓|yánhuǎn|动|7
 严谨|yánjǐn|形|7
@@ -9559,6 +10127,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 言行|yánxíng|名|7
 沿用|yányòng|动|7
 演变|yǎnbiàn|动|7
+掩耳盗铃|yǎn’ěr-dàolíng||7
 掩盖|yǎngài|动|7
 眼红|yǎnhóng|形|7
 掩护|yǎnhù|动·名|7
@@ -9604,6 +10173,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 遥控|yáokòng|动|7
 摇篮|yáolán|名|7
 谣言|yáoyán|名|7
+摇摇欲坠|yáoyáo-yùzhuì||7
 药材|yàocái|名|7
 药方|yàofāng|名|7
 要害|yàohài|名|7
@@ -9623,6 +10193,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 液晶|yèjīng|名|7
 夜校|yèxiào|名|7
 夜宵|yèxiāo|名|7
+夜以继日|yèyǐjìrì||7
 依|yī|动·介|7
 依次|yīcì|副|7
 依法|yīfǎ|副|7
@@ -9631,22 +10202,29 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 依托|yītuō|动|7
 医务|yīwù|名|7
 一线|yīxiàn|名|7
+依依不舍|yīyī-bùshě||7
 依照|yīzhào|动·介|7
 仪表|yíbiǎo|名|7
 一并|yíbìng|副|7
 疑点|yídiǎn|名|7
+一动不动|yídòng-búdòng||7
 一度|yídù|数量·副|7
 一概|yígài|副|7
+一概而论|yígài’érlùn||7
 一晃|yíhuàng|动|7
 移交|yíjiāo|动|7
+一技之长|yíjìzhīcháng||7
 宜居|yíjū|形|7
 遗留|yíliú|动|7
 遗漏|yílòu|动|7
 疑虑|yílǜ|动·名|7
 一面|yímiàn|名·副|7
+一目了然|yímù-liǎorán||7
 遗弃|yíqì|动|7
+怡然自得|yírán-zìdé||7
 宜人|yírén|形|7
 遗失|yíshī|动|7
+一事无成|yíshì-wúchéng||7
 遗体|yítǐ|名|7
 遗忘|yíwàng|动|7
 一味|yíwèi|副|7
@@ -9655,6 +10233,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 遗嘱|yízhǔ|名|7
 矣|yǐ|助|7
 倚|yǐ|动|7
+以身作则|yǐshēn-zuòzé||7
 以致|yǐzhì|连|7
 以至于|yǐzhìyú|连|7
 议|yì|动|7
@@ -9662,9 +10241,16 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 译|yì|动|7
 溢|yì|动|7
 议程|yìchéng|名|7
+一成不变|yìchéng-búbiàn||7
+一筹莫展|yìchóu-mòzhǎn||7
+一干二净|yìgān-èrjìng||7
 义工|yìgōng|名|7
+一鼓作气|yìgǔ-zuòqì||7
 一经|yìjīng|副|7
 一举|yìjǔ|名·副|7
+一举两得|yìjǔ-liǎngdé||7
+一举一动|yìjǔ-yídòng||7
+异口同声|yìkǒu-tóngshēng||7
 易拉罐|yìlāguàn|名|7
 一揽子|yìlǎnzi|形|7
 屹立|yìlì|动|7
@@ -9672,30 +10258,48 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 一连|yìlián|副|7
 一连串|yìliánchuàn|形|7
 意料|yìliào|动|7
+一毛不拔|yìmáo-bùbá||7
 疫苗|yìmiáo|名|7
 一旁|yìpáng|名|7
 一齐|yìqí|副|7
 毅然|yìrán|副|7
+一如既往|yìrú-jìwǎng||7
+一声不吭|yìshēng-bùkēng||7
 一手|yìshǒu|名·副|7
+一丝不苟|yìsī-bùgǒu||7
+一塌糊涂|yìtāhútú||7
 议题|yìtí|名|7
 一体|yìtǐ|名|7
 一头|yìtóu|名·副|7
 意图|yìtú|动·名|7
 亿万|yìwàn|数|7
 意味|yìwèi|名|7
+一无所有|yìwúsuǒyǒu||7
+一无所知|yìwúsuǒzhī||7
 意向|yìxiàng|名|7
+意想不到|yìxiǎng-búdào||7
+异想天开|yìxiǎng-tiānkāi||7
 一心|yìxīn|副·形|7
 一行|yìxíng|名|7
 异性|yìxìng|形·名|7
+一心一意|yìxīn-yíyì||7
+一言不发|yìyán-bùfā||7
+抑扬顿挫|yìyáng-dùncuò||7
+一言一行|yìyán-yìxíng||7
 异议|yìyì|名|7
+一应俱全|yìyīng-jùquán||7
 抑郁|yìyù|形|7
 意愿|yìyuàn|名|7
 抑郁症|yìyùzhèng|名|7
 一早|yìzǎo|名|7
+一针见血|yìzhēn-jiànxiě||7
 意志|yìzhì|名|7
+阴暗|yīn’àn|形|7
+因地制宜|yīndì-zhìyí||7
 阴历|yīnlì|名|7
 阴谋|yīnmóu|动·名|7
 殷勤|yīnqín|形|7
+因人而异|yīnrén’éryì||7
 音响|yīnxiǎng|名|7
 阴性|yīnxìng|名|7
 阴影|yīnyǐng|名|7
@@ -9705,10 +10309,13 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 隐含|yǐnhán|动|7
 隐患|yǐnhuàn|名|7
 引荐|yǐnjiàn|动|7
+引经据典|yǐnjīng-jùdiǎn||7
 引领|yǐnlǐng|动|7
 隐瞒|yǐnmán|动|7
 引擎|yǐnqíng|名|7
 隐情|yǐnqíng|名|7
+引人入胜|yǐnrén-rùshèng||7
+引人注目|yǐnrén-zhùmù||7
 隐形|yǐnxíng|形|7
 隐性|yǐnxìng|形|7
 引用|yǐnyòng|动|7
@@ -9720,6 +10327,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 英俊|yīngjùn|形|7
 英明|yīngmíng|形|7
 英勇|yīngyǒng|形|7
+应有尽有|yīngyǒu-jìnyǒu||7
 荧光|yíngguāng|名|7
 迎合|yínghé|动|7
 赢家|yíngjiā|名|7
@@ -9743,10 +10351,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 涌|yǒng|动|7
 永恒|yǒnghéng|形|7
 永久|yǒngjiǔ|形|7
+勇往直前|yǒngwǎng-zhíqián||7
 踊跃|yǒngyuè|动·形|7
 用意|yòngyì|名|7
 忧愁|yōuchóu|形|7
 忧虑|yōulǜ|动|7
+优胜劣汰|yōushèng-liètài||7
 悠闲|yōuxián|形|7
 优雅|yōuyǎ|形|7
 忧郁|yōuyù|形|7
@@ -9758,14 +10368,20 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 油漆|yóuqī|名·动|7
 尤为|yóuwéi|副|7
 游行|yóuxíng|动|7
+犹豫不决|yóuyù-bùjué||7
 邮政|yóuzhèng|名|7
 由衷|yóuzhōng|动|7
 有待|yǒudài|动|7
+有的放矢|yǒudì-fàngshǐ||7
 友人|yǒurén|名|7
 友善|yǒushàn|形|7
+有声有色|yǒushēng-yǒusè||7
+有条不紊|yǒutiáo-bùwěn||7
 有望|yǒuwàng|动|7
 有幸|yǒuxìng|形|7
 有意|yǒuyì|动·副|7
+有朝一日|yǒuzhāo-yírì||7
+诱饵|yòu’ěr|名|7
 诱发|yòufā|动|7
 诱惑|yòuhuò|动·名|7
 诱人|yòurén|动·形|7
@@ -9775,12 +10391,17 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 渔船|yúchuán|名|7
 愚蠢|yúchǔn|形|7
 余地|yúdì|名|7
+愚公移山|yúgōng-yíshān||7
 舆论|yúlùn|名|7
 愚昧|yúmèi|形|7
 渔民|yúmín|名|7
 逾期|yúqī|动|7
 愉悦|yúyuè|形|7
+与否|yǔ fǒu||7
+与日俱增|yǔrì-jùzēng||7
+与时俱进|yǔshí-jùjìn||7
 予以|yǔyǐ|动|7
+与众不同|yǔzhòng-bùtóng||7
 宇宙|yǔzhòu|名|7
 玉|yù|名|7
 愈|yù|副|7
@@ -9801,6 +10422,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 预先|yùxiān|副|7
 预言|yùyán|动·名|7
 寓言|yùyán|名|7
+愈演愈烈|yùyǎn-yùliè||7
 寓意|yùyì|名|7
 预兆|yùzhào|名·动|7
 冤|yuān|名·形|7
@@ -9816,16 +10438,22 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 元首|yuánshǒu|名|7
 源头|yuántóu|名|7
 原型|yuánxíng|名|7
+源源不断|yuányuán-búduàn||7
+源远流长|yuányuǎn-liúcháng||7
+原汁原味|yuánzhī-yuánwèi||7
 援助|yuánzhù|动|7
 原装|yuánzhuāng|形|7
 远见|yuǎnjiàn|名|7
+远近闻名|yuǎnjìn-wénmíng||7
 怨|yuàn|动|7
 怨恨|yuànhèn|动·名|7
 怨气|yuànqì|名|7
 院士|yuànshì|名|7
 怨言|yuànyán|名|7
 曰|yuē|动|7
+约定俗成|yuēdìng-súchéng||7
 乐队|yuèduì|名|7
+悦耳|yuè’ěr|形|7
 越发|yuèfā|副|7
 岳父|yuèfù|名|7
 越过|yuèguò|动|7
@@ -9833,9 +10461,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 阅历|yuèlì|动·名|7
 岳母|yuèmǔ|名|7
 乐谱|yuèpǔ|名|7
+晕头转向|yūntóu-zhuànxiàng||7
 陨石|yǔnshí|名|7
 熨|yùn|动|7
 蕴藏|yùncáng|动|7
+运筹帷幄|yùnchóu-wéiwò||7
 孕妇|yùnfù|名|7
 蕴含|yùnhán|动|7
 运河|yùnhé|名|7
@@ -9848,16 +10478,20 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 砸|zá|动|7
 杂技|zájì|名|7
 杂交|zájiāo|动|7
+杂乱无章|záluàn-wúzhāng||7
 栽|zāi|动|7
 栽培|zāipéi|动|7
 栽赃|zāizāng|动|7
 宰|zǎi|动|7
 再度|zàidù|副|7
+再接再厉|zàijiē-zàilì||7
+在所难免|zàisuǒnánmiǎn||7
 载体|zàitǐ|名|7
 再现|zàixiàn|动|7
 在职|zàizhí|动|7
 攒|zǎn|动|7
 暂|zàn|副|7
+赞不绝口|zànbùjuékǒu||7
 赞美|zànměi|动|7
 暂且|zànqiě|副|7
 赞叹|zàntàn|动|7
@@ -9878,6 +10512,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 造价|zàojià|名|7
 造假|zàojiǎ|动|7
 造就|zàojiù|动·名|7
+则|zé|量|7
 责备|zébèi|动|7
 责怪|zéguài|动|7
 贼|zéi|名·形|7
@@ -9905,6 +10540,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 瞻仰|zhānyǎng|动|7
 斩|zhǎn|动|7
 盏|zhǎn|量|7
+斩钉截铁|zhǎndīng-jiétiě||7
 展望|zhǎnwàng|动|7
 辗转|zhǎnzhuǎn|动|7
 蘸|zhàn|动|7
@@ -9919,6 +10555,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 占用|zhànyòng|动|7
 战友|zhànyǒu|名|7
 章程|zhāngchéng|名|7
+张灯结彩|zhāngdēng-jiécǎi||7
 张贴|zhāngtiē|动|7
 张扬|zhāngyáng|动|7
 掌舵|zhǎngduò|动·名|7
@@ -9932,8 +10569,11 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 招揽|zhāolǎn|动|7
 招募|zhāomù|动|7
 招牌|zhāopai|名|7
+朝气蓬勃|zhāoqì-péngbó||7
+朝三暮四|zhāosān-mùsì||7
 招商|zhāoshāng|动|7
 招数|zhāoshù|名|7
+朝夕相处|zhāoxī-xiāngchǔ||7
 着迷|zháomí|动|7
 沼泽|zhǎozé|名|7
 罩|zhào|动·名|7
@@ -9958,6 +10598,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 折射|zhéshè|动|7
 珍藏|zhēncáng|动·名|7
 侦查|zhēnchá|动|7
+针锋相对|zhēnfēng-xiāngduì||7
 针灸|zhēnjiǔ|名|7
 真空|zhēnkōng|名|7
 真理|zhēnlǐ|名|7
@@ -9991,6 +10632,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 争辩|zhēngbiàn|动|7
 争端|zhēngduān|名|7
 蒸发|zhēngfā|动|7
+争分夺秒|zhēngfēn-duómiǎo||7
 征服|zhēngfú|动|7
 争光|zhēngguāng|动|7
 征集|zhēngjí|动|7
@@ -9998,6 +10640,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 争气|zhēngqì|动|7
 征收|zhēngshōu|动|7
 争相|zhēngxiāng|副|7
+争先恐后|zhēngxiān-kǒnghòu||7
 正月|zhēngyuè|名|7
 挣扎|zhēngzhá|动|7
 争执|zhēngzhí|动|7
@@ -10020,7 +10663,9 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 正直|zhèngzhí|形|7
 郑重|zhèngzhòng|形|7
 正宗|zhèngzōng|名·形|7
+之|zhī|代|7
 织|zhī|动|7
+之际|zhījì|名|7
 知己|zhījǐ|形·名|7
 支架|zhījià|名·动|7
 知觉|zhījué|名|7
@@ -10028,10 +10673,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 芝麻|zhīma|名|7
 支配|zhīpèi|动|7
 支票|zhīpiào|名|7
+知识分子|zhīshi fènzǐ||7
 肢体|zhītǐ|名|7
 支援|zhīyuán|动|7
 支柱|zhīzhù|名|7
 知足|zhīzú|形|7
+知足常乐|zhīzú-chánglè||7
 职称|zhíchēng|名|7
 直达|zhídá|动|7
 执法|zhífǎ|动|7
@@ -10058,6 +10705,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 指控|zhǐkòng|动|7
 指令|zhǐlìng|动·名|7
 指南|zhǐnán|名|7
+纸上谈兵|zhǐshàng-tánbīng||7
+指手画脚|zhǐshǒu-huàjiǎo||7
 指数|zhǐshù|名|7
 指望|zhǐwàng|动·名|7
 指纹|zhǐwén|名|7
@@ -10066,10 +10715,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 旨在|zhǐzài|动|7
 致|zhì|动|7
 置|zhì|动|7
+治安|zhì’ān|名|7
 制裁|zhìcái|动|7
 致辞|zhìcí|动|7
 至此|zhìcǐ|动|7
 质地|zhìdì|名|7
+制服|zhìfú|名·动|7
 致富|zhìfù|动|7
 滞后|zhìhòu|动|7
 致敬|zhìjìng|动|7
@@ -10116,6 +10767,8 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 重任|zhòngrèn|名|7
 重型|zhòngxíng|形|7
 重用|zhòngyòng|动|7
+众志成城|zhòngzhì-chéngchéng||7
+重中之重|zhòngzhōngzhīzhòng||7
 周密|zhōumì|形|7
 周岁|zhōusuì|名|7
 周旋|zhōuxuán|动|7
@@ -10126,6 +10779,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 皱纹|zhòuwén|名|7
 昼夜|zhòuyè|名|7
 朱红|zhūhóng|形|7
+诸如此类|zhūrú-cǐlèi||7
 诸位|zhūwèi|代|7
 竹竿|zhúgān|名|7
 逐年|zhúnián|副|7
@@ -10178,6 +10832,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 转播|zhuǎnbō|动|7
 转达|zhuǎndá|动|7
 转化|zhuǎnhuà|动|7
+转机|zhuǎnjī|名|7
 转型|zhuǎnxíng|动|7
 转眼|zhuǎnyǎn|动|7
 转载|zhuǎnzǎi|动|7
@@ -10215,6 +10870,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 准许|zhǔnxǔ|动|7
 准则|zhǔnzé|名|7
 拙劣|zhuōliè|形|7
+捉迷藏|zhuōmícáng||7
 着力|zhuólì|动|7
 着落|zhuóluò|名|7
 酌情|zhuóqíng|动|7
@@ -10227,6 +10883,7 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 着重|zhuózhòng|动|7
 茁壮|zhuózhuàng|形|7
 兹|zī|代|7
+资本主义|zīběn zhǔyì||7
 资历|zīlì|名|7
 滋润|zīrùn|形·动|7
 资深|zīshēn|形|7
@@ -10244,18 +10901,25 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 自称|zìchēng|动·名|7
 自发|zìfā|形|7
 自费|zìfèi|动|7
+自负|zìfù|动·形|7
 字迹|zìjì|名|7
 自立|zìlì|动|7
 自理|zìlǐ|动|7
+自力更生|zìlì-gēngshēng||7
 自满|zìmǎn|形|7
+自强不息|zìqiáng-bùxī||7
+自然而然|zìrán’érrán||7
 自然界|zìránjiè|名|7
 自如|zìrú|形|7
+自始至终|zìshǐ-zhìzhōng||7
 自首|zìshǒu|动|7
 自私|zìsī|形|7
 字体|zìtǐ|名|7
 自卫|zìwèi|动|7
+自相矛盾|zìxiāng-máodùn||7
 自行|zìxíng|副|7
 字眼|zìyǎn|名|7
+自以为是|zìyǐwéishì||7
 自在|zìzai|形|7
 自责|zìzé|动|7
 自治区|zìzhìqū|名|7
@@ -10266,20 +10930,27 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 宗教|zōngjiào|名|7
 综艺|zōngyì|名|7
 宗旨|zōngzhǐ|名|7
+总额|zǒng’é|名|7
+总而言之|zǒng’éryánzhī||7
 总和|zǒnghé|名|7
 纵观|zòngguān|动|7
 纵横|zònghéng|形·动|7
 纵然|zòngrán|连|7
 纵容|zòngróng|动|7
 纵深|zòngshēn|名|7
+走过场|zǒu guòchǎng||7
+走弯路|zǒuwānlù||7
 走漏|zǒulòu|动|7
 走势|zǒushì|名|7
 走私|zǒusī|动|7
+走投无路|zǒutóu-wúlù||7
 走向|zǒuxiàng|名|7
 揍|zòu|动|7
 奏效|zòuxiào|动|7
 租赁|zūlìn|动|7
+足不出户|zúbùchūhù||7
 足迹|zújì|名|7
+足智多谋|zúzhì-duōmóu||7
 祖传|zǔchuán|动|7
 祖父|zǔfù|名|7
 祖籍|zǔjí|名|7
@@ -10290,15 +10961,18 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 阻挠|zǔnáo|动|7
 组装|zǔzhuāng|动|7
 祖宗|zǔzong|名|7
+钻空子|zuān kòngzi||7
 钻研|zuānyán|动|7
 钻石|zuànshí|名|7
 嘴唇|zuǐchún|名|7
 罪犯|zuìfàn|名|7
+罪魁祸首|zuìkuí-huòshǒu||7
 尊贵|zūnguì|形|7
 遵循|zūnxún|动|7
 尊严|zūnyán|名|7
 遵照|zūnzhào|动|7
 琢磨|zuómo|动|7
+左顾右盼|zuǒgù-yòupàn||7
 作弊|zuòbì|动|7
 作对|zuòduì|动|7
 作废|zuòfèi|动|7
@@ -10307,10 +10981,12 @@ import{r as t,j as n}from"./index-D9XkktCB.js";const v=`爱|ài|动|1
 作料|zuòliao|名|7
 坐落|zuòluò|动|7
 座谈|zuòtán|动|7
+作为|zuòwéi|名·动|7
 作物|zuòwù|名|7
 作息|zuòxī|动|7
 座右铭|zuòyòumíng|名|7
 作战|zuòzhàn|动|7
 做证|zuòzhèng|动|7
-做主|zuòzhǔ|动|7`,w={爱:"amar",八:"oito",爸爸:"pai",吧:"(part. sugestão/confirmação)",白天:"durante o dia",百:"cem",半:"metade",包子:"baozi (pãozinho recheado)",杯子:"copo, xícara",边:"lado, borda",病:"doença; estar doente",不:"não",不要:"não faça; não queira",菜:"prato; legume",茶:"chá",唱:"cantar",超市:"supermercado",车:"veículo",吃:"comer",出租车:"táxi",穿:"vestir (roupa)",大:"grande",大家:"todos, todo mundo",大学:"universidade",大学生:"universitário/a",到:"chegar; ir até",的:"(part. possessiva/atributiva)",第:"(prefixo ordinal)",弟弟:"irmão mais novo",店:"loja",电话:"telefone",电脑:"computador",电视:"televisão",电影:"filme",电影院:"cinema (lugar)",东西:"coisa, objeto",都:"todos; ambos",读:"ler",读书:"estudar, ler",对:"correto; para; em relação a",对不起:"desculpe-me",多:"muito, muitos",多少:"quanto, quantos",儿子:"filho",二:"dois",饭:"arroz cozido; refeição",饭店:"restaurante; hotel",房间:"quarto, cômodo",非常:"muito, extremamente",飞机:"avião",分:"minuto; centavo",分钟:"minuto (duração)",高兴:"alegre, feliz",歌:"música, canção",哥哥:"irmão mais velho",个:"(classif. geral)",给:"dar; para",公司:"empresa, companhia",工作:"trabalhar; trabalho",狗:"cachorro",贵:"caro (preço)",国:"país, nação",还:"devolver",孩子:"criança",汉语:"língua chinesa (mandarim)",汉字:"caracteres chineses",好:"bom; bem",好吃:"gostoso, delicioso",好看:"bonito/a",好听:"agradável de ouvir",好玩儿:"divertido",号:"número; data",喝:"beber",很:"muito",后:"depois; atrás",回:"voltar, retornar",火车:"trem",鸡蛋:"ovo",几:"quantos; alguns",家:"casa; família",家人:"família (membros)",见:"ver; encontrar",件:"(classif. roupas, assuntos)",饺子:"guioza",叫:"chamar-se; chamar",姐姐:"irmã mais velha",今年:"este ano",今天:"hoje",九:"nove",觉得:"achar, sentir, pensar",开:"abrir; ligar; dirigir",开车:"dirigir (carro)",看:"ver; assistir; ler",看病:"consultar o médico",看见:"ver (com resultado)",可以:"poder; ser permitido",课:"aula, lição",口:"boca",块:"yuan (unidade monetária)",来:"vir",老师:"professor/a",了:"(part. completiva/modal)",冷:"frio",里:"dentro, interior",零:"zero",六:"seis",妈妈:"mãe",吗:"(part. de pergunta sim/não)",买:"comprar",卖:"vender",忙:"ocupado",猫:"gato",没事:"não tem nada; tudo bem",没有:"não ter; não",妹妹:"irmã mais nova",们:"(sufixo plural para pessoas)",米饭:"arroz cozido",面包:"pão",面条儿:"macarrão (fideos)",明年:"ano que vem",明天:"amanhã",名字:"nome",哪:"qual; que",哪个:"qual (de vários)",哪里:"onde",哪儿:"onde",哪些:"quais (plural)",那:"aquele/a; então",那边:"lá; por ali",那个:"aquele/a",那里:"lá, naquele lugar",那儿:"lá",那些:"aqueles/as",男:"masculino; homem",男朋友:"namorado",呢:"(part. de pergunta/continuação)",能:"poder; ser capaz",你:"você",你们:"vocês",年:"ano",您:"você (formal)",牛奶:"leite",女:"feminino; mulher",女朋友:"namorada",女士:"senhora",朋友:"amigo/a",便宜:"barato",漂亮:"bonito/a, lindo/a",苹果:"maçã",七:"sete",起床:"levantar da cama",千:"mil",前:"antes; frente",钱:"dinheiro",请:"por favor; convidar",请问:"com licença; posso perguntar?",去:"ir",去年:"ano passado",热:"quente",人:"pessoa, gente",认识:"conhecer (alguém)",日:"dia; sol",三:"três",商店:"loja, comércio",上:"cima; subir",上班:"ir ao trabalho",上课:"ter/ir à aula",上午:"manhã (AM)",上学:"ir à escola",少:"pouco; menos",谁:"quem",什么:"o quê; qual",生病:"ficar doente",十:"dez",时候:"momento, hora",时间:"tempo",事:"assunto, coisa",是:"ser; estar",手机:"celular",书:"livro",书店:"livraria",水:"água",水果:"fruta",睡:"dormir",睡觉:"dormir",说:"falar, dizer",说话:"falar, conversar",四:"quatro",岁:"anos de idade",他:"ele",它:"ele/ela (coisa/animal)",她:"ela",他们:"eles",它们:"eles/elas (coisas)",她们:"elas",太:"demais; muito (excessivo)",天:"dia; céu",天气:"tempo (meteorológico)",听:"ouvir, escutar",听见:"ouvir (com resultado)",同学:"colega de classe",外:"fora, exterior",外边:"lá fora",玩:"brincar; se divertir",晚:"tarde; noite",晚饭:"jantar",晚上:"noite",问:"perguntar",问题:"problema; pergunta",我:"eu",我们:"nós",五:"cinco",午饭:"almoço",喜欢:"gostar de",下:"baixo; descer; próximo",下班:"sair do trabalho",下课:"terminar a aula",下午:"tarde (PM)",先生:"senhor; marido",现在:"agora",想:"querer; pensar",小:"pequeno",小朋友:"criança",小时:"hora (duração)",小学:"escola primária",小学生:"aluno do primário",些:"alguns, algumas",写:"escrever",谢谢:"obrigado/a",新:"novo",星期:"semana; dia da semana",星期日:"domingo",星期天:"domingo",休息:"descansar",学:"aprender, estudar",学生:"estudante",学习:"estudar, aprender",学校:"escola",雪:"neve",要:"querer; precisar; ir (futuro)",也:"também",一:"um",衣服:"roupa",医生:"médico/a",医院:"hospital",一半:"metade",一下:"um momento; um pouco",椅子:"cadeira",一点儿:"um pouco",一些:"alguns/algumas",有:"ter; existir",有的:"alguns deles",有点儿:"um pouco (ligeiramente)",有些:"alguns, algumas",雨:"chuva",元:"yuan (moeda)",月:"mês; lua",再:"novamente, de novo",在:"estar em; em",再见:"tchau, até logo",早:"cedo; bom dia",早饭:"café da manhã",早上:"manhã cedo",怎么:"como; de que jeito",怎么样:"como (está); que tal",找:"procurar; encontrar",这:"este/a; isso",这边:"por aqui",这个:"este/a",这里:"aqui",这儿:"aqui",这些:"estes/as",真:"realmente; verdadeiro",正在:"estar fazendo (agora)",只:"apenas; só",知道:"saber (fato)",中国:"China",中文:"língua/escrita chinesa",中午:"meio-dia",中学:"escola secundária",中学生:"aluno do ensino médio",住:"morar; residir",桌子:"mesa",字:"caractere; letra",昨天:"ontem",坐:"sentar; viajar de (ônibus, metrô)",做:"fazer",啊:"(part. exclamativa)",爱好:"hobby, interesse",白色:"branco",班:"turma; período",帮:"ajudar",帮忙:"ajudar, dar uma mão",包:"embrulhar; bolsa; pacote",本子:"caderno",比:"comparar; do que (comparação)",笔:"caneta; lápis",不错:"não está mal; bom",长:"crescer; desenvolver",车站:"ponto/estação de transporte",出:"sair",出国:"ir ao exterior",出来:"sair (para cá)",出门:"sair de casa",出去:"sair (para lá)",床:"cama",词:"palavra; léxico",次:"vez (classif. ocasiões)",从:"de; desde",从小:"desde pequeno",错:"errado; errar",打车:"pegar táxi",打开:"abrir; ligar",但:"mas, porém",但是:"mas, porém",得:"conseguir; ganhar",地:"terra; chão",地铁:"metrô",懂:"entender",动:"mover-se",饭馆:"restaurante (informal)",飞:"voar",高:"alto",高中:"ensino médio",告诉:"contar para; informar",个子:"estatura",跟:"com; seguir",公交车:"ônibus (público)",过:"passar; (indica experiência)",过来:"vir (para cá)",过年:"celebrar o Ano Novo Chinês",还是:"ou; ainda",黑色:"preto",红茶:"chá preto",红色:"vermelho",后面:"atrás; fundo",画:"desenhar; pintar",坏:"ruim; estragado",回来:"voltar (para cá)",回去:"voltar (para lá)",机场:"aeroporto",机票:"passagem aérea",记得:"lembrar",间:"(classif. cômodos)",教:"ensinar",教室:"sala de aula",介绍:"apresentar; introduzir",进:"entrar",近:"perto; próximo",进来:"entrar (para cá)",进去:"entrar (para lá)",经常:"frequentemente; habitualmente",酒店:"hotel",就:"então; logo; apenas",咖啡:"café (bebida)",开始:"começar; início",开学:"início do semestre",考:"fazer prova; examinar",考试:"prova; fazer prova",可能:"possível; talvez",裤子:"calça",快:"rápido",快乐:"feliz",快要:"quase; em breve vai",篮球:"basquete",累:"cansado",离:"distanciar-se de",里面:"dentro (de)",楼:"andar; prédio",路:"caminho, estrada",路上:"no caminho",旅游:"viajar; turismo",绿茶:"chá verde",绿色:"verde",慢:"devagar; lento",每:"cada; todo(s)",门:"porta; portão",门口:"entrada; portão",门票:"ingresso",名:"nome; famoso",拿:"pegar; segurar",那么:"então; assim",那样:"desse jeito; assim",奶茶:"milk tea; chá com leite",奶奶:"avó (paterna)",男孩儿:"menino",鸟:"pássaro",女孩儿:"menina",旁边:"ao lado; perto",跑:"correr",跑步:"correr; jogging",票:"bilhete; ingresso",妻子:"esposa",起来:"levantar; erguer",前面:"na frente; adiante",晴:"ensolarado; bom tempo",球:"bola",让:"deixar; fazer (causativo)",肉:"carne",商场:"shopping; galeria",上来:"subir (para cá)",上面:"em cima; sobre",上去:"subir (para lá)",上网:"usar a internet",身体:"corpo; saúde",生日:"aniversário",时:"momento; hora",事情:"assunto; coisa",手:"mão",手表:"relógio de pulso",书包:"mochila; pasta",舒服:"confortável; bem",送:"enviar; presentear; levar",虽然:"embora; apesar de",所以:"por isso; portanto",疼:"doer; dor",踢:"chutar",题:"questão; problema",条:"(classif. coisas longas; peças)",跳舞:"dançar",头:"cabeça",外国:"país estrangeiro",外面:"lá fora; exterior",完:"terminar; acabar",万:"dez mil",往:"ir em direção a; para",网上:"online; na internet",忘:"esquecer",位:"(classif. pessoas - respeitoso)",希望:"esperar; esperança",洗:"lavar",洗手间:"banheiro (lavabo)",下来:"descer (para cá)",下面:"embaixo; abaixo",下去:"descer (para lá)",小孩儿:"criança",小时候:"quando criança; infância",笑:"rir; sorrir",姓:"sobrenome; ter sobrenome",姓名:"nome completo",颜色:"cor",眼睛:"olhos",药:"remédio; medicamento",药店:"farmácia",爷爷:"avô (paterno)",一会儿:"um momento; daqui a pouco",已经:"já (completo)",一起:"juntos",意思:"significado; sentido",阴:"nublado; sombra",因为:"porque; por causa de",游:"nadar; viajar",游泳:"nadar",有时:"às vezes",右:"direita",右边:"lado direito",鱼:"peixe",远:"longe; distante",运动:"exercício; esporte",丈夫:"marido",这么:"assim; tão",这样:"desse jeito; assim",着:"(part. de ação contínua)",正:"exatamente; justamente",周:"semana; circunferência",准备:"preparar; se preparar",自己:"si mesmo; próprio",走:"andar; ir embora",走路:"andar a pé",足球:"futebol",最:"o mais; super",左:"esquerda",左边:"lado esquerdo",阿姨:"tia; senhora (informal)",矮:"baixo (estatura)",爱人:"cônjuge; amado/a",安静:"quieto; silencioso",安全:"seguro; segurança",把:"segurar; (prep. de objeto direto)",搬:"mover; carregar",班级:"turma; classe",搬家:"mudar de casa",办:"tratar; resolver",办法:"jeito; solução; método",办公室:"escritório",半天:"meio dia; muito tempo",帮助:"ajudar; ajuda",饱:"saciado; cheio (de comida)",报纸:"jornal",北:"norte",北方:"norte; regiões do norte",被:"(prep. de voz passiva)",笔记:"anotação; nota",比较:"comparar; relativamente",笔记本:"caderno; notebook",比如:"por exemplo",比赛:"competição; competir",必须:"dever; ser obrigado a",变:"mudar; transformar",遍:"(classif. vezes completas)",变成:"tornar-se; transformar-se em",变化:"mudança; transformação",表演:"apresentar; performance",别的:"outro(s); outros",别人:"outras pessoas; os outros",宾馆:"hotel",冰:"gelo",冰激凌:"sorvete",冰箱:"geladeira",病人:"paciente; doente",不但:"não só; não apenas",不见:"não ver; sumir",不用:"não precisa",不久:"em breve; não demora muito",不行:"não pode; não vai",菜单:"cardápio",参加:"participar de",草:"grama; capim",草地:"gramado; campo de grama",层:"andar; camada",查:"verificar; pesquisar",差:"diferença; mal; diferir",差不多:"mais ou menos; quase",尝:"provar (comida)",常:"frequentemente; geralmente",常常:"frequentemente; sempre",衬衫:"camisa",成绩:"nota; resultado; desempenho",城市:"cidade",迟到:"chegar atrasado",出发:"partir; sair (viagem)",出生:"nascer",出院:"receber alta hospitalar",初中:"ensino fundamental (anos finais)",除了:"além de; exceto",船:"barco; navio",春天:"primavera",词典:"dicionário",聪明:"inteligente",打扫:"limpar; varrer",打算:"planejar; intenção",大概:"provavelmente; aproximadamente",大人:"adulto",大小:"tamanho",大熊猫:"panda gigante",大衣:"casaco (longo)",带:"trazer; carregar; levar",担心:"preocupar-se",蛋糕:"bolo",当然:"claro; naturalmente",到处:"por toda parte; em todo lugar",得到:"obter; conseguir",得分:"pontuar; pontuação",的话:"(partícula condicional 'se')",灯:"luz; lâmpada",地点:"local; lugar",地方:"lugar; local",地图:"mapa",电:"eletricidade; eletrônico",电梯:"elevador",电子书:"e-book; livro eletrônico",丢:"perder; largar",东:"leste",东北:"nordeste",东方:"oriente; leste",东南:"sudeste",冬天:"inverno",懂得:"compreender; entender",动物:"animal",动物园:"zoológico",短:"curto",短裤:"bermuda; short",段:"(classif. trechos; segmentos)",锻炼:"fazer exercício; treinar",对话:"diálogo; conversa",饿:"com fome",而且:"além disso; e também",耳朵:"orelha; ouvido",耳机:"fone de ouvido",发:"enviar; emitir",发烧:"febre; ter febre",发生:"acontecer; ocorrer",发现:"descobrir; perceber",发展:"desenvolver; desenvolvimento",方便:"conveniente; prático",方便面:"macarrão instantâneo",方法:"método; forma",方向:"direção",房子:"casa",放:"colocar; soltar; deixar",放假:"tirar férias; feriado",放心:"ficar tranquilo; despreocupar",放学:"terminar as aulas",分开:"separar; separar-se",风:"vento",封:"(classif. cartas)",夫妻:"casal; marido e esposa",服务:"servir; serviço",附近:"próximo; nas redondezas",复习:"revisar",干净:"limpo",感到:"sentir; perceber",感冒:"resfriado; pegar resfriado",干:"fazer; trabalhar",刚:"recém; acabou de",刚才:"agora mesmo; há pouco",刚刚:"recém; acabou de",高铁:"trem de alta velocidade",根据:"com base em; de acordo com",更:"mais; ainda mais",公斤:"quilograma",公园:"parque",工作日:"dia útil",故事:"história; conto",刮:"raspar; soprar (vento)",关:"fechar; desligar",关机:"desligar (celular/computador)",关系:"relação; vínculo",关心:"se preocupar com; cuidar",关于:"sobre; a respeito de",关注:"acompanhar; estar atento",国家:"país; nação",过节:"celebrar uma data",海:"mar; oceano",害怕:"ter medo; estar com medo",好多:"muito(s); muitos",好久:"muito tempo",好像:"parece que; é como se",号码:"número (telefone, etc.)",河:"rio",合适:"adequado; apropriado",黑板:"lousa; quadro-negro",后来:"depois; mais tarde",后年:"daqui a dois anos",后天:"depois de amanhã",护照:"passaporte",花园:"jardim",画家:"pintor; artista plástico",欢迎:"boas-vindas; bem-vindo",环境:"ambiente; meio ambiente",换:"trocar; substituir",黄色:"amarelo",回答:"responder; resposta",会议:"reunião; conferência",或:"ou",或者:"ou; ou então",鸡:"frango; galinha",几乎:"quase",机会:"oportunidade; chance",极:"extremamente; ao extremo",急:"urgente; apressar-se",记:"anotar; lembrar",季:"estação; temporada",季节:"estação do ano",加:"adicionar; aumentar",假期:"férias; período de folga",坚持:"insistir; persistir",检查:"verificar; checar; examinar",简单:"simples; fácil",检票:"verificar ingresso",健康:"saudável; saúde",见面:"se encontrar; se reunir",讲:"falar; explicar; contar",角:"jiao (1/10 yuan)",脚:"pé (parte do corpo)",接:"receber; buscar; conectar",街:"rua",节:"(classif. aulas, vagões)",结婚:"casar-se",节目:"programa (TV, rádio)",节日:"feriado; data comemorativa",结束:"terminar; encerrar",解决:"resolver",姐妹:"irmãs",借:"emprestar; pedir emprestado",斤:"jin (500g)",经过:"passar por; após",经理:"gerente",久:"muito tempo; por muito tempo",酒:"bebida alcoólica; álcool",旧:"velho; usado",句:"(classif. frases)",句子:"frase; oração",决定:"decidir; decisão",卡:"cartão; ficar preso",开花:"florescer",开会:"ter reunião",开机:"ligar (celular/computador)",开心:"feliz; contente",看来:"parece; ao que parece",可:"mas; porém",渴:"com sede",可是:"mas; porém",刻:"quarto de hora; (classif. momentos)",课本:"livro didático",客人:"visitante; convidado",课文:"texto (da lição)",空调:"ar-condicionado",哭:"chorar",筷子:"palitos (de comer)",矿泉水:"água mineral",来自:"vir de; ser de",蓝:"azul",老:"velho; idoso; sempre",老人:"idoso/a; pessoa mais velha",离开:"partir; sair de",礼物:"presente; gift",历史:"história (disciplina)",脸:"rosto; face",练:"praticar; treinar",练习:"praticar; exercício",凉快:"fresco; agradável (temperatura)",辆:"(classif. veículos)",聊:"conversar; bater papo",聊天儿:"bater papo; conversar",了解:"entender; conhecer bem",邻居:"vizinho/a",留学:"estudar no exterior",留学生:"estudante intercambista",楼梯:"escada",路边:"beira da estrada; calçada",路口:"esquina; cruzamento",马:"cavalo",马路:"avenida; rua (larga)",马上:"imediatamente; já já",满意:"satisfeito; contente",毛:"jiao/mao (0,1 yuan)",米:"metro (medida)",面前:"na frente de; diante de",明白:"claro; entender",名单:"lista de nomes",名人:"pessoa famosa; celebridade",南:"sul",难:"difícil; duro",南方:"sul; regiões do sul",难过:"triste; sofrer",难看:"feio; horroroso",男人:"homem (adulto)",男生:"menino; estudante homem",难题:"problema difícil",难听:"desagradável de ouvir; feio (som)",年级:"ano letivo; série",年轻:"jovem",牛:"boi; vaca; incrível (gíria)",努力:"esforçar-se; trabalhar duro",女人:"mulher (adulta)",女生:"menina; estudante mulher",爬:"escalar; subir engatinhando",怕:"ter medo de",拍照:"tirar foto",盘子:"prato (utensílio)",胖:"gordo",啤酒:"cerveja",平时:"normalmente; no dia a dia",瓶子:"garrafa",骑:"andar de (bicicleta/cavalo)",奇怪:"estranho; curioso",其实:"na verdade; de fato",其他:"outro(s); os demais",起:"levantar; (classif. casos)",起飞:"decolar",汽车:"carro; automóvel",铅笔:"lápis",前年:"dois anos atrás",前天:"anteontem",清楚:"claro; nítido; compreender",请假:"pedir licença; faltar",请客:"convidar para comer; pagar a conta",秋天:"outono",球场:"quadra; campo (esporte)",裙子:"saia",然后:"depois; em seguida",热情:"entusiasta; caloroso",认得:"reconhecer; conhecer (de vista)",认为:"achar; considerar",认真:"sério; consciente; dedicado",容易:"fácil; simples",如果:"se; caso",伞:"guarda-chuva",扫:"varrer; limpar",沙发:"sofá",山:"montanha; morro",上衣:"parte de cima da roupa",勺子:"colher",身边:"ao lado de; perto de",身高:"altura (do corpo)",声:"som; voz",生活:"vida; viver",生气:"ficar bravo; se irritar",声音:"som; voz",市:"cidade (administrativa); mercado",试:"experimentar; tentar",室:"sala; cômodo",世界:"mundo",收:"receber; guardar",收到:"receber (mensagem, carta)",受:"receber; sofrer",瘦:"magro",受到:"receber; sofrer (algo)",叔叔:"tio",树:"árvore",数学:"matemática",刷:"escovar; varrer",双:"(classif. pares)",水平:"nível; padrão",司机:"motorista",四季:"quatro estações",太阳:"sol",糖:"açúcar; bala; doce",特别:"especial; especialmente",提高:"melhorar; elevar",体育:"educação física; esporte",体育馆:"ginásio",甜:"doce",跳:"pular; saltar",听说:"ouvir dizer; dizem que",挺:"bastante; bem",同事:"colega de trabalho",同意:"concordar; aprovar",头发:"cabelo",突然:"de repente; inesperadamente",图书馆:"biblioteca",腿:"perna",外地:"outra cidade; fora da cidade",外卖:"entrega (comida); delivery",外语:"língua estrangeira",完成:"completar; terminar",碗:"tigela; bowl",晚点:"atrasado; com atraso",晚会:"festa noturna; show",网球:"tênis",网站:"site; website",忘记:"esquecer",为:"para; por (causa de)",为了:"para; a fim de",卫生间:"banheiro",文化:"cultura",屋子:"quarto; aposento",西:"oeste",西北:"noroeste",西方:"ocidente; oeste",西瓜:"melancia",西南:"sudoeste",习惯:"hábito; estar acostumado",洗衣机:"máquina de lavar",洗澡:"tomar banho",夏天:"verão",先:"primeiro; antes",香蕉:"banana",相信:"acreditar; confiar",箱子:"mala; caixa",向:"em direção a; para",像:"parecer-se com; como",相机:"câmera fotográfica",小区:"condomínio; conjunto habitacional",小心:"ter cuidado; cuidadoso",校园:"campus; pátio da escola",校长:"diretor/a; reitor/a",鞋:"sapato",心里:"no coração; no íntimo",新年:"Ano Novo",新闻:"notícia; jornal",新鲜:"fresco; novidade",信:"acreditar; carta",信用卡:"cartão de crédito",行:"servir; pode ser",行李:"bagagem",兴趣:"interesse; hobby",休假:"tirar férias; folgar",需要:"precisar; necessitar",选:"escolher",选择:"escolher; escolha",学期:"semestre; período letivo",牙:"dente",牙刷:"escova de dente",羊:"carneiro; ovelha",养:"criar (animal); sustentar",要求:"exigir; exigência",页:"página",一定:"certamente; com certeza; certo",一共:"ao total; no total",一块儿:"juntos; no mesmo lugar",一样:"igual; o mesmo",以后:"depois; no futuro",以前:"antes; anteriormente",以上:"acima de; mais de",以外:"fora de; além de",以为:"achar (equivocadamente)",以下:"abaixo de; menos de",一般:"geral; comum",一边:"ao mesmo tempo que",一直:"sempre; direto; continuamente",音乐:"música",银行:"banco",银行卡:"cartão bancário",饮料:"bebida",应该:"dever; ser necessário",影响:"influenciar; influência",用:"usar; utilizar",邮件:"e-mail; correspondência",游客:"turista; visitante",游戏:"jogo",邮箱:"caixa de e-mail; caixa postal",有关:"relacionado a; sobre",有名:"famoso; conhecido",有用:"útil",又:"novamente; de novo; também",羽毛球:"badminton",语言:"língua; idioma",雨衣:"capa de chuva",遇到:"encontrar; se deparar com",遇见:"encontrar (por acaso)",园:"jardim; parque",员:"(sufixo para membro/funcionário)",愿意:"querer; estar disposto",越:"cada vez mais",月亮:"lua",运动会:"gincana esportiva",运动员:"atleta",咱们:"nós (inclusivo)",脏:"sujo",怎样:"como; de que forma",张:"abrir; (classif. folhas, rostos)",着急:"estar ansioso; se preocupar",照:"iluminar; tirar foto",照顾:"cuidar de; tomar conta",照片:"fotografia; foto",照相:"tirar foto",直到:"até; até que",纸:"papel",只是:"só que; mas",只要:"desde que; contanto que",只有:"somente; apenas quando",中:"meio; centro",中间:"meio; entre",终于:"finalmente; por fim",种:"(classif. tipos; espécies)",重要:"importante",周末:"fim de semana",主要:"principal; principalmente",注意:"prestar atenção; atenção",住院:"ser internado; internar-se",字典:"dicionário (de caracteres)",自行车:"bicicleta",子:"(sufixo nominalizador)",总:"sempre; ao todo",总是:"sempre",嘴:"boca; bico",最好:"o melhor; é melhor que",最后:"por último; ao final",最近:"recentemente; ultimamente",做客:"ser convidado; visitar",作业:"lição de casa; tarefa"},y=v.split(`
-`).map(h=>{const[o,g,d,c]=h.split("|");return{h:o,py:g,pos:d.replace(/·.*/,"").replace(/\(.*/,"").trim(),posRaw:d,l:parseInt(c)}}),m={0:{label:"Todos",badge:"#475569",bg:"#f8fafc",accent:"#1e293b"},1:{label:"HSK 1",badge:"#c2410c",bg:"#fff7ed",accent:"#c2410c"},2:{label:"HSK 2",badge:"#1d4ed8",bg:"#eff6ff",accent:"#1d4ed8"},3:{label:"HSK 3",badge:"#15803d",bg:"#f0fdf4",accent:"#15803d"},4:{label:"HSK 4",badge:"#7c3aed",bg:"#faf5ff",accent:"#7c3aed"},5:{label:"HSK 5",badge:"#be185d",bg:"#fdf2f8",accent:"#be185d"},6:{label:"HSK 6",badge:"#b45309",bg:"#fffbeb",accent:"#b45309"},7:{label:"HSK 7–9",badge:"#0f766e",bg:"#f0fdfa",accent:"#0f766e"}},S={动:"verbo",名:"subs.",形:"adj.",副:"adv.",代:"pron.",数:"num.",量:"classif.",助:"part.",介:"prep.",连:"conj.",叹:"interj.",前缀:"prefixo",后缀:"sufixo",数量:"num.+cl."},q=["#64748B","#0891B2","#16a34a","#9333ea","#dc2626"];function C(h){const o={ā:1,á:2,ǎ:3,à:4,ē:1,é:2,ě:3,è:4,ī:1,í:2,ǐ:3,ì:4,ō:1,ó:2,ǒ:3,ò:4,ū:1,ú:2,ǔ:3,ù:4,ǖ:1,ǘ:2,ǚ:3,ǜ:4};for(const g of h)if(o[g])return q[o[g]];return q[0]}function W({py:h}){return n.jsx("span",{style:{fontSize:"0.82rem",fontStyle:"italic",letterSpacing:"0.01em"},children:h.split(/\s+/).map((o,g,d)=>n.jsx("span",{style:{color:C(o),marginRight:g<d.length-1?"3px":0},children:o},g))})}const x=48;function H({item:h,showPy:o,translation:g,loading:d}){const c=m[h.l],e=g||(h.l<=3?w[h.h]||"—":void 0),s=S[h.pos]||h.pos;return n.jsxs("div",{style:{background:"#fff",border:"1px solid #e2e8f0",borderRadius:"12px",padding:"12px 14px",display:"flex",flexDirection:"column",gap:"5px",borderLeft:`4px solid ${c.badge}`,cursor:"default",boxShadow:"0 1px 2px rgba(0,0,0,0.04)",transition:"transform .15s, box-shadow .15s",minHeight:"108px"},onMouseEnter:r=>{r.currentTarget.style.transform="translateY(-2px)",r.currentTarget.style.boxShadow="0 4px 10px rgba(0,0,0,0.1)"},onMouseLeave:r=>{r.currentTarget.style.transform="",r.currentTarget.style.boxShadow="0 1px 2px rgba(0,0,0,0.04)"},children:[n.jsxs("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start"},children:[n.jsx("span",{style:{fontSize:"1.6rem",fontWeight:"700",color:"#0f172a",lineHeight:1.1,fontFamily:"serif"},children:h.h}),n.jsx("span",{style:{fontSize:"0.6rem",fontWeight:"700",color:c.badge,background:c.bg,border:`1px solid ${c.badge}30`,borderRadius:"5px",padding:"2px 6px",marginTop:"2px",whiteSpace:"nowrap"},children:c.label})]}),o&&n.jsx(W,{py:h.py}),n.jsx("span",{style:{fontSize:"0.65rem",color:"#94a3b8",background:"#f8fafc",borderRadius:"4px",padding:"1px 5px",alignSelf:"flex-start"},children:s}),d?n.jsx("span",{style:{fontSize:"0.78rem",color:"#94a3b8",fontStyle:"italic"},children:"traduzindo…"}):e?n.jsx("span",{style:{fontSize:"0.82rem",color:"#334155",fontWeight:"500",marginTop:"1px",lineHeight:1.3},children:e}):n.jsx("span",{style:{fontSize:"0.78rem",color:"#cbd5e1",fontStyle:"italic"},children:"—"})]})}function P(){const[h,o]=t.useState(0),[g,d]=t.useState(""),[c,e]=t.useState(!0),[s,r]=t.useState(1),l=t.useMemo(()=>{let i=y;if(h>0&&(i=i.filter(u=>u.l===h)),g.trim()){const u=g.trim().toLowerCase();i=i.filter(z=>z.h.includes(u)||z.py.toLowerCase().includes(u)||(w[z.h]||"").toLowerCase().includes(u))}return i},[h,g]),a=Math.ceil(l.length/x),b=t.useMemo(()=>l.slice((s-1)*x,s*x),[l,s]);function f(i){o(i),r(1),d("")}const k=t.useMemo(()=>{const i={};return y.forEach(u=>{i[u.l]=(i[u.l]||0)+1}),i},[]),p=y.length;return n.jsxs("div",{style:{fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#f8fafc",minHeight:"100vh"},children:[n.jsxs("div",{style:{background:"linear-gradient(135deg,#0f172a,#1e3a5f 55%,#0f172a)",padding:"24px 20px 20px",textAlign:"center"},children:[n.jsx("div",{style:{fontSize:"0.7rem",color:"#94a3b8",letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:"5px"},children:"老师 · Laoshi · Novo HSK 3.0"}),n.jsx("h1",{style:{margin:0,color:"#f8fafc",fontSize:"clamp(1.2rem,4vw,1.75rem)",fontWeight:"800",letterSpacing:"-0.02em"},children:"词汇大纲 · Vocabulário Completo HSK 1–9"}),n.jsxs("p",{style:{margin:"6px 0 0",color:"#94a3b8",fontSize:"0.8rem"},children:[p.toLocaleString()," vocábulos oficiais · GF0025-2021"]}),n.jsx("div",{style:{display:"flex",justifyContent:"center",gap:"6px",marginTop:"14px",flexWrap:"wrap"},children:[1,2,3,4,5,6,7].map(i=>{const u=m[i];return n.jsxs("div",{style:{background:"rgba(255,255,255,0.07)",borderRadius:"8px",padding:"5px 12px",border:`1px solid ${u.badge}40`,cursor:"pointer"},onClick:()=>f(i),children:[n.jsx("span",{style:{color:u.badge,fontWeight:"700",fontSize:"1rem"},children:k[i]||0}),n.jsx("span",{style:{color:"#94a3b8",fontSize:"0.68rem",marginLeft:"4px"},children:u.label})]},i)})})]}),n.jsx("div",{style:{background:"#fff",borderBottom:"1px solid #e2e8f0",padding:"12px 16px",position:"sticky",top:0,zIndex:10},children:n.jsxs("div",{style:{maxWidth:"980px",margin:"0 auto",display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center"},children:[n.jsx("div",{style:{display:"flex",gap:"4px",flexWrap:"wrap"},children:[0,1,2,3,4,5,6,7].map(i=>{const u=m[i],z=h===i;return n.jsx("button",{onClick:()=>f(i),style:{padding:"5px 12px",borderRadius:"16px",border:"none",cursor:"pointer",fontWeight:"600",fontSize:"0.75rem",transition:"all .15s",background:z?u.badge:"#f1f5f9",color:z?"#fff":"#64748B",boxShadow:z?`0 2px 6px ${u.badge}40`:"none"},children:u.label},i)})}),n.jsxs("div",{style:{flex:1,minWidth:"150px",position:"relative"},children:[n.jsx("span",{style:{position:"absolute",left:"9px",top:"50%",transform:"translateY(-50%)",color:"#94a3b8",fontSize:"0.85rem"},children:"🔍"}),n.jsx("input",{value:g,onChange:i=>{d(i.target.value),r(1)},placeholder:"Buscar hanzi, pinyin ou português...",style:{width:"100%",padding:"6px 10px 6px 28px",borderRadius:"16px",border:"1px solid #e2e8f0",fontSize:"0.8rem",outline:"none",background:"#f8fafc",boxSizing:"border-box"}})]}),n.jsx("button",{onClick:()=>e(i=>!i),style:{padding:"5px 12px",borderRadius:"16px",border:"1px solid #e2e8f0",cursor:"pointer",fontSize:"0.75rem",fontWeight:"600",background:c?"#fef3c7":"#f1f5f9",color:c?"#92400e":"#64748B"},children:c?"拼 Pinyin ✓":"拼 Pinyin ✗"})]})}),n.jsx("div",{style:{maxWidth:"980px",margin:"10px auto 0",padding:"0 16px",display:"flex",justifyContent:"space-between",alignItems:"center"},children:n.jsxs("span",{style:{fontSize:"0.75rem",color:"#94a3b8"},children:[l.length.toLocaleString()," palavra",l.length!==1?"s":"",a>1&&` · Página ${s}/${a}`]})}),n.jsx("div",{style:{maxWidth:"980px",margin:"10px auto 16px",padding:"0 16px"},children:b.length===0?n.jsxs("div",{style:{textAlign:"center",padding:"60px 20px",color:"#94a3b8"},children:[n.jsx("div",{style:{fontSize:"3rem"},children:"🔎"}),n.jsx("div",{style:{marginTop:"10px",fontSize:"1rem"},children:"Nenhuma palavra encontrada."})]}):n.jsx("div",{style:{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(170px,1fr))",gap:"10px"},children:b.map((i,u)=>n.jsx(H,{item:i,showPy:c,translation:void 0,loading:!1},i.h+i.l+u))})}),a>1&&n.jsxs("div",{style:{display:"flex",justifyContent:"center",gap:"6px",padding:"12px 16px 28px",flexWrap:"wrap"},children:[n.jsx(j,{label:"«",onClick:()=>r(1),disabled:s===1}),n.jsx(j,{label:"‹",onClick:()=>r(i=>Math.max(1,i-1)),disabled:s===1}),L(s,a).map((i,u)=>n.jsx(j,{label:i==="…"?"…":String(i),onClick:()=>i!=="…"&&r(i),active:i===s,disabled:i==="…"},u)),n.jsx(j,{label:"›",onClick:()=>r(i=>Math.min(a,i+1)),disabled:s===a}),n.jsx(j,{label:"»",onClick:()=>r(a),disabled:s===a})]}),n.jsxs("div",{style:{borderTop:"1px solid #e2e8f0",padding:"14px 20px",textAlign:"center",fontSize:"0.68rem",color:"#94a3b8",background:"#fff"},children:["老师 (Laoshi) · Vocabulário Completo Novo HSK 3.0 · GF0025-2021 · ",p.toLocaleString()," palavras · HSK 1–3 com traduções embutidas"]}),n.jsx("style",{children:"@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}"})]})}function j({label:h,onClick:o,disabled:g,active:d}){return n.jsx("button",{onClick:o,disabled:g,style:{padding:"5px 10px",borderRadius:"7px",border:"1px solid #e2e8f0",cursor:g?"not-allowed":"pointer",minWidth:"32px",fontSize:"0.75rem",fontWeight:"600",transition:"all .1s",background:d?"#0f172a":g?"#f8fafc":"#fff",color:d?"#fff":g?"#cbd5e1":"#0f172a"},children:h})}function L(h,o){if(o<=9)return Array.from({length:o},(s,r)=>r+1);const g=[],d=2,c=Math.max(2,h-d),e=Math.min(o-1,h+d);g.push(1),c>2&&g.push("…");for(let s=c;s<=e;s++)g.push(s);return e<o-1&&g.push("…"),g.push(o),g}export{P as default};
+做主|zuòzhǔ|动|7
+`,P={爱:"amar",八:"oito",爸爸:"pai",吧:"(part. sugestão/confirmação)",白天:"durante o dia",百:"cem",半:"metade",包子:"baozi (pãozinho recheado)",杯子:"copo, xícara",边:"lado, borda",病:"doença; estar doente",不:"não",不要:"não faça; não queira",菜:"prato; legume",茶:"chá",唱:"cantar",超市:"supermercado",车:"veículo",吃:"comer",出租车:"táxi",穿:"vestir (roupa)",大:"grande",大家:"todos, todo mundo",大学:"universidade",大学生:"universitário/a",到:"chegar; ir até",的:"(part. possessiva/atributiva)",第:"(prefixo ordinal)",弟弟:"irmão mais novo",店:"loja",电话:"telefone",电脑:"computador",电视:"televisão",电影:"filme",电影院:"cinema (lugar)",东西:"coisa, objeto",都:"todos; ambos",读:"ler",读书:"estudar, ler",对:"correto; para; em relação a",对不起:"desculpe-me",多:"muito, muitos",多少:"quanto, quantos",儿子:"filho",二:"dois",饭:"arroz cozido; refeição",饭店:"restaurante; hotel",房间:"quarto, cômodo",非常:"muito, extremamente",飞机:"avião",分:"minuto; centavo",分钟:"minuto (duração)",高兴:"alegre, feliz",歌:"música, canção",哥哥:"irmão mais velho",个:"(classif. geral)",给:"dar; para",公司:"empresa, companhia",工作:"trabalhar; trabalho",狗:"cachorro",贵:"caro (preço)",国:"país, nação",还:"devolver",孩子:"criança",汉语:"língua chinesa (mandarim)",汉字:"caracteres chineses",好:"bom; bem",好吃:"gostoso, delicioso",好看:"bonito/a",好听:"agradável de ouvir",好玩儿:"divertido",号:"número; data",喝:"beber",很:"muito",后:"depois; atrás",回:"voltar, retornar",火车:"trem",鸡蛋:"ovo",几:"quantos; alguns",家:"casa; família",家人:"família (membros)",见:"ver; encontrar",件:"(classif. roupas, assuntos)",饺子:"guioza",叫:"chamar-se; chamar",姐姐:"irmã mais velha",今年:"este ano",今天:"hoje",九:"nove",觉得:"achar, sentir, pensar",开:"abrir; ligar; dirigir",开车:"dirigir (carro)",看:"ver; assistir; ler",看病:"consultar o médico",看见:"ver (com resultado)",可以:"poder; ser permitido",课:"aula, lição",口:"boca",块:"yuan (unidade monetária)",来:"vir",老师:"professor/a",了:"(part. completiva/modal)",冷:"frio",里:"dentro, interior",零:"zero",六:"seis",妈妈:"mãe",吗:"(part. de pergunta sim/não)",买:"comprar",卖:"vender",忙:"ocupado",猫:"gato",没事:"não tem nada; tudo bem",没有:"não ter; não",妹妹:"irmã mais nova",们:"(sufixo plural para pessoas)",米饭:"arroz cozido",面包:"pão",面条儿:"macarrão (fideos)",明年:"ano que vem",明天:"amanhã",名字:"nome",哪:"qual; que",哪个:"qual (de vários)",哪里:"onde",哪儿:"onde",哪些:"quais (plural)",那:"aquele/a; então",那边:"lá; por ali",那个:"aquele/a",那里:"lá, naquele lugar",那儿:"lá",那些:"aqueles/as",男:"masculino; homem",男朋友:"namorado",呢:"(part. de pergunta/continuação)",能:"poder; ser capaz",你:"você",你们:"vocês",年:"ano",您:"você (formal)",牛奶:"leite",女:"feminino; mulher",女朋友:"namorada",女士:"senhora",朋友:"amigo/a",便宜:"barato",漂亮:"bonito/a, lindo/a",苹果:"maçã",七:"sete",起床:"levantar da cama",千:"mil",前:"antes; frente",钱:"dinheiro",请:"por favor; convidar",请问:"com licença; posso perguntar?",去:"ir",去年:"ano passado",热:"quente",人:"pessoa, gente",认识:"conhecer (alguém)",日:"dia; sol",三:"três",商店:"loja, comércio",上:"cima; subir",上班:"ir ao trabalho",上课:"ter/ir à aula",上午:"manhã (AM)",上学:"ir à escola",少:"pouco; menos",谁:"quem",什么:"o quê; qual",生病:"ficar doente",十:"dez",时候:"momento, hora",时间:"tempo",事:"assunto, coisa",是:"ser; estar",手机:"celular",书:"livro",书店:"livraria",水:"água",水果:"fruta",睡:"dormir",睡觉:"dormir",说:"falar, dizer",说话:"falar, conversar",四:"quatro",岁:"anos de idade",他:"ele",它:"ele/ela (coisa/animal)",她:"ela",他们:"eles",它们:"eles/elas (coisas)",她们:"elas",太:"demais; muito (excessivo)",天:"dia; céu",天气:"tempo (meteorológico)",听:"ouvir, escutar",听见:"ouvir (com resultado)",同学:"colega de classe",外:"fora, exterior",外边:"lá fora",玩:"brincar; se divertir",晚:"tarde; noite",晚饭:"jantar",晚上:"noite",问:"perguntar",问题:"problema; pergunta",我:"eu",我们:"nós",五:"cinco",午饭:"almoço",喜欢:"gostar de",下:"baixo; descer; próximo",下班:"sair do trabalho",下课:"terminar a aula",下午:"tarde (PM)",先生:"senhor; marido",现在:"agora",想:"querer; pensar",小:"pequeno",小朋友:"criança",小时:"hora (duração)",小学:"escola primária",小学生:"aluno do primário",些:"alguns, algumas",写:"escrever",谢谢:"obrigado/a",新:"novo",星期:"semana; dia da semana",星期日:"domingo",星期天:"domingo",休息:"descansar",学:"aprender, estudar",学生:"estudante",学习:"estudar, aprender",学校:"escola",雪:"neve",要:"querer; precisar; ir (futuro)",也:"também",一:"um",衣服:"roupa",医生:"médico/a",医院:"hospital",一半:"metade",一下:"um momento; um pouco",椅子:"cadeira",一点儿:"um pouco",一些:"alguns/algumas",有:"ter; existir",有的:"alguns deles",有点儿:"um pouco (ligeiramente)",有些:"alguns, algumas",雨:"chuva",元:"yuan (moeda)",月:"mês; lua",再:"novamente, de novo",在:"estar em; em",再见:"tchau, até logo",早:"cedo; bom dia",早饭:"café da manhã",早上:"manhã cedo",怎么:"como; de que jeito",怎么样:"como (está); que tal",找:"procurar; encontrar",这:"este/a; isso",这边:"por aqui",这个:"este/a",这里:"aqui",这儿:"aqui",这些:"estes/as",真:"realmente; verdadeiro",正在:"estar fazendo (agora)",只:"apenas; só",知道:"saber (fato)",中国:"China",中文:"língua/escrita chinesa",中午:"meio-dia",中学:"escola secundária",中学生:"aluno do ensino médio",住:"morar; residir",桌子:"mesa",字:"caractere; letra",昨天:"ontem",坐:"sentar; viajar de (ônibus, metrô)",做:"fazer",啊:"(part. exclamativa)",爱好:"hobby, interesse",白色:"branco",班:"turma; período",帮:"ajudar",帮忙:"ajudar, dar uma mão",包:"embrulhar; bolsa; pacote",本子:"caderno",比:"comparar; do que (comparação)",笔:"caneta; lápis",不错:"não está mal; bom",长:"crescer; desenvolver",车站:"ponto/estação de transporte",出:"sair",出国:"ir ao exterior",出来:"sair (para cá)",出门:"sair de casa",出去:"sair (para lá)",床:"cama",词:"palavra; léxico",次:"vez (classif. ocasiões)",从:"de; desde",从小:"desde pequeno",错:"errado; errar",打车:"pegar táxi",打开:"abrir; ligar",但:"mas, porém",但是:"mas, porém",得:"conseguir; ganhar",地:"terra; chão",地铁:"metrô",懂:"entender",动:"mover-se",饭馆:"restaurante (informal)",飞:"voar",高:"alto",高中:"ensino médio",告诉:"contar para; informar",个子:"estatura",跟:"com; seguir",公交车:"ônibus (público)",过:"passar; (indica experiência)",过来:"vir (para cá)",过年:"celebrar o Ano Novo Chinês",还是:"ou; ainda",黑色:"preto",红茶:"chá preto",红色:"vermelho",后面:"atrás; fundo",画:"desenhar; pintar",坏:"ruim; estragado",回来:"voltar (para cá)",回去:"voltar (para lá)",机场:"aeroporto",机票:"passagem aérea",记得:"lembrar",间:"(classif. cômodos)",教:"ensinar",教室:"sala de aula",介绍:"apresentar; introduzir",进:"entrar",近:"perto; próximo",进来:"entrar (para cá)",进去:"entrar (para lá)",经常:"frequentemente; habitualmente",酒店:"hotel",就:"então; logo; apenas",咖啡:"café (bebida)",开始:"começar; início",开学:"início do semestre",考:"fazer prova; examinar",考试:"prova; fazer prova",可能:"possível; talvez",裤子:"calça",快:"rápido",快乐:"feliz",快要:"quase; em breve vai",篮球:"basquete",累:"cansado",离:"distanciar-se de",里面:"dentro (de)",楼:"andar; prédio",路:"caminho, estrada",路上:"no caminho",旅游:"viajar; turismo",绿茶:"chá verde",绿色:"verde",慢:"devagar; lento",每:"cada; todo(s)",门:"porta; portão",门口:"entrada; portão",门票:"ingresso",名:"nome; famoso",拿:"pegar; segurar",那么:"então; assim",那样:"desse jeito; assim",奶茶:"milk tea; chá com leite",奶奶:"avó (paterna)",男孩儿:"menino",鸟:"pássaro",女孩儿:"menina",旁边:"ao lado; perto",跑:"correr",跑步:"correr; jogging",票:"bilhete; ingresso",妻子:"esposa",起来:"levantar; erguer",前面:"na frente; adiante",晴:"ensolarado; bom tempo",球:"bola",让:"deixar; fazer (causativo)",肉:"carne",商场:"shopping; galeria",上来:"subir (para cá)",上面:"em cima; sobre",上去:"subir (para lá)",上网:"usar a internet",身体:"corpo; saúde",生日:"aniversário",时:"momento; hora",事情:"assunto; coisa",手:"mão",手表:"relógio de pulso",书包:"mochila; pasta",舒服:"confortável; bem",送:"enviar; presentear; levar",虽然:"embora; apesar de",所以:"por isso; portanto",疼:"doer; dor",踢:"chutar",题:"questão; problema",条:"(classif. coisas longas; peças)",跳舞:"dançar",头:"cabeça",外国:"país estrangeiro",外面:"lá fora; exterior",完:"terminar; acabar",万:"dez mil",往:"ir em direção a; para",网上:"online; na internet",忘:"esquecer",位:"(classif. pessoas - respeitoso)",希望:"esperar; esperança",洗:"lavar",洗手间:"banheiro (lavabo)",下来:"descer (para cá)",下面:"embaixo; abaixo",下去:"descer (para lá)",小孩儿:"criança",小时候:"quando criança; infância",笑:"rir; sorrir",姓:"sobrenome; ter sobrenome",姓名:"nome completo",颜色:"cor",眼睛:"olhos",药:"remédio; medicamento",药店:"farmácia",爷爷:"avô (paterno)",一会儿:"um momento; daqui a pouco",已经:"já (completo)",一起:"juntos",意思:"significado; sentido",阴:"nublado; sombra",因为:"porque; por causa de",游:"nadar; viajar",游泳:"nadar",有时:"às vezes",右:"direita",右边:"lado direito",鱼:"peixe",远:"longe; distante",运动:"exercício; esporte",丈夫:"marido",这么:"assim; tão",这样:"desse jeito; assim",着:"(part. de ação contínua)",正:"exatamente; justamente",周:"semana; circunferência",准备:"preparar; se preparar",自己:"si mesmo; próprio",走:"andar; ir embora",走路:"andar a pé",足球:"futebol",最:"o mais; super",左:"esquerda",左边:"lado esquerdo",阿姨:"tia; senhora (informal)",矮:"baixo (estatura)",爱人:"cônjuge; amado/a",安静:"quieto; silencioso",安全:"seguro; segurança",把:"segurar; (prep. de objeto direto)",搬:"mover; carregar",班级:"turma; classe",搬家:"mudar de casa",办:"tratar; resolver",办法:"jeito; solução; método",办公室:"escritório",半天:"meio dia; muito tempo",帮助:"ajudar; ajuda",饱:"saciado; cheio (de comida)",报纸:"jornal",北:"norte",北方:"norte; regiões do norte",被:"(prep. de voz passiva)",笔记:"anotação; nota",比较:"comparar; relativamente",笔记本:"caderno; notebook",比如:"por exemplo",比赛:"competição; competir",必须:"dever; ser obrigado a",变:"mudar; transformar",遍:"(classif. vezes completas)",变成:"tornar-se; transformar-se em",变化:"mudança; transformação",表演:"apresentar; performance",别的:"outro(s); outros",别人:"outras pessoas; os outros",宾馆:"hotel",冰:"gelo",冰激凌:"sorvete",冰箱:"geladeira",病人:"paciente; doente",不但:"não só; não apenas",不见:"não ver; sumir",不用:"não precisa",不久:"em breve; não demora muito",不行:"não pode; não vai",菜单:"cardápio",参加:"participar de",草:"grama; capim",草地:"gramado; campo de grama",层:"andar; camada",查:"verificar; pesquisar",差:"diferença; mal; diferir",差不多:"mais ou menos; quase",尝:"provar (comida)",常:"frequentemente; geralmente",常常:"frequentemente; sempre",衬衫:"camisa",成绩:"nota; resultado; desempenho",城市:"cidade",迟到:"chegar atrasado",出发:"partir; sair (viagem)",出生:"nascer",出院:"receber alta hospitalar",初中:"ensino fundamental (anos finais)",除了:"além de; exceto",船:"barco; navio",春天:"primavera",词典:"dicionário",聪明:"inteligente",打扫:"limpar; varrer",打算:"planejar; intenção",大概:"provavelmente; aproximadamente",大人:"adulto",大小:"tamanho",大熊猫:"panda gigante",大衣:"casaco (longo)",带:"trazer; carregar; levar",担心:"preocupar-se",蛋糕:"bolo",当然:"claro; é claro; naturalmente",到处:"por toda parte; em todo lugar",得到:"obter; conseguir",得分:"pontuar; pontuação",的话:"(partícula condicional 'se')",灯:"luz; lâmpada",地点:"local; lugar",地方:"lugar; local",地图:"mapa",电:"eletricidade; eletrônico",电梯:"elevador",电子书:"e-book; livro eletrônico",丢:"perder; largar",东:"leste",东北:"nordeste",东方:"oriente; leste",东南:"sudeste",冬天:"inverno",懂得:"compreender; entender",动物:"animal",动物园:"zoológico",短:"curto",短裤:"bermuda; short",段:"(classif. trechos; segmentos)",锻炼:"fazer exercício; treinar",对话:"diálogo; conversa",饿:"com fome",而且:"além disso; e também",耳朵:"orelha; ouvido",耳机:"fone de ouvido",发:"enviar; emitir",发烧:"febre; ter febre",发生:"acontecer; ocorrer",发现:"descobrir; perceber",发展:"desenvolver; desenvolvimento",方便:"conveniente; prático",方便面:"macarrão instantâneo",方法:"método; forma",方向:"direção",房子:"casa",放:"colocar; soltar; deixar",放假:"tirar férias; feriado",放心:"ficar tranquilo; despreocupar",放学:"terminar as aulas",分开:"separar; separar-se",风:"vento",封:"(classif. cartas)",夫妻:"casal; marido e esposa",服务:"servir; serviço",附近:"próximo; nas redondezas",复习:"revisar",干净:"limpo",感到:"sentir; perceber",感冒:"resfriado; pegar resfriado",干:"fazer; trabalhar",刚:"recém; acabou de",刚才:"agora mesmo; há pouco",刚刚:"recém; acabou de",高铁:"trem de alta velocidade",根据:"segundo; com base em; de acordo com",更:"mais; ainda mais",公斤:"quilograma",公园:"parque",工作日:"dia útil",故事:"história; conto",刮:"raspar; soprar (vento)",关:"fechar; desligar",关机:"desligar (celular/computador)",关系:"relação; vínculo",关心:"se preocupar com; cuidar",关于:"sobre; a respeito de",关注:"acompanhar; estar atento",国家:"país; nação",过节:"celebrar uma data",海:"mar; oceano",害怕:"ter medo; estar com medo",好多:"muito(s); muitos",好久:"muito tempo",好像:"parece que; é como se",号码:"número (telefone, etc.)",河:"rio",合适:"adequado; apropriado",黑板:"lousa; quadro-negro",后来:"depois; mais tarde",后年:"daqui a dois anos",后天:"depois de amanhã",护照:"passaporte",花园:"jardim",画家:"pintor; artista plástico",欢迎:"boas-vindas; bem-vindo",环境:"ambiente; meio ambiente",换:"trocar; substituir",黄色:"amarelo",回答:"responder; resposta",会议:"reunião; conferência",或:"ou",或者:"ou; ou então",鸡:"frango; galinha",几乎:"quase",机会:"oportunidade; chance",极:"extremamente; ao extremo",急:"urgente; apressar-se",记:"anotar; lembrar",季:"estação; temporada",季节:"estação do ano",加:"adicionar; aumentar",假期:"férias; período de folga",坚持:"insistir; persistir",检查:"verificar; checar; examinar",简单:"simples; fácil",检票:"verificar ingresso",健康:"saudável; saúde",见面:"se encontrar; se reunir",讲:"falar; explicar; contar",角:"jiao (1/10 yuan)",脚:"pé (parte do corpo)",接:"receber; buscar; conectar",街:"rua",节:"(classif. aulas, vagões)",结婚:"casar-se",节目:"programa (TV, rádio)",节日:"feriado; data comemorativa",结束:"terminar; encerrar",解决:"resolver",姐妹:"irmãs",借:"emprestar; pedir emprestado",斤:"jin (500g)",经过:"passar por; após",经理:"gerente",久:"muito tempo; por muito tempo",酒:"bebida alcoólica; álcool",旧:"velho; usado",句:"(classif. frases)",句子:"frase; oração",决定:"decidir; decisão",卡:"cartão; ficar preso",开花:"florescer",开会:"ter reunião",开机:"ligar (celular/computador)",开心:"feliz; contente",看来:"parece; ao que parece",可:"mas; porém",渴:"com sede",可是:"mas; porém",刻:"quarto de hora; (classif. momentos)",课本:"livro didático",客人:"visitante; convidado",课文:"texto (da lição)",空调:"ar-condicionado",哭:"chorar",筷子:"palitos (de comer)",矿泉水:"água mineral",来自:"vir de; ser de",蓝:"azul",老:"velho; idoso; sempre",老人:"idoso/a; pessoa mais velha",离开:"partir; sair de",礼物:"presente; gift",历史:"história (disciplina)",脸:"rosto; face",练:"praticar; treinar",练习:"praticar; exercício",凉快:"fresco; agradável (temperatura)",辆:"(classif. veículos)",聊:"conversar; bater papo",聊天儿:"bater papo; conversar",了解:"entender; conhecer bem",邻居:"vizinho/a",留学:"estudar no exterior",留学生:"estudante intercambista",楼梯:"escada",路边:"beira da estrada; calçada",路口:"esquina; cruzamento",马:"cavalo",马路:"avenida; rua (larga)",马上:"imediatamente; já já",满意:"satisfeito; contente",毛:"jiao/mao (0,1 yuan)",米:"metro (medida)",面前:"na frente de; diante de",明白:"claro; entender",名单:"lista de nomes",名人:"pessoa famosa; celebridade",南:"sul",难:"difícil; duro",南方:"sul; regiões do sul",难过:"triste; sofrer",难看:"feio; horroroso",男人:"homem (adulto)",男生:"menino; estudante homem",难题:"problema difícil",难听:"desagradável de ouvir; feio (som)",年级:"ano letivo; série",年轻:"jovem",牛:"boi; vaca; incrível (gíria)",努力:"esforçar-se; trabalhar duro",女人:"mulher (adulta)",女生:"menina; estudante mulher",爬:"escalar; subir engatinhando",怕:"ter medo de",拍照:"tirar foto",盘子:"prato (utensílio)",胖:"gordo",啤酒:"cerveja",平时:"normalmente; no dia a dia",瓶子:"garrafa",骑:"andar de (bicicleta/cavalo)",奇怪:"estranho; curioso",其实:"na verdade; de fato",其他:"outro(s); os demais",起:"levantar; (classif. casos)",起飞:"decolar",汽车:"carro; automóvel",铅笔:"lápis",前年:"dois anos atrás",前天:"anteontem",清楚:"claro; nítido; compreender",请假:"pedir licença; faltar",请客:"convidar para comer; pagar a conta",秋天:"outono",球场:"quadra; campo (esporte)",裙子:"saia",然后:"depois; em seguida",热情:"entusiasta; caloroso",认得:"reconhecer; conhecer (de vista)",认为:"achar; considerar",认真:"sério; consciente; dedicado",容易:"fácil; simples",如果:"se; caso",伞:"guarda-chuva",扫:"varrer; limpar",沙发:"sofá",山:"montanha; morro",上衣:"parte de cima da roupa",勺子:"colher",身边:"ao lado de; perto de",身高:"altura (do corpo)",声:"som; voz",生活:"vida; viver",生气:"ficar bravo; se irritar",声音:"som; voz",市:"cidade (administrativa); mercado",试:"experimentar; tentar",室:"sala; cômodo",世界:"mundo",收:"receber; guardar",收到:"receber (mensagem, carta)",受:"receber; sofrer",瘦:"magro",受到:"receber; sofrer (algo)",叔叔:"tio",树:"árvore",数学:"matemática",刷:"escovar; varrer",双:"(classif. pares)",水平:"nível; padrão",司机:"motorista",四季:"quatro estações",太阳:"sol",糖:"açúcar; bala; doce",特别:"especial; especialmente",提高:"melhorar; elevar",体育:"educação física; esporte",体育馆:"ginásio",甜:"doce",跳:"pular; saltar",听说:"ouvir dizer; dizem que",挺:"bastante; bem",同事:"colega de trabalho",同意:"concordar; aprovar",头发:"cabelo",突然:"de repente; inesperadamente",图书馆:"biblioteca",腿:"perna",外地:"outra cidade; fora da cidade",外卖:"entrega (comida); delivery",外语:"língua estrangeira",完成:"completar; terminar",碗:"tigela; bowl",晚点:"atrasado; com atraso",晚会:"festa noturna; show",网球:"tênis",网站:"site; website",忘记:"esquecer",为:"para; por (causa de)",为了:"para; a fim de",卫生间:"banheiro",文化:"cultura",屋子:"quarto; aposento",西:"oeste",西北:"noroeste",西方:"ocidente; oeste",西瓜:"melancia",西南:"sudoeste",习惯:"hábito; estar acostumado",洗衣机:"máquina de lavar",洗澡:"tomar banho",夏天:"verão",先:"primeiro; antes",香蕉:"banana",相信:"acreditar; confiar",箱子:"mala; caixa",向:"em direção a; para",像:"parecer-se com; como",相机:"câmera fotográfica",小区:"condomínio; conjunto habitacional",小心:"ter cuidado; cuidadoso",校园:"campus; pátio da escola",校长:"diretor/a; reitor/a",鞋:"sapato",心里:"no coração; no íntimo",新年:"Ano Novo",新闻:"notícia; jornal",新鲜:"fresco; novidade",信:"acreditar; carta",信用卡:"cartão de crédito",行:"servir; pode ser",行李:"bagagem",兴趣:"interesse; hobby",休假:"tirar férias; folgar",需要:"precisar; necessitar",选:"escolher",选择:"escolher; escolha",学期:"semestre; período letivo",牙:"dente",牙刷:"escova de dente",羊:"carneiro; ovelha",养:"criar (animal); sustentar",要求:"exigir; exigência",页:"página",一定:"certamente; com certeza; certo",一共:"ao total; no total",一块儿:"juntos; no mesmo lugar",一样:"igual; o mesmo",以后:"depois; no futuro",以前:"antes; anteriormente",以上:"acima de; mais de",以外:"fora de; além de",以为:"achar (equivocadamente)",以下:"abaixo de; menos de",一般:"geral; comum",一边:"ao mesmo tempo que",一直:"sempre; direto; continuamente",音乐:"música",银行:"banco",银行卡:"cartão bancário",饮料:"bebida",应该:"dever; ser necessário",影响:"influenciar; influência",用:"usar; utilizar",邮件:"e-mail; correspondência",游客:"turista; visitante",游戏:"jogo",邮箱:"caixa de e-mail; caixa postal",有关:"relacionado a; sobre",有名:"famoso; conhecido",有用:"útil",又:"novamente; de novo; também",羽毛球:"badminton",语言:"língua; idioma",雨衣:"capa de chuva",遇到:"encontrar; se deparar com",遇见:"encontrar (por acaso)",园:"jardim; parque",员:"(sufixo para membro/funcionário)",愿意:"querer; estar disposto",越:"cada vez mais",月亮:"lua",运动会:"gincana esportiva",运动员:"atleta",咱们:"nós (inclusivo)",脏:"sujo",怎样:"como; de que forma",张:"abrir; (classif. folhas, rostos)",着急:"estar ansioso; se preocupar",照:"iluminar; tirar foto",照顾:"cuidar de; tomar conta",照片:"fotografia; foto",照相:"tirar foto",直到:"até; até que",纸:"papel",只是:"só que; mas",只要:"desde que; contanto que",只有:"somente; apenas quando",中:"meio; centro",中间:"meio; entre",终于:"finalmente; por fim",种:"(classif. tipos; espécies)",重要:"importante",周末:"fim de semana",主要:"principal; principalmente",注意:"prestar atenção; atenção",住院:"ser internado; internar-se",字典:"dicionário (de caracteres)",自行车:"bicicleta",子:"(sufixo nominalizador)",总:"sempre; ao todo",总是:"sempre",嘴:"boca; bico",最好:"o melhor; é melhor que",最后:"por último; ao final",最近:"recentemente; ultimamente",做客:"ser convidado; visitar",作业:"lição de casa; tarefa",本:"exemplar; tomo (medida para livros)",不客气:"de nada; não há de quê",打电话:"telefonar; ligar",点:"ponto; hora (medida de tempo); um pouco",和:"e; com; junto",会:"saber; poder; será que",两:"dois (antes de med.); um par de",没关系:"não tem problema; tudo bem",你好:"olá; oi",女儿:"filha",喂:"alô (ao telefone); ei",下雨:"chover",做饭:"cozinhar; preparar a comida",别:"não (imperativo); outro",不好意思:"com licença; ficar sem jeito",打:"bater; ligar (telefone); jogar",等:"esperar; etcétera",过去:"passar; o passado",花:"flor; gastar",没意思:"sem graça; entediante",面:"rosto; macarrão; farinha",为什么:"por quê; por qual razão",有意思:"interessante; divertido",站:"estação; parada; ficar em pé",不同:"diferente; distinto",才:"apenas; só então; talento",常见:"comum; frequente",常用:"de uso comum; corrente",该:"dever; aquele/aquela; o referido",感兴趣:"ter interesse; achar interessante",红绿灯:"semáforo; sinal de trânsito",可爱:"adorável; fofo; querido",喜爱:"gostar; apreciar; adorar",怎么办:"o que fazer; como resolver",只能:"só pode; apenas é possível"},p=I.split(`
+`).map(g=>{const[o,h,r,d]=g.split("|");return{h:o,py:h,pos:r.replace(/·.*/,"").replace(/\(.*/,"").trim(),posRaw:r,l:parseInt(d)}}),w={0:{label:"Todos",badge:"#475569",bg:"#f8fafc",accent:"#1e293b"},1:{label:"HSK 1",badge:"#c2410c",bg:"#fff7ed",accent:"#c2410c"},2:{label:"HSK 2",badge:"#1d4ed8",bg:"#eff6ff",accent:"#1d4ed8"},3:{label:"HSK 3",badge:"#15803d",bg:"#f0fdf4",accent:"#15803d"},4:{label:"HSK 4",badge:"#7c3aed",bg:"#faf5ff",accent:"#7c3aed"},5:{label:"HSK 5",badge:"#be185d",bg:"#fdf2f8",accent:"#be185d"},6:{label:"HSK 6",badge:"#b45309",bg:"#fffbeb",accent:"#b45309"},7:{label:"HSK 7–9",badge:"#0f766e",bg:"#f0fdfa",accent:"#0f766e"}},B={动:"verbo",名:"subs.",形:"adj.",副:"adv.",代:"pron.",数:"num.",量:"classif.",助:"part.",介:"prep.",连:"conj.",叹:"interj.",前缀:"prefixo",后缀:"sufixo",数量:"num.+cl."},L=["#64748B","#0891B2","#16a34a","#9333ea","#dc2626"];function $(g){const o={ā:1,á:2,ǎ:3,à:4,ē:1,é:2,ě:3,è:4,ī:1,í:2,ǐ:3,ì:4,ō:1,ó:2,ǒ:3,ò:4,ū:1,ú:2,ǔ:3,ù:4,ǖ:1,ǘ:2,ǚ:3,ǜ:4};for(const h of g)if(o[h])return L[o[h]];return L[0]}function O({py:g}){return n.jsx("span",{style:{fontSize:"0.82rem",fontStyle:"italic",letterSpacing:"0.01em"},children:g.split(/\s+/).map((o,h,r)=>n.jsx("span",{style:{color:$(o),marginRight:h<r.length-1?"3px":0},children:o},h))})}const q=48;function V({item:g,showPy:o,translation:h,loading:r}){const d=w[g.l],t=h||(g.l<=3?P[g.h]||"—":void 0),s=B[g.pos]||g.pos;return n.jsxs("div",{style:{background:"#fff",border:"1px solid #e2e8f0",borderRadius:"12px",padding:"12px 14px",display:"flex",flexDirection:"column",gap:"5px",borderLeft:`4px solid ${d.badge}`,cursor:"default",boxShadow:"0 1px 2px rgba(0,0,0,0.04)",transition:"transform .15s, box-shadow .15s",minHeight:"108px"},onMouseEnter:c=>{c.currentTarget.style.transform="translateY(-2px)",c.currentTarget.style.boxShadow="0 4px 10px rgba(0,0,0,0.1)"},onMouseLeave:c=>{c.currentTarget.style.transform="",c.currentTarget.style.boxShadow="0 1px 2px rgba(0,0,0,0.04)"},children:[n.jsxs("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start"},children:[n.jsx("span",{style:{fontSize:"1.6rem",fontWeight:"700",color:"#0f172a",lineHeight:1.1,fontFamily:"serif"},children:g.h}),n.jsx("span",{style:{fontSize:"0.6rem",fontWeight:"700",color:d.badge,background:d.bg,border:`1px solid ${d.badge}30`,borderRadius:"5px",padding:"2px 6px",marginTop:"2px",whiteSpace:"nowrap"},children:d.label})]}),o&&n.jsx(O,{py:g.py}),n.jsx("span",{style:{fontSize:"0.65rem",color:"#94a3b8",background:"#f8fafc",borderRadius:"4px",padding:"1px 5px",alignSelf:"flex-start"},children:s}),r?n.jsx("span",{style:{fontSize:"0.78rem",color:"#94a3b8",fontStyle:"italic"},children:"traduzindo…"}):t?n.jsx("span",{style:{fontSize:"0.82rem",color:"#334155",fontWeight:"500",marginTop:"1px",lineHeight:1.3},children:t}):n.jsx("span",{style:{fontSize:"0.78rem",color:"#cbd5e1",fontStyle:"italic"},children:"—"})]})}function J(){const[g,o]=a.useState(0),[h,r]=a.useState(""),[d,t]=a.useState(!0),[s,c]=a.useState(1),[l,R]=a.useState(new Map),[b,k]=a.useState(!1),f=a.useRef(!1),y=a.useMemo(()=>{let i=p;if(g>0&&(i=i.filter(u=>u.l===g)),h.trim()){const u=h.trim().toLowerCase();i=i.filter(e=>e.h.includes(u)||e.py.toLowerCase().includes(u)||(P[e.h]||"").toLowerCase().includes(u)||(l.get(e.h)||"").toLowerCase().includes(u))}return i},[g,h,l]),z=Math.ceil(y.length/q),m=a.useMemo(()=>y.slice((s-1)*q,s*q),[y,s]);a.useEffect(()=>{const i=m.filter(e=>e.l>=4&&!l.has(e.h));if(i.length===0||f.current)return;(async()=>{var e;f.current=!0,k(!0);try{const M=`Você é um tradutor chinês-português. Traduza estas palavras chinesas para português brasileiro de forma concisa (máx. 6 palavras por tradução). Responda APENAS com JSON válido sem markdown, formato exato: {"t":[{"h":"hanzi","pt":"tradução"}]}. Palavras: ${i.map(j=>`${j.h}(${j.py})`).join(", ")}`,K=(((e=(await(await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1e3,messages:[{role:"user",content:M}]})})).json()).content.find(j=>j.type==="text"))==null?void 0:e.text)||"").replace(/```json|```/g,"").trim(),H=JSON.parse(K);H.t&&R(j=>{const W=new Map(j);return H.t.forEach(({h:E,pt:N})=>W.set(E,N)),W})}catch(T){console.error("Translate error:",T)}finally{k(!1),f.current=!1}})()},[m]);function v(i){o(i),c(1),r("")}const A=a.useMemo(()=>{const i={};return p.forEach(u=>{i[u.l]=(i[u.l]||0)+1}),i},[]),S=p.length,C=l.size;return n.jsxs("div",{style:{fontFamily:"'Segoe UI',system-ui,sans-serif",background:"#f8fafc",minHeight:"100vh"},children:[n.jsxs("div",{style:{background:"linear-gradient(135deg,#0f172a,#1e3a5f 55%,#0f172a)",padding:"24px 20px 20px",textAlign:"center"},children:[n.jsx("div",{style:{fontSize:"0.7rem",color:"#94a3b8",letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:"5px"},children:"老师 · Laoshi · Novo HSK 3.0"}),n.jsx("h1",{style:{margin:0,color:"#f8fafc",fontSize:"clamp(1.2rem,4vw,1.75rem)",fontWeight:"800",letterSpacing:"-0.02em"},children:"词汇大纲 · Vocabulário Completo HSK 1–9"}),n.jsxs("p",{style:{margin:"6px 0 0",color:"#94a3b8",fontSize:"0.8rem"},children:[S.toLocaleString()," vocábulos oficiais · GF0025-2021 · HSK 4–9 traduzidos por IA em tempo real"]}),n.jsx("div",{style:{display:"flex",justifyContent:"center",gap:"6px",marginTop:"14px",flexWrap:"wrap"},children:[1,2,3,4,5,6,7].map(i=>{const u=w[i];return n.jsxs("div",{style:{background:"rgba(255,255,255,0.07)",borderRadius:"8px",padding:"5px 12px",border:`1px solid ${u.badge}40`,cursor:"pointer"},onClick:()=>v(i),children:[n.jsx("span",{style:{color:u.badge,fontWeight:"700",fontSize:"1rem"},children:A[i]||0}),n.jsx("span",{style:{color:"#94a3b8",fontSize:"0.68rem",marginLeft:"4px"},children:u.label})]},i)})})]}),n.jsx("div",{style:{background:"#fff",borderBottom:"1px solid #e2e8f0",padding:"12px 16px",position:"sticky",top:0,zIndex:10},children:n.jsxs("div",{style:{maxWidth:"980px",margin:"0 auto",display:"flex",gap:"8px",flexWrap:"wrap",alignItems:"center"},children:[n.jsx("div",{style:{display:"flex",gap:"4px",flexWrap:"wrap"},children:[0,1,2,3,4,5,6,7].map(i=>{const u=w[i],e=g===i;return n.jsx("button",{onClick:()=>v(i),style:{padding:"5px 12px",borderRadius:"16px",border:"none",cursor:"pointer",fontWeight:"600",fontSize:"0.75rem",transition:"all .15s",background:e?u.badge:"#f1f5f9",color:e?"#fff":"#64748B",boxShadow:e?`0 2px 6px ${u.badge}40`:"none"},children:u.label},i)})}),n.jsxs("div",{style:{flex:1,minWidth:"150px",position:"relative"},children:[n.jsx("span",{style:{position:"absolute",left:"9px",top:"50%",transform:"translateY(-50%)",color:"#94a3b8",fontSize:"0.85rem"},children:"🔍"}),n.jsx("input",{value:h,onChange:i=>{r(i.target.value),c(1)},placeholder:"Buscar hanzi, pinyin ou português...",style:{width:"100%",padding:"6px 10px 6px 28px",borderRadius:"16px",border:"1px solid #e2e8f0",fontSize:"0.8rem",outline:"none",background:"#f8fafc",boxSizing:"border-box"}})]}),n.jsx("button",{onClick:()=>t(i=>!i),style:{padding:"5px 12px",borderRadius:"16px",border:"1px solid #e2e8f0",cursor:"pointer",fontSize:"0.75rem",fontWeight:"600",background:d?"#fef3c7":"#f1f5f9",color:d?"#92400e":"#64748B"},children:d?"拼 Pinyin ✓":"拼 Pinyin ✗"})]})}),n.jsxs("div",{style:{maxWidth:"980px",margin:"10px auto 0",padding:"0 16px",display:"flex",justifyContent:"space-between",alignItems:"center"},children:[n.jsxs("span",{style:{fontSize:"0.75rem",color:"#94a3b8"},children:[y.length.toLocaleString()," palavra",y.length!==1?"s":"",z>1&&` · Página ${s}/${z}`,C>0&&` · ${C} traduz. em cache`]}),b&&n.jsx("span",{style:{fontSize:"0.73rem",color:"#7c3aed",fontStyle:"italic",animation:"pulse 1s infinite"},children:"⟳ Traduzindo com IA…"}),g>=4&&!b&&n.jsxs("span",{style:{fontSize:"0.7rem",color:"#94a3b8"},children:["HSK ",g<=6?g:"7–9"," · Traduções geradas por IA"]})]}),n.jsx("div",{style:{maxWidth:"980px",margin:"10px auto 16px",padding:"0 16px"},children:m.length===0?n.jsxs("div",{style:{textAlign:"center",padding:"60px 20px",color:"#94a3b8"},children:[n.jsx("div",{style:{fontSize:"3rem"},children:"🔎"}),n.jsx("div",{style:{marginTop:"10px",fontSize:"1rem"},children:"Nenhuma palavra encontrada."})]}):n.jsx("div",{style:{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(170px,1fr))",gap:"10px"},children:m.map((i,u)=>n.jsx(V,{item:i,showPy:d,translation:l.get(i.h),loading:b&&i.l>=4&&!l.has(i.h)},i.h+i.l+u))})}),z>1&&n.jsxs("div",{style:{display:"flex",justifyContent:"center",gap:"6px",padding:"12px 16px 28px",flexWrap:"wrap"},children:[n.jsx(x,{label:"«",onClick:()=>c(1),disabled:s===1}),n.jsx(x,{label:"‹",onClick:()=>c(i=>Math.max(1,i-1)),disabled:s===1}),F(s,z).map((i,u)=>n.jsx(x,{label:i==="…"?"…":String(i),onClick:()=>i!=="…"&&c(i),active:i===s,disabled:i==="…"},u)),n.jsx(x,{label:"›",onClick:()=>c(i=>Math.min(z,i+1)),disabled:s===z}),n.jsx(x,{label:"»",onClick:()=>c(z),disabled:s===z})]}),n.jsxs("div",{style:{borderTop:"1px solid #e2e8f0",padding:"14px 20px",textAlign:"center",fontSize:"0.68rem",color:"#94a3b8",background:"#fff"},children:["老师 (Laoshi) · Vocabulário Completo Novo HSK 3.0 · GF0025-2021 · ",S.toLocaleString()," palavras · HSK 1–3 com traduções embutidas · HSK 4–9 com IA"]}),n.jsx("style",{children:"@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}"})]})}function x({label:g,onClick:o,disabled:h,active:r}){return n.jsx("button",{onClick:o,disabled:h,style:{padding:"5px 10px",borderRadius:"7px",border:"1px solid #e2e8f0",cursor:h?"not-allowed":"pointer",minWidth:"32px",fontSize:"0.75rem",fontWeight:"600",transition:"all .1s",background:r?"#0f172a":h?"#f8fafc":"#fff",color:r?"#fff":h?"#cbd5e1":"#0f172a"},children:g})}function F(g,o){if(o<=9)return Array.from({length:o},(s,c)=>c+1);const h=[],r=2,d=Math.max(2,g-r),t=Math.min(o-1,g+r);h.push(1),d>2&&h.push("…");for(let s=d;s<=t;s++)h.push(s);return t<o-1&&h.push("…"),h.push(o),h}export{J as default};
