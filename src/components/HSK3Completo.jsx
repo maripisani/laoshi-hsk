@@ -1,590 +1,1017 @@
 import { useState } from "react";
 
 const ink = "#0F172A"; const sand = "#FAFAF8"; const muted = "#64748B"; const bdr = "#E2E8F0";
+const TC = ["#9CA3AF","#0891B2","#059669","#7C3AED","#DC2626"];
 
-// ═══════════════════════════════════════════════════════════════════════
-// DADOS COMPLETOS HSK 3 — 12 SEMANAS
-// 973 palavras novas · 300 novos caracteres · 44 pontos gramaticais
-// ═══════════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════════════════
+// LAOSHI 老师 — HSK 3 PROGRAMA COMPLETO · Revisão Nov/2025
+// 500 palavras · 16 semanas · 48 pontos gramaticais · 80 questões
+// Fonte: GF0025-2021 / Atualização 2025-11 (vigência Jul/2026)
+// ══════════════════════════════════════════════════════════════════════════════
 
 const WEEKS = [
-  // ── SEMANA 1 ──────────────────────────────────────────────────────
-  { w:1, phase:"Fundação", emoji:"🔁", color:"#6366F1",
-    theme:"Revisão HSK 1+2 + Introdução ao HSK 3 — Opinião e Linguagem Abstrata",
-    stats:{ words:"~200 revisadas + 30 novas HSK 3", newHSK3:"30", grammar:"把(bǎ) intro · 对...来说 · 关于...", chars:"+20 novos" },
+  {
+    w:1, phase:"Pessoas", emoji:"👥", color:"#6366F1",
+    theme:"Pessoas, Relações e Descrição Física",
+    built:false, builtNote:"",
+    stats:{words:"32 novas (HSK 3)",newHSK2:"32",grammar:"把/被 ainda não · foco em 的 descritivo",chars:"+19 novos"},
     vocab:[
-      {h:"态度",py:"tàidu",pt:"atitude/postura"},{h:"看法",py:"kànfǎ",pt:"ponto de vista/opinião"},
-      {h:"意思",py:"yìsi",pt:"significado/sentido"},{h:"原因",py:"yuányīn",pt:"causa/motivo"},
-      {h:"影响",py:"yǐngxiǎng",pt:"influência/influenciar"},{h:"结果",py:"jiéguǒ",pt:"resultado/consequência"},
-      {h:"方法",py:"fāngfǎ",pt:"método/forma"},{h:"目的",py:"mùdì",pt:"objetivo/propósito"},
-      {h:"作用",py:"zuòyòng",pt:"função/efeito"},{h:"意义",py:"yìyì",pt:"significado/importância"},
-      {h:"表示",py:"biǎoshì",pt:"expressar/indicar"},{h:"表达",py:"biǎodá",pt:"expressar/comunicar"},
-      {h:"说明",py:"shuōmíng",pt:"explicar/esclarecer"},{h:"反对",py:"fǎnduì",pt:"ser contra/opor-se"},
-      {h:"同意",py:"tóngyì",pt:"concordar/estar de acordo"},{h:"支持",py:"zhīchí",pt:"apoiar/dar suporte"},
-      {h:"接受",py:"jiēshòu",pt:"aceitar/receber"},{h:"拒绝",py:"jùjué",pt:"recusar/rejeitar"},
-      {h:"了解",py:"liǎojiě",pt:"compreender/conhecer bem"},{h:"掌握",py:"zhǎngwò",pt:"dominar/controlar"},
-      {h:"提高",py:"tígāo",pt:"melhorar/elevar"},{h:"改进",py:"gǎijìn",pt:"aprimorar/melhorar"},
-      {h:"解释",py:"jiěshì",pt:"explicar/interpretar"},{h:"关于",py:"guānyú",pt:"sobre/acerca de"},
-      {h:"具体",py:"jùtǐ",pt:"concreto/específico"},
+      {h:"阿姨",py:"āyí",pt:"tia; senhora (informal)"},
+      {h:"爱人",py:"àiren",pt:"cônjuge; amado/a"},
+      {h:"别人",py:"biérén",pt:"outras pessoas; os outros"},
+      {h:"别的",py:"biéde",pt:"outro(s); outros"},
+      {h:"大人",py:"dàren",pt:"adulto"},
+      {h:"夫妻",py:"fūqī",pt:"casal; marido e esposa"},
+      {h:"姐妹",py:"jiěmèi",pt:"irmãs"},
+      {h:"叔叔",py:"shūshu",pt:"tio"},
+      {h:"邻居",py:"línjū",pt:"vizinho/a"},
+      {h:"老人",py:"lǎorén",pt:"idoso/a; pessoa mais velha"},
+      {h:"客人",py:"kèrén",pt:"visitante; convidado"},
+      {h:"男人",py:"nánrén",pt:"homem (adulto)"},
+      {h:"女人",py:"nǚrén",pt:"mulher (adulta)"},
+      {h:"男生",py:"nánshēng",pt:"menino; estudante homem"},
+      {h:"女生",py:"nǚshēng",pt:"menina; estudante mulher"},
+      {h:"年轻",py:"niánqīng",pt:"jovem"},
+      {h:"矮",py:"ǎi",pt:"baixo (estatura)"},
+      {h:"胖",py:"pàng",pt:"gordo"},
+      {h:"瘦",py:"shòu",pt:"magro"},
+      {h:"聪明",py:"cōngmíng",pt:"inteligente"},
+      {h:"认真",py:"rènzhēn",pt:"sério; consciente; dedicado"},
+      {h:"努力",py:"nǔlì",pt:"esforço; se esforçar"},
+      {h:"脚",py:"jiǎo",pt:"pé (parte do corpo)"},
+      {h:"来自",py:"láizì",pt:"vir de; ser de"},
+      {h:"南方",py:"nánfāng",pt:"sul; regiões do sul"},
+      {h:"认为",py:"rènwéi",pt:"achar; considerar"},
+      {h:"突然",py:"tūrán",pt:"de repente; inesperadamente"},
+      {h:"向",py:"xiàng",pt:"em direção a; para"},
+      {h:"一定",py:"yídìng",pt:"certamente; com certeza; certo"},
+      {h:"有关",py:"yǒuguān",pt:"relacionado a; sobre"},
+      {h:"站",py:"zhàn",pt:"estação; parada; ficar em pé"},
+      {h:"总是",py:"zǒngshì",pt:"sempre"}
     ],
     grammar:[
-      { struct:"把 + O + V + 结果 (intro)", label:"Estrutura 把 — Disposição do Objeto", color:"#6366F1",
-        exp:"把 desloca o objeto para antes do verbo, enfatizando o resultado/transformação. Estrutura: S + 把 + O + V + complemento. NUNCA use 把 com: 是, 有, verbos estáticos, ou sem complemento de resultado.",
-        exs:[{cn:"请你把书放在桌子上。",py:"Qǐng nǐ bǎ shū fàng zài zhuōzi shàng.",pt:"Por favor, coloque o livro na mesa."},{cn:"我把作业做完了。",py:"Wǒ bǎ zuòyè zuò wán le.",pt:"Terminei o dever de casa."}] },
-      { struct:"对 + 人/事 + 来说", label:"Para / Do Ponto de Vista de", color:"#059669",
-        exp:"Indica perspectiva ou relevância para uma pessoa ou grupo. Equivale a 'para X' ou 'do ponto de vista de X'.",
-        exs:[{cn:"对我来说，家人比什么都重要。",py:"Duì wǒ lái shuō, jiārén bǐ shénme dōu zhòngyào.",pt:"Para mim, a família é mais importante que qualquer coisa."},{cn:"对初学者来说，汉语很有挑战性。",py:"Duì chūxuézhě lái shuō, Hànyǔ hěn yǒu tiǎozhàn xìng.",pt:"Para iniciantes, o mandarim é bem desafiador."}] },
-      { struct:"关于 + 话题 + ，...", label:"Sobre / A Respeito de", color:"#D97706",
-        exp:"关于 introduz o tema de uma frase ou texto. Pode aparecer no início (tópico) ou antes de um substantivo. Mais formal que 'zhè gè'.",
-        exs:[{cn:"关于这个问题，我有不同的看法。",py:"Guānyú zhège wèntí, wǒ yǒu bùtóng de kànfǎ.",pt:"Sobre esta questão, tenho uma visão diferente."},{cn:"我们来讨论一下关于环境保护的问题。",py:"Wǒmen lái tǎolùn yīxià guānyú huánjìng bǎohù de wèntí.",pt:"Vamos discutir a questão da proteção ambiental."}] },
+      {struct:"N + 的 + N / Adj + 的 + N",label:"的 Atributivo",color:"#6366F1",exp:"的 liga um qualificador ao substantivo. Com adjetivo de 1 sílaba costuma-se omitir (好朋友), com 2 sílabas ou com 很 é obrigatório (漂亮的房子 / 很高的人). Também nominaliza: red的 = \"o vermelho\".",exs:[{cn:"那个很聪明的女生是我邻居。",py:"Nàge hěn cōngmíng de nǚshēng shì wǒ línjū.",pt:"Aquela garota muito inteligente é minha vizinha."},{cn:"这是我阿姨做的菜。",py:"Zhè shì wǒ āyí zuò de cài.",pt:"Este é o prato que minha tia fez."},{cn:"矮的是我弟弟，高的是我哥哥。",py:"Ǎi de shì wǒ dìdi, gāo de shì wǒ gēge.",pt:"O baixo é meu irmão mais novo, o alto é o mais velho."}]},
+      {struct:"S + 又 + Adj + 又 + Adj",label:"Duplo Atributo 又…又",color:"#0891B2",exp:"又…又… lista duas qualidades simultâneas do mesmo sujeito. Ambas devem ter a mesma valência (as duas positivas ou as duas negativas). Não use 很 dentro da estrutura.",exs:[{cn:"她又聪明又努力。",py:"Tā yòu cōngmíng yòu nǔlì.",pt:"Ela é inteligente e esforçada."},{cn:"这个房子又小又贵。",py:"Zhège fángzi yòu xiǎo yòu guì.",pt:"Esta casa é pequena e cara."},{cn:"我的邻居又年轻又热情。",py:"Wǒ de línjū yòu niánqīng yòu rèqíng.",pt:"Meu vizinho é jovem e caloroso."}]},
+      {struct:"S + 对 + N + 很 + Adj",label:"Preposição 对",color:"#059669",exp:"对 introduz o alvo de uma atitude ou efeito: 对我很好 (é bom comigo), 对身体好 (faz bem à saúde). Vem sempre ANTES do verbo/adjetivo, nunca depois.",exs:[{cn:"我的邻居对我很热情。",py:"Wǒ de línjū duì wǒ hěn rèqíng.",pt:"Meu vizinho é muito acolhedor comigo."},{cn:"喝茶对身体很好。",py:"Hē chá duì shēntǐ hěn hǎo.",pt:"Beber chá faz bem à saúde."},{cn:"老师对每个学生都很认真。",py:"Lǎoshī duì měi gè xuésheng dōu hěn rènzhēn.",pt:"O professor é dedicado com cada aluno."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你对学习汉语有什么看法？",py:"Nǐ duì xuéxí Hànyǔ yǒu shénme kànfǎ?",pt:"Qual é a sua opinião sobre aprender mandarim?"},
-      {sp:"B",cn:"对我来说，学汉语最大的目的是了解中国文化。",py:"Duì wǒ lái shuō, xué Hànyǔ zuì dà de mùdì shì liǎojiě Zhōngguó wénhuà.",pt:"Para mim, o maior objetivo de aprender mandarim é entender a cultura chinesa."},
-      {sp:"A",cn:"你能解释一下为什么选择这个方法学习吗？",py:"Nǐ néng jiěshì yīxià wèishénme xuǎnzé zhège fāngfǎ xuéxí ma?",pt:"Pode explicar por que escolheu esse método de estudo?"},
-      {sp:"B",cn:"关于学习方法，我认为把语言用于实际生活中，效果最好！",py:"Guānyú xuéxí fāngfǎ, wǒ rènwéi bǎ yǔyán yòng yú shíjì shēnghuó zhōng, xiàoguǒ zuì hǎo!",pt:"Sobre o método, acredito que usar o idioma na vida real dá os melhores resultados!"},
+      {sp:"A",cn:"你旁边那位阿姨是谁？",py:"Nǐ pángbiān nà wèi āyí shì shéi?",pt:"Quem é aquela senhora ao seu lado?"},
+      {sp:"B",cn:"那是我的邻居，她又热情又聪明。",py:"Nà shì wǒ de línjū, tā yòu rèqíng yòu cōngmíng.",pt:"É minha vizinha, ela é acolhedora e inteligente."},
+      {sp:"A",cn:"她对你好吗？",py:"Tā duì nǐ hǎo ma?",pt:"Ela é boa com você?"},
+      {sp:"B",cn:"非常好！我刚搬来的时候，她帮了我很多。",py:"Fēicháng hǎo! Wǒ gāng bān lái de shíhou, tā bāng le wǒ hěn duō.",pt:"Muito! Quando acabei de me mudar, ela me ajudou bastante."},
+      {sp:"A",cn:"她的爱人呢？",py:"Tā de àiren ne?",pt:"E o marido dela?"},
+      {sp:"B",cn:"个子不高，有点儿瘦，但是人很好，很认真。",py:"Gèzi bù gāo, yǒudiǎnr shòu, dànshì rén hěn hǎo, hěn rènzhēn.",pt:"Não é alto, é meio magro, mas é boa pessoa e muito dedicado."}
     ],
     quiz:[
-      {q:"'把' NÃO pode ser usado com qual tipo de verbo?",opts:["Verbos de ação com resultado","Verbos de movimento","是 e 有 (verbos estáticos)","Verbos com complemento de lugar"],ans:2,exp:"✅ 把 NUNCA com 是/有/知道/喜欢 (verbos estáticos). 我把书是 ❌. 把 exige ação que TRANSFORMA ou DISPÕE o objeto de alguma forma!"},
-      {q:"'对学生来说，成绩很重要' — 对...来说 indica:",opts:["causa","comparação","perspectiva/relevância para alguém","tempo"],ans:2,exp:"✅ 对...来说 = do ponto de vista de / para X. Aqui: 'para os estudantes, as notas são importantes'. Indica QUEM considera isso relevante!"},
-      {q:"Qual é a tradução de 掌握?",opts:["entender superficialmente","dominar/controlar","rejeitar","aceitar"],ans:1,exp:"✅ 掌握 zhǎngwò = dominar/ter controle de. 掌=palma da mão. 把...掌握在手中=ter algo na palma da mão = dominar! Diferente de 了解(conhecer bem)."},
-      {q:"'他把作业做完了' — o que 把 indica aqui?",opts:["quem fez o dever","o dever foi concluído (resultado)","quando foi feito","onde foi feito"],ans:1,exp:"✅ 把 desloca o objeto (作业) para antes do verbo (做) e destaca o RESULTADO (完=terminar). Sem 把: 他做完作业了 (igualmente correto, menos ênfase no processo)."},
-      {q:"关于 é sinônimo de qual expressão?",opts:["因为","关心","对于/about","所以"],ans:2,exp:"✅ 关于 ≈ 对于 = sobre/a respeito de. 关于这个话题(sobre este tema). 关心=se preocupar com(verbo). 因为/所以=porque/por isso(causa-efeito)."},
+      {q:"Qual frase está correta?",opts:["她是很聪明的","她是一个聪明的人","她很聪明的人","她聪明的很人"],ans:1,exp:"✅ 她是一个聪明的人 — 的 liga o adjetivo ao substantivo. Com adjetivo de duas sílabas ou precedido de 很, o 的 é obrigatório."},
+      {q:"又…又… exige que os dois adjetivos sejam:",opts:["De sílabas iguais","Da mesma valência (ambos + ou ambos −)","Antônimos","Precedidos de 很"],ans:1,exp:"✅ Os dois devem apontar na mesma direção: 又聪明又努力 (ambos positivos) ou 又小又贵 (ambos negativos). Nunca misture elogio com crítica."},
+      {q:"\"Ela é muito boa comigo\" =",opts:["她我很好对","她对我很好","她很好对我","对她我很好"],ans:1,exp:"✅ 她对我很好 — 对 + alvo vem antes do adjetivo/verbo. Nunca depois."},
+      {q:"Em 又…又…, é correto inserir 很?",opts:["Sim, sempre","Não, 很 não entra na estrutura","Só antes do segundo","Só antes do primeiro"],ans:1,exp:"✅ ❌又很聪明又很努力。A estrutura já carrega a intensidade; 很 é redundante e agramatical aqui."},
+      {q:"矮 é o antônimo de:",opts:["胖","高","瘦","年轻"],ans:1,exp:"✅ 矮(baixo de estatura) ↔ 高(alto). O par 胖/瘦 é gordo/magro; 年轻 é jovem."}
     ],
   },
-
-  // ── SEMANA 2 ──────────────────────────────────────────────────────
-  { w:2, phase:"Relações", emoji:"❤️", color:"#DC2626",
-    theme:"Relações Sociais, Emoções Complexas e Estrutura 被 Avançada",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"被 avançado · 使/令/让 causativo · 不得不", chars:"+20 novos" },
+  {
+    w:2, phase:"Ações", emoji:"📦", color:"#0891B2",
+    theme:"A Estrutura 把 — Manipular Objetos",
+    built:false, builtNote:"",
+    stats:{words:"32 novas (HSK 3)",newHSK2:"32",grammar:"S + 把 + O + V + 结果",chars:"+19 novos"},
     vocab:[
-      {h:"关系",py:"guānxi",pt:"relação/vínculo"},{h:"婚姻",py:"hūnyīn",pt:"casamento/matrimônio"},
-      {h:"恋爱",py:"liàn'ài",pt:"namoro/estar apaixonado"},{h:"感情",py:"gǎnqíng",pt:"sentimento/afeto"},
-      {h:"尊重",py:"zūnzhòng",pt:"respeitar"},{h:"沟通",py:"gōutōng",pt:"comunicar/se comunicar"},
-      {h:"矛盾",py:"máodùn",pt:"contradição/conflito"},{h:"合作",py:"hézuò",pt:"cooperar/colaborar"},
-      {h:"联系",py:"liánxì",pt:"manter contato/relacionar"},{h:"合适",py:"héshì",pt:"adequado/apropriado"},
-      {h:"可怜",py:"kělián",pt:"coitado/lastimável"},{h:"羡慕",py:"xiànmù",pt:"invejar/admirar"},
-      {h:"后悔",py:"hòuhuǐ",pt:"se arrepender"},{h:"遗憾",py:"yíhàn",pt:"que pena/lamentável"},
-      {h:"不得不",py:"bùdébù",pt:"não ter outra opção/ter que"},{h:"偏见",py:"piānjiàn",pt:"preconceito"},
-      {h:"误解",py:"wùjiě",pt:"mal-entendido/interpretar mal"},{h:"宽容",py:"kuānróng",pt:"tolerante/indulgente"},
-      {h:"体谅",py:"tǐliàng",pt:"compreender/ter empatia"},{h:"冲突",py:"chōngtū",pt:"conflito/colisão"},
-      {h:"包容",py:"bāoróng",pt:"ser tolerante/abarcar"},{h:"孤独",py:"gūdú",pt:"solidão/solitário"},
-      {h:"依赖",py:"yīlài",pt:"depender/confiar em"},{h:"信任",py:"xìnrèn",pt:"confiar/confiança"},
-      {h:"分手",py:"fēnshǒu",pt:"terminar um relacionamento"},
+      {h:"把",py:"bǎ",pt:"segurar; (prep. de objeto direto)"},
+      {h:"搬",py:"bān",pt:"mover; carregar"},
+      {h:"搬家",py:"bānjiā",pt:"mudar de casa"},
+      {h:"放",py:"fàng",pt:"colocar; soltar; deixar"},
+      {h:"带",py:"dài",pt:"trazer; carregar; levar"},
+      {h:"丢",py:"diū",pt:"perder; largar"},
+      {h:"换",py:"huàn",pt:"trocar; substituir"},
+      {h:"收",py:"shōu",pt:"receber; guardar"},
+      {h:"扫",py:"sǎo",pt:"varrer; limpar"},
+      {h:"打扫",py:"dǎsǎo",pt:"limpar; varrer"},
+      {h:"刷",py:"shuā",pt:"escovar; varrer"},
+      {h:"关",py:"guān",pt:"fechar; desligar"},
+      {h:"开花",py:"kāihuā",pt:"florescer"},
+      {h:"洗澡",py:"xǐzǎo",pt:"tomar banho"},
+      {h:"不久",py:"bùjiǔ",pt:"em breve; não demora muito"},
+      {h:"常",py:"cháng",pt:"frequentemente; geralmente"},
+      {h:"出生",py:"chūshēng",pt:"nascer"},
+      {h:"当然",py:"dāngrán",pt:"claro; é claro; naturalmente"},
+      {h:"动物园",py:"dòngwùyuán",pt:"zoológico"},
+      {h:"放假",py:"fàngjià",pt:"tirar férias; feriado"},
+      {h:"公斤",py:"gōngjīn",pt:"quilograma"},
+      {h:"后天",py:"hòutiān",pt:"depois de amanhã"},
+      {h:"接",py:"jiē",pt:"receber; buscar; conectar"},
+      {h:"蓝",py:"lán",pt:"azul"},
+      {h:"难看",py:"nánkàn",pt:"feio; horroroso"},
+      {h:"上衣",py:"shàngyī",pt:"parte de cima da roupa"},
+      {h:"图书馆",py:"túshūguǎn",pt:"biblioteca"},
+      {h:"像",py:"xiàng",pt:"parecer-se com; como"},
+      {h:"一共",py:"yígòng",pt:"ao total; no total"},
+      {h:"有名",py:"yǒumíng",pt:"famoso; conhecido"},
+      {h:"张",py:"zhāng",pt:"abrir; (classif. folhas, rostos)"},
+      {h:"嘴",py:"zuǐ",pt:"boca; bico"}
     ],
     grammar:[
-      { struct:"被 + 施事者 + V + 结果", label:"被 — Passiva com Resultado", color:"#DC2626",
-        exp:"HSK 3 expande 被: o resultado/complemento após o verbo é frequentemente obrigatório. Sem complemento: 他被骂 (muito brusco). Com complemento: 他被老师骂了一顿 (natural). 被 frequentemente indica algo negativo/inesperado.",
-        exs:[{cn:"她的心被他深深地伤害了。",py:"Tā de xīn bèi tā shēnshēn de shānghài le.",pt:"O coração dela foi profundamente ferido por ele."},{cn:"这封信被误解了，让我解释一下。",py:"Zhè fēng xìn bèi wùjiě le, ràng wǒ jiěshì yīxià.",pt:"Esta carta foi mal interpretada — deixe-me explicar."}] },
-      { struct:"使/令 + 人/主语 + adj./V", label:"Causativo Formal — Fazer/Fazer com que", color:"#6366F1",
-        exp:"使 e 令 são causativos formais (= fazer que alguém/algo fique de certa forma). Mais literários que 让/叫. 使 foca em resultado objetivo; 令 tem conotação emocional.",
-        exs:[{cn:"这个消息使我非常高兴。",py:"Zhège xiāoxi shǐ wǒ fēicháng gāoxìng.",pt:"Esta notícia me deixou muito feliz."},{cn:"他的态度令人失望。",py:"Tā de tàidu lìng rén shīwàng.",pt:"A atitude dele decepcionou as pessoas."}] },
-      { struct:"不得不 + V", label:"Não Ter Outra Opção — Ter Que", color:"#059669",
-        exp:"不得不 = 'não poder não fazer' = ter que (sem alternativa). Mais forte que 应该/必须 porque implica que NÃO HÁ ESCOLHA. O sujeito faz algo contra sua vontade ou por necessidade absoluta.",
-        exs:[{cn:"因为生病，她不得不放弃这次机会。",py:"Yīnwèi shēngbìng, tā bùdébù fàngqì zhècì jīhuì.",pt:"Por causa da doença, ela não teve outra opção a não ser desistir desta oportunidade."},{cn:"面对这种情况，我不得不承认错误。",py:"Miànduì zhè zhǒng qíngkuàng, wǒ bùdébù chéngrèn cuòwù.",pt:"Diante desta situação, não tive outra opção a não ser admitir o erro."}] },
+      {struct:"S + 把 + O + V + 补语",label:"A Estrutura 把 (bǎ)",color:"#6366F1",exp:"O 把句 antecipa o objeto para enfatizar o que ACONTECEU com ele. Regra de ouro: o verbo NUNCA fica sozinho — precisa de complemento (了, 好, 完, 在…, 给…). ❌我把书看。 ✅我把书看完了。",exs:[{cn:"我把房间打扫干净了。",py:"Wǒ bǎ fángjiān dǎsǎo gānjìng le.",pt:"Limpei o quarto (deixando-o limpo)."},{cn:"请把这本书放在桌子上。",py:"Qǐng bǎ zhè běn shū fàng zài zhuōzi shàng.",pt:"Por favor, coloque este livro sobre a mesa."},{cn:"他把我的伞带走了。",py:"Tā bǎ wǒ de sǎn dài zǒu le.",pt:"Ele levou meu guarda-chuva embora."}]},
+      {struct:"S + 没(有) + 把 + O + V",label:"Negação do 把",color:"#0891B2",exp:"A negação e os advérbios vêm ANTES de 把, nunca depois. ❌我把书没看完。 ✅我没把书看完。 O objeto do 把 deve ser definido/conhecido — não se usa com objetos genéricos.",exs:[{cn:"我没把作业写完。",py:"Wǒ méi bǎ zuòyè xiě wán.",pt:"Não terminei de escrever o dever."},{cn:"别把窗户关上，很热。",py:"Bié bǎ chuānghu guān shàng, hěn rè.",pt:"Não feche a janela, está quente."},{cn:"他还没把行李搬进来。",py:"Tā hái méi bǎ xíngli bān jìnlái.",pt:"Ele ainda não trouxe a bagagem para dentro."}]},
+      {struct:"把 + O + V + 在/到/给",label:"把 com Destino",color:"#059669",exp:"Quando a ação move algo para um lugar ou pessoa, o 把 é praticamente obrigatório: 放在(colocar em), 搬到(mudar para), 送给(entregar a). É a construção mais frequente do HSK 3.",exs:[{cn:"我把这些东西搬到楼上去。",py:"Wǒ bǎ zhèxiē dōngxi bān dào lóushàng qù.",pt:"Vou levar estas coisas para cima."},{cn:"她把礼物送给了邻居。",py:"Tā bǎ lǐwù sòng gěi le línjū.",pt:"Ela deu o presente ao vizinho."},{cn:"请把伞放在门口。",py:"Qǐng bǎ sǎn fàng zài ménkǒu.",pt:"Deixe o guarda-chuva na entrada, por favor."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你和他分手了？为什么？",py:"Nǐ hé tā fēnshǒu le? Wèishénme?",pt:"Você terminou com ele? Por quê?"},
-      {sp:"B",cn:"我们之间矛盾太多，沟通也越来越难。这段感情让我很累。",py:"Wǒmen zhījiān máodùn tài duō, gōutōng yě yuèláiyuè nán. Zhè duàn gǎnqíng ràng wǒ hěn lèi.",pt:"Havia conflitos demais entre nós e a comunicação ficou cada vez mais difícil. Esse relacionamento me deixava exausta."},
-      {sp:"A",cn:"遗憾！我以为你们关系很好。不得不说，有时候爱不够。",py:"Yíhàn! Wǒ yǐwéi nǐmen guānxi hěn hǎo. Bùdébù shuō, yǒu shíhou ài bù gòu.",pt:"Que pena! Achei que o relacionamento de vocês estava ótimo. Tenho que dizer — às vezes o amor não é suficiente."},
-      {sp:"B",cn:"是的，我后悔没有早点解决那些误解。但被伤害了，就很难继续了。",py:"Shì de, wǒ hòuhuǐ méiyǒu zǎodiǎn jiějué nàxiē wùjiě. Dàn bèi shānghài le, jiù hěn nán jìxù le.",pt:"Sim, me arrependo de não ter resolvido os mal-entendidos antes. Mas depois de ter sido magoada, é muito difícil continuar."},
+      {sp:"A",cn:"你把房间打扫干净了吗？",py:"Nǐ bǎ fángjiān dǎsǎo gānjìng le ma?",pt:"Você limpou o quarto?"},
+      {sp:"B",cn:"扫完了，我还把窗户也擦了。",py:"Sǎo wán le, wǒ hái bǎ chuānghu yě cā le.",pt:"Terminei, e ainda limpei as janelas."},
+      {sp:"A",cn:"太好了。请把这些书放在桌子上。",py:"Tài hǎo le. Qǐng bǎ zhèxiē shū fàng zài zhuōzi shàng.",pt:"Ótimo. Coloque estes livros sobre a mesa, por favor."},
+      {sp:"B",cn:"好的。这个箱子要搬到哪儿去？",py:"Hǎo de. Zhège xiāngzi yào bān dào nǎr qù?",pt:"Certo. Para onde levo esta caixa?"},
+      {sp:"A",cn:"搬到楼上去吧。别把它放在门口。",py:"Bān dào lóushàng qù ba. Bié bǎ tā fàng zài ménkǒu.",pt:"Leve para cima. Não a deixe na entrada."},
+      {sp:"B",cn:"明白了，我这就搬上去。",py:"Míngbai le, wǒ zhè jiù bān shàngqù.",pt:"Entendi, já levo para cima."}
     ],
     quiz:[
-      {q:"'这个消息使我高兴' — 使 aqui é sinônimo de:",opts:["让/令(fazer com que)","因为(porque)","被(passiva)","把(disposição)"],ans:0,exp:"✅ 使/令/让 são todos causativos. 使 é mais formal/literário. 使我高兴=fez-me feliz/deixou-me alegre. Na fala cotidiana prefere-se 让."},
-      {q:"不得不 implica que:",opts:["a pessoa quer fazer","a pessoa não tem outra escolha","a pessoa pode escolher","a pessoa é proibida"],ans:1,exp:"✅ 不得不 = dupla negação → obrigação absoluta. 不得(não pode)+不(não)=não pode não fazer=TEM QUE. A ação acontece CONTRA a vontade ou por necessidade irresistível!"},
-      {q:"'她的心被他伤害了' — sendo passiva com 被, quem feriu o coração dela?",opts:["ela mesma","ele","o coração","não se sabe"],ans:1,exp:"✅ Na passiva com 被: SUJEITO(她的心) + 被 + AGENTE(他) + V(伤害了). Ele feriu o coração dela. 被 frequentemente implica resultado negativo/indesejado!"},
-      {q:"Qual é o significado de 误解?",opts:["entender bem","mal-entendido/interpretar errado","não querer entender","explicar claramente"],ans:1,exp:"✅ 误解 wùjiě = mal-entendido. 误=erro/engano + 解=entender. Entender de forma errada = 误解. Verbo e substantivo!"},
-      {q:"'不得不承认' significa:",opts:["não pode admitir","não quer admitir","tem que admitir (sem escolha)","pode admitir"],ans:2,exp:"✅ 不得不+V = não ter outra opção a não ser V. 我不得不承认=tenho que admitir (mesmo não querendo/não tendo saída)."},
+      {q:"Qual 把句 está CORRETA?",opts:["我把书看。","我把书看完了。","我看把书了。","把我书看完了。"],ans:1,exp:"✅ 我把书看完了 — no 把句 o verbo NUNCA fica sozinho. Precisa de complemento: 了, 完, 好, 在…, 给… A opção A é o erro mais comum do HSK 3."},
+      {q:"Onde vai a negação no 把句?",opts:["Depois de 把","Antes de 把","No final","Depois do verbo"],ans:1,exp:"✅ 我没把作业写完 — negação e advérbios vêm ANTES de 把. ❌我把作业没写完。"},
+      {q:"\"Coloque o livro na mesa\" =",opts:["请把书放在桌子上。","请放书把桌子上。","请把书在桌子上放。","请书把放桌子上。"],ans:0,exp:"✅ 请把书放在桌子上 — padrão 把 + O + V + 在 + lugar. É a construção mais frequente do nível."},
+      {q:"O objeto do 把 deve ser:",opts:["Sempre plural","Definido/conhecido","Sempre abstrato","Sempre curto"],ans:1,exp:"✅ O 把句 pressupõe que o ouvinte sabe de que objeto se fala. ❌我把一本书看完了 soa estranho; ✅我把那本书看完了."},
+      {q:"Qual verbo NÃO pode entrar em 把句?",opts:["放","搬","是","擦"],ans:2,exp:"✅ 是 — verbos de estado (是, 有, 在, 喜欢) não descrevem ação sobre um objeto, então não formam 把句."}
     ],
   },
-
-  // ── SEMANA 3 ──────────────────────────────────────────────────────
-  { w:3, phase:"Educação", emoji:"📚", color:"#059669",
-    theme:"Educação, Conhecimento e Complementos Direcionais/Potenciais",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"Complementos direcionais · Complementos potenciais (得/不)", chars:"+20 novos" },
+  {
+    w:3, phase:"Passiva", emoji:"🔄", color:"#059669",
+    theme:"A Voz Passiva com 被 e Verbos de Resultado",
+    built:false, builtNote:"",
+    stats:{words:"32 novas (HSK 3)",newHSK2:"32",grammar:"S + 被 + A + V · 受到/得到",chars:"+19 novos"},
     vocab:[
-      {h:"教育",py:"jiàoyù",pt:"educação"},{h:"知识",py:"zhīshi",pt:"conhecimento/saber"},
-      {h:"理解",py:"lǐjiě",pt:"compreender/entender"},{h:"记忆",py:"jìyì",pt:"memória/memorizar"},
-      {h:"分析",py:"fēnxī",pt:"analisar/análise"},{h:"研究",py:"yánjiū",pt:"pesquisar/pesquisa"},
-      {h:"实验",py:"shíyàn",pt:"experimento/experimentar"},{h:"理论",py:"lǐlùn",pt:"teoria"},
-      {h:"实践",py:"shíjiàn",pt:"prática/praticar"},{h:"逻辑",py:"luójí",pt:"lógica"},
-      {h:"思维",py:"sīwéi",pt:"pensamento/raciocínio"},{h:"专心",py:"zhuānxīn",pt:"concentrado/focado"},
-      {h:"天赋",py:"tiānfù",pt:"talento natural/dom"},{h:"学问",py:"xuéwèn",pt:"erudição/saber acadêmico"},
-      {h:"道理",py:"dàoli",pt:"razão/princípio"},{h:"文凭",py:"wénpíng",pt:"diploma"},
-      {h:"素质",py:"sùzhì",pt:"qualidade/competência"},{h:"培养",py:"péiyǎng",pt:"cultivar/desenvolver"},
-      {h:"启发",py:"qǐfā",pt:"inspirar/iluminar"},{h:"创造力",py:"chuàngzàolì",pt:"criatividade"},
-      {h:"批判",py:"pīpàn",pt:"criticar/pensamento crítico"},{h:"归纳",py:"guīnà",pt:"induzir/sintetizar"},
-      {h:"演绎",py:"yǎnyì",pt:"deduzir/dedução"},{h:"假设",py:"jiǎshè",pt:"hipótese/supor"},
-      {h:"推理",py:"tuīlǐ",pt:"raciocinar/inferir"},
+      {h:"被",py:"bèi",pt:"(prep. de voz passiva)"},
+      {h:"受",py:"shòu",pt:"receber; sofrer"},
+      {h:"受到",py:"shòudào",pt:"receber; sofrer (algo)"},
+      {h:"得到",py:"dédào",pt:"obter; conseguir"},
+      {h:"完成",py:"wánchéng",pt:"completar; terminar"},
+      {h:"解决",py:"jiějué",pt:"resolver; solução; solver"},
+      {h:"发现",py:"fāxiàn",pt:"descobrir; perceber"},
+      {h:"发生",py:"fāshēng",pt:"acontecer; ocorrer"},
+      {h:"影响",py:"yǐngxiǎng",pt:"influenciar; influência"},
+      {h:"决定",py:"juédìng",pt:"decidir; decisão"},
+      {h:"选",py:"xuǎn",pt:"escolher"},
+      {h:"选择",py:"xuǎnzé",pt:"escolher; opção; escolha"},
+      {h:"同意",py:"tóngyì",pt:"concordar; aprovar"},
+      {h:"要求",py:"yāoqiú",pt:"exigir; exigência"},
+      {h:"需要",py:"xūyào",pt:"precisar; necessitar"},
+      {h:"应该",py:"yīnggāi",pt:"dever; ser necessário"},
+      {h:"必须",py:"bìxū",pt:"dever; ser obrigado a"},
+      {h:"到处",py:"dàochù",pt:"por toda parte; em todo lugar"},
+      {h:"短",py:"duǎn",pt:"curto"},
+      {h:"放心",py:"fàngxīn",pt:"ficar tranquilo; despreocupar"},
+      {h:"公园",py:"gōngyuán",pt:"parque"},
+      {h:"画家",py:"huàjiā",pt:"pintor; artista plástico"},
+      {h:"节",py:"jié",pt:"(classif. aulas, vagões)"},
+      {h:"老",py:"lǎo",pt:"velho; idoso; sempre"},
+      {h:"难题",py:"nántí",pt:"problema difícil"},
+      {h:"身高",py:"shēngāo",pt:"altura (do corpo)"},
+      {h:"腿",py:"tuǐ",pt:"perna"},
+      {h:"小区",py:"xiǎoqū",pt:"condomínio; conjunto habitacional"},
+      {h:"一块儿",py:"yíkuàir",pt:"juntos; no mesmo lugar"},
+      {h:"有用",py:"yǒuyòng",pt:"útil"},
+      {h:"长",py:"zhǎng",pt:"crescer; desenvolver"},
+      {h:"最后",py:"zuìhòu",pt:"por último; ao final"}
     ],
     grammar:[
-      { struct:"V + 方向词 + 来/去 (趋向补语)", label:"Complementos Direcionais", color:"#059669",
-        exp:"Indica direção do movimento em relação ao falante. 来=em direção ao falante; 去=afastando-se do falante. Combinam com 进/出/上/下/回/过/起 para formar complementos compostos.",
-        exs:[{cn:"学生们走进教室来了。",py:"Xuéshengmen zǒu jìn jiàoshì lái le.",pt:"Os alunos entraram para a sala de aula (em direção a mim)."},{cn:"请把这本书拿回去。",py:"Qǐng bǎ zhè běn shū ná huí qù.",pt:"Por favor leve este livro de volta (afastando-se de mim)."}] },
-      { struct:"V + 得/不 + 结果 (可能补语)", label:"Complementos Potenciais — Pode/Não Pode", color:"#D97706",
-        exp:"V+得+resultado = consegue fazer (tem capacidade). V+不+resultado = não consegue fazer. Muito diferente de 得 de grau! Este é V+得/不+resultado de capacidade.",
-        exs:[{cn:"这篇文章你看得懂吗？",py:"Zhè piān wénzhāng nǐ kàn de dǒng ma?",pt:"Consegue entender este artigo?"},{cn:"这个任务一个人做不完。",py:"Zhège rènwù yī gè rén zuò bu wán.",pt:"Esta tarefa uma pessoa só não consegue terminar."}] },
-      { struct:"把 + O + V + 方向/结果补语", label:"把 com Complementos (expansão)", color:"#6366F1",
-        exp:"把 combina naturalmente com complementos direcionais e de resultado. 把 + O + V进来/出去/上去/下来/完/好/到...",
-        exs:[{cn:"请把书放进书包里去。",py:"Qǐng bǎ shū fàng jìn shūbāo lǐ qù.",pt:"Por favor coloque o livro dentro da mochila."},{cn:"你能把这道题做出来吗？",py:"Nǐ néng bǎ zhè dào tí zuò chūlái ma?",pt:"Consegue resolver esta questão?"}] },
+      {struct:"S + 被 + A + V + 补语",label:"Voz Passiva com 被",color:"#6366F1",exp:"被 marca o sujeito como quem SOFRE a ação: 我的伞被他拿走了. O agente pode ser omitido (被拿走了). Como no 把, o verbo precisa de complemento. Em chinês, 被 costuma ter conotação de algo indesejado.",exs:[{cn:"我的自行车被人骑走了。",py:"Wǒ de zìxíngchē bèi rén qí zǒu le.",pt:"Levaram minha bicicleta (alguém a pegou)."},{cn:"这个问题已经被解决了。",py:"Zhège wèntí yǐjīng bèi jiějué le.",pt:"Este problema já foi resolvido."},{cn:"他被老师叫到办公室去了。",py:"Tā bèi lǎoshī jiào dào bàngōngshì qù le.",pt:"Ele foi chamado à sala do professor."}]},
+      {struct:"受到 / 得到 + N",label:"Passiva Lexical",color:"#0891B2",exp:"Alguns verbos já carregam sentido receptivo e dispensam 被: 受到影响(ser afetado), 得到帮助(receber ajuda). São seguidos de substantivos abstratos, não de verbos.",exs:[{cn:"他的成绩受到了很大影响。",py:"Tā de chéngjì shòudào le hěn dà yǐngxiǎng.",pt:"As notas dele foram bastante afetadas."},{cn:"我得到了同事的帮助。",py:"Wǒ dédào le tóngshì de bāngzhù.",pt:"Recebi a ajuda dos colegas."},{cn:"这个办法受到大家的欢迎。",py:"Zhège bànfǎ shòudào dàjiā de huānyíng.",pt:"Este método foi bem recebido por todos."}]},
+      {struct:"V + 完 / 好 / 到 / 见",label:"Complemento Resultativo",color:"#059669",exp:"Indica o RESULTADO do verbo: 完(terminado), 好(bem-feito/pronto), 到(alcançado), 见(percebido). Negação: 没 + V + 补语. 找到 = achou; 找 = procurou (sem garantia de sucesso).",exs:[{cn:"我找了半天，还是没找到。",py:"Wǒ zhǎo le bàntiān, háishi méi zhǎodào.",pt:"Procurei um tempão e mesmo assim não achei."},{cn:"作业写完了吗？——写好了。",py:"Zuòyè xiě wán le ma? —— Xiě hǎo le.",pt:"Terminou o dever? —— Está pronto."},{cn:"我没听见你说什么。",py:"Wǒ méi tīngjiàn nǐ shuō shénme.",pt:"Não ouvi o que você disse."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你觉得创造力是天赋还是可以培养出来的？",py:"Nǐ juéde chuàngzàolì shì tiānfù háishi kěyǐ péiyǎng chūlái de?",pt:"Acha que a criatividade é um dom nato ou pode ser desenvolvida?"},
-      {sp:"B",cn:"我认为两者都有。天赋可以帮助你起步，但通过实践和学习，你能把创造力提高很多。",py:"Wǒ rènwéi liǎng zhě dōu yǒu. Tiānfù kěyǐ bāngzhù nǐ qǐbù, dàn tōngguò shíjiàn hé xuéxí, nǐ néng bǎ chuàngzàolì tígāo hěn duō.",pt:"Acho que ambos importam. O talento ajuda no início, mas pela prática e estudo você pode melhorar muito a criatividade."},
-      {sp:"A",cn:"有道理！我看不懂这篇关于逻辑思维的文章，你能帮我解释一下吗？",py:"Yǒu dàoli! Wǒ kàn bu dǒng zhè piān guānyú luójí sīwéi de wénzhāng, nǐ néng bāng wǒ jiěshì yīxià ma?",pt:"Faz sentido! Não consigo entender este artigo sobre raciocínio lógico — pode me explicar?"},
-      {sp:"B",cn:"当然！把文章拿过来，我们一起分析。知识是要分享的！",py:"Dāngrán! Bǎ wénzhāng ná guòlái, wǒmen yīqǐ fēnxī. Zhīshi shì yào fēnxiǎng de!",pt:"Claro! Traga o artigo para cá e analisamos juntos. Conhecimento é para ser compartilhado!"},
+      {sp:"A",cn:"我的自行车不见了！",py:"Wǒ de zìxíngchē bú jiàn le!",pt:"Minha bicicleta sumiu!"},
+      {sp:"B",cn:"是不是被别人骑走了？",py:"Shì bu shì bèi biérén qí zǒu le?",pt:"Será que alguém a levou?"},
+      {sp:"A",cn:"可能吧。我记得放在楼下了。",py:"Kěnéng ba. Wǒ jìde fàng zài lóuxià le.",pt:"Talvez. Lembro de tê-la deixado lá embaixo."},
+      {sp:"B",cn:"别着急，先去问问邻居，看看有没有人发现。",py:"Bié zháojí, xiān qù wènwen línjū, kànkan yǒu méiyǒu rén fāxiàn.",pt:"Não se preocupe, pergunte aos vizinhos primeiro para ver se alguém viu."},
+      {sp:"A",cn:"好，如果找不到，我就得买新的了。",py:"Hǎo, rúguǒ zhǎo bu dào, wǒ jiù děi mǎi xīn de le.",pt:"Certo, se não achar, vou ter que comprar uma nova."},
+      {sp:"B",cn:"放心，这个问题很快就能解决。",py:"Fàngxīn, zhège wèntí hěn kuài jiù néng jiějué.",pt:"Fique tranquilo, esse problema se resolve rápido."}
     ],
     quiz:[
-      {q:"'你看得懂吗？' — 得懂 é um:",opts:["complemento de grau","complemento potencial (consegue entender)","complemento de resultado","complemento direcional"],ans:1,exp:"✅ 看得懂 = consegue entender lendo (complemento POTENCIAL). V+得+resultado=tem capacidade. V+不+resultado=não tem capacidade. Diferente de 看得很认真(V+得+adv=complemento de GRAU)!"},
-      {q:"'走进来' — que direção indica?",opts:["sair de algum lugar","entrar vindo em direção ao falante","subir","ir embora"],ans:1,exp:"✅ 走进来 = andar + entrar + vir (em direção a mim). 来=movimento em direção ao falante. 去=afastando-se. 进来=entrar(vindo); 进去=entrar(indo para longe)."},
-      {q:"'这件事做不完' — qual a tradução correta?",opts:["Esta tarefa não foi concluída","Esta tarefa não pode/consegue ser concluída","Esta tarefa não deve ser concluída","Esta tarefa ainda não começou"],ans:1,exp:"✅ V+不+resultado = complemento POTENCIAL negativo = não consegue. 做不完=não consegue terminar. Muito diferente de 没做完(não terminou=já aconteceu)!"},
-      {q:"天赋 significa:",opts:["aprender muito","talento natural/dom inato","erudição acadêmica","diploma universitário"],ans:1,exp:"✅ 天赋 tiānfù = talento natural. 天=céu/natureza + 赋=dotação. Dom dado pelo céu/pela natureza. 学问=erudição(resultado de estudo), 文凭=diploma."},
-      {q:"把 PODE ser usado em qual frase?",opts:["我把他是老师。","我把书看完了。","我把喜欢音乐。","我把在学校。"],ans:1,exp:"✅ 我把书看完了 ✅ — 把+O(书)+V(看)+resultado(完). 把 EXIGE verbo de ação + resultado/complemento. É impossível com 是/喜欢(estático) ou 在(locativo sem ação)."},
+      {q:"\"Minha bicicleta foi levada\" =",opts:["我的自行车被骑走了。","我的自行车骑走被了。","被我的自行车骑走了。","我的自行车被骑走。"],ans:0,exp:"✅ 我的自行车被骑走了 — o agente pode ser omitido, mas o complemento (走了) é obrigatório, igual ao 把句."},
+      {q:"受到 e 得到 são seguidos de:",opts:["Verbos","Substantivos abstratos","Adjetivos","Números"],ans:1,exp:"✅ 受到影响, 得到帮助 — regem substantivos, não verbos. ❌受到帮助我。"},
+      {q:"Qual a diferença entre 找 e 找到?",opts:["Nenhuma","找 = procurar (ação); 找到 = achar (resultado)","找到 é mais formal","找 é passado"],ans:1,exp:"✅ 找了半天没找到 = procurei muito e não achei. O complemento 到 marca o SUCESSO da ação."},
+      {q:"Negação de 听见 é:",opts:["不听见","没听见","听不见了","别听见"],ans:1,exp:"✅ 没听见 — complementos resultativos negam com 没 (fato que não ocorreu). 听不见 existe, mas é complemento de possibilidade (não consigo ouvir)."},
+      {q:"被 costuma carregar conotação de:",opts:["Alegria","Algo indesejado","Formalidade","Futuro"],ans:1,exp:"✅ Tradicionalmente 被 marca algo que o sujeito sofreu contra sua vontade. Em textos formais modernos essa nuance se enfraquece."}
     ],
   },
-
-  // ── SEMANA 4 ──────────────────────────────────────────────────────
-  { w:4, phase:"Carreira", emoji:"💼", color:"#D97706",
-    theme:"Trabalho, Carreira e Estruturas com 随着 e 通过",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"随着...而... · 通过...来... · 在...下/中", chars:"+20 novos" },
+  {
+    w:4, phase:"Comparação", emoji:"⚖️", color:"#7C3AED",
+    theme:"Graus, Semelhança e a Estrutura 越…越",
+    built:false, builtNote:"",
+    stats:{words:"32 novas (HSK 3)",newHSK2:"32",grammar:"比较 · 一样 · 越…越 · 极了",chars:"+19 novos"},
     vocab:[
-      {h:"职业",py:"zhíyè",pt:"profissão/carreira"},{h:"事业",py:"shìyè",pt:"carreira/obra de vida"},
-      {h:"工资",py:"gōngzī",pt:"salário"},{h:"收入",py:"shōurù",pt:"renda/receita"},
-      {h:"竞争",py:"jìngzhēng",pt:"competição/competir"},{h:"挑战",py:"tiǎozhàn",pt:"desafio/desafiar"},
-      {h:"机会",py:"jīhuì",pt:"oportunidade"},{h:"能力",py:"nénglì",pt:"capacidade/habilidade"},
-      {h:"要求",py:"yāoqiú",pt:"exigência/exigir"},{h:"标准",py:"biāozhǔn",pt:"padrão/critério"},
-      {h:"评价",py:"píngjià",pt:"avaliar/avaliação"},{h:"升职",py:"shēngzhí",pt:"promoção/ser promovido"},
-      {h:"辞职",py:"cízhí",pt:"pedir demissão"},{h:"招聘",py:"zhāopìn",pt:"recrutar/processo seletivo"},
-      {h:"应聘",py:"yìngpìn",pt:"candidatar-se a vaga"},{h:"效率",py:"xiàolǜ",pt:"eficiência"},
-      {h:"合同",py:"hétong",pt:"contrato"},{h:"责任",py:"zérèn",pt:"responsabilidade"},
-      {h:"付出",py:"fùchū",pt:"dedicar/investir esforço"},{h:"回报",py:"huíbào",pt:"retorno/recompensa"},
-      {h:"目标",py:"mùbiāo",pt:"meta/objetivo"},{h:"实现",py:"shíxiàn",pt:"realizar/concretizar"},
-      {h:"策略",py:"cèlüè",pt:"estratégia/tática"},{h:"创业",py:"chuàngyè",pt:"empreender"},
-      {h:"经营",py:"jīngyíng",pt:"administrar/gerir negócio"},
+      {h:"比较",py:"bǐjiào",pt:"comparar; relativamente"},
+      {h:"一样",py:"yíyàng",pt:"igual; o mesmo"},
+      {h:"差",py:"chà",pt:"diferença; mal; diferir"},
+      {h:"差不多",py:"chàbuduō",pt:"mais ou menos; quase"},
+      {h:"更",py:"gèng",pt:"mais; ainda mais"},
+      {h:"最好",py:"zuìhǎo",pt:"o melhor; é melhor que"},
+      {h:"特别",py:"tèbié",pt:"especial; especialmente"},
+      {h:"极",py:"jí",pt:"extremamente; ao extremo"},
+      {h:"挺",py:"tǐng",pt:"bastante; bem"},
+      {h:"越",py:"yuè",pt:"cada vez mais"},
+      {h:"难",py:"nán",pt:"difícil; duro"},
+      {h:"容易",py:"róngyì",pt:"fácil; simples"},
+      {h:"简单",py:"jiǎndān",pt:"simples; fácil"},
+      {h:"清楚",py:"qīngchu",pt:"claro; nítido; compreender"},
+      {h:"明白",py:"míngbai",pt:"claro; entender"},
+      {h:"奇怪",py:"qíguài",pt:"estranho; curioso"},
+      {h:"合适",py:"héshì",pt:"adequado; apropriado"},
+      {h:"得",py:"děi",pt:"conseguir; ganhar"},
+      {h:"短裤",py:"duǎnkù",pt:"bermuda; short"},
+      {h:"放学",py:"fàngxué",pt:"terminar as aulas"},
+      {h:"关机",py:"guānjī",pt:"desligar (celular/computador)"},
+      {h:"还",py:"huán",pt:"devolver"},
+      {h:"结婚",py:"jiéhūn",pt:"casar-se"},
+      {h:"离开",py:"líkāi",pt:"partir; sair de"},
+      {h:"难听",py:"nántīng",pt:"desagradável de ouvir; feio (som)"},
+      {h:"生活",py:"shēnghuó",pt:"vida; viver"},
+      {h:"外地",py:"wàidì",pt:"outra cidade; fora da cidade"},
+      {h:"校园",py:"xiàoyuán",pt:"campus; pátio da escola"},
+      {h:"以后",py:"yǐhòu",pt:"depois; no futuro"},
+      {h:"又",py:"yòu",pt:"novamente; de novo; também"},
+      {h:"照",py:"zhào",pt:"iluminar; tirar foto"},
+      {h:"最近",py:"zuìjìn",pt:"recentemente; ultimamente"}
     ],
     grammar:[
-      { struct:"随着 + N + 的 + V/adj. + ，... 也/而/就...", label:"Conforme / À Medida que", color:"#D97706",
-        exp:"随着 indica que uma mudança acompanha outra. 'À medida que A muda, B também muda'. É a estrutura-chave para descrever tendências e mudanças paralelas. Frequente em textos formais/acadêmicos.",
-        exs:[{cn:"随着科技的发展，工作方式也在不断改变。",py:"Suízhe kējì de fāzhǎn, gōngzuò fāngshì yě zài bùduàn gǎibiàn.",pt:"Conforme a tecnologia se desenvolve, os métodos de trabalho também estão em constante mudança."},{cn:"随着年龄的增长，人的责任感也越来越强。",py:"Suízhe niánlíng de zēngzhǎng, rén de zérèngǎn yě yuèláiyuè qiáng.",pt:"À medida que a idade aumenta, o senso de responsabilidade das pessoas também cresce."}] },
-      { struct:"通过 + método + (来) + V", label:"Através de / Por Meio de", color:"#6366F1",
-        exp:"通过 indica o MEIO ou MÉTODO para alcançar um resultado. Equivale a 'por meio de / através de'. Pode ser seguido de 来 para enfatizar a ação.",
-        exs:[{cn:"通过努力工作，他实现了自己的目标。",py:"Tōngguò nǔlì gōngzuò, tā shíxiàn le zìjǐ de mùbiāo.",pt:"Por meio do trabalho duro, ele realizou seus objetivos."},{cn:"我们可以通过沟通来解决矛盾。",py:"Wǒmen kěyǐ tōngguò gōutōng lái jiějué máodùn.",pt:"Podemos resolver os conflitos através da comunicação."}] },
-      { struct:"在 + 条件/范围 + 下/中/内", label:"Sob / Em Determinadas Condições", color:"#DC2626",
-        exp:"在...下 = sob certas condições. 在...中 = em (processo). 在...内 = dentro de (tempo/espaço). São estruturas formais para indicar contexto ou circunstâncias.",
-        exs:[{cn:"在这种竞争激烈的情况下，效率非常重要。",py:"Zài zhè zhǒng jìngzhēng jīliè de qíngkuàng xià, xiàolǜ fēicháng zhòngyào.",pt:"Sob esta situação de concorrência acirrada, a eficiência é muito importante."},{cn:"在公司的支持下，他顺利完成了这个项目。",py:"Zài gōngsī de zhīchí xià, tā shùnlì wánchéng le zhège xiàngmù.",pt:"Com o apoio da empresa, ele concluiu o projeto com sucesso."}] },
+      {struct:"A + 比 + B + 更/还 + Adj",label:"Comparação Reforçada",color:"#6366F1",exp:"No HSK 3 o 比 ganha modificadores: 更/还(ainda mais), 一点儿(um pouco mais), 得多/多了(muito mais), 三岁(três anos mais). ❌比…很 continua proibido.",exs:[{cn:"今天比昨天更冷。",py:"Jīntiān bǐ zuótiān gèng lěng.",pt:"Hoje está ainda mais frio que ontem."},{cn:"这个办法比那个简单多了。",py:"Zhège bànfǎ bǐ nàge jiǎndān duō le.",pt:"Este método é bem mais simples que aquele."},{cn:"他比我大三岁。",py:"Tā bǐ wǒ dà sān suì.",pt:"Ele é três anos mais velho que eu."}]},
+      {struct:"A + 跟/和 + B + 一样 + Adj",label:"Igualdade com 一样",color:"#0891B2",exp:"A 跟 B 一样 = A é igual a B. Com adjetivo: 跟…一样高(tão alto quanto). Negação: 跟…不一样 ou 不跟…一样. É a contraparte do 比.",exs:[{cn:"我的手机跟你的一样。",py:"Wǒ de shǒujī gēn nǐ de yíyàng.",pt:"Meu celular é igual ao seu."},{cn:"这里的天气跟我家乡不一样。",py:"Zhèlǐ de tiānqì gēn wǒ jiāxiāng bù yíyàng.",pt:"O clima daqui é diferente da minha terra natal."},{cn:"他跟他哥哥一样聪明。",py:"Tā gēn tā gēge yíyàng cōngmíng.",pt:"Ele é tão inteligente quanto o irmão."}]},
+      {struct:"越 A 越 B / 越来越 + Adj",label:"Progressão com 越",color:"#059669",exp:"越…越… = quanto mais A, mais B (两个动作相关). 越来越… = cada vez mais (progressão no tempo). NUNCA use 很 depois de 越来越: ❌越来越很好。",exs:[{cn:"雨越下越大。",py:"Yǔ yuè xià yuè dà.",pt:"Quanto mais chove, mais forte fica."},{cn:"我的汉语越来越好了。",py:"Wǒ de Hànyǔ yuèláiyuè hǎo le.",pt:"Meu chinês está cada vez melhor."},{cn:"这个问题越想越奇怪。",py:"Zhège wèntí yuè xiǎng yuè qíguài.",pt:"Quanto mais penso nisso, mais estranho parece."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"随着社会竞争越来越激烈，你觉得现在的年轻人压力大吗？",py:"Suízhe shèhuì jìngzhēng yuèláiyuè jīliè, nǐ juéde xiànzài de niánqīngrén yālì dà ma?",pt:"Conforme a competição social fica cada vez mais acirrada, acha que os jovens de hoje têm muita pressão?"},
-      {sp:"B",cn:"非常大。在这么高的要求下，很多人不得不拼命工作。",py:"Fēicháng dà. Zài zhème gāo de yāoqiú xià, hěn duō rén bùdébù pīnmìng gōngzuò.",pt:"Muito. Sob exigências tão altas, muitas pessoas não têm outra opção a não ser trabalhar de forma intensa."},
-      {sp:"A",cn:"通过什么方法可以在压力下保持平衡？",py:"Tōngguò shénme fāngfǎ kěyǐ zài yālì xià bǎochí pínghéng?",pt:"Através de que métodos se pode manter o equilíbrio sob pressão?"},
-      {sp:"B",cn:"通过制定明确的目标和合理的策略，可以把压力转化成动力！",py:"Tōngguò zhìdìng míngquè de mùbiāo hé hélǐ de cèlüè, kěyǐ bǎ yālì zhuǎnhuà chéng dònglì!",pt:"Através de metas claras e estratégias racionais, pode-se transformar a pressão em motivação!"},
+      {sp:"A",cn:"这两个办法，你觉得哪个好？",py:"Zhè liǎng gè bànfǎ, nǐ juéde nǎge hǎo?",pt:"Destes dois métodos, qual você acha melhor?"},
+      {sp:"B",cn:"第一个比第二个简单多了。",py:"Dì-yī gè bǐ dì-èr gè jiǎndān duō le.",pt:"O primeiro é bem mais simples que o segundo."},
+      {sp:"A",cn:"可是第二个跟第一个一样有用吧？",py:"Kěshì dì-èr gè gēn dì-yī gè yíyàng yǒuyòng ba?",pt:"Mas o segundo é tão útil quanto o primeiro, não?"},
+      {sp:"B",cn:"差不多，不过越复杂的办法，问题越多。",py:"Chàbuduō, búguò yuè fùzá de bànfǎ, wèntí yuè duō.",pt:"Mais ou menos, mas quanto mais complexo o método, mais problemas."},
+      {sp:"A",cn:"有道理。那就用第一个。",py:"Yǒu dàolǐ. Nà jiù yòng dì-yī gè.",pt:"Faz sentido. Então usamos o primeiro."},
+      {sp:"B",cn:"好，这个最合适。",py:"Hǎo, zhège zuì héshì.",pt:"Ótimo, esse é o mais adequado."}
     ],
     quiz:[
-      {q:"'随着经济的发展，人们的生活水平也提高了' — 随着 indica:",opts:["causa e efeito","mudança paralela/concomitante","contraste","condição"],ans:1,exp:"✅ 随着 = conforme A muda, B também muda (mudança PARALELA). Diferente de 因为...所以(causa-efeito): 随着 não diz que A CAUSA B, mas que as duas mudanças ACONTECEM JUNTAS."},
-      {q:"通过 indica:",opts:["o objetivo","o método/meio","o tempo","o lugar"],ans:1,exp:"✅ 通过 = por meio de / através de (MÉTODO). 通过努力(por meio do esforço). Para objetivo use 为了(para/com o objetivo de). Para lugar use 经过(passar por)."},
-      {q:"'在老师的帮助下' — 在...下 indica:",opts:["localização","tempo","condição/circunstância","causa"],ans:2,exp:"✅ 在...下 = sob certas condições/circunstâncias. 在老师的帮助下=com a ajuda do professor / sob o apoio do professor. É contexto estrutural!"},
-      {q:"升职 e 辞职 são:",opts:["sinônimos","antônimos parciais (promoção vs demissão voluntária)","não têm relação","sinônimos de工资"],ans:1,exp:"✅ 升职(shēngzhí)=ser promovido ↔ 辞职(cízhí)=pedir demissão. Ambos relacionados à mudança de status no trabalho, mas em direções opostas!"},
-      {q:"'把压力转化成动力' — 转化 significa:",opts:["aumentar","eliminar","transformar/converter","ignorar"],ans:2,exp:"✅ 转化 zhuǎnhuà = transformar/converter. 转=mudar de direção + 化=transformar. Transformar a pressão(压力) em motivação(动力) — frase muito usada em contextos motivacionais!"},
+      {q:"Qual está ERRADA?",opts:["他比我高。","他比我很高。","他比我高一点儿。","他比我高多了。"],ans:1,exp:"✅ ❌他比我很高 — 很 nunca aparece no 比句. Use 更/还, 一点儿, 多了 ou 得多."},
+      {q:"\"Meu celular é igual ao seu\" =",opts:["我的手机跟你的一样。","我的手机比你的一样。","我的手机跟你的很一样。","一样我的手机跟你的。"],ans:0,exp:"✅ A 跟 B 一样 — estrutura fixa de igualdade. Nunca combine com 比 nem com 很."},
+      {q:"越来越 NÃO pode ser seguido de:",opts:["冷","很好","漂亮","贵"],ans:1,exp:"✅ ❌越来越很好 — 越来越 já expressa a progressão de intensidade; 很 é incompatível."},
+      {q:"\"Quanto mais chove, mais forte fica\" =",opts:["雨越大越下。","雨越下越大。","雨很下很大。","雨越来越下大。"],ans:1,exp:"✅ 雨越下越大 — 越 + V₁ + 越 + Adj. O primeiro 越 acompanha a ação, o segundo o resultado."},
+      {q:"\"Ele é 3 anos mais velho que eu\" =",opts:["他比我三岁大。","他比我大三岁。","他比我很大三岁。","他三岁比我大。"],ans:1,exp:"✅ 他比我大三岁 — a quantidade da diferença vem DEPOIS do adjetivo."}
     ],
   },
-
-  // ── SEMANA 5 ──────────────────────────────────────────────────────
-  { w:5, phase:"Natureza", emoji:"🌍", color:"#059669",
-    theme:"Meio Ambiente, Natureza e Estruturas com 由于 e 在...中",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"由于...因此/因而 · 不管/无论...都 · 以...为主", chars:"+20 novos" },
+  {
+    w:5, phase:"Escola", emoji:"🎓", color:"#D97706",
+    theme:"Vida Acadêmica e o Complemento de Grau",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"V + 得 + 补语 · 讲/回答",chars:"+19 novos"},
     vocab:[
-      {h:"环境",py:"huánjìng",pt:"meio ambiente"},{h:"气候",py:"qìhòu",pt:"clima"},
-      {h:"生态",py:"shēngtài",pt:"ecologia/ecossistema"},{h:"污染",py:"wūrǎn",pt:"poluição/poluir"},
-      {h:"能源",py:"néngyuán",pt:"energia (recurso)"},{h:"资源",py:"zīyuán",pt:"recurso"},
-      {h:"保护",py:"bǎohù",pt:"proteger/proteção"},{h:"破坏",py:"pòhuài",pt:"destruir/estragar"},
-      {h:"灾难",py:"zāinàn",pt:"desastre/catástrofe"},{h:"危机",py:"wēijī",pt:"crise"},
-      {h:"温度",py:"wēndù",pt:"temperatura"},{h:"变化",py:"biànhuà",pt:"mudança/mudar"},
-      {h:"减少",py:"jiǎnshǎo",pt:"reduzir/diminuir"},{h:"增加",py:"zēngjiā",pt:"aumentar"},
-      {h:"平衡",py:"pínghéng",pt:"equilíbrio/equilibrar"},{h:"持续",py:"chíxù",pt:"contínuo/sustentar"},
-      {h:"可再生",py:"kě zàishēng",pt:"renovável"},{h:"碳排放",py:"tàn páifàng",pt:"emissão de carbono"},
-      {h:"森林",py:"sēnlín",pt:"floresta"},{h:"物种",py:"wùzhǒng",pt:"espécie"},
-      {h:"海平面",py:"hǎipíngmiàn",pt:"nível do mar"},{h:"全球",py:"quánqiú",pt:"global/mundo inteiro"},
-      {h:"可持续",py:"kě chíxù",pt:"sustentável"},{h:"节约",py:"jiéyuē",pt:"economizar/poupar"},
-      {h:"循环",py:"xúnhuán",pt:"ciclo/reciclar"},
+      {h:"成绩",py:"chéngjì",pt:"nota; resultado; desempenho"},
+      {h:"班级",py:"bānjí",pt:"turma; classe"},
+      {h:"课本",py:"kèběn",pt:"livro didático"},
+      {h:"课文",py:"kèwén",pt:"texto (da lição)"},
+      {h:"年级",py:"niánjí",pt:"ano letivo; série"},
+      {h:"学期",py:"xuéqī",pt:"semestre; período letivo"},
+      {h:"数学",py:"shùxué",pt:"matemática"},
+      {h:"历史",py:"lìshǐ",pt:"história (disciplina)"},
+      {h:"外语",py:"wàiyǔ",pt:"língua estrangeira"},
+      {h:"作业",py:"zuòyè",pt:"lição de casa; tarefa"},
+      {h:"练",py:"liàn",pt:"praticar; treinar"},
+      {h:"练习",py:"liànxí",pt:"praticar; exercício"},
+      {h:"复习",py:"fùxí",pt:"revisar"},
+      {h:"讲",py:"jiǎng",pt:"falar; explicar; contar"},
+      {h:"回答",py:"huídá",pt:"responder; resposta"},
+      {h:"检查",py:"jiǎnchá",pt:"verificar; checar; examinar"},
+      {h:"认得",py:"rènde",pt:"reconhecer; conhecer (de vista)"},
+      {h:"懂得",py:"dǒngde",pt:"compreender; entender"},
+      {h:"了解",py:"liǎojiě",pt:"entender; conhecer bem"},
+      {h:"水平",py:"shuǐpíng",pt:"nível; padrão"},
+      {h:"关系",py:"guānxì",pt:"relação; vínculo"},
+      {h:"环境",py:"huánjìng",pt:"ambiente; meio ambiente"},
+      {h:"结束",py:"jiéshù",pt:"terminar; encerrar"},
+      {h:"脸",py:"liǎn",pt:"rosto; face"},
+      {h:"牛",py:"niú",pt:"boi; vaca; incrível (gíria)"},
+      {h:"市",py:"shì",pt:"cidade (administrativa); mercado"},
+      {h:"外卖",py:"wàimài",pt:"entrega (comida); delivery"},
+      {h:"校长",py:"xiàozhǎng",pt:"diretor/a; reitor/a"},
+      {h:"以前",py:"yǐqián",pt:"antes; anteriormente"},
+      {h:"羽毛球",py:"yǔmáoqiú",pt:"badminton"},
+      {h:"照顾",py:"zhàogù",pt:"cuidar de; tomar conta"}
     ],
     grammar:[
-      { struct:"由于 + 原因 + ，因此/因而/所以 + 结果", label:"Devido a / Em Razão de (Formal)", color:"#059669",
-        exp:"由于 é mais formal e literário que 因为. Frequente em textos escritos, notícias, relatórios. 因此/因而 são mais formais que 所以. A causa pode ser uma situação objetiva, não apenas razão subjetiva.",
-        exs:[{cn:"由于气候变化，许多地区的降雨量大幅减少。",py:"Yóuyú qìhòu biànhuà, xǔduō dìqū de jiàngyǔliàng dàfú jiǎnshǎo.",pt:"Devido à mudança climática, a precipitação em muitas regiões diminuiu significativamente."},{cn:"由于环境污染问题严重，因此政府出台了新政策。",py:"Yóuyú huánjìng wūrǎn wèntí yánzhòng, yīncǐ zhèngfǔ chūtái le xīn zhèngcè.",pt:"Devido ao grave problema de poluição ambiental, o governo implementou novas políticas."}] },
-      { struct:"不管/无论 + 条件 + ，都/也 + V", label:"Não Importa / Independentemente de", color:"#D97706",
-        exp:"不管/无论 = não importa A, B sempre acontece. A condição pode ser: 什么(o quê), 怎么(como), 多(quão), 还是(ou). 无论 é mais literário/formal que 不管.",
-        exs:[{cn:"不管天气多么恶劣，志愿者们都坚持植树造林。",py:"Bùguǎn tiānqì duōme èliè, zhìyuànzhěmen dōu jiānchí zhí shù zàolín.",pt:"Não importa quão adverso seja o tempo, os voluntários persistem no plantio de árvores."},{cn:"无论遇到什么困难，我们都不能放弃保护环境。",py:"Wúlùn yùdào shénme kùnnán, wǒmen dōu bù néng fàngqì bǎohù huánjìng.",pt:"Independentemente das dificuldades encontradas, não podemos desistir de proteger o meio ambiente."}] },
-      { struct:"以 + N + 为 + 主/重点/基础", label:"Ter como Principal / Basear-se em", color:"#6366F1",
-        exp:"以...为主 = ter X como principal elemento. 以...为基础 = basear-se em X. 以...为重点 = ter X como foco. Estrutura formal muito comum em textos acadêmicos e relatórios.",
-        exs:[{cn:"这个国家的能源以可再生能源为主。",py:"Zhège guójiā de néngyuán yǐ kě zàishēng néngyuán wéi zhǔ.",pt:"A energia deste país tem as energias renováveis como principal fonte."},{cn:"可持续发展以保护生态平衡为基础。",py:"Kě chíxù fāzhǎn yǐ bǎohù shēngtài pínghéng wéi jīchǔ.",pt:"O desenvolvimento sustentável tem a proteção do equilíbrio ecológico como base."}] },
+      {struct:"V + 得 + Adj / V+O+V+得+Adj",label:"Complemento de Grau",color:"#6366F1",exp:"得 avalia COMO a ação é feita. Se houver objeto, o verbo se repete: 他说汉语说得很好. Negação: V + 得 + 不 + Adj (说得不好). Pergunta: 说得怎么样？",exs:[{cn:"他汉语说得非常流利。",py:"Tā Hànyǔ shuō de fēicháng liúlì.",pt:"Ele fala chinês fluentemente."},{cn:"你昨天睡得好吗？——睡得不太好。",py:"Nǐ zuótiān shuì de hǎo ma? —— Shuì de bú tài hǎo.",pt:"Dormiu bem ontem? —— Não muito bem."},{cn:"这次考试他考得很不错。",py:"Zhè cì kǎoshì tā kǎo de hěn búcuò.",pt:"Ele foi muito bem nesta prova."}]},
+      {struct:"S + 讲/告诉 + 人 + 事",label:"Verbos de Duplo Objeto",color:"#0891B2",exp:"Alguns verbos levam dois objetos: pessoa + conteúdo. 告诉我答案, 给他一本书, 教我们汉语. A pessoa vem SEMPRE primeiro. 讲 = explicar/contar (mais formal que 说).",exs:[{cn:"老师给我们讲了一个故事。",py:"Lǎoshī gěi wǒmen jiǎng le yí gè gùshi.",pt:"O professor nos contou uma história."},{cn:"请告诉我这个词的意思。",py:"Qǐng gàosu wǒ zhège cí de yìsi.",pt:"Por favor, me diga o sentido desta palavra."},{cn:"他教我们数学和历史。",py:"Tā jiāo wǒmen shùxué hé lìshǐ.",pt:"Ele nos ensina matemática e história."}]},
+      {struct:"先…然后…最后",label:"Sequência Temporal",color:"#059669",exp:"Encadeia etapas: 先(primeiro) → 然后/接着(depois) → 最后(por fim). Todos são advérbios e ficam ANTES do verbo. Muito cobrado na parte de escrita do HSK 3.",exs:[{cn:"我先复习，然后做作业，最后休息。",py:"Wǒ xiān fùxí, ránhòu zuò zuòyè, zuìhòu xiūxi.",pt:"Primeiro reviso, depois faço o dever e por fim descanso."},{cn:"先检查一遍，然后交给老师。",py:"Xiān jiǎnchá yí biàn, ránhòu jiāo gěi lǎoshī.",pt:"Confira uma vez e depois entregue ao professor."},{cn:"我们先吃饭，然后去图书馆。",py:"Wǒmen xiān chīfàn, ránhòu qù túshūguǎn.",pt:"Vamos comer primeiro e depois à biblioteca."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你认为气候变化是我们这一代最大的危机吗？",py:"Nǐ rènwéi qìhòu biànhuà shì wǒmen zhè yī dài zuì dà de wēijī ma?",pt:"Você acha que a mudança climática é a maior crise da nossa geração?"},
-      {sp:"B",cn:"是的。由于人类过度使用能源，全球温度持续升高，生态平衡被破坏了。",py:"Shì de. Yóuyú rénlèi guòdù shǐyòng néngyuán, quánqiú wēndù chíxù shēnggāo, shēngtài pínghéng bèi pòhuài le.",pt:"Sim. Devido ao uso excessivo de energia pela humanidade, a temperatura global continua subindo e o equilíbrio ecológico foi destruído."},
-      {sp:"A",cn:"不管个人力量多么小，我们都应该为环保做点什么，对吧？",py:"Bùguǎn gèrén lìliàng duōme xiǎo, wǒmen dōu yīnggāi wèi huánbǎo zuò diǎn shénme, duì ba?",pt:"Não importa quão pequena seja a força individual, todos devemos fazer algo pela proteção ambiental, certo?"},
-      {sp:"B",cn:"对！以节约资源为主，减少碳排放，这是每个人的责任。",py:"Duì! Yǐ jiéyuē zīyuán wéi zhǔ, jiǎnshǎo tàn páifàng, zhè shì měi gè rén de zérèn.",pt:"Certo! Tendo a economia de recursos como foco e reduzindo as emissões de carbono — isso é responsabilidade de cada pessoa."},
+      {sp:"A",cn:"这次考试你考得怎么样？",py:"Zhè cì kǎoshì nǐ kǎo de zěnmeyàng?",pt:"Como você foi nesta prova?"},
+      {sp:"B",cn:"考得还不错，成绩比上次好多了。",py:"Kǎo de hái búcuò, chéngjì bǐ shàng cì hǎo duō le.",pt:"Fui bem, a nota foi bem melhor que a anterior."},
+      {sp:"A",cn:"你是怎么复习的？",py:"Nǐ shì zěnme fùxí de?",pt:"Como você revisou?"},
+      {sp:"B",cn:"我先看课文，然后做练习，最后检查一遍。",py:"Wǒ xiān kàn kèwén, ránhòu zuò liànxí, zuìhòu jiǎnchá yí biàn.",pt:"Primeiro leio o texto, depois faço exercícios e por fim confiro tudo."},
+      {sp:"A",cn:"难怪你的水平提高得这么快。",py:"Nánguài nǐ de shuǐpíng tígāo de zhème kuài.",pt:"Não é à toa que seu nível melhorou tão rápido."},
+      {sp:"B",cn:"老师也给我们讲了很多方法。",py:"Lǎoshī yě gěi wǒmen jiǎng le hěn duō fāngfǎ.",pt:"O professor também nos explicou muitos métodos."}
     ],
     quiz:[
-      {q:"由于 é diferente de 因为 porque:",opts:["significam coisas opostas","由于 é mais formal/literário e indica causa objetiva","由于 é informal","由于 só aparece no início de frases"],ans:1,exp:"✅ 由于 é mais formal/literário que 因为. Frequente em textos escritos, notícias, relatórios científicos. 因为 é mais conversacional. Ambos indicam causa, mas o registro é diferente."},
-      {q:"'不管天气多么恶劣，都坚持' — 不管...都 indica:",opts:["causa e efeito","condição necessária","independência da condição","contraste"],ans:2,exp:"✅ 不管/无论...都/也 = não importa A, B sempre acontece. A condição é IRRELEVANTE para o resultado. Mesmo se o tempo for péssimo, ainda persiste!"},
-      {q:"'以可再生能源为主' significa:",opts:["usar somente energia renovável","ter energia renovável como principal fonte","rejeitar energia renovável","reduzir energia renovável"],ans:1,exp:"✅ 以...为主 = ter X como principal elemento/foco. Não necessariamente exclusivo — é a principal fonte, mas podem existir outras."},
-      {q:"Qual par tem relação de oposição?",opts:["减少 e 增加","污染 e 资源","保护 e 平衡","循环 e 能源"],ans:0,exp:"✅ 减少(diminuir) ↔ 增加(aumentar) são opostos. 污染(poluição) e 资源(recurso) não são opostos — são conceitos relacionados ao meio ambiente."},
-      {q:"可持续发展 (kě chíxù fāzhǎn) significa:",opts:["desenvolvimento rápido","desenvolvimento sustentável","desenvolvimento tecnológico","desenvolvimento cultural"],ans:1,exp:"✅ 可持续发展 = desenvolvimento sustentável. 可(pode)+持续(sustentar/contínuo)+发展(desenvolvimento). Conceito-chave do discurso ambiental global — muito frequente no HSK 3!"},
+      {q:"\"Ele fala chinês muito bem\" =",opts:["他说汉语得很好。","他汉语说得很好。","他得说汉语很好。","他说得汉语很好。"],ans:1,exp:"✅ 他汉语说得很好 (ou 他说汉语说得很好) — havendo objeto, o verbo se repete antes de 得."},
+      {q:"Negação do complemento de grau:",opts:["不说得好","说得不好","没说得好","说不得好"],ans:1,exp:"✅ 说得不好 — a negação vai DEPOIS de 得, incidindo sobre o complemento, não sobre o verbo."},
+      {q:"Verbos de duplo objeto colocam a pessoa:",opts:["Depois do conteúdo","Antes do conteúdo","No final","Com 把"],ans:1,exp:"✅ 告诉我答案, 教我们汉语 — a pessoa (objeto indireto) vem sempre primeiro."},
+      {q:"A ordem correta de sequência é:",opts:["先…最后…然后","先…然后…最后","然后…先…最后","最后…先…然后"],ans:1,exp:"✅ 先 → 然后 → 最后. Todos são advérbios e ficam antes do verbo."},
+      {q:"讲 difere de 说 porque:",opts:["讲 é informal","讲 = explicar/narrar, mais estruturado","São idênticos","讲 só se usa em perguntas"],ans:1,exp:"✅ 讲故事(contar história), 讲语法(explicar gramática). 说 é o ato genérico de falar."}
     ],
   },
-
-  // ── SEMANA 6 ──────────────────────────────────────────────────────
-  { w:6, phase:"Cultura", emoji:"🎨", color:"#7C3AED",
-    theme:"Cultura, Artes e Estruturas com 尽管 e 一方面...另一方面",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"尽管...仍然... · 一方面...另一方面 · 不仅...而且(avançado)", chars:"+20 novos" },
+  {
+    w:6, phase:"Casa", emoji:"🏠", color:"#DC2626",
+    theme:"Casa, Móveis e Complemento Direcional",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"方向补语 (进去/出来/起来)",chars:"+19 novos"},
     vocab:[
-      {h:"艺术",py:"yìshù",pt:"arte"},{h:"文学",py:"wénxué",pt:"literatura"},
-      {h:"传统",py:"chuántǒng",pt:"tradição"},{h:"习俗",py:"xísú",pt:"costume/tradição popular"},
-      {h:"民族",py:"mínzú",pt:"etnia/nação/povo"},{h:"价值观",py:"jiàzhíguān",pt:"valores/sistema de valores"},
-      {h:"信仰",py:"xìnyǎng",pt:"crença/fé"},{h:"哲学",py:"zhéxué",pt:"filosofia"},
-      {h:"象征",py:"xiàngzhēng",pt:"simbolizar/símbolo"},{h:"遗产",py:"yíchǎn",pt:"herança/patrimônio"},
-      {h:"欣赏",py:"xīnshǎng",pt:"apreciar/admirar"},{h:"创作",py:"chuàngzuò",pt:"criar/obra criativa"},
-      {h:"表演",py:"biǎoyǎn",pt:"apresentar/performance"},{h:"风格",py:"fēnggé",pt:"estilo"},
-      {h:"作品",py:"zuòpǐn",pt:"obra (artística/literária)"},{h:"流行",py:"liúxíng",pt:"popular/na moda"},
-      {h:"经典",py:"jīngdiǎn",pt:"clássico"},{h:"时代",py:"shídài",pt:"era/época"},
-      {h:"背景",py:"bèijǐng",pt:"contexto/fundo/cenário"},{h:"主题",py:"zhǔtí",pt:"tema/assunto central"},
-      {h:"风俗",py:"fēngsú",pt:"costumes/tradições locais"},{h:"融合",py:"rónghé",pt:"integrar/fundir"},
-      {h:"传承",py:"chuánchéng",pt:"transmitir/herdar tradições"},{h:"多元",py:"duōyuán",pt:"diverso/multicultural"},
-      {h:"审美",py:"shěnměi",pt:"sentido estético/apreciação da beleza"},
+      {h:"房子",py:"fángzi",pt:"casa"},
+      {h:"屋子",py:"wūzi",pt:"quarto; aposento"},
+      {h:"楼梯",py:"lóutī",pt:"escada"},
+      {h:"层",py:"céng",pt:"andar; camada"},
+      {h:"沙发",py:"shāfā",pt:"sofá"},
+      {h:"冰箱",py:"bīngxiāng",pt:"geladeira"},
+      {h:"空调",py:"kōngtiáo",pt:"ar-condicionado"},
+      {h:"洗衣机",py:"xǐyījī",pt:"máquina de lavar"},
+      {h:"灯",py:"dēng",pt:"luz; lâmpada"},
+      {h:"盘子",py:"pánzi",pt:"prato (utensílio)"},
+      {h:"碗",py:"wǎn",pt:"tigela; bowl"},
+      {h:"勺子",py:"sháozi",pt:"colher"},
+      {h:"筷子",py:"kuàizi",pt:"palitos (de comer)"},
+      {h:"瓶子",py:"píngzi",pt:"garrafa"},
+      {h:"箱子",py:"xiāngzi",pt:"mala; caixa"},
+      {h:"伞",py:"sǎn",pt:"guarda-chuva"},
+      {h:"纸",py:"zhǐ",pt:"papel"},
+      {h:"卡",py:"kǎ",pt:"cartão; ficar preso"},
+      {h:"段",py:"duàn",pt:"(classif. trechos; segmentos)"},
+      {h:"分开",py:"fēnkāi",pt:"separar; separar-se"},
+      {h:"关心",py:"guānxīn",pt:"se preocupar com; cuidar"},
+      {h:"黄色",py:"huángsè",pt:"amarelo"},
+      {h:"借",py:"jiè",pt:"emprestar; pedir emprestado"},
+      {h:"辆",py:"liàng",pt:"(classif. veículos)"},
+      {h:"啤酒",py:"píjiǔ",pt:"cerveja"},
+      {h:"试",py:"shì",pt:"experimentar; tentar"},
+      {h:"晚点",py:"wǎndiǎn",pt:"atrasado; com atraso"},
+      {h:"鞋",py:"xié",pt:"sapato"},
+      {h:"以上",py:"yǐshàng",pt:"acima de; mais de"},
+      {h:"遇到",py:"yùdào",pt:"encontrar; se deparar com"},
+      {h:"直到",py:"zhídào",pt:"até; até que"}
     ],
     grammar:[
-      { struct:"尽管 + 事实/让步 + ，仍然/还是/依然 + V", label:"Apesar de / Mesmo Assim (Formal)", color:"#7C3AED",
-        exp:"尽管 é mais formal que 虽然. Aceita um fato como verdadeiro e mostra que o resultado contraria o esperado. 仍然/依然/还是 enfatizam que B acontece APESAR de A (mais enfático que 但是).",
-        exs:[{cn:"尽管传统文化受到了现代化的冲击，它仍然在人们心中占有重要地位。",py:"Jǐnguǎn chuántǒng wénhuà shòudào le xiàndàihuà de chōngjī, tā réngrán zài rénmen xīn zhōng zhànyǒu zhòngyào dìwèi.",pt:"Apesar de a cultura tradicional ter sofrido o impacto da modernização, ela ainda ocupa um lugar importante no coração das pessoas."},{cn:"尽管这部作品创作于百年前，却依然感动着无数读者。",py:"Jǐnguǎn zhè bù zuòpǐn chuàngzuò yú bǎi nián qián, què yīrán gǎndòng zhe wúshù dúzhě.",pt:"Apesar desta obra ter sido criada há cem anos, ainda emociona inúmeros leitores."}] },
-      { struct:"一方面...，另一方面...", label:"Por um Lado...Por Outro Lado", color:"#D97706",
-        exp:"Apresenta dois aspectos ou perspectivas de um mesmo tema. Estrutura equilibrada muito usada em redações, debates e análises. Equivale a 'on one hand...on the other hand'.",
-        exs:[{cn:"一方面，现代化带来了便利；另一方面，传统文化正在消失。",py:"Yī fāngmiàn, xiàndàihuà dài lái le biànlì; lìng yī fāngmiàn, chuántǒng wénhuà zhèngzài xiāoshī.",pt:"Por um lado, a modernização trouxe comodidade; por outro lado, a cultura tradicional está desaparecendo."},{cn:"这首歌一方面风格传统，另一方面歌词非常现代。",py:"Zhè shǒu gē yī fāngmiàn fēnggé chuántǒng, lìng yī fāngmiàn gēcí fēicháng xiàndài.",pt:"Esta música por um lado tem estilo tradicional; por outro, a letra é muito contemporânea."}] },
-      { struct:"不仅 + A，而且/还 + B （+ 甚至 + C）", label:"Não Apenas A, Mas Também B (Avançado)", color:"#059669",
-        exp:"Expansão de 不但...而且: 不仅 é mais formal. Pode adicionar 甚至(até mesmo) para grau ainda maior. A progressão é: 不仅A，而且B，甚至C(crescente em intensidade).",
-        exs:[{cn:"这位艺术家不仅绘画出色，而且还是优秀的音乐家，甚至还写过诗。",py:"Zhè wèi yìshùjiā bùjǐn huìhuà chūsè, érqiě hái shì yōuxiù de yīnyuèjiā, shènzhì hái xiě guò shī.",pt:"Este artista não só é um pintor excepcional, mas também um músico talentoso, e até escreveu poesia."},{cn:"中国文化不仅影响了亚洲，而且对全球文化都产生了深远影响。",py:"Zhōngguó wénhuà bùjǐn yǐngxiǎng le Yàzhōu, érqiě duì quánqiú wénhuà dōu chǎnshēng le shēnyuǎn yǐngxiǎng.",pt:"A cultura chinesa não só influenciou a Ásia, mas também teve profunda influência na cultura global."}] },
+      {struct:"V + 进/出/上/下 + 来/去",label:"Complemento Direcional Composto",color:"#6366F1",exp:"Duas camadas: direção da ação (进/出/上/下/回/过) + perspectiva do falante (来 para cá / 去 para lá). 搬进来 = trazer para dentro (onde estou). 搬出去 = levar para fora (longe de mim).",exs:[{cn:"请把沙发搬进来。",py:"Qǐng bǎ shāfā bān jìnlái.",pt:"Traga o sofá para dentro, por favor."},{cn:"他从楼上走下来了。",py:"Tā cóng lóushàng zǒu xiàlái le.",pt:"Ele desceu do andar de cima."},{cn:"我把箱子拿出去了。",py:"Wǒ bǎ xiāngzi ná chūqù le.",pt:"Levei a caixa para fora."}]},
+      {struct:"O lugar entre V e 来/去",label:"Posição do Locativo",color:"#0891B2",exp:"Quando há lugar, ele fica ENTRE o verbo direcional e 来/去: 走进房间来 (entrou no quarto vindo para cá). Nunca depois de 来/去. ❌走进来房间。",exs:[{cn:"他走进办公室来了。",py:"Tā zǒu jìn bàngōngshì lái le.",pt:"Ele entrou na sala (vindo em minha direção)."},{cn:"小猫跑到院子里去了。",py:"Xiǎo māo pǎo dào yuànzi lǐ qù le.",pt:"O gatinho correu para o quintal."},{cn:"我搬到楼上去住了。",py:"Wǒ bān dào lóushàng qù zhù le.",pt:"Mudei-me para o andar de cima."}]},
+      {struct:"S + 在 + Lugar + V + 着",label:"Estado Persistente",color:"#059669",exp:"着 marca estado contínuo resultante, não ação em curso. 门开着(a porta está aberta) ≠ 门在开(a porta está abrindo). Muito usado para descrever cenários.",exs:[{cn:"墙上挂着一张照片。",py:"Qiáng shàng guà zhe yì zhāng zhàopiàn.",pt:"Há uma foto pendurada na parede."},{cn:"灯还开着，你忘了关。",py:"Dēng hái kāi zhe, nǐ wàng le guān.",pt:"A luz ainda está acesa, você esqueceu de apagar."},{cn:"他手里拿着一把伞。",py:"Tā shǒu lǐ ná zhe yì bǎ sǎn.",pt:"Ele está com um guarda-chuva na mão."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你觉得现代流行文化和传统文化应该如何融合？",py:"Nǐ juéde xiàndài liúxíng wénhuà hé chuántǒng wénhuà yīnggāi rúhé rónghé?",pt:"Como você acha que a cultura pop moderna e a cultura tradicional devem se integrar?"},
-      {sp:"B",cn:"一方面，我们应该传承经典；另一方面，也要创造符合时代的新作品。",py:"Yī fāngmiàn, wǒmen yīnggāi chuánchéng jīngdiǎn; lìng yī fāngmiàn, yě yào chuàngzào fúhé shídài de xīn zuòpǐn.",pt:"Por um lado, devemos preservar os clássicos; por outro, também precisamos criar novas obras que se adequem à época."},
-      {sp:"A",cn:"尽管有人认为传统文化正在消失，但我觉得它仍然有很强的生命力。",py:"Jǐnguǎn yǒu rén rènwéi chuántǒng wénhuà zhèngzài xiāoshī, dàn wǒ juéde tā réngrán yǒu hěn qiáng de shēngmìnglì.",pt:"Apesar de algumas pessoas acharem que a cultura tradicional está desaparecendo, acho que ela ainda tem grande vitalidade."},
-      {sp:"B",cn:"同意！优秀的传统文化不仅不会消失，而且在新时代会以新的方式继续发光。",py:"Tóngyì! Yōuxiù de chuántǒng wénhuà bùjǐn bù huì xiāoshī, érqiě zài xīn shídài huì yǐ xīn de fāngshì jìxù fāguāng.",pt:"Concordo! A excelente cultura tradicional não só não desaparecerá, como continuará a brilhar de novas formas na nova era."},
+      {sp:"A",cn:"你家的沙发真漂亮，是新买的吗？",py:"Nǐ jiā de shāfā zhēn piàoliang, shì xīn mǎi de ma?",pt:"Seu sofá é lindo, é novo?"},
+      {sp:"B",cn:"是的，昨天刚搬进来。",py:"Shì de, zuótiān gāng bān jìnlái.",pt:"Sim, foi trazido ontem."},
+      {sp:"A",cn:"墙上还挂着照片，很有意思。",py:"Qiáng shàng hái guà zhe zhàopiàn, hěn yǒu yìsi.",pt:"E tem fotos penduradas na parede, muito interessante."},
+      {sp:"B",cn:"那是我在山上拍的。你看，灯还开着呢。",py:"Nà shì wǒ zài shān shàng pāi de. Nǐ kàn, dēng hái kāi zhe ne.",pt:"Eu as tirei na montanha. Olha, a luz ainda está acesa."},
+      {sp:"A",cn:"我帮你关上吧。冰箱在哪儿？",py:"Wǒ bāng nǐ guān shàng ba. Bīngxiāng zài nǎr?",pt:"Deixa que eu apago. Onde fica a geladeira?"},
+      {sp:"B",cn:"在厨房里，你直接走进去就看见了。",py:"Zài chúfáng lǐ, nǐ zhíjiē zǒu jìnqù jiù kànjiàn le.",pt:"Na cozinha, é só entrar que você vê."}
     ],
     quiz:[
-      {q:"尽管 e 虽然 diferem porque:",opts:["são sinônimos perfeitos","尽管 é mais formal e enfático; 虽然 é mais conversacional","虽然 é mais formal","são antônimos"],ans:1,exp:"✅ 尽管 é mais formal/literário e enfatiza mais fortemente que o resultado é surpreendente dado o contexto. 虽然 é mais neutro e conversacional. Ambos = 'embora/apesar de'."},
-      {q:"一方面...另一方面 é usado para:",opts:["sequência temporal","causa e efeito","apresentar dois aspectos/perspectivas","condição e resultado"],ans:2,exp:"✅ 一方面...另一方面 = apresentar DOIS LADOS de um mesmo assunto. Estrutura de ANÁLISE EQUILIBRADA — muito usada em redações HSK 3!"},
-      {q:"Em '不仅A，而且B，甚至C', qual é a progressão?",opts:["decrescente","aleatória","crescente em intensidade/grau","alternada"],ans:2,exp:"✅ A progressão é CRESCENTE: 不仅(não só)A → 而且(mas também)B → 甚至(até mesmo)C. 甚至 marca o ponto extremo/surpreendente da lista!"},
-      {q:"传承 significa:",opts:["criar algo novo","transmitir/herdar tradições culturais","destruir tradições","modernizar"],ans:1,exp:"✅ 传承 chuánchéng = transmitir e herdar (tradições/conhecimento). 传=transmitir + 承=receber/herdar. O ato de passar algo de geração em geração. Conceito central da cultura chinesa!"},
-      {q:"'仍然' em 尽管...仍然 equivale a:",opts:["portanto","mas/mesmo assim (ainda)","porque","apesar de"],ans:1,exp:"✅ 仍然 réngrán = ainda/mesmo assim. Reforça que algo PERMANECE VERDADEIRO apesar da condição adversa. Sinônimos: 依然(yīrán), 还是(háishi) em contextos de persistência."},
+      {q:"搬进来 significa:",opts:["Levar para fora","Trazer para dentro (para cá)","Levar para dentro (para lá)","Subir"],ans:1,exp:"✅ 进(entrar) + 来(em direção ao falante). Se fosse afastando-se: 搬进去."},
+      {q:"Onde fica o lugar em complementos direcionais?",opts:["Depois de 来/去","Entre o verbo e 来/去","No início","Depois do sujeito"],ans:1,exp:"✅ 走进房间来 — o locativo fica entre a direção e 来/去. ❌走进来房间。"},
+      {q:"\"A porta está aberta\" (estado) =",opts:["门开了。","门在开。","门开着。","门要开了。"],ans:2,exp:"✅ 门开着 — 着 marca estado persistente. 门开了 = a porta foi aberta (evento)."},
+      {q:"Qual descreve um cenário estático?",opts:["他跑进来了。","墙上挂着照片。","他把画挂上了。","照片被挂上了。"],ans:1,exp:"✅ 墙上挂着照片 — 着 é a marca típica de descrição de ambiente no HSK 3."},
+      {q:"走下来 indica movimento:",opts:["Para cima, afastando-se","Para baixo, em direção ao falante","Para dentro","Para trás"],ans:1,exp:"✅ 下(descer) + 来(vindo para cá). Ex: 他从楼上走下来了。"}
     ],
   },
-
-  // ── SEMANA 7 ──────────────────────────────────────────────────────
-  { w:7, phase:"Saúde", emoji:"🧠", color:"#0891B2",
-    theme:"Saúde Mental, Bem-estar e Estruturas com 与其 e 宁可",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"与其...不如 · 宁可/宁愿...也不 · 除非...否则", chars:"+20 novos" },
+  {
+    w:7, phase:"Natureza", emoji:"🌦", color:"#0891B2",
+    theme:"Estações, Clima e Paisagem",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"时间名词 · 刮风下雨 · 越来越",chars:"+19 novos"},
     vocab:[
-      {h:"心理",py:"xīnlǐ",pt:"psicologia/mental"},{h:"精神",py:"jīngshén",pt:"espírito/mental/vigor"},
-      {h:"压力",py:"yālì",pt:"pressão/estresse"},{h:"情绪",py:"qíngxù",pt:"emoção/humor"},
-      {h:"焦虑",py:"jiāolǜ",pt:"ansiedade/ansioso"},{h:"抑郁",py:"yìyù",pt:"depressão/deprimido"},
-      {h:"乐观",py:"lèguān",pt:"otimista"},{h:"积极",py:"jījí",pt:"positivo/proativo"},
-      {h:"消极",py:"xiāojí",pt:"negativo/passivo"},{h:"平衡",py:"pínghéng",pt:"equilíbrio"},
-      {h:"调节",py:"tiáojié",pt:"regular/ajustar"},{h:"减压",py:"jiǎnyā",pt:"aliviar o estresse"},
-      {h:"冥想",py:"míngxiǎng",pt:"meditação"},{h:"自我",py:"zìwǒ",pt:"eu mesmo/self"},
-      {h:"意识",py:"yìshí",pt:"consciência/perceber"},{h:"习惯",py:"xíguàn",pt:"hábito"},
-      {h:"营养",py:"yíngyǎng",pt:"nutrição"},{h:"均衡",py:"jūnhéng",pt:"equilíbrio/balanceado"},
-      {h:"康复",py:"kāngfù",pt:"recuperação/recuperar"},{h:"预防",py:"yùfáng",pt:"prevenir"},
-      {h:"治疗",py:"zhìliáo",pt:"tratamento/tratar"},{h:"症状",py:"zhèngzhuàng",pt:"sintoma"},
-      {h:"副作用",py:"fùzuòyòng",pt:"efeito colateral"},{h:"身心",py:"shēnxīn",pt:"corpo e mente"},
-      {h:"生活方式",py:"shēnghuó fāngshì",pt:"estilo de vida"},
+      {h:"春天",py:"chūntiān",pt:"primavera"},
+      {h:"夏天",py:"xiàtiān",pt:"verão"},
+      {h:"秋天",py:"qiūtiān",pt:"outono"},
+      {h:"冬天",py:"dōngtiān",pt:"inverno"},
+      {h:"季",py:"jì",pt:"estação; temporada"},
+      {h:"季节",py:"jìjié",pt:"estação do ano"},
+      {h:"四季",py:"sìjì",pt:"quatro estações"},
+      {h:"太阳",py:"tàiyáng",pt:"sol"},
+      {h:"月亮",py:"yuèliang",pt:"lua"},
+      {h:"风",py:"fēng",pt:"vento"},
+      {h:"雨衣",py:"yǔyī",pt:"capa de chuva"},
+      {h:"凉快",py:"liángkuai",pt:"fresco; agradável (temperatura)"},
+      {h:"刮",py:"guā",pt:"raspar; soprar (vento)"},
+      {h:"树",py:"shù",pt:"árvore"},
+      {h:"草",py:"cǎo",pt:"grama; capim"},
+      {h:"草地",py:"cǎodì",pt:"gramado; campo de grama"},
+      {h:"花园",py:"huāyuán",pt:"jardim"},
+      {h:"山",py:"shān",pt:"montanha; morro"},
+      {h:"河",py:"hé",pt:"rio"},
+      {h:"海",py:"hǎi",pt:"mar; oceano"},
+      {h:"关于",py:"guānyú",pt:"sobre; a respeito de"},
+      {h:"会",py:"huì",pt:"saber; poder; será que"},
+      {h:"斤",py:"jīn",pt:"jin (500g)"},
+      {h:"聊",py:"liáo",pt:"conversar; bater papo"},
+      {h:"平时",py:"píngshí",pt:"normalmente; no dia a dia"},
+      {h:"室",py:"shì",pt:"sala; cômodo"},
+      {h:"晚会",py:"wǎnhuì",pt:"festa noturna; show"},
+      {h:"新鲜",py:"xīnxiān",pt:"fresco; novidade"},
+      {h:"以外",py:"yǐwài",pt:"fora de; além de"},
+      {h:"遇见",py:"yùjiàn",pt:"encontrar (por acaso)"},
+      {h:"只",py:"zhǐ",pt:"apenas; só"}
     ],
     grammar:[
-      { struct:"与其 + A，不如 + B", label:"Melhor Fazer B do que A", color:"#0891B2",
-        exp:"与其 = 'rather than'. Compara duas opções e recomenda B como superior. A é a opção inferior/indesejada; B é a melhor escolha. Estrutura de PREFERÊNCIA RACIONAL.",
-        exs:[{cn:"与其整天抱怨压力大，不如想想怎么减压。",py:"Yǔqí zhěng tiān bàoyuàn yālì dà, bùrú xiǎng xiǎng zěnme jiǎnyā.",pt:"Em vez de reclamar do estresse o dia todo, é melhor pensar em como aliviá-lo."},{cn:"与其靠药物治疗，不如从生活方式上做改变。",py:"Yǔqí kào yàowù zhìliáo, bùrú cóng shēnghuó fāngshì shàng zuò gǎibiàn.",pt:"Em vez de depender de medicamentos, é melhor fazer mudanças no estilo de vida."}] },
-      { struct:"宁可/宁愿 + A，也不 + B", label:"Preferir A, Mesmo que Custoso, a Fazer B", color:"#DC2626",
-        exp:"宁可/宁愿 = 'would rather'. Indica disposição de aceitar um custo/sacrifício (A) para evitar B. Mostra preferência FIRME com sacrifício. Diferente de 与其: este é mais emocional e decidido.",
-        exs:[{cn:"宁可每天花时间冥想，也不愿被焦虑控制。",py:"Nìngkě měitiān huā shíjiān míngxiǎng, yě bù yuàn bèi jiāolǜ kòngzhì.",pt:"Prefiro dedicar tempo à meditação diária a deixar que a ansiedade me controle."},{cn:"宁愿承受暂时的痛苦，也不能逃避现实。",py:"Nìngyuàn chéngshòu zànshí de tòngkǔ, yě bù néng táobì xiànshí.",pt:"Prefiro suportar a dor temporária a escapar da realidade."}] },
-      { struct:"除非 + 条件，否则 + 结果", label:"A Menos que / Exceto Se", color:"#7C3AED",
-        exp:"除非 = a menos que / somente se. 否则 = caso contrário / senão. Indica que B SOMENTE acontece (ou não acontece) se A for cumprido. Condição restritiva/exclusiva.",
-        exs:[{cn:"除非你改变生活习惯，否则身体状况很难改善。",py:"Chúfēi nǐ gǎibiàn shēnghuó xíguàn, fǒuzé shēntǐ zhuàngkuàng hěn nán gǎishàn.",pt:"A menos que você mude seus hábitos de vida, sua condição de saúde dificilmente vai melhorar."},{cn:"除非得到专业治疗，否则抑郁症不会自己好。",py:"Chúfēi dédào zhuānyè zhìliáo, fǒuzé yìyùzhèng bú huì zìjǐ hǎo.",pt:"A menos que receba tratamento profissional, a depressão não vai melhorar por conta própria."}] },
+      {struct:"刮风 / 下雨 / 下雪",label:"Verbos Meteorológicos",color:"#6366F1",exp:"Fenômenos naturais usam estrutura VERBO + SUBSTANTIVO, sem sujeito: 下雨(cai chuva), 刮风(sopra vento), 出太阳(sai o sol). Não diga ❌天气下雨。",exs:[{cn:"外面刮风了，把窗户关上吧。",py:"Wàimiàn guā fēng le, bǎ chuānghu guān shàng ba.",pt:"Está ventando lá fora, feche a janela."},{cn:"秋天的时候，这里经常下雨。",py:"Qiūtiān de shíhou, zhèlǐ jīngcháng xià yǔ.",pt:"No outono chove com frequência aqui."},{cn:"今天出太阳了，很凉快。",py:"Jīntiān chū tàiyáng le, hěn liángkuai.",pt:"Hoje o sol apareceu e está agradável."}]},
+      {struct:"…的时候 / …以后 / …以前",label:"Cláusulas Temporais",color:"#0891B2",exp:"A oração temporal vem SEMPRE antes da principal, ao contrário do português. 我小的时候 = quando eu era pequeno. 吃饭以后 = depois de comer. 来中国以前 = antes de vir à China.",exs:[{cn:"春天的时候，花园里开满了花。",py:"Chūntiān de shíhou, huāyuán lǐ kāi mǎn le huā.",pt:"Na primavera, o jardim fica cheio de flores."},{cn:"下课以后我们去爬山吧。",py:"Xiàkè yǐhòu wǒmen qù pá shān ba.",pt:"Depois da aula vamos escalar a montanha."},{cn:"来中国以前，我一句汉语也不会。",py:"Lái Zhōngguó yǐqián, wǒ yí jù Hànyǔ yě bú huì.",pt:"Antes de vir à China, eu não falava uma frase de chinês."}]},
+      {struct:"快要…了 / 就要…了",label:"Iminência",color:"#059669",exp:"Ambos indicam algo prestes a acontecer. Diferença: 就要 aceita expressão de tempo específica (明天就要考试了), 快要 não (❌明天快要考试了).",exs:[{cn:"冬天快要到了，天气越来越冷。",py:"Dōngtiān kuàiyào dào le, tiānqì yuèláiyuè lěng.",pt:"O inverno está chegando, o tempo fica cada vez mais frio."},{cn:"下个月我就要搬家了。",py:"Xià gè yuè wǒ jiù yào bānjiā le.",pt:"No mês que vem eu vou me mudar."},{cn:"雨快要停了，我们再等一会儿。",py:"Yǔ kuàiyào tíng le, wǒmen zài děng yíhuìr.",pt:"A chuva vai parar logo, vamos esperar mais um pouco."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"现在很多年轻人都有焦虑和抑郁的问题，你有什么看法？",py:"Xiànzài hěn duō niánqīngrén dōu yǒu jiāolǜ hé yìyù de wèntí, nǐ yǒu shénme kànfǎ?",pt:"Hoje muitos jovens sofrem de ansiedade e depressão. Qual é a sua visão sobre isso?"},
-      {sp:"B",cn:"这是现代社会压力大的结果。与其忽视心理健康，不如把它当作与身体健康同等重要。",py:"Zhè shì xiàndài shèhuì yālì dà de jiéguǒ. Yǔqí hūshì xīnlǐ jiànkāng, bùrú bǎ tā dāngzuò yǔ shēntǐ jiànkāng tóngděng zhòngyào.",pt:"É resultado da alta pressão da sociedade moderna. Em vez de ignorar a saúde mental, é melhor tratá-la como igualmente importante à saúde física."},
-      {sp:"A",cn:"我同意！除非我们改变对心理健康的态度，否则问题只会越来越严重。",py:"Wǒ tóngyì! Chúfēi wǒmen gǎibiàn duì xīnlǐ jiànkāng de tàidu, fǒuzé wèntí zhǐ huì yuèláiyuè yánzhòng.",pt:"Concordo! A menos que mudemos nossa atitude em relação à saúde mental, o problema só vai piorar."},
-      {sp:"B",cn:"对！宁可每天花时间调节情绪，也不要等到病了才去治疗。预防永远比治疗更重要。",py:"Duì! Nìngkě měitiān huā shíjiān tiáojié qíngxù, yě bú yào děng dào bìng le cái qù zhìliáo. Yùfáng yǒngyuǎn bǐ zhìliáo gèng zhòngyào.",pt:"Certo! Prefiro dedicar tempo diário a regular as emoções a esperar ficar doente para então tratar. Prevenir sempre é mais importante do que tratar."},
+      {sp:"A",cn:"这里的秋天怎么样？",py:"Zhèlǐ de qiūtiān zěnmeyàng?",pt:"Como é o outono aqui?"},
+      {sp:"B",cn:"很凉快，不过经常刮风下雨。",py:"Hěn liángkuai, búguò jīngcháng guā fēng xià yǔ.",pt:"É agradável, mas venta e chove com frequência."},
+      {sp:"A",cn:"那春天呢？",py:"Nà chūntiān ne?",pt:"E a primavera?"},
+      {sp:"B",cn:"春天的时候，山上的花开得特别漂亮。",py:"Chūntiān de shíhou, shān shàng de huā kāi de tèbié piàoliang.",pt:"Na primavera, as flores da montanha ficam lindíssimas."},
+      {sp:"A",cn:"冬天快要到了吧？",py:"Dōngtiān kuàiyào dào le ba?",pt:"O inverno está chegando, né?"},
+      {sp:"B",cn:"是啊，天气越来越冷了，你要多穿点儿。",py:"Shì a, tiānqì yuèláiyuè lěng le, nǐ yào duō chuān diǎnr.",pt:"Sim, está cada vez mais frio, vista-se bem."}
     ],
     quiz:[
-      {q:"'与其抱怨，不如行动' — 与其...不如 indica:",opts:["sequência temporal","preferência racional (B é melhor que A)","contraste simples","condição"],ans:1,exp:"✅ 与其...不如 = em vez de A (menos desejável), melhor fazer B (mais racional/eficiente). É uma COMPARAÇÃO DE PREFERÊNCIA onde B é claramente superior."},
-      {q:"Qual a diferença entre 与其...不如 e 宁可...也不?",opts:["não há diferença","与其=racional/lógico; 宁可=emocional/firme com sacrifício","与其=informal; 宁可=formal","与其=futuro; 宁可=passado"],ans:1,exp:"✅ 与其=comparação racional (B é mais eficiente que A). 宁可=determinação emocional com sacrifício (aceito o custo de A para evitar B a qualquer preço). 宁可 é mais dramático!"},
-      {q:"除非...否则 equivale a:",opts:["embora...mesmo assim","a menos que...caso contrário","não só...mas também","quanto mais...mais"],ans:1,exp:"✅ 除非+condição,否则+resultado = A MENOS QUE A aconteça, CASO CONTRÁRIO B acontece. Condição EXCLUSIVA: somente A previne B!"},
-      {q:"焦虑 e 抑郁 são:",opts:["sinônimos","ansiedade e depressão (problemas de saúde mental diferentes)","antônimos","formas de tratamento"],ans:1,exp:"✅ 焦虑(jiāolǜ)=ansiedade e 抑郁(yìyù)=depressão são condições distintas de saúde mental. Ambos são problemas sérios — muito discutidos no contexto da saúde mental contemporânea!"},
-      {q:"预防...治疗 — qual é a relação entre estes conceitos?",opts:["sinônimos","prevenção ANTES do adoecimento; tratamento DEPOIS","antônimos","nenhuma relação"],ans:1,exp:"✅ 预防(yùfáng)=prevenir (antes da doença) ↔ 治疗(zhìliáo)=tratar (depois da doença). O famoso dito: 预防永远比治疗更重要 = prevenir sempre é mais importante que tratar!"},
+      {q:"\"Está ventando\" =",opts:["天气刮风。","刮风了。","风刮着天气。","有风刮。"],ans:1,exp:"✅ 刮风了 — fenômenos meteorológicos dispensam sujeito: 下雨, 下雪, 刮风, 出太阳."},
+      {q:"A oração temporal em chinês fica:",opts:["Sempre no fim","Sempre antes da principal","Depois do verbo","Entre sujeito e verbo"],ans:1,exp:"✅ 春天的时候，花开了 — ao contrário do português, a cláusula temporal abre a frase."},
+      {q:"Qual está ERRADA?",opts:["明天就要考试了。","明天快要考试了。","快要下雨了。","就要放假了。"],ans:1,exp:"✅ ❌明天快要考试了 — 快要 não aceita expressão de tempo específica; use 就要 nesse caso."},
+      {q:"\"Antes de vir à China\" =",opts:["来中国以前","以前来中国","中国来以前","以前中国来"],ans:0,exp:"✅ 来中国以前 — 以前/以后 vêm DEPOIS da oração que modificam."},
+      {q:"凉快 descreve:",opts:["Frio intenso","Fresco e agradável","Quente","Úmido"],ans:1,exp:"✅ 凉快 é o frescor agradável (positivo). 冷 é frio desconfortável."}
     ],
   },
-
-  // ── SEMANA 8 ──────────────────────────────────────────────────────
-  { w:8, phase:"Tecnologia", emoji:"🤖", color:"#6366F1",
-    theme:"Tecnologia, Inovação e Estruturas Formais Avançadas",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"之所以...是因为 · 以便/以免 · 凭借...实现", chars:"+20 novos" },
+  {
+    w:8, phase:"Saúde", emoji:"🏥", color:"#059669",
+    theme:"Corpo, Doença e Complemento de Possibilidade",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"可能补语 (V得/不 + 结果)",chars:"+19 novos"},
     vocab:[
-      {h:"技术",py:"jìshù",pt:"tecnologia/técnica"},{h:"科技",py:"kējì",pt:"ciência e tecnologia"},
-      {h:"信息",py:"xìnxī",pt:"informação"},{h:"数据",py:"shùjù",pt:"dado/dados"},
-      {h:"软件",py:"ruǎnjiàn",pt:"software"},{h:"系统",py:"xìtǒng",pt:"sistema"},
-      {h:"人工智能",py:"réngōng zhìnéng",pt:"inteligência artificial"},{h:"自动化",py:"zìdònghuà",pt:"automatização"},
-      {h:"数字化",py:"shùzìhuà",pt:"digitalização"},{h:"创新",py:"chuàngxīn",pt:"inovação"},
-      {h:"发明",py:"fāmíng",pt:"invenção/inventar"},{h:"应用",py:"yìngyòng",pt:"aplicação/aplicar"},
-      {h:"智能",py:"zhìnéng",pt:"inteligente"},{h:"虚拟现实",py:"xūnǐ xiànshí",pt:"realidade virtual"},
-      {h:"大数据",py:"dà shùjù",pt:"big data"},{h:"网络安全",py:"wǎngluò ānquán",pt:"segurança de rede/cibersegurança"},
-      {h:"算法",py:"suànfǎ",pt:"algoritmo"},{h:"平台",py:"píngtái",pt:"plataforma"},
-      {h:"更新",py:"gēngxīn",pt:"atualizar"},{h:"效率",py:"xiàolǜ",pt:"eficiência"},
-      {h:"便利",py:"biànlì",pt:"conveniência"},{h:"依赖",py:"yīlài",pt:"depender de"},
-      {h:"隐私",py:"yǐnsī",pt:"privacidade"},{h:"监控",py:"jiānkòng",pt:"monitoramento/vigiar"},
-      {h:"伦理",py:"lúnlǐ",pt:"ética"},
+      {h:"病人",py:"bìngrén",pt:"paciente; doente"},
+      {h:"发烧",py:"fāshāo",pt:"febre; ter febre"},
+      {h:"感冒",py:"gǎnmào",pt:"resfriado; pegar resfriado"},
+      {h:"健康",py:"jiànkāng",pt:"saudável; saúde"},
+      {h:"住院",py:"zhùyuàn",pt:"ser internado; internar-se"},
+      {h:"出院",py:"chūyuàn",pt:"receber alta hospitalar"},
+      {h:"饿",py:"è",pt:"com fome"},
+      {h:"渴",py:"kě",pt:"com sede"},
+      {h:"饱",py:"bǎo",pt:"saciado; cheio (de comida)"},
+      {h:"小心",py:"xiǎoxīn",pt:"ter cuidado; cuidadoso"},
+      {h:"安全",py:"ānquán",pt:"seguro; segurança"},
+      {h:"担心",py:"dānxīn",pt:"preocupar-se"},
+      {h:"害怕",py:"hàipà",pt:"ter medo; estar com medo"},
+      {h:"怕",py:"pà",pt:"ter medo de"},
+      {h:"不行",py:"bùxíng",pt:"não pode; não vai"},
+      {h:"常见",py:"cháng jiàn",pt:"comum; frequente"},
+      {h:"初中",py:"chūzhōng",pt:"ensino fundamental (anos finais)"},
+      {h:"得分",py:"défēn",pt:"pontuar; pontuação"},
+      {h:"锻炼",py:"duànliàn",pt:"se exercitar; treinar"},
+      {h:"封",py:"fēng",pt:"(classif. cartas)"},
+      {h:"关注",py:"guānzhù",pt:"acompanhar; estar atento"},
+      {h:"鸡",py:"jī",pt:"frango; galinha"},
+      {h:"久",py:"jiǔ",pt:"muito tempo; por muito tempo"},
+      {h:"聊天儿",py:"liáotiānr",pt:"bater papo; conversar"},
+      {h:"其实",py:"qíshí",pt:"na verdade; de fato"},
+      {h:"收到",py:"shōudào",pt:"receber (mensagem, carta)"},
+      {h:"忘记",py:"wàngjì",pt:"esquecer"},
+      {h:"信",py:"xìn",pt:"acreditar; carta"},
+      {h:"以为",py:"yǐwéi",pt:"achar (equivocadamente)"},
+      {h:"园",py:"yuán",pt:"jardim; parque"},
+      {h:"只能",py:"zhǐ néng",pt:"só pode; apenas é possível"}
     ],
     grammar:[
-      { struct:"之所以 + A，是因为 + B", label:"A Razão pela qual A é Porque B", color:"#6366F1",
-        exp:"之所以...是因为 = 'the reason why A is because B'. Mais formal que 因为. Destaca a explicação causal. A ordem é INVERSA ao português: primeiro o efeito (A), depois a causa (B).",
-        exs:[{cn:"人工智能之所以发展迅速，是因为大数据和算法的进步。",py:"Réngōng zhìnéng zhī suǒyǐ fāzhǎn xùnsù, shì yīnwèi dà shùjù hé suànfǎ de jìnbù.",pt:"A razão pela qual a IA se desenvolveu tão rapidamente é o avanço do big data e dos algoritmos."},{cn:"他之所以成功，是因为他比别人更努力，而不是因为运气好。",py:"Tā zhī suǒyǐ chénggōng, shì yīnwèi tā bǐ biérén gèng nǔlì, ér bú shì yīnwèi yùnqi hǎo.",pt:"A razão pela qual ele teve sucesso é que trabalhou mais do que os outros, e não porque teve sorte."}] },
-      { struct:"以便 + V (para facilitar) / 以免 + V (para evitar)", label:"Para Que / A Fim de Evitar", color:"#D97706",
-        exp:"以便 = a fim de / para facilitar (resultado positivo desejado). 以免 = a fim de evitar / para que não (resultado negativo a ser evitado). Ambos conectam causa e propósito.",
-        exs:[{cn:"请提前备份数据，以免系统崩溃时造成损失。",py:"Qǐng tíqián bèifèn shùjù, yǐmiǎn xìtǒng bēngkuì shí zàochéng sǔnshī.",pt:"Por favor faça backup dos dados com antecedência para evitar perdas em caso de falha do sistema."},{cn:"软件需要定期更新，以便提高安全性和效率。",py:"Ruǎnjiàn xūyào dìngqī gēngxīn, yǐbiàn tígāo ānquán xìng hé xiàolǜ.",pt:"O software precisa ser atualizado regularmente a fim de melhorar a segurança e a eficiência."}] },
-      { struct:"凭借 + 优势/条件 + 实现/达到 + 目标", label:"Com Base em / Apoiando-se em", color:"#059669",
-        exp:"凭借 = com base em / apoiando-se em (vantagem, habilidade, condição). Similar a 通过 mas enfatiza a VANTAGEM ou RECURSO usado, não o método. Mais formal.",
-        exs:[{cn:"凭借强大的算法，这个平台能够精准分析用户数据。",py:"Píngjiè qiángdà de suànfǎ, zhège píngtái nénggòu jīngzhǔn fēnxī yònghù shùjù.",pt:"Com base em algoritmos poderosos, esta plataforma consegue analisar os dados dos usuários com precisão."},{cn:"中国凭借技术创新，在人工智能领域取得了重大进展。",py:"Zhōngguó píngjiè jìshù chuàngxīn, zài réngōng zhìnéng lǐngyù qǔdé le zhòngdà jìnzhǎn.",pt:"A China, apoiando-se na inovação tecnológica, alcançou avanços significativos no campo da IA."}] },
+      {struct:"V + 得/不 + 结果",label:"Complemento de Possibilidade",color:"#6366F1",exp:"Insere 得(possível) ou 不(impossível) dentro do complemento resultativo: 看得懂(consigo entender) / 看不懂(não consigo). Diferente de 不能看懂 — aqui a impossibilidade é inerente à situação.",exs:[{cn:"这本书太难了，我看不懂。",py:"Zhè běn shū tài nán le, wǒ kàn bu dǒng.",pt:"Este livro é difícil demais, não consigo entender."},{cn:"你说得太快，我听不清楚。",py:"Nǐ shuō de tài kuài, wǒ tīng bu qīngchu.",pt:"Você fala rápido demais, não consigo ouvir claramente."},{cn:"这么多菜，我们吃得完吗？",py:"Zhème duō cài, wǒmen chī de wán ma?",pt:"Com tanta comida, será que damos conta?"}]},
+      {struct:"S + 觉得 / 感到 + 描述",label:"Verbos de Percepção",color:"#0891B2",exp:"觉得 = achar/sentir (opinião ou sensação física). 感到 é mais formal e costuma reger substantivos abstratos: 感到担心, 感到高兴. Ambos são seguidos de oração completa, não de substantivo simples.",exs:[{cn:"我觉得有点儿发烧，很不舒服。",py:"Wǒ juéde yǒudiǎnr fāshāo, hěn bù shūfu.",pt:"Acho que estou com um pouco de febre, me sinto muito mal."},{cn:"听到这个消息，大家都感到很担心。",py:"Tīngdào zhège xiāoxi, dàjiā dōu gǎndào hěn dānxīn.",pt:"Ao ouvir a notícia, todos ficaram preocupados."},{cn:"你觉得这个办法怎么样？",py:"Nǐ juéde zhège bànfǎ zěnmeyàng?",pt:"O que você acha deste método?"}]},
+      {struct:"别 / 不要 + V + 了",label:"Imperativo Negativo",color:"#059669",exp:"别 e 不要 = não faça. Com 了 no final, sugere interromper algo já em curso: 别说了(pare de falar). 小心 e 注意 funcionam como alertas: 小心身体(cuide da saúde).",exs:[{cn:"你生病了，别去上班了。",py:"Nǐ shēngbìng le, bié qù shàngbān le.",pt:"Você está doente, não vá trabalhar."},{cn:"别着急，医生马上就来。",py:"Bié zháojí, yīshēng mǎshàng jiù lái.",pt:"Não se preocupe, o médico já vem."},{cn:"小心一点儿，楼梯很滑。",py:"Xiǎoxīn yìdiǎnr, lóutī hěn huá.",pt:"Cuidado, a escada está escorregadia."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你觉得人工智能会取代人类的工作吗？",py:"Nǐ juéde réngōng zhìnéng huì qǔdài rénlèi de gōngzuò ma?",pt:"Você acha que a inteligência artificial vai substituir o trabalho humano?"},
-      {sp:"B",cn:"人工智能之所以发展这么快，是因为它能处理大量数据，效率比人高。",py:"Réngōng zhìnéng zhī suǒyǐ fāzhǎn zhème kuài, shì yīnwèi tā néng chǔlǐ dàliàng shùjù, xiàolǜ bǐ rén gāo.",pt:"A razão pela qual a IA se desenvolveu tão rápido é que ela consegue processar grandes volumes de dados com eficiência superior à humana."},
-      {sp:"A",cn:"那我们应该怎么做，以免被机器取代？",py:"Nà wǒmen yīnggāi zěnme zuò, yǐmiǎn bèi jīqì qǔdài?",pt:"Então o que devemos fazer para evitar ser substituídos pelas máquinas?"},
-      {sp:"B",cn:"凭借人类独特的创造力和情感，我们能做AI做不到的事。以便更好地与技术共存，我们需要不断学习！",py:"Píngjiè rénlèi dútè de chuàngzàolì hé qínggǎn, wǒmen néng zuò AI zuò bu dào de shì. Yǐbiàn gèng hǎo de yǔ jìshù gòngcún, wǒmen xūyào bùduàn xuéxí!",pt:"Com nossa criatividade e emoção únicas, conseguimos fazer o que a IA não consegue. Para conviver melhor com a tecnologia, precisamos aprender continuamente!"},
+      {sp:"A",cn:"你脸色不太好，怎么了？",py:"Nǐ liǎnsè bú tài hǎo, zěnme le?",pt:"Você está com má aparência, o que houve?"},
+      {sp:"B",cn:"我觉得有点儿发烧，可能感冒了。",py:"Wǒ juéde yǒudiǎnr fāshāo, kěnéng gǎnmào le.",pt:"Acho que estou com febre, talvez resfriado."},
+      {sp:"A",cn:"那别去上班了，去医院看看吧。",py:"Nà bié qù shàngbān le, qù yīyuàn kànkan ba.",pt:"Então não vá trabalhar, vá ao hospital."},
+      {sp:"B",cn:"医生说的话我常常听不懂。",py:"Yīshēng shuō de huà wǒ chángcháng tīng bu dǒng.",pt:"Muitas vezes não consigo entender o que o médico diz."},
+      {sp:"A",cn:"我陪你去，帮你翻译。",py:"Wǒ péi nǐ qù, bāng nǐ fānyì.",pt:"Eu vou com você e traduzo."},
+      {sp:"B",cn:"太谢谢了，我真有点儿担心。",py:"Tài xièxie le, wǒ zhēn yǒudiǎnr dānxīn.",pt:"Muito obrigado, estou mesmo um pouco preocupado."}
     ],
     quiz:[
-      {q:"之所以...是因为 — qual é a ordem dos elementos?",opts:["causa → efeito","efeito → causa","hipótese → resultado","condição → conclusão"],ans:1,exp:"✅ 之所以 + EFEITO/RESULTADO, 是因为 + CAUSA. Ordem INVERSA ao português! '他之所以成功(efeito)，是因为努力(causa).' = 'Ele teve sucesso porque se esforçou.'"},
-      {q:"Qual a diferença entre 以便 e 以免?",opts:["sinônimos","以便=para que(positivo); 以免=para evitar(negativo)","以便=formal; 以免=informal","以便=passado; 以免=futuro"],ans:1,exp:"✅ 以便(yǐbiàn)=a fim de(resultado POSITIVO desejado). 以免(yǐmiǎn)=para evitar(resultado NEGATIVO a prevenir). Backup数据,以免丢失(para evitar perder). 更新软件,以便提高效率(para melhorar a eficiência)."},
-      {q:"凭借 é mais parecido com:",opts:["虽然","通过(por meio de, mas com ênfase na vantagem usada)","因为","除非"],ans:1,exp:"✅ 凭借 ≈ 通过/依靠, mas enfatiza a VANTAGEM ou RECURSO como alavanca. '凭借经验'=apoiando-se na experiência (a experiência É a vantagem). '通过努力'=por meio do esforço (o esforço é o método)."},
-      {q:"人工智能 (réngōng zhìnéng) significa:",opts:["tecnologia digital","inteligência artificial","realidade virtual","big data"],ans:1,exp:"✅ 人工智能 = IA (Inteligência Artificial). 人工(artificial/feito pelo homem)+智能(inteligente/inteligência). 虚拟现实=VR, 大数据=Big Data."},
-      {q:"隐私 significa:",opts:["monitoramento","algoritmo","privacidade","plataforma"],ans:2,exp:"✅ 隐私 yǐnsī = privacidade. 隐=oculto/secreto + 私=privado/pessoal. Direito à privacidade = 隐私权(yǐnsīquán). Tema muito importante na era da IA e big data!"},
+      {q:"看不懂 significa:",opts:["Não quero ler","Não consigo entender (ao ler)","Não li","Não posso ler"],ans:1,exp:"✅ V + 不 + 结果 = complemento de possibilidade negativo. A incapacidade é inerente à situação (o texto é difícil demais)."},
+      {q:"A forma afirmativa de 听不清楚 é:",opts:["听清楚不","能听清楚","听得清楚","听清楚了"],ans:2,exp:"✅ 听得清楚 — insere-se 得 no lugar de 不. É a contraparte exata."},
+      {q:"感到 costuma reger:",opts:["Verbos de ação","Substantivos/adjetivos abstratos","Números","Lugares"],ans:1,exp:"✅ 感到担心, 感到高兴 — mais formal que 觉得 e ligado a estados internos."},
+      {q:"\"Não vá trabalhar\" (interromper plano) =",opts:["不去上班。","别去上班了。","没去上班。","不要上班不。"],ans:1,exp:"✅ 别 + V + 了 sugere abandonar algo já previsto ou em curso."},
+      {q:"Diferença entre 不能看懂 e 看不懂:",opts:["Nenhuma","看不懂 = incapacidade inerente; 不能 = proibição/circunstância","不能 é mais coloquial","看不懂 é passado"],ans:1,exp:"✅ 看不懂 (o texto é difícil demais) vs 不能看 (não é permitido/não há condições). O complemento de possibilidade é a forma natural."}
     ],
   },
-
-  // ── SEMANA 9 ──────────────────────────────────────────────────────
-  { w:9, phase:"Sociedade", emoji:"🏛️", color:"#DC2626",
-    theme:"Sociedade, Questões Sociais e Estruturas de Argumento",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"经过...之后 · 对...有影响/好处 · 不是...就是...", chars:"+20 novos" },
+  {
+    w:9, phase:"Trabalho", emoji:"💼", color:"#6366F1",
+    theme:"Escritório, Carreira e 不但…而且",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"不但…而且 · 经过 · 提高",chars:"+19 novos"},
     vocab:[
-      {h:"政策",py:"zhèngcè",pt:"política (medida governamental)"},{h:"法律",py:"fǎlǜ",pt:"lei/direito"},
-      {h:"权利",py:"quánlì",pt:"direito (right)"},{h:"义务",py:"yìwù",pt:"obrigação/dever"},
-      {h:"责任",py:"zérèn",pt:"responsabilidade"},{h:"公平",py:"gōngpíng",pt:"justo/justiça"},
-      {h:"平等",py:"píngděng",pt:"igualdade"},{h:"歧视",py:"qíshì",pt:"discriminação"},
-      {h:"贫困",py:"píkùn",pt:"pobreza"},{h:"就业",py:"jiùyè",pt:"emprego/se empregar"},
-      {h:"移民",py:"yímín",pt:"emigrante/emigrar"},{h:"全球化",py:"quánqiúhuà",pt:"globalização"},
-      {h:"城市化",py:"chéngshìhuà",pt:"urbanização"},{h:"犯罪",py:"fànzuì",pt:"crime/cometer crime"},
-      {h:"安全",py:"ānquán",pt:"segurança"},{h:"稳定",py:"wěndìng",pt:"estável/estabilidade"},
-      {h:"改革",py:"gǎigé",pt:"reforma/reformar"},{h:"进步",py:"jìnbù",pt:"progresso"},
-      {h:"现象",py:"xiànxiàng",pt:"fenômeno"},{h:"阶层",py:"jiēcéng",pt:"classe social/estrato"},
-      {h:"差距",py:"chājù",pt:"disparidade/diferença"},{h:"福利",py:"fúlì",pt:"bem-estar social/benefício"},
-      {h:"公民",py:"gōngmín",pt:"cidadão"},{h:"民主",py:"mínzhǔ",pt:"democracia"},
-      {h:"透明",py:"tòumíng",pt:"transparente/transparência"},
+      {h:"办公室",py:"bàngōngshì",pt:"escritório"},
+      {h:"经理",py:"jīnglǐ",pt:"gerente"},
+      {h:"同事",py:"tóngshì",pt:"colega de trabalho"},
+      {h:"会议",py:"huìyì",pt:"reunião; conferência"},
+      {h:"开会",py:"kāihuì",pt:"ter reunião"},
+      {h:"服务",py:"fúwù",pt:"servir; serviço"},
+      {h:"工作日",py:"gōngzuòrì",pt:"dia útil"},
+      {h:"请假",py:"qǐngjià",pt:"pedir licença; faltar"},
+      {h:"经过",py:"jīngguò",pt:"passar por; após"},
+      {h:"办",py:"bàn",pt:"tratar; resolver"},
+      {h:"办法",py:"bànfǎ",pt:"jeito; solução; método"},
+      {h:"方法",py:"fāngfǎ",pt:"método; forma"},
+      {h:"坚持",py:"jiānchí",pt:"insistir; persistir"},
+      {h:"提高",py:"tígāo",pt:"melhorar; elevar"},
+      {h:"菜单",py:"càidān",pt:"cardápio"},
+      {h:"常用",py:"cháng yòng",pt:"de uso comum; corrente"},
+      {h:"打算",py:"dǎsuàn",pt:"planejar; intenção"},
+      {h:"得",py:"děi",pt:"conseguir; ganhar"},
+      {h:"对话",py:"duìhuà",pt:"diálogo; conversa"},
+      {h:"该",py:"gāi",pt:"dever; aquele/aquela; o referido"},
+      {h:"过去",py:"guòqù",pt:"passar; o passado"},
+      {h:"几乎",py:"jīhū",pt:"quase"},
+      {h:"酒",py:"jiǔ",pt:"bebida alcoólica; álcool"},
+      {h:"留学",py:"liúxué",pt:"estudar no exterior"},
+      {h:"其他",py:"qítā",pt:"outro(s); os demais"},
+      {h:"双",py:"shuāng",pt:"(classif. pares)"},
+      {h:"为",py:"wèi",pt:"para; por (causa de)"},
+      {h:"信用卡",py:"xìnyòngkǎ",pt:"cartão de crédito"},
+      {h:"以下",py:"yǐxià",pt:"abaixo de; menos de"},
+      {h:"员",py:"yuán",pt:"(sufixo para membro/funcionário)"},
+      {h:"中",py:"zhōng",pt:"meio; centro"}
     ],
     grammar:[
-      { struct:"经过 + 过程/时间 + 之后，...", label:"Após / Depois de (Processo)", color:"#DC2626",
-        exp:"经过 = após passar por (processo, período). 之后 reforça a conclusão do processo. Indica que algo acontece como resultado de um processo ou período vivenciado.",
-        exs:[{cn:"经过多年的改革之后，这个国家的经济有了显著进步。",py:"Jīngguò duō nián de gǎigé zhīhòu, zhège guójiā de jīngjì yǒu le xiǎnzhù jìnbù.",pt:"Após anos de reforma, a economia deste país apresentou progresso significativo."},{cn:"经过长期的努力，这项政策终于得到了实施。",py:"Jīngguò chángqī de nǔlì, zhè xiàng zhèngcè zhōngyú dédào le shíshī.",pt:"Após longo esforço, esta política finalmente foi implementada."}] },
-      { struct:"对 + 对象 + 有 + 影响/好处/帮助/害处", label:"Ter Influência / Benefício / Prejudicar", color:"#6366F1",
-        exp:"Estrutura que indica IMPACTO sobre algo/alguém. 对A有影响=tem influência sobre A. 对A有好处=faz bem a A. 对A有害处=faz mal a A. 对A有帮助=ajuda A. Muito usada em análise e argumentação.",
-        exs:[{cn:"全球化对发展中国家的经济发展既有好处，也有害处。",py:"Quánqiúhuà duì fāzhǎn zhōng guójiā de jīngjì fāzhǎn jì yǒu hǎochù, yě yǒu hàichù.",pt:"A globalização tanto traz benefícios quanto traz malefícios para o desenvolvimento econômico dos países em desenvolvimento."},{cn:"教育机会的不平等对社会稳定有很大的负面影响。",py:"Jiàoyù jīhuì de bù píngděng duì shèhuì wěndìng yǒu hěn dà de fùmiàn yǐngxiǎng.",pt:"A desigualdade de oportunidades educacionais tem grande impacto negativo na estabilidade social."}] },
-      { struct:"不是 A 就是 B (二选一)", label:"Ou A ou B (Sem Terceira Opção)", color:"#059669",
-        exp:"不是A就是B = é ou A ou B (sempre um dos dois, sem terceira opção). Indica alternância ou exclusividade entre duas possibilidades.",
-        exs:[{cn:"社会问题的根源，不是经济不平等，就是教育资源分配不公。",py:"Shèhuì wèntí de gēnyuán, bú shì jīngjì bù píngděng, jiù shì jiàoyù zīyuán fēnpèi bù gōng.",pt:"A raiz dos problemas sociais é ou a desigualdade econômica ou a distribuição injusta de recursos educacionais."},{cn:"他每天不是在工作，就是在学习，非常努力。",py:"Tā měitiān bú shì zài gōngzuò, jiù shì zài xuéxí, fēicháng nǔlì.",pt:"Ele todos os dias está ou trabalhando ou estudando — é muito dedicado."}] },
+      {struct:"不但 A 而且 B",label:"Não só… mas também",color:"#6366F1",exp:"Se o sujeito é o mesmo, ele vem antes de 不但 (他不但…而且…). Se são sujeitos diferentes, cada um vem depois da conjunção (不但他…而且我…). 而且 pode ganhar reforço com 还/也.",exs:[{cn:"他不但工作认真，而且对同事很热情。",py:"Tā búdàn gōngzuò rènzhēn, érqiě duì tóngshì hěn rèqíng.",pt:"Ele não só trabalha com dedicação, como também é acolhedor com os colegas."},{cn:"这个办法不但简单，而且很有用。",py:"Zhège bànfǎ búdàn jiǎndān, érqiě hěn yǒuyòng.",pt:"Este método não é apenas simples, mas também muito útil."},{cn:"不但我同意，而且经理也同意了。",py:"Búdàn wǒ tóngyì, érqiě jīnglǐ yě tóngyì le.",pt:"Não só eu concordei, como o gerente também."}]},
+      {struct:"经过 + N/VP，…",label:"Após / Por meio de",color:"#0891B2",exp:"经过 introduz o processo que levou ao resultado: 经过努力(após esforço), 经过检查(após o exame). Também significa \"passar por\" um lugar. Costuma abrir a frase.",exs:[{cn:"经过一年的努力，他的水平提高了很多。",py:"Jīngguò yì nián de nǔlì, tā de shuǐpíng tígāo le hěn duō.",pt:"Após um ano de esforço, o nível dele melhorou muito."},{cn:"经过检查，医生说没什么大问题。",py:"Jīngguò jiǎnchá, yīshēng shuō méi shénme dà wèntí.",pt:"Após o exame, o médico disse que não havia problema grave."},{cn:"每天上班我都经过那个公园。",py:"Měitiān shàngbān wǒ dōu jīngguò nàge gōngyuán.",pt:"Todo dia passo por aquele parque a caminho do trabalho."}]},
+      {struct:"为了 + 目的，S + VP",label:"Finalidade com 为了",color:"#059669",exp:"为了 = a fim de. A oração de finalidade vem primeiro. Não confunda com 因为(causa): 为了健康我跑步 (para ter saúde) vs 因为健康不好我去医院 (porque a saúde está ruim).",exs:[{cn:"为了提高汉语水平，我每天听新闻。",py:"Wèile tígāo Hànyǔ shuǐpíng, wǒ měitiān tīng xīnwén.",pt:"Para melhorar meu chinês, ouço notícias todo dia."},{cn:"为了这次会议，他准备了很久。",py:"Wèile zhè cì huìyì, tā zhǔnbèi le hěn jiǔ.",pt:"Para esta reunião, ele se preparou por muito tempo."},{cn:"为了身体健康，你应该多锻炼。",py:"Wèile shēntǐ jiànkāng, nǐ yīnggāi duō duànliàn.",pt:"Para ter saúde, você deveria se exercitar mais."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你认为全球化对发展中国家有什么影响？",py:"Nǐ rènwéi quánqiúhuà duì fāzhǎn zhōng guójiā yǒu shénme yǐngxiǎng?",pt:"Qual você acha que é o impacto da globalização sobre os países em desenvolvimento?"},
-      {sp:"B",cn:"一方面，全球化对这些国家的经济有很大好处；另一方面，它也加大了贫富差距。",py:"Yī fāngmiàn, quánqiúhuà duì zhèxiē guójiā de jīngjì yǒu hěn dà hǎochù; lìng yī fāngmiàn, tā yě jiādà le pínfù chājù.",pt:"Por um lado, a globalização traz grandes benefícios econômicos para esses países; por outro, também ampliou a desigualdade entre ricos e pobres."},
-      {sp:"A",cn:"经过几十年的全球化之后，你觉得解决这些问题的关键是什么？",py:"Jīngguò jǐ shí nián de quánqiúhuà zhīhòu, nǐ juéde jiějué zhèxiē wèntí de guānjiàn shì shénme?",pt:"Após décadas de globalização, qual você acha que é a chave para resolver esses problemas?"},
-      {sp:"B",cn:"不是改变政策，就是改变教育。我认为公平的教育机会才是减少差距的根本方法。",py:"Bú shì gǎibiàn zhèngcè, jiù shì gǎibiàn jiàoyù. Wǒ rènwéi gōngpíng de jiàoyù jīhuì cái shì jiǎnshǎo chājù de gēnběn fāngfǎ.",pt:"Ou mudar as políticas ou mudar a educação. Acho que oportunidades educacionais igualitárias são o método fundamental para reduzir as disparidades."},
+      {sp:"A",cn:"听说你要参加下午的会议？",py:"Tīngshuō nǐ yào cānjiā xiàwǔ de huìyì?",pt:"Ouvi dizer que você vai à reunião da tarde?"},
+      {sp:"B",cn:"是的，为了这次会议我准备了两个星期。",py:"Shì de, wèile zhè cì huìyì wǒ zhǔnbèi le liǎng gè xīngqī.",pt:"Sim, me preparei duas semanas para ela."},
+      {sp:"A",cn:"你不但认真，而且做事很快。",py:"Nǐ búdàn rènzhēn, érqiě zuòshì hěn kuài.",pt:"Você não só é dedicado, como também trabalha rápido."},
+      {sp:"B",cn:"经过这一年的努力，我的水平提高了不少。",py:"Jīngguò zhè yì nián de nǔlì, wǒ de shuǐpíng tígāo le bù shǎo.",pt:"Após um ano de esforço, meu nível melhorou bastante."},
+      {sp:"A",cn:"经理一定会满意的。",py:"Jīnglǐ yídìng huì mǎnyì de.",pt:"O gerente certamente vai ficar satisfeito."},
+      {sp:"B",cn:"希望这样。同事们也帮了我很多。",py:"Xīwàng zhèyàng. Tóngshìmen yě bāng le wǒ hěn duō.",pt:"Espero que sim. Os colegas também me ajudaram muito."}
     ],
     quiz:[
-      {q:"经过...之后 indica:",opts:["causa e efeito","algo que acontece APÓS um processo/período","condição futura","contraste"],ans:1,exp:"✅ 经过+processo+之后 = após passar por X. 经过三年的学习之后(após três anos de estudo). Diferente de 在...之后(simples sequência temporal). 经过 enfatiza o PROCESSO atravessado!"},
-      {q:"'对环境有害处' significa:",opts:["faz bem ao meio ambiente","protege o meio ambiente","faz mal ao meio ambiente","não tem efeito no meio ambiente"],ans:2,exp:"✅ 对...有害处(yǒu hàichù) = fazer mal a / ser prejudicial para. 好处(bǎochù)=benefício ↔ 害处(hàichù)=malefício/dano. Estrutura: 对+alvo+有+好/害处."},
-      {q:"'不是A就是B' indica:",opts:["tanto A quanto B","nem A nem B","ou A ou B (uma das duas)","A causa B"],ans:2,exp:"✅ 不是A就是B = ou A ou B (uma das duas, sem terceira opção). 他每天不是工作就是学习=está sempre ou trabalhando ou estudando. Exclusividade entre duas alternativas!"},
-      {q:"歧视 significa:",opts:["respeito","igualdade","discriminação","transparência"],ans:2,exp:"✅ 歧视 qíshì = discriminação. 歧=desviado/diferente + 视=olhar para. Olhar para alguém de forma diferente/desviada = discriminar. Conceito importante nos debates de direitos humanos!"},
-      {q:"差距 (chājù) significa:",opts:["progresso","estabilidade","reforma","disparidade/diferença/lacuna"],ans:3,exp:"✅ 差距 chājù = disparidade/diferença/lacuna. 差=diferença/erro + 距=distância. A 'distância' entre diferentes grupos ou situações. 贫富差距=diferença entre ricos e pobres."},
+      {q:"Sujeito único em 不但…而且 fica:",opts:["Depois de 不但","Antes de 不但","Depois de 而且","Omitido"],ans:1,exp:"✅ 他不但…而且… — com sujeito único, ele precede 不但. Com sujeitos diferentes: 不但他…而且我…."},
+      {q:"经过 introduz:",opts:["O objetivo","O processo que levou ao resultado","A causa negativa","A comparação"],ans:1,exp:"✅ 经过一年的努力 = após um ano de esforço. Também significa passar por um lugar."},
+      {q:"\"Para melhorar meu chinês, ouço notícias\" =",opts:["因为提高汉语，我听新闻。","为了提高汉语，我听新闻。","我听新闻为了提高汉语。","提高汉语为了我听新闻。"],ans:1,exp:"✅ 为了 marca FINALIDADE e abre a frase. 因为 marca causa — não serve aqui."},
+      {q:"Qual par está ERRADO?",opts:["不但…而且","虽然…但是","不但…但是","因为…所以"],ans:2,exp:"✅ ❌不但…但是 — 不但 exige 而且/还/也. Cada conjunção tem parceiro fixo."},
+      {q:"提高 combina naturalmente com:",opts:["水平","房子","天气","筷子"],ans:0,exp:"✅ 提高水平/成绩/能力 — 提高 rege substantivos abstratos de grau ou nível."}
     ],
   },
-
-  // ── SEMANA 10 ──────────────────────────────────────────────────────
-  { w:10, phase:"Pensamento", emoji:"💡", color:"#7C3AED",
-    theme:"Pensamento Crítico, Filosofia e Estruturas Complexas",
-    stats:{ words:"~30 novas HSK 3", newHSK3:"30", grammar:"既...又... · 在...看来 · 究竟/到底 (perguntas enfáticas)", chars:"+20 novos" },
+  {
+    w:10, phase:"Espaço", emoji:"🧭", color:"#D97706",
+    theme:"Direções, Localização e Pontos Cardeais",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"方位词 · 从…往…到 · 附近",chars:"+19 novos"},
     vocab:[
-      {h:"思想",py:"sīxiǎng",pt:"pensamento/ideologia"},{h:"观点",py:"guāndiǎn",pt:"ponto de vista"},
-      {h:"立场",py:"lìchǎng",pt:"posição/stance"},{h:"角度",py:"jiǎodù",pt:"ângulo/perspectiva"},
-      {h:"理性",py:"lǐxìng",pt:"razão/racional"},{h:"感性",py:"gǎnxìng",pt:"emoção/emocional"},
-      {h:"主观",py:"zhǔguān",pt:"subjetivo"},{h:"客观",py:"kèguān",pt:"objetivo"},
-      {h:"抽象",py:"chōuxiàng",pt:"abstrato"},{h:"具体",py:"jùtǐ",pt:"concreto/específico"},
-      {h:"本质",py:"běnzhì",pt:"essência/natureza"},{h:"现象",py:"xiànxiàng",pt:"fenômeno"},
-      {h:"结论",py:"jiélùn",pt:"conclusão"},{h:"智慧",py:"zhìhuì",pt:"sabedoria"},
-      {h:"判断",py:"pànduàn",pt:"julgar/julgamento"},{h:"区别",py:"qūbié",pt:"diferença/distinguir"},
-      {h:"矛盾",py:"máodùn",pt:"contradição/conflito"},{h:"统一",py:"tǒngyī",pt:"unificar/unidade"},
-      {h:"相对",py:"xiāngduì",pt:"relativo"},{h:"绝对",py:"juéduì",pt:"absoluto"},
-      {h:"辩证",py:"biànzhèng",pt:"dialético"},{h:"批判性",py:"pīpàn xìng",pt:"pensamento crítico"},
-      {h:"哲学",py:"zhéxué",pt:"filosofia"},{h:"价值",py:"jiàzhí",pt:"valor"},
-      {h:"意志",py:"yìzhì",pt:"vontade/determinação"},
+      {h:"地点",py:"dìdiǎn",pt:"local; lugar"},
+      {h:"地方",py:"dìfang",pt:"lugar; local"},
+      {h:"地图",py:"dìtú",pt:"mapa"},
+      {h:"附近",py:"fùjìn",pt:"próximo; nas redondezas"},
+      {h:"面前",py:"miànqián",pt:"na frente de; diante de"},
+      {h:"身边",py:"shēnbiān",pt:"ao lado de; perto de"},
+      {h:"中间",py:"zhōngjiān",pt:"meio; entre"},
+      {h:"路边",py:"lùbiān",pt:"beira da estrada; calçada"},
+      {h:"路口",py:"lùkǒu",pt:"esquina; cruzamento"},
+      {h:"马路",py:"mǎlù",pt:"avenida; rua (larga)"},
+      {h:"街",py:"jiē",pt:"rua"},
+      {h:"方向",py:"fāngxiàng",pt:"direção; orientação"},
+      {h:"东",py:"dōng",pt:"leste"},
+      {h:"西",py:"xī",pt:"oeste"},
+      {h:"南",py:"nán",pt:"sul"},
+      {h:"北",py:"běi",pt:"norte"},
+      {h:"东南",py:"dōngnán",pt:"sudeste"},
+      {h:"西北",py:"xīběi",pt:"noroeste"},
+      {h:"东方",py:"dōngfāng",pt:"oriente; leste"},
+      {h:"西方",py:"xīfāng",pt:"ocidente; oeste"},
+      {h:"好多",py:"hǎoduō",pt:"muito(s); muitos"},
+      {h:"机会",py:"jīhuì",pt:"oportunidade; chance"},
+      {h:"旧",py:"jiù",pt:"velho; usado"},
+      {h:"留学生",py:"liúxuéshēng",pt:"estudante intercambista"},
+      {h:"起",py:"qǐ",pt:"levantar; (classif. casos)"},
+      {h:"司机",py:"sījī",pt:"motorista"},
+      {h:"为了",py:"wèile",pt:"para; a fim de"},
+      {h:"行",py:"xíng",pt:"servir; pode ser"},
+      {h:"一般",py:"yìbān",pt:"geral; comum"},
+      {h:"愿意",py:"yuànyì",pt:"querer; estar disposto"},
+      {h:"种",py:"zhǒng",pt:"(classif. tipos; espécies)"}
     ],
     grammar:[
-      { struct:"既 + A，又 + B (两者兼有)", label:"Ao Mesmo Tempo A e B", color:"#7C3AED",
-        exp:"既...又 = simultaneamente A e B (as duas qualidades coexistem). Similar a 不但...而且, mas 既...又 tem sentido mais de COEXISTÊNCIA do que de progressão. Muito literário/formal.",
-        exs:[{cn:"这个问题既复杂，又重要，需要认真思考。",py:"Zhège wèntí jì fùzá, yòu zhòngyào, xūyào rènzhēn sīkǎo.",pt:"Esta questão é ao mesmo tempo complexa e importante — requer reflexão séria."},{cn:"好的批判性思维既需要理性分析，又需要感性理解。",py:"Hǎo de pīpàn xìng sīwéi jì xūyào lǐxìng fēnxī, yòu xūyào gǎnxìng lǐjiě.",pt:"O bom pensamento crítico exige tanto análise racional quanto compreensão emocional."}] },
-      { struct:"在 + 人/立场 + 看来，...", label:"Na Visão de / Do Ponto de Vista de", color:"#D97706",
-        exp:"在...看来 = na visão de / segundo X. Indica que a opinião ou avaliação é da perspectiva de uma pessoa ou grupo específico. Similar a 对...来说, mas mais enfatizado como 'na opinião de X'.",
-        exs:[{cn:"在哲学家看来，现象和本质之间的关系是最重要的问题。",py:"Zài zhéxuéjiā kàn lái, xiànxiàng hé běnzhì zhījiān de guānxi shì zuì zhòngyào de wèntí.",pt:"Na visão dos filósofos, a relação entre fenômeno e essência é a questão mais importante."},{cn:"在我看来，主观和客观的区别并不是绝对的。",py:"Zài wǒ kàn lái, zhǔguān hé kèguān de qūbié bìng bú shì juéduì de.",pt:"Na minha visão, a diferença entre subjetivo e objetivo não é absoluta."}] },
-      { struct:"究竟/到底 + 疑问词 (perguntas enfáticas)", label:"Afinal / Exatamente — Perguntas Enfáticas", color:"#059669",
-        exp:"究竟/到底 adicionam ênfase e impaciência a perguntas. Equivale a 'afinal', 'exatamente', 'diabos'. Indica que a pessoa quer uma resposta definitiva e está frustrada com ambiguidade.",
-        exs:[{cn:"这个问题究竟有没有答案？",py:"Zhège wèntí jiùjìng yǒu méiyǒu dá'àn?",pt:"Afinal, esta questão tem ou não tem resposta?"},{cn:"你到底支持哪个观点？",py:"Nǐ dàodǐ zhīchí nǎge guāndiǎn?",pt:"Afinal, qual ponto de vista você apoia?"}] },
+      {struct:"从 A 往 B / 向 B + V",label:"Trajetória com 往/向",color:"#6366F1",exp:"往 e 向 indicam rumo. 往 é mais concreto e físico (往前走). 向 admite sentido abstrato (向他学习 = aprender com ele). Ambos vêm antes do verbo.",exs:[{cn:"从这个路口往右拐就到了。",py:"Cóng zhège lùkǒu wǎng yòu guǎi jiù dào le.",pt:"Vire à direita neste cruzamento e você chega."},{cn:"一直往前走，桥在前面。",py:"Yìzhí wǎng qián zǒu, qiáo zài qiánmiàn.",pt:"Siga sempre em frente, a ponte fica adiante."},{cn:"我们应该向他学习。",py:"Wǒmen yīnggāi xiàng tā xuéxí.",pt:"Deveríamos aprender com ele."}]},
+      {struct:"N + 方位词 (上/里/旁边/中间)",label:"Palavras de Posição",color:"#0891B2",exp:"O locativo vem SEMPRE depois do substantivo de referência: 桌子上, 学校附近, 两座山中间. Com nomes próprios de lugar, 里 costuma ser omitido: ❌在中国里。",exs:[{cn:"地图上找不到这个地方。",py:"Dìtú shàng zhǎo bu dào zhège dìfang.",pt:"Não consigo achar este lugar no mapa."},{cn:"银行就在马路对面，学校附近。",py:"Yínháng jiù zài mǎlù duìmiàn, xuéxiào fùjìn.",pt:"O banco fica do outro lado da rua, perto da escola."},{cn:"他站在我身边，一句话也没说。",py:"Tā zhàn zài wǒ shēnbiān, yí jù huà yě méi shuō.",pt:"Ele ficou ao meu lado sem dizer uma palavra."}]},
+      {struct:"离 + 地点 + 远/近",label:"Distância com 离",color:"#059669",exp:"离 mede a distância ENTRE dois pontos: A 离 B 很远/很近. Não confunda com 从(ponto de partida de um movimento). ❌从这里很远。 ✅离这里很远。",exs:[{cn:"我家离公司不太远，骑车十分钟。",py:"Wǒ jiā lí gōngsī bú tài yuǎn, qí chē shí fēnzhōng.",pt:"Minha casa não é longe da empresa, dez minutos de bicicleta."},{cn:"这个地方离海边有多远？",py:"Zhège dìfang lí hǎibiān yǒu duō yuǎn?",pt:"Que distância há daqui até a praia?"},{cn:"学校离地铁站很近，很方便。",py:"Xuéxiào lí dìtiě zhàn hěn jìn, hěn fāngbiàn.",pt:"A escola é perto do metrô, muito prático."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你觉得人类的判断究竟是更理性还是更感性的？",py:"Nǐ juéde rénlèi de pànduàn jiùjìng shì gèng lǐxìng háishi gèng gǎnxìng de?",pt:"Afinal, você acha que o julgamento humano é mais racional ou mais emocional?"},
-      {sp:"B",cn:"在我看来，这个问题既复杂又有趣。人类的决策既需要理性，又离不开感性。",py:"Zài wǒ kàn lái, zhège wèntí jì fùzá yòu yǒuqù. Rénlèi de juécè jì xūyào lǐxìng, yòu lí bu kāi gǎnxìng.",pt:"Na minha visão, esta questão é ao mesmo tempo complexa e fascinante. As decisões humanas precisam tanto de razão quanto não conseguem se livrar da emoção."},
-      {sp:"A",cn:"那主观和客观之间的区别究竟有多大？",py:"Nà zhǔguān hé kèguān zhījiān de qūbié jiùjìng yǒu duō dà?",pt:"Então afinal, qual é a real dimensão da diferença entre subjetivo e objetivo?"},
-      {sp:"B",cn:"在哲学家看来，两者的区别是相对的。没有完全客观的判断，也没有纯粹感性的智慧。",py:"Zài zhéxuéjiā kàn lái, liǎng zhě de qūbié shì xiāngduì de. Méiyǒu wánquán kèguān de pànduàn, yě méiyǒu chúncuì gǎnxìng de zhìhuì.",pt:"Na visão dos filósofos, a distinção entre os dois é relativa. Não existe julgamento completamente objetivo, nem sabedoria puramente emocional."},
+      {sp:"A",cn:"请问，银行离这儿远吗？",py:"Qǐngwèn, yínháng lí zhèr yuǎn ma?",pt:"Com licença, o banco é longe daqui?"},
+      {sp:"B",cn:"不远，从这个路口往右拐就到了。",py:"Bù yuǎn, cóng zhège lùkǒu wǎng yòu guǎi jiù dào le.",pt:"Não, vire à direita neste cruzamento e você chega."},
+      {sp:"A",cn:"在马路的哪一边？",py:"Zài mǎlù de nǎ yì biān?",pt:"De que lado da rua?"},
+      {sp:"B",cn:"在对面，就在那座桥的旁边。",py:"Zài duìmiàn, jiù zài nà zuò qiáo de pángbiān.",pt:"Do outro lado, bem ao lado daquela ponte."},
+      {sp:"A",cn:"附近有地铁站吗？",py:"Fùjìn yǒu dìtiě zhàn ma?",pt:"Tem estação de metrô por perto?"},
+      {sp:"B",cn:"有，一直往前走，在两栋楼的中间。",py:"Yǒu, yìzhí wǎng qián zǒu, zài liǎng dòng lóu de zhōngjiān.",pt:"Sim, siga em frente, fica entre dois prédios."}
     ],
     quiz:[
-      {q:"既...又 indica:",opts:["sequência temporal","causa e efeito","duas qualidades coexistindo simultaneamente","contraste"],ans:2,exp:"✅ 既...又 = ao mesmo tempo A e B (COEXISTÊNCIA). 既聪明又努力=ao mesmo tempo inteligente e esforçado. Diferença de 不但...而且: este progride em intensidade; 既...又 apenas afirma que AMBOS existem."},
-      {q:"'在我看来' é diferente de '对我来说' porque:",opts:["são sinônimos","在...看来 foca mais em OPINIÃO/VISÃO; 对...来说 foca em RELEVÂNCIA/IMPORTÂNCIA","在...看来 é informal","对...来说 é mais literário"],ans:1,exp:"✅ 在...看来=na visão/opinião de X (perspectiva intelectual). 对...来说=para X / do ponto de vista de X (relevância ou importância). Sobreposição existe, mas a ênfase difere!"},
-      {q:"究竟 e 到底 adicionam à pergunta um sentido de:",opts:["polidez","curiosidade casual","ênfase/impaciência/exigindo resposta definitiva","dúvida"],ans:2,exp:"✅ 究竟/到底 = partículas de ênfase em perguntas. Indicam impaciência, exigência de resposta definitiva ou frustração com ambiguidade. 你到底想要什么？=Afinal, o que você quer (de uma vez por todas)?"},
-      {q:"本质 significa:",opts:["fenômeno","aparência","essência/natureza fundamental","conclusão"],ans:2,exp:"✅ 本质 běnzhì = essência/natureza fundamental. 本=raiz/origem + 质=qualidade/natureza. A natureza mais profunda e fundamental de algo. Vs 现象(fenômeno)=o que aparece na superfície."},
-      {q:"辩证 (biànzhèng) refere-se a:",opts:["argumentar verbalmente","pensamento dialético (ver contradições e síntese)","filosofia oriental","lógica formal"],ans:1,exp:"✅ 辩证 = dialético (filosófico). 辩证法(biànzhèng fǎ)=dialética. Pensamento que vê contradições(矛盾)e sua síntese(统一). Conceito central na filosofia marxista-leninista e na filosofia chinesa clássica!"},
+      {q:"\"Vire à direita\" =",opts:["往右拐","右往拐","拐往右","往拐右"],ans:0,exp:"✅ 往 + direção + verbo. 往右拐 / 往前走 — a preposição sempre antecede o verbo."},
+      {q:"Qual está ERRADA?",opts:["我家离公司很远。","从我家很远。","银行离这儿很近。","离学校不远。"],ans:1,exp:"✅ ❌从我家很远 — distância entre dois pontos usa 离, não 从. 从 marca ponto de partida de movimento."},
+      {q:"As palavras de posição vêm:",opts:["Antes do substantivo","Depois do substantivo","No início da frase","Depois do verbo"],ans:1,exp:"✅ 桌子上, 学校附近, 我身边 — sempre depois da referência. ❌上桌子。"},
+      {q:"向 difere de 往 porque:",opts:["向 admite sentido abstrato (向他学习)","往 é mais formal","São idênticos","向 vai depois do verbo"],ans:0,exp:"✅ 往 é rumo físico; 向 também serve para alvos abstratos: 向他学习(aprender com ele)."},
+      {q:"中间 indica:",opts:["Ao lado","Entre dois pontos","Atrás","Em cima"],ans:1,exp:"✅ 在两栋楼的中间 = entre dois prédios. 旁边 é \"ao lado\"."}
     ],
   },
-
-  // ── SEMANA 11 ──────────────────────────────────────────────────────
-  { w:11, phase:"Revisão", emoji:"🔍", color:"#374151",
-    theme:"Revisão Intensiva — Gramática, Vocabulário e Textos Complexos HSK 3",
-    stats:{ words:"Consolidação geral", newHSK3:"0 novas", grammar:"Revisão dos 44 pontos HSK 3", chars:"Treino dos 300 caracteres HSK 3" },
+  {
+    w:11, phase:"Viagem", emoji:"✈️", color:"#7C3AED",
+    theme:"Turismo, Transporte e Verbos Separáveis",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"离合词 (请假/照相) · 出发",chars:"+19 novos"},
     vocab:[
-      {h:"贡献",py:"gòngxiàn",pt:"contribuição/contribuir"},{h:"坚持",py:"jiānchí",pt:"persistir/insistir"},
-      {h:"克服",py:"kèfú",pt:"superar (dificuldade)"},{h:"承担",py:"chéngdān",pt:"assumir/suportar"},
-      {h:"承认",py:"chéngrèn",pt:"admitir/reconhecer"},{h:"否认",py:"fǒurèn",pt:"negar/refutar"},
-      {h:"证明",py:"zhèngmíng",pt:"provar/comprovar"},{h:"反映",py:"fǎnyìng",pt:"refletir/ser reflexo de"},
-      {h:"体现",py:"tǐxiàn",pt:"incorporar/manifestar"},{h:"强调",py:"qiángdiào",pt:"enfatizar/destacar"},
-      {h:"提出",py:"tíchū",pt:"propor/apresentar (ideia)"},{h:"解决",py:"jiějué",pt:"resolver/solucionar"},
-      {h:"面临",py:"miànlín",pt:"enfrentar/deparar-se com"},{h:"应对",py:"yìngduì",pt:"lidar com/responder a"},
-      {h:"共同",py:"gòngtóng",pt:"comum/conjunto"},{h:"各自",py:"gèzì",pt:"cada um/respectivamente"},
-      {h:"彼此",py:"bǐcǐ",pt:"mutuamente/um ao outro"},{h:"整体",py:"zhěngtǐ",pt:"como um todo"},
-      {h:"局部",py:"júbù",pt:"parte/local (vs. todo)"},{h:"根本",py:"gēnběn",pt:"fundamental/raiz"},
-      {h:"关键",py:"guānjiàn",pt:"chave/crucial"},{h:"核心",py:"héxīn",pt:"núcleo/central"},
-      {h:"基础",py:"jīchǔ",pt:"base/fundação"},{h:"框架",py:"kuàngjià",pt:"estrutura/framework"},
-      {h:"总结",py:"zǒngjié",pt:"resumir/síntese"},
+      {h:"出发",py:"chūfā",pt:"partir; sair (viagem)"},
+      {h:"宾馆",py:"bīnguǎn",pt:"hotel"},
+      {h:"护照",py:"hùzhào",pt:"passaporte"},
+      {h:"行李",py:"xíngli",pt:"bagagem"},
+      {h:"船",py:"chuán",pt:"barco; navio"},
+      {h:"高铁",py:"gāotiě",pt:"trem de alta velocidade"},
+      {h:"汽车",py:"qìchē",pt:"carro; automóvel"},
+      {h:"自行车",py:"zìxíngchē",pt:"bicicleta"},
+      {h:"骑",py:"qí",pt:"andar de (bicicleta/cavalo)"},
+      {h:"爬",py:"pá",pt:"escalar; subir engatinhando"},
+      {h:"起飞",py:"qǐfēi",pt:"decolar"},
+      {h:"检票",py:"jiǎnpiào",pt:"verificar ingresso"},
+      {h:"游客",py:"yóukè",pt:"turista; visitante"},
+      {h:"游戏",py:"yóuxì",pt:"jogo"},
+      {h:"拍照",py:"pāizhào",pt:"tirar foto"},
+      {h:"照相",py:"zhàoxiàng",pt:"tirar foto"},
+      {h:"相机",py:"xiàngjī",pt:"câmera fotográfica"},
+      {h:"照片",py:"zhàopiàn",pt:"fotografia; foto"},
+      {h:"耳朵",py:"ěrduo",pt:"orelha; ouvido"},
+      {h:"干净",py:"gānjìng",pt:"limpo"},
+      {h:"好久",py:"hǎojiǔ",pt:"muito tempo"},
+      {h:"急",py:"jí",pt:"urgente; apressar-se"},
+      {h:"开机",py:"kāijī",pt:"ligar (celular/computador)"},
+      {h:"马",py:"mǎ",pt:"cavalo"},
+      {h:"铅笔",py:"qiānbǐ",pt:"lápis"},
+      {h:"糖",py:"táng",pt:"açúcar; bala; doce"},
+      {h:"卫生间",py:"wèishēngjiān",pt:"banheiro"},
+      {h:"休假",py:"xiūjià",pt:"tirar férias; folgar"},
+      {h:"一边",py:"yìbiān",pt:"ao mesmo tempo que"},
+      {h:"运动会",py:"yùndònghuì",pt:"gincana esportiva"},
+      {h:"重要",py:"zhòngyào",pt:"importante"}
     ],
     grammar:[
-      { struct:"Revisão: 把+被+使令+不得不+补语 (大总结)", label:"Revisão: Estruturas-Chave HSK 3", color:"#374151",
-        exp:"把(disposição): 把+O+V+resultado. 被(passiva): 被+agente+V+resultado. 使/令(causativo formal): 使+pessoa+adj. 不得不(sem escolha): não poder não fazer. Complementos: 方向(来/去系列), 可能(得/不), 结果(完/好/到/见).",
-        exs:[{cn:"他把工作安排得非常有条理。",py:"Tā bǎ gōngzuò ānpái de fēicháng yǒu tiáolǐ.",pt:"Ele organizou o trabalho de forma muito metódica."},{cn:"这项任务被圆满完成了，令所有人感到满意。",py:"Zhè xiàng rènwù bèi yuánmǎn wánchéng le, lìng suǒyǒu rén gǎndào mǎnyì.",pt:"Esta tarefa foi concluída com êxito, deixando todos satisfeitos."}] },
-      { struct:"Revisão: 连接词 HSK 3 大集合", label:"Todos os Conectivos HSK 3", color:"#6366F1",
-        exp:"随着(conforme) · 由于...因此(devido a) · 尽管...仍然(apesar de) · 一方面...另一方面(por um lado...outro) · 不仅...而且...甚至(não só...mas...até) · 与其...不如(em vez de...melhor) · 宁可...也不(prefiro...a) · 除非...否则(a menos que) · 之所以...是因为(a razão é que) · 既...又(ao mesmo tempo) · 不管/无论...都(não importa...sempre)",
-        exs:[{cn:"尽管面临重重困难，他仍然坚持下去，之所以不放弃，是因为他深知这项事业的重要性。",py:"Jǐnguǎn miànlín chóngchóng kùnnán, tā réngrán jiānchí xiàqù. Zhī suǒyǐ bú fàngqì, shì yīnwèi tā shēn zhī zhè xiàng shìyè de zhòngyào xìng.",pt:"Apesar de enfrentar inúmeras dificuldades, ele ainda persiste. A razão pela qual não desiste é que conhece profundamente a importância desta causa."},{cn:"",py:"",pt:""}] },
-      { struct:"Revisão: 以...为 · 凭借 · 经过 · 对...有影响", label:"Estruturas de Análise Formal", color:"#DC2626",
-        exp:"以...为主(ter como principal) · 以...为基础(basear-se em) · 凭借...实现(alcançar por meio de) · 经过...之后(após o processo de) · 对...有影响/好处/害处(ter impacto/benefício/malefício sobre) · 不是...就是(ou A ou B) · 在...看来(na visão de) · 究竟/到底+疑问词(afinal/exatamente)",
-        exs:[{cn:"凭借扎实的基础知识和不断的实践，经过多年努力之后，她终于在自己的领域取得了突破性进展。",py:"Píngjiè zhāshí de jīchǔ zhīshi hé bùduàn de shíjiàn, jīngguò duō nián nǔlì zhīhòu, tā zhōngyú zài zìjǐ de lǐngyù qǔdé le túpòxìng jìnzhǎn.",pt:"Com base em conhecimento sólido e prática contínua, após anos de esforço, ela finalmente alcançou um avanço inovador em sua área."},{cn:"",py:"",pt:""}] },
+      {struct:"离合词: V + 了/过 + O",label:"Verbos Separáveis",color:"#6366F1",exp:"Palavras como 请假, 照相, 见面, 结婚 são verbo+objeto fundidos. Marcadores e quantidades entram NO MEIO: 请了三天假, 照过相. ❌请假了三天。 ❌见面他。",exs:[{cn:"我想请三天假去旅行。",py:"Wǒ xiǎng qǐng sān tiān jià qù lǚxíng.",pt:"Quero tirar três dias de licença para viajar."},{cn:"我们在长城前面照了很多相。",py:"Wǒmen zài Chángchéng qiánmiàn zhào le hěn duō xiàng.",pt:"Tiramos muitas fotos em frente à Grande Muralha."},{cn:"我昨天跟他见了一面。",py:"Wǒ zuótiān gēn tā jiàn le yí miàn.",pt:"Eu me encontrei com ele ontem."}]},
+      {struct:"S + 是 + … + 的",label:"Ênfase com 是…的",color:"#0891B2",exp:"Para ações JÁ CONCLUÍDAS, destaca tempo, lugar ou meio: 我是坐高铁来的 (foi de trem-bala que vim). O 是 pode ser omitido na afirmativa, mas 的 nunca.",exs:[{cn:"你是什么时候到的？——我是昨天晚上到的。",py:"Nǐ shì shénme shíhou dào de? —— Wǒ shì zuótiān wǎnshang dào de.",pt:"Quando você chegou? —— Cheguei ontem à noite."},{cn:"他是坐船去的，不是坐飞机。",py:"Tā shì zuò chuán qù de, bú shì zuò fēijī.",pt:"Ele foi de barco, não de avião."},{cn:"这张照片是在山上拍的。",py:"Zhè zhāng zhàopiàn shì zài shān shàng pāi de.",pt:"Esta foto foi tirada na montanha."}]},
+      {struct:"一边 A 一边 B",label:"Ações Simultâneas",color:"#059669",exp:"一边…一边… = fazer duas coisas ao mesmo tempo (ambas duradouras). Na fala reduz-se a 边…边…. Para estados simultâneos, use 又…又…, não 一边.",exs:[{cn:"他一边开车一边听音乐。",py:"Tā yìbiān kāichē yìbiān tīng yīnyuè.",pt:"Ele dirige ouvindo música."},{cn:"我们一边爬山一边拍照。",py:"Wǒmen yìbiān pá shān yìbiān pāizhào.",pt:"Escalamos tirando fotos."},{cn:"别一边吃饭一边看手机。",py:"Bié yìbiān chīfàn yìbiān kàn shǒujī.",pt:"Não coma olhando o celular."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"在你看来，学习HSK3最难的地方究竟是什么？",py:"Zài nǐ kàn lái, xuéxí HSK sān jí zuì nán de dìfang jiùjìng shì shénme?",pt:"Na sua visão, afinal qual é a parte mais difícil de aprender para o HSK 3?"},
-      {sp:"B",cn:"尽管语法复杂，但对我来说，最难的既不是词汇，也不是语法，而是把所有东西整合起来用。",py:"Jǐnguǎn yǔfǎ fùzá, dàn duì wǒ lái shuō, zuì nán de jì bú shì cíhuì, yě bú shì yǔfǎ, ér shì bǎ suǒyǒu dōngxi zhěnghé qǐlái yòng.",pt:"Apesar de a gramática ser complexa, para mim, o mais difícil não é o vocabulário nem a gramática, e sim integrar tudo junto ao usar."},
-      {sp:"A",cn:"同意！随着学习的深入，你会发现语言不仅是工具，而且是思维方式本身。",py:"Tóngyì! Suízhe xuéxí de shēnrù, nǐ huì fāxiàn yǔyán bùjǐn shì gōngjù, érqiě shì sīwéi fāngshì běnshēn.",pt:"Concordo! Conforme o estudo aprofunda, você descobrirá que o idioma não é só uma ferramenta, mas o próprio modo de pensar."},
-      {sp:"B",cn:"对！凭借这十一周的努力，我们已经为考试打下了坚实的基础。继续加油！",py:"Duì! Píngjiè zhè shíyī zhōu de nǔlì, wǒmen yǐjīng wèi kǎoshì dǎ xià le jiānshí de jīchǔ. Jìxù jiāyóu!",pt:"Certo! Com base em onze semanas de esforço, já construímos uma base sólida para o exame. Continue assim!"},
+      {sp:"A",cn:"你是什么时候到的？",py:"Nǐ shì shénme shíhou dào de?",pt:"Quando você chegou?"},
+      {sp:"B",cn:"我是昨天晚上到的，坐高铁来的。",py:"Wǒ shì zuótiān wǎnshang dào de, zuò gāotiě lái de.",pt:"Cheguei ontem à noite, vim de trem-bala."},
+      {sp:"A",cn:"行李都拿到了吗？",py:"Xíngli dōu ná dào le ma?",pt:"Pegou toda a bagagem?"},
+      {sp:"B",cn:"拿到了。今天我请了三天假，可以好好玩玩。",py:"Ná dào le. Jīntiān wǒ qǐng le sān tiān jià, kěyǐ hǎohǎo wánwan.",pt:"Peguei. Tirei três dias de licença, posso aproveitar bem."},
+      {sp:"A",cn:"那我们明天去爬山，一边爬一边照相。",py:"Nà wǒmen míngtiān qù pá shān, yìbiān pá yìbiān zhàoxiàng.",pt:"Então amanhã escalamos a montanha, tirando fotos no caminho."},
+      {sp:"B",cn:"好主意！我带着相机呢。",py:"Hǎo zhǔyi! Wǒ dài zhe xiàngjī ne.",pt:"Ótima ideia! Estou com a câmera."}
     ],
     quiz:[
-      {q:"'把工作安排得很有条理' — 得 aqui é:",opts:["被动语态","补语 de grau (descreve como foi feito)","补语 potencial","补语 direcional"],ans:1,exp:"✅ V+得+avaliação = complemento de GRAU/RESULTADO: descreve COMO a ação foi realizada. 安排得很有条理=organizou de forma muito metódica. Diferente de 得(potencial): 做得完=consegue terminar."},
-      {q:"Qual conectivo indica mudança PARALELA/CONCOMITANTE?",opts:["由于","随着","尽管","不管"],ans:1,exp:"✅ 随着 = conforme/à medida que. Mudança PARALELA: quando A muda, B também muda junto. 由于=causa objetiva(por causa de). 尽管=concessão(apesar de). 不管=independência(não importa)."},
-      {q:"'宁可受苦，也不妥协' — qual é a ideia principal?",opts:["prefere não sofrer","sofre e por isso se rende","prefere sofrer a ceder/se render","não tem escolha"],ans:2,exp:"✅ 宁可A，也不B = prefiro suportar A (custo) a fazer B (inaceitável). Rígida determinação: prefiro o sofrimento(受苦) a ceder(妥协). 宁可 implica ESCOLHA VOLUNTÁRIA com sacrifício!"},
-      {q:"'之所以成功，是因为努力' — qual é o efeito/resultado?",opts:["努力","是因为","成功","之所以"],ans:2,exp:"✅ 之所以+RESULTADO/EFEITO(成功), 是因为+CAUSA(努力). A estrutura COMEÇA pelo efeito, depois explica a causa. Ordem inversa ao português: 'o sucesso se deve ao esforço'."},
-      {q:"凭借 difere de 通过 porque:",opts:["são sinônimos","凭借 enfatiza VANTAGEM/RECURSO usado; 通过 enfatiza o MÉTODO/PROCESSO","凭借 é informal","通过 é mais literário"],ans:1,exp:"✅ 凭借=apoiando-se em (vantagem/recurso como ALAVANCA). 通过=por meio de (método/processo). '凭借经验'(com base na experiência=a experiência É a vantagem). '通过努力'(por meio do esforço=o esforço É o caminho)."},
+      {q:"Qual está CORRETA?",opts:["我请假了三天。","我请了三天假。","我三天请假了。","我请假三天了。"],ans:1,exp:"✅ 我请了三天假 — 请假 é verbo separável; 了 e a quantidade entram no meio."},
+      {q:"是…的 serve para destacar:",opts:["Ações futuras","Tempo/lugar/meio de ação já concluída","Comparações","Estados contínuos"],ans:1,exp:"✅ 我是坐高铁来的 — enfatiza COMO/QUANDO/ONDE algo já aconteceu."},
+      {q:"\"Encontrei-me com ele\" =",opts:["我见面他了。","我跟他见了一面。","我见了他面。","我他见面了。"],ans:1,exp:"✅ 见面 é separável e não aceita objeto direto — a pessoa entra com 跟/和."},
+      {q:"一边…一边… exige que as ações sejam:",opts:["Instantâneas","Duradouras e simultâneas","Sequenciais","Opostas"],ans:1,exp:"✅ 一边开车一边听音乐 — ambas se estendem no tempo. Para sequência use 先…然后."},
+      {q:"No 是…的, o que NÃO pode ser omitido?",opts:["是","的","O sujeito","O verbo"],ans:1,exp:"✅ 的 é obrigatório; 是 pode cair na afirmativa: 我坐高铁来的."}
     ],
   },
-
-  // ── SEMANA 12 ──────────────────────────────────────────────────────
-  { w:12, phase:"Simulado", emoji:"🏆", color:"#059669",
-    theme:"Simulado Final HSK 3 + Estratégias de Prova + Vocabulário de Exame",
-    stats:{ words:"Simulado integrado", newHSK3:"0", grammar:"Revisão focalizada nos erros mais comuns", chars:"Simulado de escrita HSK 3" },
+  {
+    w:12, phase:"Conectivos", emoji:"🔗", color:"#DC2626",
+    theme:"Condicionais, Concessivas e 连…都",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"如果…就 · 只要/只有 · 连…都",chars:"+19 novos"},
     vocab:[
-      {h:"说服",py:"shuōfú",pt:"persuadir/convencer"},{h:"强调",py:"qiángdiào",pt:"enfatizar"},
-      {h:"归结",py:"guījié",pt:"atribuir a/reduzir a"},{h:"总体",py:"zǒngtǐ",pt:"no geral/globalmente"},
-      {h:"具体而言",py:"jùtǐ ér yán",pt:"especificamente/em termos concretos"},{h:"换句话说",py:"huàn jù huà shuō",pt:"em outras palavras"},
-      {h:"总的来说",py:"zǒng de lái shuō",pt:"em suma/de modo geral"},{h:"值得注意",py:"zhídé zhùyì",pt:"digno de atenção/vale notar"},
-      {h:"毫无疑问",py:"háo wú yíwèn",pt:"sem dúvida alguma"},{h:"不可避免",py:"bùkě bìmiǎn",pt:"inevitável"},
-      {h:"至关重要",py:"zhì guān zhòngyào",pt:"de suma importância/crucial"},{h:"发挥",py:"fāhuī",pt:"exercer/desempenhar (papel)"},
-      {h:"形成",py:"xíngchéng",pt:"formar/se formar"},{h:"产生",py:"chǎnshēng",pt:"gerar/surgir"},
-      {h:"导致",py:"dǎozhì",pt:"levar a/resultar em"},{h:"促进",py:"cùjìn",pt:"promover/fomentar"},
-      {h:"阻碍",py:"zǔ'ài",pt:"obstruir/impedir"},{h:"取决于",py:"qǔjuéyú",pt:"depender de"},
-      {h:"有利于",py:"yǒulìyú",pt:"ser favorável a/beneficiar"},{h:"有助于",py:"yǒuzhùyú",pt:"contribuir para/ajudar a"},
-      {h:"从某种意义上说",py:"cóng mǒu zhǒng yìyì shàng shuō",pt:"num certo sentido/de certa forma"},{h:"多方面",py:"duō fāngmiàn",pt:"multifacetado/em muitos aspectos"},
-      {h:"综合",py:"zōnghé",pt:"síntese/integrado"},{h:"全面",py:"quánmiàn",pt:"abrangente/completo"},
-      {h:"系统",py:"xìtǒng",pt:"sistemático/sistema"},
+      {h:"如果",py:"rúguǒ",pt:"se; caso"},
+      {h:"的话",py:"dehuà",pt:"(partícula condicional 'se')"},
+      {h:"然后",py:"ránhòu",pt:"depois; em seguida"},
+      {h:"而且",py:"érqiě",pt:"além disso; e também"},
+      {h:"不但",py:"búdàn",pt:"não só; não apenas"},
+      {h:"除了",py:"chúle",pt:"além de; exceto"},
+      {h:"或",py:"huò",pt:"ou"},
+      {h:"或者",py:"huòzhě",pt:"ou; ou então"},
+      {h:"可是",py:"kěshì",pt:"mas; porém"},
+      {h:"只要",py:"zhǐyào",pt:"desde que; contanto que"},
+      {h:"只有",py:"zhǐyǒu",pt:"somente; apenas quando"},
+      {h:"只是",py:"zhǐshì",pt:"só que; mas"},
+      {h:"才",py:"cái",pt:"apenas; só então; talento"},
+      {h:"终于",py:"zhōngyú",pt:"finalmente; por fim"},
+      {h:"参加",py:"cānjiā",pt:"participar; tomar parte"},
+      {h:"常常",py:"chángcháng",pt:"frequentemente; sempre"},
+      {h:"大概",py:"dàgài",pt:"provavelmente; aproximadamente"},
+      {h:"地",py:"dì",pt:"terra; chão"},
+      {h:"耳机",py:"ěrjī",pt:"fone de ouvido"},
+      {h:"干",py:"gàn",pt:"fazer; trabalhar"},
+      {h:"好像",py:"hǎoxiàng",pt:"parece que; é como se"},
+      {h:"记",py:"jì",pt:"anotar; lembrar"},
+      {h:"看来",py:"kànlái",pt:"parece; ao que parece"},
+      {h:"马上",py:"mǎshàng",pt:"imediatamente; já já"},
+      {h:"前年",py:"qiánnián",pt:"dois anos atrás"},
+      {h:"体育",py:"tǐyù",pt:"educação física; esporte"},
+      {h:"西瓜",py:"xīguā",pt:"melancia"},
+      {h:"牙",py:"yá",pt:"dente"},
+      {h:"一直",py:"yìzhí",pt:"sempre; direto; continuamente"},
+      {h:"运动员",py:"yùndòngyuán",pt:"atleta"},
+      {h:"周末",py:"zhōumò",pt:"fim de semana"}
     ],
     grammar:[
-      { struct:"HSK 3 Listening 听力 — Estratégias", label:"Seção de Áudio HSK 3", color:"#059669",
-        exp:"O HSK 3 tem 40 questões de listening em 3 partes: ①对话(diálogos curtos) ②对话(diálogos mais longos com múltiplas questões) ③独白(monólogos). Estratégias: ① Leia as opções ANTES. ② Palavras-gatilho: 但是/不过/虽然(contraste)→ resposta depois. ③ Preste atenção em: 时间/地点/原因/方式. ④ Não se prenda em detalhes — busque a ideia principal.",
-        exs:[{cn:"这次活动取消的原因是什么？",py:"Zhè cì huódòng qǔxiāo de yuányīn shì shénme?",pt:"Qual é a razão pelo qual o evento foi cancelado? (questão típica: procure a causa)"},{cn:"说话人的态度是什么？",py:"Shuōhuàrén de tàidu shì shénme?",pt:"Qual é a atitude do falante? (questão de inferência — muito comum no HSK 3!)"}] },
-      { struct:"HSK 3 Reading 阅读 — Estratégias", label:"Seção de Leitura HSK 3", color:"#6366F1",
-        exp:"O HSK 3 tem 30 questões de leitura: ①completar frases ②ordenar sentenças ③questões de compreensão. Estratégias: ① Conectivos são a chave para ordenar: 首先→然后→最后. ② Para completar: identifique o PADRÃO gramatical necessário. ③ Para compreensão: leia a PERGUNTA antes do texto! ④ Textos longos: procure a tese principal(中心思想).",
-        exs:[{cn:"根据文章，以下哪项说法正确？",py:"Gēnjù wénzhāng, yǐxià nǎ xiàng shuōfǎ zhèngquè?",pt:"De acordo com o artigo, qual das afirmações abaixo está correta? (padrão de compreensão mais comum)"},{cn:"这篇文章的主要观点是什么？",py:"Zhè piān wénzhāng de zhǔyào guāndiǎn shì shénme?",pt:"Qual é o ponto de vista principal do artigo? (questão de tese)"}] },
-      { struct:"Os 10 Erros Mais Comuns no HSK 3", label:"Evite Estes Erros Clássicos", color:"#DC2626",
-        exp:"① 把+V sem complemento ❌ 我把书看 → 我把书看完了 ✅ · ② 被 sem resultado negativo explícito em contextos formais · ③ 随着+A,B muda (不是 porque A causa B!) · ④ 在...看来 ≠ 对...来说(nuances!) · ⑤ 由于≠因为(formalidade) · ⑥ 尽管≠虽然(ênfase) · ⑦ 不仅+而且(progressão!) · ⑧ 既...又 ≠ 不但...而且(coexistência vs. progressão) · ⑨ 究竟/到底 só em perguntas · ⑩ 以...为主/基础 (estrutura fixa!)",
-        exs:[{cn:"✅ 经过认真准备，他凭借扎实的知识顺利通过了考试。",py:"Jīngguò rènzhēn zhǔnbèi, tā píngjiè zhāshí de zhīshi shùnlì tōngguò le kǎoshì.",pt:"Após uma preparação cuidadosa, apoiando-se em seu conhecimento sólido, ele passou no exame com sucesso."},{cn:"✅ 这个现象之所以产生，是由于社会发展不均衡所导致的。",py:"Zhège xiànxiàng zhī suǒyǐ chǎnshēng, shì yóuyú shèhuì fāzhǎn bù jūnhéng suǒ dǎozhì de.",pt:"A razão pela qual este fenômeno surgiu é que foi causado pelo desenvolvimento social desequilibrado."}] },
+      {struct:"如果/要是 … 就 …",label:"Condicional",color:"#6366F1",exp:"如果(formal) e 要是(coloquial) = se. Frequentemente com 的话 no fim da condição: 如果下雨的话… A oração principal quase sempre leva 就.",exs:[{cn:"如果明天下雨，我们就不去了。",py:"Rúguǒ míngtiān xià yǔ, wǒmen jiù bú qù le.",pt:"Se chover amanhã, não vamos."},{cn:"要是你有时间的话，就来我家坐坐。",py:"Yàoshi nǐ yǒu shíjiān dehuà, jiù lái wǒ jiā zuòzuo.",pt:"Se tiver tempo, venha à minha casa."},{cn:"如果不懂，就问老师。",py:"Rúguǒ bù dǒng, jiù wèn lǎoshī.",pt:"Se não entender, pergunte ao professor."}]},
+      {struct:"只要 … 就 … / 只有 … 才 …",label:"Condição Suficiente vs Necessária",color:"#0891B2",exp:"A distinção mais cobrada: 只要(basta que) pareia com 就; 只有(somente se) pareia com 才. 只要努力就能成功 (basta esforçar-se) vs 只有努力才能成功 (só com esforço).",exs:[{cn:"只要你坚持，就一定能提高。",py:"Zhǐyào nǐ jiānchí, jiù yídìng néng tígāo.",pt:"Basta persistir que você certamente vai melhorar."},{cn:"只有认真复习，才能考好。",py:"Zhǐyǒu rènzhēn fùxí, cái néng kǎo hǎo.",pt:"Só revisando com dedicação é que se vai bem na prova."},{cn:"只要不下雨，我们就出发。",py:"Zhǐyào bú xià yǔ, wǒmen jiù chūfā.",pt:"Desde que não chova, partimos."}]},
+      {struct:"连 + N + 都/也 + …",label:"Ênfase com 连…都",color:"#059669",exp:"连…都/也… = até mesmo. Destaca um caso extremo, geralmente para reforçar uma negação: 连一个字都不认识 (não conhece nem um caractere). 都 e 也 são intercambiáveis aqui.",exs:[{cn:"他连一句汉语都不会说。",py:"Tā lián yí jù Hànyǔ dōu bú huì shuō.",pt:"Ele não sabe dizer nem uma frase em chinês."},{cn:"这个问题连老师也回答不了。",py:"Zhège wèntí lián lǎoshī yě huídá bu liǎo.",pt:"Nem o professor consegue responder essa pergunta."},{cn:"我忙得连饭都没吃。",py:"Wǒ máng de lián fàn dōu méi chī.",pt:"Estava tão ocupado que nem comi."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"HSK三级考试快到了，你有什么准备策略？",py:"HSK sān jí kǎoshì kuài dào le, nǐ yǒu shénme zhǔnbèi cèlüè?",pt:"O HSK 3 está chegando — qual é a sua estratégia de preparação?"},
-      {sp:"B",cn:"我以巩固语法和扩充词汇为主，同时每天做阅读练习。总的来说，我觉得系统复习最重要。",py:"Wǒ yǐ gǒnggù yǔfǎ hé kuòchōng cíhuì wéi zhǔ, tóngshí měitiān zuò yuèdú liànxí. Zǒng de lái shuō, wǒ juéde xìtǒng fùxí zuì zhòngyào.",pt:"Tenho consolidar a gramática e expandir o vocabulário como foco principal, e simultaneamente faço exercícios de leitura todos os dias. Em suma, acho que a revisão sistemática é a mais importante."},
-      {sp:"A",cn:"同意！值得注意的是，听力部分也至关重要。换句话说，四项技能都不能忽视。",py:"Tóngyì! Zhídé zhùyì de shì, tīnglì bùfen yě zhì guān zhòngyào. Huàn jù huà shuō, sì xiàng jìnéng dōu bù néng hūshì.",pt:"Concordo! Vale notar que a seção de listening também é de suma importância. Em outras palavras, nenhuma das quatro habilidades pode ser ignorada."},
-      {sp:"B",cn:"毫无疑问！凭借这十二周的努力，我们一定能通过。加油！我们的努力必将有回报！",py:"Háo wú yíwèn! Píngjiè zhè shí'èr zhōu de nǔlì, wǒmen yīdìng néng tōngguò. Jiāyóu! Wǒmen de nǔlì bì jiāng yǒu huíbào!",pt:"Sem dúvida! Com doze semanas de esforço, vamos passar com certeza. Vai com tudo! Nosso esforço certamente terá seu retorno!"},
+      {sp:"A",cn:"如果明天下雨，我们还去吗？",py:"Rúguǒ míngtiān xià yǔ, wǒmen hái qù ma?",pt:"Se chover amanhã, ainda vamos?"},
+      {sp:"B",cn:"只要不刮大风，我们就出发。",py:"Zhǐyào bù guā dà fēng, wǒmen jiù chūfā.",pt:"Desde que não venha vento forte, partimos."},
+      {sp:"A",cn:"可是山路很滑，会不会有危险？",py:"Kěshì shānlù hěn huá, huì bu huì yǒu wēixiǎn?",pt:"Mas a trilha fica escorregadia, não é perigoso?"},
+      {sp:"B",cn:"只有小心一点儿，才能安全到山上。",py:"Zhǐyǒu xiǎoxīn yìdiǎnr, cái néng ānquán dào shān shàng.",pt:"Só com cuidado é que se chega ao topo em segurança."},
+      {sp:"A",cn:"昨天连他都说太难了。",py:"Zuótiān lián tā dōu shuō tài nán le.",pt:"Ontem até ele disse que era difícil demais."},
+      {sp:"B",cn:"虽然有点儿难，但是风景漂亮极了。",py:"Suīrán yǒudiǎnr nán, dànshì fēngjǐng piàoliang jí le.",pt:"Embora seja meio difícil, a paisagem é lindíssima."}
     ],
     quiz:[
-      {q:"No HSK 3 Reading, ao ordenar frases, qual palavra deve vir primeiro?",opts:["然后","最后","首先","因此"],ans:2,exp:"✅ 首先(primeiramente) → 然后(depois) → 最后(por fim). Para ordenar textos, os conectivos de sequência são a chave! Também: 首先...其次...再次...最后."},
-      {q:"'导致' significa:",opts:["promover","levar a/resultar em (geralmente negativo)","contribuir para","depender de"],ans:1,exp:"✅ 导致 dǎozhì = levar a / resultar em (geralmente resultado NEGATIVO). 污染导致疾病=a poluição leva a doenças. Para resultados positivos prefira 促进(promover) ou 有助于(contribuir para)!"},
-      {q:"'毫无疑问' equivale em português a:",opts:["talvez","em outras palavras","sem dúvida alguma","de certa forma"],ans:2,exp:"✅ 毫无疑问 háo wú yíwèn = sem dúvida alguma. 毫=nem um pouco + 无=sem + 疑问=dúvida. Expressão enfática de certeza absoluta. Muito útil em redações HSK 3!"},
-      {q:"'有利于' e '有助于' diferem porque:",opts:["são sinônimos","有利于=ser favorável a (vantagem); 有助于=contribuir para (ajuda)","有利于=formal; 有助于=informal","有利于=passado; 有助于=futuro"],ans:1,exp:"✅ 有利于(yǒulìyú)=ser favorável a/beneficiar (indica VANTAGEM ou CONDIÇÃO positiva). 有助于(yǒuzhùyú)=contribuir para/ajudar a (indica AUXÍLIO ou CONTRIBUIÇÃO). Sobreposição existe, mas nuances importam no HSK 3!"},
-      {q:"'取决于' significa:",opts:["contribuir para","depender de","resultar em","ser favorável a"],ans:1,exp:"✅ 取决于 qǔjuéyú = depender de. 结果取决于你的努力=o resultado depende do seu esforço. Formal e muito usado em contextos acadêmicos e argumentativos. Sinônimo: 决定于(juédìngyú)."},
+      {q:"只要 pareia com:",opts:["才","就","都","也"],ans:1,exp:"✅ 只要…就… = basta que… então… Condição SUFICIENTE."},
+      {q:"只有 pareia com:",opts:["就","才","而且","但是"],ans:1,exp:"✅ 只有…才… = somente se… é que… Condição NECESSÁRIA. Confundir os dois pares é o erro clássico do HSK 3."},
+      {q:"\"Ele não sabe nem uma frase\" =",opts:["他连一句都不会说。","他一句连不会说。","连他一句不会说都。","他不会连一句说都。"],ans:0,exp:"✅ 连 + N + 都/也 + negação — estrutura de ênfase por caso extremo."},
+      {q:"Na condicional, 的话 aparece:",opts:["Antes de 如果","No fim da condição","No fim da frase","Depois de 就"],ans:1,exp:"✅ 如果你有时间的话，就来吧 — 的话 fecha a oração condicional."},
+      {q:"Qual combinação está ERRADA?",opts:["虽然…但是","如果…就","虽然…所以","只有…才"],ans:2,exp:"✅ ❌虽然…所以 — 虽然 exige 但是/可是. 所以 pertence a 因为."}
     ],
   },
+  {
+    w:13, phase:"Emoções", emoji:"💗", color:"#0891B2",
+    theme:"Sentimentos, Caráter e Interesses",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"感到/觉得 · 对…感兴趣 · 好像",chars:"+19 novos"},
+    vocab:[
+      {h:"开心",py:"kāixīn",pt:"feliz; contente"},
+      {h:"难过",py:"nánguò",pt:"triste; sofrer"},
+      {h:"生气",py:"shēngqì",pt:"ficar bravo; se irritar"},
+      {h:"着急",py:"zháojí",pt:"estar ansioso; se preocupar"},
+      {h:"满意",py:"mǎnyì",pt:"satisfeito; contente"},
+      {h:"热情",py:"rèqíng",pt:"entusiasta; caloroso"},
+      {h:"喜爱",py:"xǐ’ài",pt:"gostar; apreciar; adorar"},
+      {h:"感到",py:"gǎndào",pt:"sentir; perceber"},
+      {h:"感兴趣",py:"gǎn xìngqù",pt:"ter interesse; achar interessante"},
+      {h:"兴趣",py:"xìngqù",pt:"interesse; hobby"},
+      {h:"哭",py:"kū",pt:"chorar"},
+      {h:"声音",py:"shēngyīn",pt:"som; voz"},
+      {h:"声",py:"shēng",pt:"som; voz"},
+      {h:"心里",py:"xīnlǐ",pt:"no coração; no íntimo"},
+      {h:"习惯",py:"xíguàn",pt:"hábito; estar acostumado"},
+      {h:"衬衫",py:"chènshān",pt:"camisa"},
+      {h:"大小",py:"dàxiǎo",pt:"tamanho"},
+      {h:"电",py:"diàn",pt:"eletricidade; eletrônico"},
+      {h:"发",py:"fā",pt:"enviar; emitir"},
+      {h:"刚",py:"gāng",pt:"recém; acabou de"},
+      {h:"黑板",py:"hēibǎn",pt:"lousa; quadro-negro"},
+      {h:"加",py:"jiā",pt:"adicionar; aumentar"},
+      {h:"可",py:"kě",pt:"mas; porém"},
+      {h:"毛",py:"máo",pt:"jiao/mao (0,1 yuan)"},
+      {h:"前天",py:"qiántiān",pt:"anteontem"},
+      {h:"体育馆",py:"tǐyùguǎn",pt:"ginásio"},
+      {h:"西南",py:"xīnán",pt:"sudoeste"},
+      {h:"牙刷",py:"yáshuā",pt:"escova de dente"},
+      {h:"银行",py:"yínháng",pt:"banco"},
+      {h:"咱们",py:"zánmen",pt:"nós (inclusivo)"},
+      {h:"主要",py:"zhǔyào",pt:"principal; principalmente"}
+    ],
+    grammar:[
+      {struct:"对 + N + 感兴趣",label:"Ter Interesse Em",color:"#6366F1",exp:"Estrutura fixa: 对 + objeto + 感兴趣. Não se diz ❌感兴趣中国文化。 Variação: 对…有兴趣. Negação: 对…不感兴趣.",exs:[{cn:"我对中国文化很感兴趣。",py:"Wǒ duì Zhōngguó wénhuà hěn gǎn xìngqù.",pt:"Tenho muito interesse pela cultura chinesa."},{cn:"他对数学一点儿也不感兴趣。",py:"Tā duì shùxué yìdiǎnr yě bù gǎn xìngqù.",pt:"Ele não tem o menor interesse por matemática."},{cn:"你对什么样的音乐有兴趣？",py:"Nǐ duì shénmeyàng de yīnyuè yǒu xìngqù?",pt:"Que tipo de música te interessa?"}]},
+      {struct:"好像 / 看起来 + 描述",label:"Aparência e Suposição",color:"#0891B2",exp:"好像 = parece que (suposição). 看起来 = pela aparência. Podem combinar: 看起来好像很累. Diferente de 像(ser parecido com), que rege substantivo: 他像他爸爸.",exs:[{cn:"他今天好像有点儿不高兴。",py:"Tā jīntiān hǎoxiàng yǒudiǎnr bù gāoxìng.",pt:"Ele parece um pouco chateado hoje."},{cn:"你看起来很着急，发生什么事了？",py:"Nǐ kàn qǐlái hěn zháojí, fāshēng shénme shì le?",pt:"Você parece aflito, o que aconteceu?"},{cn:"这个孩子很像他妈妈。",py:"Zhège háizi hěn xiàng tā māma.",pt:"Esta criança se parece muito com a mãe."}]},
+      {struct:"Adj + 极了 / 得很",label:"Grau Extremo",color:"#059669",exp:"Complementos de intensidade que vêm DEPOIS do adjetivo: 好极了(ótimo), 高兴得很(muito contente). Não combinam com 很 antes: ❌很好极了。",exs:[{cn:"听到这个消息，我高兴极了。",py:"Tīngdào zhège xiāoxi, wǒ gāoxìng jí le.",pt:"Ao ouvir a notícia, fiquei felicíssimo."},{cn:"这里的风景漂亮极了。",py:"Zhèlǐ de fēngjǐng piàoliang jí le.",pt:"A paisagem aqui é lindíssima."},{cn:"他最近忙得很，连电话都不接。",py:"Tā zuìjìn máng de hěn, lián diànhuà dōu bù jiē.",pt:"Ele anda ocupadíssimo, nem atende o telefone."}]}
+    ],
+    dialogue:[
+      {sp:"A",cn:"你今天好像很开心。",py:"Nǐ jīntiān hǎoxiàng hěn kāixīn.",pt:"Você parece muito feliz hoje."},
+      {sp:"B",cn:"是啊，我得到了一个好消息，高兴极了。",py:"Shì a, wǒ dédào le yí gè hǎo xiāoxi, gāoxìng jí le.",pt:"Sim, recebi uma boa notícia, estou felicíssimo."},
+      {sp:"A",cn:"什么消息？快讲讲。",py:"Shénme xiāoxi? Kuài jiǎngjiang.",pt:"Que notícia? Conta logo."},
+      {sp:"B",cn:"我申请的那个班级同意我参加了。",py:"Wǒ shēnqǐng de nàge bānjí tóngyì wǒ cānjiā le.",pt:"A turma para a qual me inscrevi aceitou minha participação."},
+      {sp:"A",cn:"你不是一直对中国文化很感兴趣吗？",py:"Nǐ bú shì yìzhí duì Zhōngguó wénhuà hěn gǎn xìngqù ma?",pt:"Você não sempre teve interesse por cultura chinesa?"},
+      {sp:"B",cn:"对！以前每次想到都很着急，现在放心了。",py:"Duì! Yǐqián měi cì xiǎngdào dōu hěn zháojí, xiànzài fàngxīn le.",pt:"Isso! Antes ficava aflito só de pensar, agora estou tranquilo."}
+    ],
+    quiz:[
+      {q:"\"Tenho interesse por cultura chinesa\" =",opts:["我感兴趣中国文化。","我对中国文化很感兴趣。","我很感兴趣对中国文化。","中国文化我感兴趣很。"],ans:1,exp:"✅ 对 + N + 感兴趣 é estrutura fixa. 感兴趣 nunca rege objeto direto."},
+      {q:"好像 expressa:",opts:["Certeza","Suposição/aparência","Passado","Obrigação"],ans:1,exp:"✅ 他好像不高兴 = ele parece chateado. Marca inferência, não fato confirmado."},
+      {q:"Qual está ERRADA?",opts:["他高兴极了。","这里漂亮极了。","他很高兴极了。","忙得很。"],ans:2,exp:"✅ ❌很…极了 — 极了 já é grau máximo; 很 antes é redundante e agramatical."},
+      {q:"像 difere de 好像 porque:",opts:["像 rege substantivo (他像他爸爸)","好像 é mais formal","São idênticos","像 só se usa em negativas"],ans:0,exp:"✅ 像 = parecer-se com (+ substantivo). 好像 = parece que (+ oração)."},
+      {q:"得很 vem:",opts:["Antes do adjetivo","Depois do adjetivo","No início","Depois do sujeito"],ans:1,exp:"✅ 忙得很, 好得很 — complemento de intensidade posposto ao adjetivo."}
+    ],
+  },
+  {
+    w:14, phase:"Digital", emoji:"📱", color:"#059669",
+    theme:"Tecnologia, Mídia e Entretenimento",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"把…发给 · 一边…一边",chars:"+19 novos"},
+    vocab:[
+      {h:"网站",py:"wǎngzhàn",pt:"site; website"},
+      {h:"网球",py:"wǎngqiú",pt:"tênis"},
+      {h:"邮件",py:"yóujiàn",pt:"e-mail; correspondência"},
+      {h:"邮箱",py:"yóuxiāng",pt:"caixa de e-mail; caixa postal"},
+      {h:"号码",py:"hàomǎ",pt:"número (telefone, etc.)"},
+      {h:"新闻",py:"xīnwén",pt:"notícia; jornal"},
+      {h:"电子书",py:"diànzǐshū",pt:"e-book; livro eletrônico"},
+      {h:"节目",py:"jiémù",pt:"programa (TV, rádio)"},
+      {h:"音乐",py:"yīnyuè",pt:"música"},
+      {h:"跳",py:"tiào",pt:"pular; saltar"},
+      {h:"表演",py:"biǎoyǎn",pt:"apresentar; performance"},
+      {h:"比赛",py:"bǐsài",pt:"competição; competir"},
+      {h:"冰激凌",py:"bīngjīlíng",pt:"sorvete"},
+      {h:"不用",py:"búyòng",pt:"não precisa"},
+      {h:"查",py:"chá",pt:"verificar; pesquisar"},
+      {h:"城市",py:"chéngshì",pt:"cidade"},
+      {h:"大熊猫",py:"dàxióngmāo",pt:"panda gigante"},
+      {h:"电梯",py:"diàntī",pt:"elevador"},
+      {h:"发展",py:"fāzhǎn",pt:"desenvolver; crescimento"},
+      {h:"刚才",py:"gāngcái",pt:"agora mesmo; há pouco"},
+      {h:"红绿灯",py:"hóng-lǜdēng",pt:"semáforo; sinal de trânsito"},
+      {h:"假期",py:"jiàqī",pt:"férias; período de folga"},
+      {h:"可爱",py:"kě’ài",pt:"adorável; fofo; querido"},
+      {h:"米",py:"mǐ",pt:"metro (medida)"},
+      {h:"请客",py:"qǐngkè",pt:"convidar para comer; pagar a conta"},
+      {h:"甜",py:"tián",pt:"doce"},
+      {h:"先",py:"xiān",pt:"primeiro; antes"},
+      {h:"羊",py:"yáng",pt:"carneiro; ovelha"},
+      {h:"银行卡",py:"yínhángkǎ",pt:"cartão bancário"},
+      {h:"脏",py:"zāng",pt:"sujo"},
+      {h:"注意",py:"zhùyì",pt:"prestar atenção; atenção"}
+    ],
+    grammar:[
+      {struct:"把 + N + 发/寄 + 给 + 人",label:"Transferência Digital",color:"#6366F1",exp:"Padrão do cotidiano digital: 把文件发给我(me envie o arquivo). Verbos: 发(enviar), 寄(remeter pelo correio), 转(encaminhar). Sempre com 给 + destinatário.",exs:[{cn:"请把这个文件发给我的邮箱。",py:"Qǐng bǎ zhège wénjiàn fā gěi wǒ de yóuxiāng.",pt:"Envie este arquivo para meu e-mail, por favor."},{cn:"我已经把消息转给他了。",py:"Wǒ yǐjīng bǎ xiāoxi zhuǎn gěi tā le.",pt:"Já encaminhei a mensagem para ele."},{cn:"他把照片发到网上去了。",py:"Tā bǎ zhàopiàn fā dào wǎng shàng qù le.",pt:"Ele publicou as fotos na internet."}]},
+      {struct:"S + 用 + 工具 + V",label:"Instrumento com 用",color:"#0891B2",exp:"用 introduz a ferramenta e vem antes do verbo principal: 用手机付钱(pagar pelo celular). Não confunda com 有用(útil), que é adjetivo.",exs:[{cn:"现在大家都用手机支付。",py:"Xiànzài dàjiā dōu yòng shǒujī zhīfù.",pt:"Hoje todo mundo paga pelo celular."},{cn:"我用电脑写作业，不用笔。",py:"Wǒ yòng diànnǎo xiě zuòyè, bú yòng bǐ.",pt:"Faço o dever no computador, não à caneta."},{cn:"你能用汉语介绍一下自己吗？",py:"Nǐ néng yòng Hànyǔ jièshào yíxià zìjǐ ma?",pt:"Consegue se apresentar em chinês?"}]},
+      {struct:"V + 一下 / VV (重叠)",label:"Verbos Reduplicados",color:"#059669",exp:"Suaviza a ação, tornando-a breve e educada: 看一下 = 看看 (dar uma olhada). Verbos de 2 sílabas repetem inteiros: 休息休息, 介绍介绍. Não se aplica a verbos de estado como 是/有.",exs:[{cn:"你帮我看一下这个网站好吗？",py:"Nǐ bāng wǒ kàn yíxià zhège wǎngzhàn hǎo ma?",pt:"Pode dar uma olhada neste site para mim?"},{cn:"我们休息休息，等一会儿再做。",py:"Wǒmen xiūxi xiūxi, děng yíhuìr zài zuò.",pt:"Vamos descansar um pouco e continuar depois."},{cn:"请你介绍介绍这个节目。",py:"Qǐng nǐ jièshào jièshào zhège jiémù.",pt:"Por favor, fale um pouco sobre este programa."}]}
+    ],
+    dialogue:[
+      {sp:"A",cn:"你能把那个文件发给我吗？",py:"Nǐ néng bǎ nàge wénjiàn fā gěi wǒ ma?",pt:"Pode me enviar aquele arquivo?"},
+      {sp:"B",cn:"可以，发到你的邮箱还是手机上？",py:"Kěyǐ, fā dào nǐ de yóuxiāng háishi shǒujī shàng?",pt:"Claro, para o e-mail ou o celular?"},
+      {sp:"A",cn:"邮箱吧。你帮我看一下那个网站好吗？",py:"Yóuxiāng ba. Nǐ bāng wǒ kàn yíxià nàge wǎngzhàn hǎo ma?",pt:"E-mail. E pode dar uma olhada naquele site para mim?"},
+      {sp:"B",cn:"好，我用电脑打开看看。",py:"Hǎo, wǒ yòng diànnǎo dǎkāi kànkan.",pt:"Certo, vou abrir no computador."},
+      {sp:"A",cn:"昨天的那个节目你看了吗？",py:"Zuótiān de nàge jiémù nǐ kàn le ma?",pt:"Você viu aquele programa de ontem?"},
+      {sp:"B",cn:"看了，音乐特别好听，我还把它转给朋友了。",py:"Kàn le, yīnyuè tèbié hǎotīng, wǒ hái bǎ tā zhuǎn gěi péngyou le.",pt:"Vi, a música era ótima, até encaminhei para uns amigos."}
+    ],
+    quiz:[
+      {q:"\"Envie o arquivo para meu e-mail\" =",opts:["请把文件发给我的邮箱。","请发文件把我的邮箱。","请把发文件我的邮箱。","请文件把发给邮箱。"],ans:0,exp:"✅ 把 + O + V + 给 + destinatário — padrão essencial do cotidiano digital."},
+      {q:"用 (instrumento) fica:",opts:["Depois do verbo principal","Antes do verbo principal","No fim","Depois do objeto"],ans:1,exp:"✅ 用手机支付, 用电脑写 — a ferramenta precede a ação."},
+      {q:"看一下 equivale a:",opts:["看着","看看","看完","看得懂"],ans:1,exp:"✅ 看一下 = 看看 — ambos suavizam a ação, tornando-a breve e educada."},
+      {q:"Verbos de 2 sílabas reduplicam assim:",opts:["休休息息","休息休息","休息息","息休息"],ans:1,exp:"✅ ABAB para dissílabos (休息休息, 介绍介绍); AA para monossílabos (看看, 说说)."},
+      {q:"Qual verbo NÃO reduplica?",opts:["看","休息","是","介绍"],ans:2,exp:"✅ 是 — verbos de estado não aceitam reduplicação, pois não descrevem ação de duração controlável."}
+    ],
+  },
+  {
+    w:15, phase:"Cultura", emoji:"🏮", color:"#D97706",
+    theme:"Festivais, Língua e Literatura",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"除了…以外 · 被动文化语境",chars:"+19 novos"},
+    vocab:[
+      {h:"节日",py:"jiérì",pt:"feriado; data comemorativa"},
+      {h:"新年",py:"xīnnián",pt:"Ano Novo"},
+      {h:"过节",py:"guòjié",pt:"celebrar uma data"},
+      {h:"文化",py:"wénhuà",pt:"cultura"},
+      {h:"世界",py:"shìjiè",pt:"mundo"},
+      {h:"国家",py:"guójiā",pt:"país; nação"},
+      {h:"故事",py:"gùshi",pt:"história; conto"},
+      {h:"报纸",py:"bàozhǐ",pt:"jornal"},
+      {h:"词典",py:"cídiǎn",pt:"dicionário"},
+      {h:"字典",py:"zìdiǎn",pt:"dicionário (de caracteres)"},
+      {h:"语言",py:"yǔyán",pt:"língua; idioma"},
+      {h:"句",py:"jù",pt:"(classif. frases)"},
+      {h:"句子",py:"jùzi",pt:"frase; oração"},
+      {h:"礼物",py:"lǐwù",pt:"presente; gift"},
+      {h:"欢迎",py:"huānyíng",pt:"boas-vindas; bem-vindo"},
+      {h:"做客",py:"zuòkè",pt:"ser convidado; visitar"},
+      {h:"大衣",py:"dàyī",pt:"casaco (longo)"},
+      {h:"东北",py:"dōngběi",pt:"nordeste"},
+      {h:"方便",py:"fāngbiàn",pt:"conveniente; prático"},
+      {h:"刚刚",py:"gānggāng",pt:"recém; acabou de"},
+      {h:"后来",py:"hòulái",pt:"depois; mais tarde"},
+      {h:"见面",py:"jiànmiàn",pt:"se encontrar; se reunir"},
+      {h:"刻",py:"kè",pt:"quarto de hora; (classif. momentos)"},
+      {h:"名单",py:"míngdān",pt:"lista de nomes"},
+      {h:"球场",py:"qiúchǎng",pt:"quadra; campo (esporte)"},
+      {h:"听说",py:"tīngshuō",pt:"ouvir dizer; dizem que"},
+      {h:"香蕉",py:"xiāngjiāo",pt:"banana"},
+      {h:"养",py:"yǎng",pt:"criar (animal); sustentar"},
+      {h:"饮料",py:"yǐnliào",pt:"bebida"},
+      {h:"怎么办",py:"zěnme bàn",pt:"o que fazer; como resolver"},
+      {h:"子",py:"zi",pt:"(sufixo nominalizador)"}
+    ],
+    grammar:[
+      {struct:"除了 … 以外，都/也",label:"Exclusão vs Inclusão",color:"#6366F1",exp:"A armadilha clássica: com 都 significa EXCETO (除了他以外，大家都来了 = todos vieram menos ele). Com 也/还 significa ALÉM DE (除了汉语，他还会英语).",exs:[{cn:"除了小王以外，我们都参加了。",py:"Chúle Xiǎo Wáng yǐwài, wǒmen dōu cānjiā le.",pt:"Exceto Xiao Wang, todos nós participamos."},{cn:"除了汉语以外，他还会说三种外语。",py:"Chúle Hànyǔ yǐwài, tā hái huì shuō sān zhǒng wàiyǔ.",pt:"Além do chinês, ele fala mais três línguas estrangeiras."},{cn:"除了春节，中秋节也很重要。",py:"Chúle Chūnjié, Zhōngqiūjié yě hěn zhòngyào.",pt:"Além do Ano Novo, o Festival do Meio-Outono também é importante."}]},
+      {struct:"一 + 量词 + 也/都 + 不/没",label:"Negação Enfática",color:"#0891B2",exp:"Estrutura para \"nem um só\": 一个人也没有, 一句话都没说. O quantificador é obrigatório, e a negação vem no fim. É a forma mais enfática de negar em chinês.",exs:[{cn:"这个词典里一个生词也没有。",py:"Zhège cídiǎn lǐ yí gè shēngcí yě méiyǒu.",pt:"Não há sequer uma palavra nova neste dicionário."},{cn:"他一句话都没说就走了。",py:"Tā yí jù huà dōu méi shuō jiù zǒu le.",pt:"Ele foi embora sem dizer uma palavra."},{cn:"那本小说我一页也没看完。",py:"Nà běn xiǎoshuō wǒ yí yè yě méi kàn wán.",pt:"Daquele romance não terminei nem uma página."}]},
+      {struct:"被动 + 文化语境",label:"Passiva em Contexto Formal",color:"#059669",exp:"Em textos sobre cultura e história, a passiva com 被 aparece sem agente e com verbos abstratos: 被认为(é considerado), 被称为(é chamado de), 被翻译成(foi traduzido para).",exs:[{cn:"春节被认为是中国最重要的节日。",py:"Chūnjié bèi rènwéi shì Zhōngguó zuì zhòngyào de jiérì.",pt:"O Ano Novo é considerado o feriado mais importante da China."},{cn:"这本小说被翻译成了很多种语言。",py:"Zhè běn xiǎoshuō bèi fānyì chéng le hěn duō zhǒng yǔyán.",pt:"Este romance foi traduzido para muitas línguas."},{cn:"这个地方被称为\"东方的花园\"。",py:"Zhège dìfang bèi chēngwéi \"Dōngfāng de huāyuán\".",pt:"Este lugar é chamado de \"jardim do Oriente\"."}]}
+    ],
+    dialogue:[
+      {sp:"A",cn:"中国最重要的节日是什么？",py:"Zhōngguó zuì zhòngyào de jiérì shì shénme?",pt:"Qual é o feriado mais importante da China?"},
+      {sp:"B",cn:"春节被认为是最重要的。",py:"Chūnjié bèi rènwéi shì zuì zhòngyào de.",pt:"O Ano Novo é considerado o mais importante."},
+      {sp:"A",cn:"除了春节以外，还有别的吗？",py:"Chúle Chūnjié yǐwài, hái yǒu bié de ma?",pt:"Além do Ano Novo, há outros?"},
+      {sp:"B",cn:"有，中秋节也很有名，大家都会回家过节。",py:"Yǒu, Zhōngqiūjié yě hěn yǒumíng, dàjiā dōu huì huí jiā guòjié.",pt:"Sim, o Festival do Meio-Outono também é famoso, todos voltam para casa."},
+      {sp:"A",cn:"我以前一次也没参加过。",py:"Wǒ yǐqián yí cì yě méi cānjiā guò.",pt:"Nunca participei nenhuma vez."},
+      {sp:"B",cn:"今年欢迎你来我家做客！",py:"Jīnnián huānyíng nǐ lái wǒ jiā zuòkè!",pt:"Este ano venha à minha casa como convidado!"}
+    ],
+    quiz:[
+      {q:"除了他以外，大家都来了 significa:",opts:["Ele também veio","Todos vieram, menos ele","Só ele veio","Ninguém veio"],ans:1,exp:"✅ Com 都, 除了 significa EXCETO. Com 也/还 significaria \"além dele\"."},
+      {q:"\"Além do chinês, ele fala inglês\" =",opts:["除了汉语以外，他都会英语。","除了汉语以外，他还会英语。","除了汉语，他不会英语。","汉语除了以外，他会英语。"],ans:1,exp:"✅ 还/也 → inclusão. 都 → exclusão. Essa é a distinção decisiva da estrutura."},
+      {q:"\"Ele foi embora sem dizer uma palavra\" =",opts:["他一句话都没说就走了。","他没说一句话都走了。","他一句话没都说走了。","他都一句话没说走了。"],ans:0,exp:"✅ 一 + 量词 + 都/也 + 没/不 — negação enfática. O quantificador é obrigatório."},
+      {q:"被认为 significa:",opts:["Considerar","Ser considerado","Querer considerar","Não considerar"],ans:1,exp:"✅ Passiva lexical formal, típica de textos sobre cultura: 被认为, 被称为, 被翻译成."},
+      {q:"Qual frase usa 除了 corretamente com 都?",opts:["除了春节，中秋节也很重要。","除了小王以外，我们都参加了。","除了汉语，他还会英语。","除了他，我也去了。"],ans:1,exp:"✅ 除了小王以外，我们都参加了 — 都 marca que o restante do grupo fez algo, excluindo o mencionado."}
+    ],
+  },
+  {
+    w:16, phase:"Revisão", emoji:"🏆", color:"#6366F1",
+    theme:"Consolidação Geral do HSK 3",
+    built:false, builtNote:"",
+    stats:{words:"31 novas (HSK 3)",newHSK2:"31",grammar:"全部语法复习",chars:"+19 novos"},
+    vocab:[
+      {h:"安静",py:"ānjìng",pt:"quieto; silencioso"},
+      {h:"半天",py:"bàntiān",pt:"meio dia; muito tempo"},
+      {h:"帮助",py:"bāngzhù",pt:"ajudar; ajuda"},
+      {h:"北方",py:"běifāng",pt:"norte; regiões do norte"},
+      {h:"笔记",py:"bǐjì",pt:"anotação; nota"},
+      {h:"笔记本",py:"bǐjìběn",pt:"caderno; notebook"},
+      {h:"比如",py:"bǐrú",pt:"por exemplo"},
+      {h:"变",py:"biàn",pt:"mudar; transformar"},
+      {h:"遍",py:"biàn",pt:"(classif. vezes completas)"},
+      {h:"变成",py:"biànchéng",pt:"tornar-se; transformar-se em"},
+      {h:"变化",py:"biànhuà",pt:"mudança; transformação"},
+      {h:"冰",py:"bīng",pt:"gelo"},
+      {h:"不见",py:"bújiàn",pt:"não ver; sumir"},
+      {h:"不同",py:"bù tóng",pt:"diferente; distinto"},
+      {h:"尝",py:"cháng",pt:"provar (comida)"},
+      {h:"迟到",py:"chídào",pt:"chegar atrasado"},
+      {h:"蛋糕",py:"dàngāo",pt:"bolo"},
+      {h:"动物",py:"dòngwù",pt:"animal"},
+      {h:"方便面",py:"fāngbiànmiàn",pt:"macarrão instantâneo"},
+      {h:"根据",py:"gēnjù",pt:"segundo; com base em; de acordo com"},
+      {h:"后年",py:"hòunián",pt:"daqui a dois anos"},
+      {h:"角",py:"jiǎo",pt:"jiao (1/10 yuan)"},
+      {h:"矿泉水",py:"kuàngquánshuǐ",pt:"água mineral"},
+      {h:"名人",py:"míngrén",pt:"pessoa famosa; celebridade"},
+      {h:"裙子",py:"qúnzi",pt:"saia"},
+      {h:"头发",py:"tóufa",pt:"cabelo"},
+      {h:"相信",py:"xiāngxìn",pt:"acreditar; confiar"},
+      {h:"页",py:"yè",pt:"página"},
+      {h:"用",py:"yòng",pt:"usar; utilizar"},
+      {h:"怎样",py:"zěnyàng",pt:"como; de que forma"},
+      {h:"总",py:"zǒng",pt:"sempre; ao todo"}
+    ],
+    grammar:[
+      {struct:"把 vs 被 — 对比复习",label:"Revisão: As Duas Estruturas Centrais",color:"#6366F1",exp:"Mesma cena, focos opostos. 把: o sujeito AGE sobre o objeto (我把伞丢了 — eu perdi o guarda-chuva). 被: o sujeito SOFRE a ação (伞被我丢了 — o guarda-chuva foi perdido por mim). Ambos exigem complemento verbal.",exs:[{cn:"我把窗户关上了。→ 窗户被我关上了。",py:"Wǒ bǎ chuānghu guān shàng le. → Chuānghu bèi wǒ guān shàng le.",pt:"Fechei a janela. → A janela foi fechada por mim."},{cn:"他把我的自行车骑走了。→ 我的自行车被他骑走了。",py:"Tā bǎ wǒ de zìxíngchē qí zǒu le. → Wǒ de zìxíngchē bèi tā qí zǒu le.",pt:"Ele levou minha bicicleta. → Minha bicicleta foi levada por ele."},{cn:"请把这些照片发给我。",py:"Qǐng bǎ zhèxiē zhàopiàn fā gěi wǒ.",pt:"Por favor, envie estas fotos para mim."}]},
+      {struct:"三种补语 — 得/结果/可能",label:"Revisão: Os Três Complementos",color:"#0891B2",exp:"Tabela decisiva: 说得很好(GRAU — como fala), 说完了(RESULTADO — terminou de falar), 说不清楚(POSSIBILIDADE — não consegue falar claro). O 得 do grau avalia; o 得 da possibilidade habilita.",exs:[{cn:"他汉语说得很流利，但是有的词还说不准。",py:"Tā Hànyǔ shuō de hěn liúlì, dànshì yǒude cí hái shuō bu zhǔn.",pt:"Ele fala chinês fluentemente, mas ainda não pronuncia algumas palavras com precisão."},{cn:"作业做完了，可是有两个题做得不对。",py:"Zuòyè zuò wán le, kěshì yǒu liǎng gè tí zuò de bú duì.",pt:"Terminei o dever, mas duas questões ficaram erradas."},{cn:"这么小的字，我看不见。",py:"Zhème xiǎo de zì, wǒ kàn bu jiàn.",pt:"Letras tão pequenas, não consigo enxergar."}]},
+      {struct:"复句总复习",label:"Revisão: Orações Complexas",color:"#059669",exp:"Os pares fixos do HSK 3 — nunca os misture: 不但…而且 / 虽然…但是 / 因为…所以 / 如果…就 / 只要…就 / 只有…才 / 除了…以外. Cada conjunção tem seu parceiro obrigatório.",exs:[{cn:"虽然这个办法不太简单，但是很有用。",py:"Suīrán zhège bànfǎ bú tài jiǎndān, dànshì hěn yǒuyòng.",pt:"Embora este método não seja muito simples, é bastante útil."},{cn:"只有多练习，才能把汉语学好。",py:"Zhǐyǒu duō liànxí, cái néng bǎ Hànyǔ xué hǎo.",pt:"Só praticando bastante é que se aprende bem o chinês."},{cn:"如果你对中国文化感兴趣，就应该多读点儿书。",py:"Rúguǒ nǐ duì Zhōngguó wénhuà gǎn xìngqù, jiù yīnggāi duō dú diǎnr shū.",pt:"Se você se interessa por cultura chinesa, deveria ler mais."}]}
+    ],
+    dialogue:[
+      {sp:"A",cn:"这一年学下来，你觉得最难的是什么？",py:"Zhè yì nián xué xiàlái, nǐ juéde zuì nán de shì shénme?",pt:"Após este ano de estudo, o que você achou mais difícil?"},
+      {sp:"B",cn:"把字句和被字句，我常常用错。",py:"Bǎ zì jù hé bèi zì jù, wǒ chángcháng yòng cuò.",pt:"As estruturas 把 e 被, sempre erro."},
+      {sp:"A",cn:"其实只要多练习，就能用得很好。",py:"Qíshí zhǐyào duō liànxí, jiù néng yòng de hěn hǎo.",pt:"Na verdade, basta praticar bastante que se usa bem."},
+      {sp:"B",cn:"对，经过这半年，我的水平提高了不少。",py:"Duì, jīngguò zhè bàn nián, wǒ de shuǐpíng tígāo le bù shǎo.",pt:"É verdade, após esses seis meses meu nível melhorou muito."},
+      {sp:"A",cn:"现在报纸上的文章你看得懂吗？",py:"Xiànzài bàozhǐ shàng de wénzhāng nǐ kàn de dǒng ma?",pt:"Agora você consegue entender os artigos de jornal?"},
+      {sp:"B",cn:"大部分看得懂了。只有认真坚持，才能学好汉语！",py:"Dà bùfen kàn de dǒng le. Zhǐyǒu rènzhēn jiānchí, cái néng xué hǎo Hànyǔ!",pt:"A maior parte sim. Só persistindo com seriedade é que se aprende chinês!"}
+    ],
+    quiz:[
+      {q:"Converta para 被: 我把窗户关上了。",opts:["窗户我被关上了。","窗户被我关上了。","被窗户我关上了。","我被窗户关上了。"],ans:1,exp:"✅ 窗户被我关上了 — o objeto do 把 vira sujeito do 被. O complemento (上了) permanece obrigatório nas duas."},
+      {q:"说得很好 / 说完了 / 说不清楚 são, respectivamente:",opts:["Grau, resultado, possibilidade","Resultado, grau, possibilidade","Possibilidade, resultado, grau","Grau, possibilidade, resultado"],ans:0,exp:"✅ 得+Adj = GRAU (como fala). V+完 = RESULTADO (terminou). V+不+结果 = POSSIBILIDADE (não consegue)."},
+      {q:"Qual par de conjunções está CORRETO?",opts:["因为…但是","虽然…而且","只有…才","不但…所以"],ans:2,exp:"✅ 只有…才 é o único par válido. Os outros misturam parceiros de estruturas diferentes."},
+      {q:"O que 把 e 被 têm em comum?",opts:["Ambos exigem complemento verbal","Ambos negam com 不","Ambos são optativos","Ambos vão no fim"],ans:0,exp:"✅ Nas duas estruturas o verbo nunca fica sozinho, e a negação vem antes de 把/被 — nunca depois."},
+      {q:"\"Só praticando é que se aprende bem\" =",opts:["只要多练习，才能学好。","只有多练习，才能学好。","只有多练习，就能学好。","只要多练习，都能学好。"],ans:1,exp:"✅ 只有…才 — condição necessária. Trocar por 只要…就 mudaria o sentido para \"basta praticar\"."}
+    ],
+  }
 ];
 
-// ═══════════════════════════════════════════════════════════════════════
-// COMPONENTE
-// ═══════════════════════════════════════════════════════════════════════
 export default function HSK3Completo() {
-  const [week,     setWeek]    = useState(1);
-  const [tab,      setTab]     = useState("vocab");
-  const [showPy,   setShowPy]  = useState(true);
-  const [openG,    setOpenG]   = useState(0);
-  const [dlPy,     setDlPy]    = useState(true);
-  const [answers,  setAnswers] = useState({});
-  const [revealed, setRevealed]= useState({});
+  const [week,    setWeek]    = useState(4);
+  const [tab,     setTab]     = useState("vocab");
+  const [showPy,  setShowPy]  = useState(true);
+  const [openG,   setOpenG]   = useState(0);
+  const [dlPy,    setDlPy]    = useState(true);
+  const [answers, setAnswers] = useState({});
+  const [revealed,setRevealed]= useState({});
+  const [linePy,  setLinePy]  = useState({});
 
-  const w  = WEEKS[week - 1];
+  const w = WEEKS.find(x => x.x === week) || WEEKS[week - 1];
   const dc = w.color;
+
   const correct  = Object.entries(answers).filter(([i,a]) => a === w.quiz[+i].ans).length;
   const answered = Object.keys(answers).length;
+
   const resetQuiz = () => { setAnswers({}); setRevealed({}); };
 
+  const phaseOrder = [...new Set(WEEKS.map(x=>x.phase))];
+  const phaseColor = { "Fundação":"#6366F1","Espaço":"#D97706","Natureza":"#0891B2","Cotidiano":"#DC2626","Saúde":"#7C3AED","Lazer":"#059669","Comunicação":"#D97706","Emoções":"#DC2626","Viagem":"#6366F1","Revisão":"#374151","Simulado":"#059669" };
+
   return (
-    <div style={{ fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", background:sand, minHeight:"100vh", paddingBottom:"48px" }}>
+    <div style={{ fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",
+                  background:sand, minHeight:"100vh", paddingBottom:"48px" }}>
 
       {/* HEADER */}
-      <div style={{ background:"linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4338CA 100%)", color:"white", padding:"24px 20px 20px" }}>
+      <div style={{ background:ink, color:"white", padding:"24px 20px 20px" }}>
         <div style={{ maxWidth:"900px", margin:"0 auto" }}>
           <div style={{ display:"flex", gap:"8px", marginBottom:"10px", flexWrap:"wrap" }}>
-            <span style={{ background:"#7C3AED", borderRadius:"6px", padding:"3px 12px", fontSize:"12px", fontWeight:"700" }}>🇨🇳 Novo HSK 3 · Programa Completo</span>
-            <span style={{ background:"rgba(255,255,255,0.12)", borderRadius:"6px", padding:"3px 12px", fontSize:"12px", fontWeight:"600" }}>12 Semanas · ~973 Palavras · 44 Pontos Gramaticais</span>
+            <span style={{ background:"#6366F1", borderRadius:"6px", padding:"3px 12px", fontSize:"12px", fontWeight:"700" }}>
+              🇨🇳 Novo HSK 2 · Programa Completo
+            </span>
+            <span style={{ background:"rgba(255,255,255,0.12)", borderRadius:"6px", padding:"3px 12px", fontSize:"12px", fontWeight:"600" }}>
+              12 Semanas · ~772 Palavras · 41 Pontos Gramaticais
+            </span>
           </div>
-          <h1 style={{ margin:"0 0 14px", fontSize:"clamp(18px,3.5vw,26px)", fontWeight:"900" }}>
-            老师 · HSK 3 — 12 Semanas Completas
+          <h1 style={{ margin:"0 0 14px", fontSize:"clamp(18px,3.5vw,28px)", fontWeight:"900" }}>
+            老师 · Cronograma HSK 2 — Todas as 12 Semanas
           </h1>
+
+          {/* Week selector — phases */}
           <div style={{ display:"flex", gap:"4px", overflowX:"auto", paddingBottom:"4px" }}>
             {WEEKS.map(wx => (
-              <button key={wx.w} onClick={()=>{setWeek(wx.w);setTab("vocab");resetQuiz();}}
-                style={{ padding:"7px 12px", borderRadius:"10px", border:"2px solid", borderColor:week===wx.w?"white":"rgba(255,255,255,0.2)", background:week===wx.w?"white":"transparent", color:week===wx.w?ink:"rgba(255,255,255,0.8)", fontWeight:"800", fontSize:"11px", cursor:"pointer", whiteSpace:"nowrap", transition:"all 0.15s", flexShrink:0, display:"flex", flexDirection:"column", alignItems:"center", gap:"2px" }}>
-                <span style={{ fontSize:"14px" }}>{wx.emoji}</span>
+              <button key={wx.w} onClick={()=>{setWeek(wx.w);setTab("vocab");resetQuiz();setLinePy({});}}
+                style={{ padding:"7px 12px", borderRadius:"10px", border:"2px solid",
+                         borderColor: week===wx.w ? "white" : "rgba(255,255,255,0.2)",
+                         background: week===wx.w ? "white" : "transparent",
+                         color: week===wx.w ? ink : "rgba(255,255,255,0.8)",
+                         fontWeight:"800", fontSize:"12px", cursor:"pointer",
+                         whiteSpace:"nowrap", transition:"all 0.15s", flexShrink:0,
+                         display:"flex", flexDirection:"column", alignItems:"center", gap:"2px" }}>
+                <span style={{ fontSize:"16px" }}>{wx.emoji}</span>
                 <span>S{wx.w}</span>
               </button>
             ))}
@@ -595,51 +1022,78 @@ export default function HSK3Completo() {
       <div style={{ maxWidth:"900px", margin:"0 auto", padding:"0 16px" }}>
 
         {/* Week header */}
-        <div style={{ background:"white", borderRadius:"14px", padding:"14px 18px", margin:"14px 0 4px", border:`1px solid ${bdr}`, boxShadow:"0 2px 8px rgba(15,23,42,0.06)", borderLeft:`5px solid ${dc}` }}>
-          <div style={{ display:"flex", alignItems:"flex-start", gap:"12px", flexWrap:"wrap" }}>
-            <div style={{ width:"46px", height:"46px", borderRadius:"12px", background:dc, color:"white", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", flexShrink:0 }}>
+        <div style={{ background:"white", borderRadius:"14px", padding:"16px 20px",
+                      margin:"16px 0 4px", border:`1px solid ${bdr}`,
+                      boxShadow:"0 2px 8px rgba(15,23,42,0.06)",
+                      borderLeft:`5px solid ${dc}` }}>
+          <div style={{ display:"flex", alignItems:"flex-start", gap:"14px", flexWrap:"wrap" }}>
+            <div style={{ width:"48px", height:"48px", borderRadius:"12px", background:dc,
+                          color:"white", display:"flex", flexDirection:"column",
+                          alignItems:"center", justifyContent:"center", flexShrink:0 }}>
               <span style={{ fontSize:"10px", fontWeight:"700", opacity:0.8 }}>SEM</span>
               <span style={{ fontSize:"20px", fontWeight:"900", lineHeight:1 }}>{w.w}</span>
             </div>
             <div style={{ flex:1 }}>
               <div style={{ display:"flex", gap:"8px", alignItems:"center", marginBottom:"3px", flexWrap:"wrap" }}>
-                <span style={{ fontWeight:"900", color:ink, fontSize:"15px" }}>{w.theme}</span>
-                <span style={{ fontSize:"11px", fontWeight:"700", color:dc, background:`${dc}12`, padding:"2px 8px", borderRadius:"10px" }}>{w.phase}</span>
+                <span style={{ fontWeight:"900", color:ink, fontSize:"16px" }}>{w.theme}</span>
+                <span style={{ fontSize:"11px", fontWeight:"700", color:dc,
+                               background:`${dc}12`, padding:"2px 8px", borderRadius:"10px" }}>
+                  {w.phase}
+                </span>
               </div>
-              <div style={{ display:"flex", gap:"10px", flexWrap:"wrap" }}>
-                {[[" 📖",w.stats.words],["🆕",w.stats.newHSK3+" novas"],["📐",w.stats.grammar],["✍️",w.stats.chars]].map(([e,v])=>(
-                  <span key={v} style={{ fontSize:"11px", color:muted }}>{e} {v}</span>
+              <div style={{ display:"flex", gap:"12px", flexWrap:"wrap" }}>
+                {[["📖",w.stats.words],["🆕",w.stats.newHSK2+" novas"],["📐",w.stats.grammar],["✍️",w.stats.chars]].map(([e,v])=>(
+                  <span key={v} style={{ fontSize:"12px", color:muted }}>{e} {v}</span>
                 ))}
               </div>
             </div>
           </div>
+          {w.built && (
+            <div style={{ marginTop:"10px", padding:"8px 12px", background:"#EEF2FF",
+                          border:"1px solid #C7D2FE", borderRadius:"8px",
+                          fontSize:"12px", color:"#3730A3", fontWeight:"600" }}>
+              📁 {w.builtNote}
+            </div>
+          )}
         </div>
 
-        {/* Tabs */}
-        <div style={{ display:"flex", gap:"6px", padding:"8px 0 4px", overflowX:"auto" }}>
+        {/* Tab selector */}
+        <div style={{ display:"flex", gap:"6px", padding:"10px 0 4px", overflowX:"auto" }}>
           {[["vocab","📚 Vocab"],["grammar","📐 Gramática"],["dialogue","💬 Diálogo"],["quiz","✏️ Quiz (5Q)"]].map(([id,lbl])=>(
-            <button key={id} onClick={()=>setTab(id)} style={{ padding:"8px 16px", borderRadius:"9px", border:"2px solid", borderColor:tab===id?dc:bdr, background:tab===id?dc:"white", color:tab===id?"white":muted, fontWeight:"700", fontSize:"13px", cursor:"pointer", whiteSpace:"nowrap", transition:"all 0.15s", flexShrink:0 }}>
+            <button key={id} onClick={()=>setTab(id)} style={{
+              padding:"8px 16px", borderRadius:"9px", border:"2px solid",
+              borderColor:tab===id?dc:bdr, background:tab===id?dc:"white",
+              color:tab===id?"white":muted, fontWeight:"700", fontSize:"13px",
+              cursor:"pointer", whiteSpace:"nowrap", transition:"all 0.15s", flexShrink:0 }}>
               {lbl}
             </button>
           ))}
         </div>
 
-        {/* VOCABULÁRIO */}
+        {/* ── VOCABULÁRIO */}
         {tab==="vocab" && (
-          <div style={{ paddingTop:"14px" }}>
-            <div style={{ display:"flex", gap:"8px", marginBottom:"12px", flexWrap:"wrap", alignItems:"center" }}>
-              <button onClick={()=>setShowPy(v=>!v)} style={{ padding:"6px 12px", borderRadius:"8px", border:`2px solid ${showPy?"#D97706":bdr}`, background:showPy?"#FFFBEB":"white", color:showPy?"#92400E":muted, fontWeight:"700", fontSize:"12px", cursor:"pointer" }}>
-                {showPy?"🙈 Modo Desafio (sem Pinyin)":"👁 Mostrar Pinyin"}
+          <div style={{ paddingTop:"16px" }}>
+            <div style={{ display:"flex", gap:"8px", marginBottom:"14px", flexWrap:"wrap", alignItems:"center" }}>
+              <button onClick={()=>setShowPy(v=>!v)} style={{
+                padding:"6px 12px", borderRadius:"8px",
+                border:`2px solid ${showPy?"#D97706":bdr}`,
+                background:showPy?"#FFFBEB":"white", color:showPy?"#92400E":muted,
+                fontWeight:"700", fontSize:"12px", cursor:"pointer" }}>
+                {showPy?"🙈 Modo Desafio":"👁 Mostrar Pinyin"}
               </button>
-              <span style={{ fontSize:"12px", color:muted }}>{w.vocab.length} palavras</span>
+              <span style={{ fontSize:"13px", color:muted }}>{w.vocab.length} palavras</span>
             </div>
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(148px,1fr))", gap:"9px" }}>
+            <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(150px,1fr))", gap:"10px" }}>
               {w.vocab.map((wd,i)=>(
-                <div key={i} style={{ background:"white", borderRadius:"11px", padding:"10px 8px", textAlign:"center", boxShadow:"0 2px 8px rgba(15,23,42,0.07)", border:`1px solid ${bdr}` }}>
-                  <div style={{ fontSize:"22px", fontWeight:"900", color:dc, fontFamily:"'Noto Sans SC','PingFang SC',sans-serif", marginBottom:"4px" }}>{wd.h}</div>
+                <div key={i} style={{ background:"white", borderRadius:"12px", padding:"12px 10px",
+                                       textAlign:"center", boxShadow:"0 2px 8px rgba(15,23,42,0.07)",
+                                       border:`1px solid ${bdr}` }}>
+                  <div style={{ fontSize:"26px", fontWeight:"900", color:dc,
+                                fontFamily:"'Noto Sans SC','PingFang SC',sans-serif",
+                                marginBottom:"5px" }}>{wd.h}</div>
                   {showPy && <>
-                    <div style={{ fontSize:"12px", fontWeight:"700", color:"#6366F1", marginBottom:"2px" }}>{wd.py}</div>
-                    <div style={{ fontSize:"11px", color:muted }}>{wd.pt}</div>
+                    <div style={{ fontSize:"13px", fontWeight:"700", color:"#6366F1", marginBottom:"2px" }}>{wd.py}</div>
+                    <div style={{ fontSize:"12px", color:muted }}>{wd.pt}</div>
                   </>}
                 </div>
               ))}
@@ -647,25 +1101,35 @@ export default function HSK3Completo() {
           </div>
         )}
 
-        {/* GRAMÁTICA */}
+        {/* ── GRAMÁTICA */}
         {tab==="grammar" && (
-          <div style={{ paddingTop:"14px" }}>
+          <div style={{ paddingTop:"16px" }}>
             {w.grammar.map((g,i)=>(
-              <div key={i} style={{ background:"white", borderRadius:"14px", overflow:"hidden", boxShadow:"0 2px 12px rgba(15,23,42,0.07)", border:`1px solid ${bdr}`, marginBottom:"10px" }}>
-                <button onClick={()=>setOpenG(openG===i?-1:i)} style={{ width:"100%", padding:"14px 18px", background:"none", border:"none", cursor:"pointer", display:"flex", alignItems:"center", gap:"12px", textAlign:"left" }}>
+              <div key={i} style={{ background:"white", borderRadius:"14px", overflow:"hidden",
+                                     boxShadow:"0 2px 12px rgba(15,23,42,0.07)",
+                                     border:`1px solid ${bdr}`, marginBottom:"12px" }}>
+                <button onClick={()=>setOpenG(openG===i?-1:i)} style={{
+                  width:"100%", padding:"16px 20px", background:"none", border:"none",
+                  cursor:"pointer", display:"flex", alignItems:"center", gap:"12px", textAlign:"left" }}>
                   <div style={{ width:"4px", alignSelf:"stretch", borderRadius:"2px", background:g.color, flexShrink:0 }}/>
                   <div style={{ flex:1 }}>
-                    <div style={{ fontSize:"11px", fontWeight:"700", color:g.color, textTransform:"uppercase", letterSpacing:"1px", marginBottom:"2px" }}>{g.label}</div>
-                    <div style={{ fontFamily:"monospace", fontWeight:"800", color:ink, fontSize:"13px", lineHeight:"1.4" }}>{g.struct}</div>
+                    <div style={{ fontSize:"11px", fontWeight:"700", color:g.color,
+                                  textTransform:"uppercase", letterSpacing:"1px", marginBottom:"2px" }}>{g.label}</div>
+                    <div style={{ fontFamily:"monospace", fontWeight:"800", color:ink, fontSize:"14px" }}>{g.struct}</div>
                   </div>
-                  <span style={{ color:muted, fontSize:"16px", transition:"transform 0.2s", transform:openG===i?"rotate(180deg)":"none" }}>▾</span>
+                  <span style={{ color:muted, fontSize:"16px", transition:"transform 0.2s",
+                                 transform:openG===i?"rotate(180deg)":"none" }}>▾</span>
                 </button>
                 {openG===i && (
-                  <div style={{ padding:"0 18px 16px", borderTop:`1px solid ${bdr}` }}>
-                    <div style={{ background:`${g.color}08`, border:`1px solid ${g.color}20`, borderRadius:"10px", padding:"12px 14px", margin:"10px 0", fontSize:"13px", color:"#334155", lineHeight:"1.7" }}>{g.exp}</div>
-                    {g.exs.filter(e=>e.cn).map((ex,ei)=>(
-                      <div key={ei} style={{ borderLeft:`3px solid ${g.color}`, paddingLeft:"12px", marginBottom:"10px" }}>
-                        <div style={{ fontSize:"17px", fontWeight:"700", color:ink, fontFamily:"'Noto Sans SC','PingFang SC',sans-serif", marginBottom:"3px" }}>{ex.cn}</div>
+                  <div style={{ padding:"0 20px 18px", borderTop:`1px solid ${bdr}` }}>
+                    <div style={{ background:`${g.color}08`, border:`1px solid ${g.color}20`,
+                                  borderRadius:"10px", padding:"12px 14px", margin:"12px 0",
+                                  fontSize:"13px", color:"#334155", lineHeight:"1.7" }}>{g.exp}</div>
+                    {g.exs.map((ex,ei)=>(
+                      <div key={ei} style={{ borderLeft:`3px solid ${g.color}`, paddingLeft:"14px", marginBottom:"12px" }}>
+                        <div style={{ fontSize:"18px", fontWeight:"700", color:ink,
+                                      fontFamily:"'Noto Sans SC','PingFang SC',sans-serif",
+                                      marginBottom:"3px" }}>{ex.cn}</div>
                         <div style={{ fontSize:"12px", color:"#6366F1", fontWeight:"600", marginBottom:"2px" }}>{ex.py}</div>
                         <div style={{ fontSize:"12px", color:muted }}>{ex.pt}</div>
                       </div>
@@ -677,26 +1141,38 @@ export default function HSK3Completo() {
           </div>
         )}
 
-        {/* DIÁLOGO */}
+        {/* ── DIÁLOGO */}
         {tab==="dialogue" && (
-          <div style={{ paddingTop:"14px" }}>
-            <div style={{ display:"flex", justifyContent:"space-between", marginBottom:"10px", flexWrap:"wrap", gap:"8px" }}>
-              <p style={{ color:muted, fontSize:"12px", margin:0 }}>Leia em voz alta! Identifique as estruturas gramaticais da semana.</p>
-              <button onClick={()=>setDlPy(v=>!v)} style={{ padding:"5px 10px", borderRadius:"7px", border:`2px solid ${dlPy?"#D97706":bdr}`, background:dlPy?"#FFFBEB":"white", color:dlPy?"#92400E":muted, fontWeight:"700", fontSize:"12px", cursor:"pointer" }}>
-                {dlPy?"🙈":"👁"} Pinyin
+          <div style={{ paddingTop:"16px" }}>
+            <div style={{ display:"flex", justifyContent:"space-between", marginBottom:"12px", flexWrap:"wrap", gap:"8px" }}>
+              <p style={{ color:muted, fontSize:"13px", margin:0 }}>Leia em voz alta! Identifique as estruturas gramaticais da semana.</p>
+              <button onClick={()=>setDlPy(v=>!v)} style={{
+                padding:"6px 12px", borderRadius:"8px", border:`2px solid ${dlPy?"#D97706":bdr}`,
+                background:dlPy?"#FFFBEB":"white", color:dlPy?"#92400E":muted,
+                fontWeight:"700", fontSize:"12px", cursor:"pointer" }}>
+                {dlPy?"🙈 Sem Pinyin":"👁 Pinyin"}
               </button>
             </div>
-            <div style={{ background:"white", borderRadius:"14px", overflow:"hidden", boxShadow:"0 2px 12px rgba(15,23,42,0.07)", border:`1px solid ${bdr}` }}>
-              <div style={{ background:dc, color:"white", padding:"12px 16px" }}>
-                <div style={{ fontWeight:"800", fontSize:"14px" }}>💬 Diálogo — Semana {w.w} · {w.emoji} {w.phase}</div>
+            <div style={{ background:"white", borderRadius:"14px", overflow:"hidden",
+                          boxShadow:"0 2px 12px rgba(15,23,42,0.07)", border:`1px solid ${bdr}` }}>
+              <div style={{ background:dc, color:"white", padding:"12px 18px" }}>
+                <div style={{ fontWeight:"800", fontSize:"15px" }}>💬 Diálogo — Semana {w.w}</div>
               </div>
               {w.dialogue.map((line,i)=>{
                 const isA=line.sp==="A";
                 return (
-                  <div key={i} style={{ display:"flex", flexDirection:isA?"row":"row-reverse", gap:"10px", padding:"12px 14px", borderBottom:i<w.dialogue.length-1?`1px solid ${bdr}`:"none", background:i%2===0?"white":"#FAFAF8", alignItems:"flex-start" }}>
-                    <div style={{ width:"26px", height:"26px", borderRadius:"50%", background:isA?dc:"#94A3B8", color:"white", display:"flex", alignItems:"center", justifyContent:"center", fontWeight:"800", fontSize:"11px", flexShrink:0 }}>{line.sp}</div>
+                  <div key={i} style={{ display:"flex", flexDirection:isA?"row":"row-reverse",
+                                         gap:"10px", padding:"12px 16px",
+                                         borderBottom:i<w.dialogue.length-1?`1px solid ${bdr}`:"none",
+                                         background:i%2===0?"white":"#FAFAF8", alignItems:"flex-start" }}>
+                    <div style={{ width:"28px", height:"28px", borderRadius:"50%",
+                                  background:isA?dc:"#94A3B8", color:"white",
+                                  display:"flex", alignItems:"center", justifyContent:"center",
+                                  fontWeight:"800", fontSize:"12px", flexShrink:0 }}>{line.sp}</div>
                     <div style={{ flex:1, textAlign:isA?"left":"right" }}>
-                      <div style={{ fontSize:"16px", fontWeight:"700", color:ink, fontFamily:"'Noto Sans SC','PingFang SC',sans-serif", marginBottom:"3px", lineHeight:"1.5" }}>{line.cn}</div>
+                      <div style={{ fontSize:"17px", fontWeight:"700", color:ink,
+                                    fontFamily:"'Noto Sans SC','PingFang SC',sans-serif",
+                                    marginBottom:"3px", lineHeight:"1.5" }}>{line.cn}</div>
                       {dlPy&&<div style={{ fontSize:"12px", color:"#6366F1", fontWeight:"600", marginBottom:"2px" }}>{line.py}</div>}
                       <div style={{ fontSize:"12px", color:muted }}>{line.pt}</div>
                     </div>
@@ -707,68 +1183,108 @@ export default function HSK3Completo() {
           </div>
         )}
 
-        {/* QUIZ */}
+        {/* ── QUIZ */}
         {tab==="quiz" && (
-          <div style={{ paddingTop:"14px" }}>
+          <div style={{ paddingTop:"16px" }}>
             {answered===w.quiz.length && (
-              <div style={{ background:correct>=4?"#ECFDF5":"#FFFBEB", border:`2px solid ${correct>=4?"#059669":"#D97706"}`, borderRadius:"12px", padding:"16px", marginBottom:"14px", textAlign:"center" }}>
-                <div style={{ fontSize:"30px", marginBottom:"6px" }}>{correct===5?"🏆":correct>=3?"🎉":"💪"}</div>
-                <div style={{ fontWeight:"800", fontSize:"18px", color:correct>=4?"#065F46":"#92400E" }}>{correct}/5 corretas</div>
-                <div style={{ fontSize:"12px", color:muted, marginTop:"4px" }}>{correct===5?"Perfeito! Semana "+w.w+" dominada!":correct>=3?"Bom! Revise os erros.":"Releia a gramática e tente novamente."}</div>
-                <button onClick={resetQuiz} style={{ marginTop:"10px", padding:"6px 16px", borderRadius:"8px", background:ink, color:"white", border:"none", fontWeight:"700", fontSize:"12px", cursor:"pointer" }}>🔄 Tentar novamente</button>
+              <div style={{ background:correct>=4?"#ECFDF5":"#FFFBEB",
+                            border:`2px solid ${correct>=4?"#059669":"#D97706"}`,
+                            borderRadius:"12px", padding:"18px", marginBottom:"18px", textAlign:"center" }}>
+                <div style={{ fontSize:"32px", marginBottom:"6px" }}>{correct===5?"🏆":correct>=3?"🎉":"💪"}</div>
+                <div style={{ fontWeight:"800", fontSize:"20px",
+                              color:correct>=4?"#065F46":"#92400E" }}>{correct}/5 corretas</div>
+                <div style={{ fontSize:"13px", color:muted, marginTop:"4px" }}>
+                  {correct===5?"Perfeito! Semana "+w.w+" dominada!":
+                   correct>=3?"Bom! Revise os pontos que errou.":"Releia a gramática e tente novamente."}
+                </div>
+                <button onClick={resetQuiz} style={{ marginTop:"10px", padding:"7px 18px",
+                  borderRadius:"8px", background:ink, color:"white", border:"none",
+                  fontWeight:"700", fontSize:"13px", cursor:"pointer" }}>🔄 Tentar novamente</button>
               </div>
             )}
             {w.quiz.map((q,i)=>{
               const sel=answers[i]; const rev=revealed[i];
               return (
-                <div key={i} style={{ background:"white", borderRadius:"12px", padding:"14px", border:`1px solid ${bdr}`, marginBottom:"10px", boxShadow:"0 2px 8px rgba(15,23,42,0.06)" }}>
-                  <div style={{ display:"flex", gap:"8px", marginBottom:"10px" }}>
-                    <div style={{ width:"22px", height:"22px", borderRadius:"6px", background:ink, color:"white", display:"flex", alignItems:"center", justifyContent:"center", fontWeight:"800", fontSize:"11px", flexShrink:0 }}>{i+1}</div>
-                    <div style={{ fontSize:"13px", fontWeight:"700", color:ink, lineHeight:"1.5" }}>{q.q}</div>
+                <div key={i} style={{ background:"white", borderRadius:"12px", padding:"16px",
+                                       border:`1px solid ${bdr}`, marginBottom:"10px",
+                                       boxShadow:"0 2px 8px rgba(15,23,42,0.06)" }}>
+                  <div style={{ display:"flex", gap:"10px", marginBottom:"12px" }}>
+                    <div style={{ width:"24px", height:"24px", borderRadius:"7px", background:ink,
+                                  color:"white", display:"flex", alignItems:"center",
+                                  justifyContent:"center", fontWeight:"800", fontSize:"12px", flexShrink:0 }}>{i+1}</div>
+                    <div style={{ fontSize:"14px", fontWeight:"700", color:ink, lineHeight:"1.5" }}>{q.q}</div>
                   </div>
-                  <div style={{ display:"flex", flexDirection:"column", gap:"6px", marginBottom:"10px" }}>
+                  <div style={{ display:"flex", flexDirection:"column", gap:"7px", marginBottom:"10px" }}>
                     {q.opts.map((opt,j)=>{
-                      const chosen=sel===j,right=j===q.ans;
+                      const chosen=sel===j, right=j===q.ans;
                       let bg="white",bc=bdr,col="#374151";
-                      if(chosen||rev){if(right){bg="#ECFDF5";bc="#059669";col="#065F46";}else if(chosen){bg="#FEF2F2";bc="#DC2626";col="#991B1B";}}
+                      if(chosen||rev){if(right){bg="#ECFDF5";bc="#059669";col="#065F46";}
+                        else if(chosen){bg="#FEF2F2";bc="#DC2626";col="#991B1B";}}
                       return (
-                        <button key={j} onClick={()=>{if(sel===undefined){setAnswers(a=>({...a,[i]:j}));setRevealed(r=>({...r,[i]:true}));}}}
-                          style={{ padding:"8px 11px", borderRadius:"8px", border:`2px solid ${bc}`, background:bg, color:col, textAlign:"left", fontWeight:(chosen||(rev&&right))?"700":"500", fontSize:"12px", cursor:sel===undefined?"pointer":"default", display:"flex", alignItems:"center", gap:"8px", transition:"all 0.15s", fontFamily:opt.match(/[\u4e00-\u9fff]/)?"'Noto Sans SC',sans-serif,inherit":"inherit" }}>
-                          <span style={{ width:"18px", height:"18px", borderRadius:"50%", border:`2px solid ${bc}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:"10px", fontWeight:"800", flexShrink:0, background:(right&&rev)?"#059669":(chosen&&!right)?"#DC2626":"transparent", color:(right&&rev)||(chosen&&!right)?"white":col }}>
+                        <button key={j} onClick={()=>{
+                          if(sel===undefined){setAnswers(a=>({...a,[i]:j}));setRevealed(r=>({...r,[i]:true}));}
+                        }} style={{ padding:"9px 12px", borderRadius:"8px", border:`2px solid ${bc}`,
+                                   background:bg, color:col, textAlign:"left",
+                                   fontWeight:(chosen||(rev&&right))?"700":"500",
+                                   fontSize:"13px", cursor:sel===undefined?"pointer":"default",
+                                   display:"flex", alignItems:"center", gap:"8px", transition:"all 0.15s",
+                                   fontFamily:opt.match(/[\u4e00-\u9fff]/)?"'Noto Sans SC',sans-serif,inherit":"inherit" }}>
+                          <span style={{ width:"19px", height:"19px", borderRadius:"50%",
+                                         border:`2px solid ${bc}`, display:"flex", alignItems:"center",
+                                         justifyContent:"center", fontSize:"10px", fontWeight:"800", flexShrink:0,
+                                         background:(right&&rev)?"#059669":(chosen&&!right)?"#DC2626":"transparent",
+                                         color:(right&&rev)||(chosen&&!right)?"white":col }}>
                             {rev?(right?"✓":chosen?"✗":String.fromCharCode(65+j)):String.fromCharCode(65+j)}
                           </span>{opt}
                         </button>
                       );
                     })}
                   </div>
-                  {rev&&<div style={{ background:sel===q.ans?"#ECFDF5":"#FFFBEB", border:`1px solid ${sel===q.ans?"#6EE7B7":"#FDE68A"}`, borderRadius:"8px", padding:"8px 10px", fontSize:"12px", color:sel===q.ans?"#065F46":"#92400E", lineHeight:"1.6" }}>{q.exp}</div>}
+                  {rev&&<div style={{ background:sel===q.ans?"#ECFDF5":"#FFFBEB",
+                                      border:`1px solid ${sel===q.ans?"#6EE7B7":"#FDE68A"}`,
+                                      borderRadius:"8px", padding:"8px 10px",
+                                      fontSize:"12px", color:sel===q.ans?"#065F46":"#92400E",
+                                      lineHeight:"1.6" }}>{q.exp}</div>}
                 </div>
               );
             })}
-            {answered<w.quiz.length&&<div style={{ textAlign:"center",color:muted,fontSize:"12px",padding:"6px" }}>{answered}/{w.quiz.length} respondidas</div>}
+            {answered<w.quiz.length&&<div style={{ textAlign:"center",color:muted,fontSize:"12px",padding:"6px" }}>
+              {answered}/{w.quiz.length} respondidas
+            </div>}
           </div>
         )}
 
-        {/* Nav footer */}
-        <div style={{ background:"white", border:`1px solid ${bdr}`, borderRadius:"12px", padding:"12px 16px", marginTop:"16px", display:"flex", justifyContent:"space-between", alignItems:"center", gap:"10px" }}>
-          <button onClick={()=>{if(week>1){setWeek(w=>w-1);setTab("vocab");resetQuiz();}}} style={{ padding:"7px 14px", borderRadius:"9px", border:`2px solid ${bdr}`, background:"white", color:muted, fontWeight:"700", fontSize:"12px", cursor:"pointer", opacity:week===1?0.3:1 }}>← Anterior</button>
+        {/* Navigation */}
+        <div style={{ background:"white", border:`1px solid ${bdr}`, borderRadius:"12px",
+                      padding:"12px 18px", marginTop:"20px",
+                      display:"flex", justifyContent:"space-between", alignItems:"center", gap:"10px" }}>
+          <button onClick={()=>{if(week>1){setWeek(w=>w-1);setTab("vocab");resetQuiz();}}}
+            style={{ padding:"8px 16px", borderRadius:"9px", border:`2px solid ${bdr}`,
+                     background:"white", color:muted, fontWeight:"700", fontSize:"13px",
+                     cursor:"pointer", opacity:week===1?0.3:1 }}>← Semana anterior</button>
           <div style={{ textAlign:"center" }}>
-            <div style={{ fontSize:"13px", fontWeight:"800", color:ink }}>Semana {week} / 12</div>
+            <div style={{ fontSize:"13px", fontWeight:"800", color:ink }}>Semana {week} / 16</div>
             <div style={{ fontSize:"11px", color:muted }}>{w.phase} · {w.emoji}</div>
           </div>
-          <button onClick={()=>{if(week<12){setWeek(w=>w+1);setTab("vocab");resetQuiz();}}} style={{ padding:"7px 14px", borderRadius:"9px", border:`2px solid ${dc}`, background:dc, color:"white", fontWeight:"700", fontSize:"12px", cursor:"pointer", opacity:week===12?0.3:1 }}>Próxima →</button>
+          <button onClick={()=>{if(week<16){setWeek(w=>w+1);setTab("vocab");resetQuiz();}}}
+            style={{ padding:"8px 16px", borderRadius:"9px", border:`2px solid ${dc}`,
+                     background:dc, color:"white", fontWeight:"700", fontSize:"13px",
+                     cursor:"pointer", opacity:week===16?0.3:1 }}>Próxima semana →</button>
         </div>
 
-        {week===12 && (
-          <div style={{ background:"linear-gradient(135deg,#1e1b4b,#312e81,#4338CA)", color:"white", borderRadius:"14px", padding:"24px", marginTop:"14px", textAlign:"center" }}>
+        {/* Final banner */}
+        {week===16 && (
+          <div style={{ background:ink, color:"white", borderRadius:"14px",
+                        padding:"24px", marginTop:"16px", textAlign:"center" }}>
             <div style={{ fontSize:"40px", marginBottom:"10px" }}>🏆</div>
             <div style={{ fontWeight:"900", fontSize:"20px", marginBottom:"8px" }}>HSK 3 — Programa Completo!</div>
-            <div style={{ opacity:0.8, fontSize:"14px", lineHeight:"1.8", marginBottom:"12px" }}>
-              12 semanas · ~973 palavras novas · 44 pontos gramaticais · 300 novos caracteres<br/>
-              你太棒了！Nǐ tài bàng le! — Você é incrível!
+            <div style={{ opacity:0.75, fontSize:"14px", lineHeight:"1.8", marginBottom:"12px" }}>
+              16 semanas · 500 palavras · 48 pontos gramaticais · 900 caracteres<br/>
+              Você percorreu todo o caminho do HSK 2. 你真棒！Nǐ zhēn bàng!
             </div>
-            <div style={{ fontSize:"20px", fontWeight:"900", color:"#FCD34D" }}>恭喜！继续向HSK 4进发！💪</div>
-            <div style={{ fontSize:"13px", opacity:0.6, marginTop:"4px" }}>Parabéns! Continue rumo ao HSK 4!</div>
+            <div style={{ fontSize:"22px", fontWeight:"900", color:"#FCD34D" }}>
+              加油！ 你一定能通过！💪
+            </div>
           </div>
         )}
       </div>
