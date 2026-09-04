@@ -5,7 +5,7 @@ const TC = ["#9CA3AF","#0891B2","#059669","#7C3AED","#DC2626"];
 
 // ══════════════════════════════════════════════════════════════════════════════
 // LAOSHI 老师 — HSK 3 PROGRAMA COMPLETO · Revisão Nov/2025
-// 500 palavras · 16 semanas · 48 pontos gramaticais · 80 questões
+// 500 palavras · 16 lições · 48 pontos gramaticais · 80 questões
 // Fonte: GF0025-2021 / Atualização 2025-11 (vigência Jul/2026)
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -993,11 +993,11 @@ export default function HSK3Completo() {
               🇨🇳 Novo HSK 2 · Programa Completo
             </span>
             <span style={{ background:"rgba(255,255,255,0.12)", borderRadius:"6px", padding:"3px 12px", fontSize:"12px", fontWeight:"600" }}>
-              12 Semanas · ~772 Palavras · 41 Pontos Gramaticais
+              16 lições · 500 palavras · 48 pontos gramaticais
             </span>
           </div>
           <h1 style={{ margin:"0 0 14px", fontSize:"clamp(18px,3.5vw,28px)", fontWeight:"900" }}>
-            老师 · Cronograma HSK 2 — Todas as 12 Semanas
+            老师 · HSK 3 em 16 lições
           </h1>
 
           {/* Week selector — phases */}
@@ -1012,7 +1012,7 @@ export default function HSK3Completo() {
                          whiteSpace:"nowrap", transition:"all 0.15s", flexShrink:0,
                          display:"flex", flexDirection:"column", alignItems:"center", gap:"2px" }}>
                 <span style={{ fontSize:"16px" }}>{wx.emoji}</span>
-                <span>S{wx.w}</span>
+                <span style={{ maxWidth:"92px", overflow:"hidden", textOverflow:"ellipsis" }}>{wx.phase}</span>
               </button>
             ))}
           </div>
@@ -1030,7 +1030,7 @@ export default function HSK3Completo() {
             <div style={{ width:"48px", height:"48px", borderRadius:"12px", background:dc,
                           color:"white", display:"flex", flexDirection:"column",
                           alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-              <span style={{ fontSize:"10px", fontWeight:"700", opacity:0.8 }}>SEM</span>
+              <span style={{ fontSize:"10px", fontWeight:"700", opacity:0.8 }}>LIÇÃO</span>
               <span style={{ fontSize:"20px", fontWeight:"900", lineHeight:1 }}>{w.w}</span>
             </div>
             <div style={{ flex:1 }}>
@@ -1145,7 +1145,7 @@ export default function HSK3Completo() {
         {tab==="dialogue" && (
           <div style={{ paddingTop:"16px" }}>
             <div style={{ display:"flex", justifyContent:"space-between", marginBottom:"12px", flexWrap:"wrap", gap:"8px" }}>
-              <p style={{ color:muted, fontSize:"13px", margin:0 }}>Leia em voz alta! Identifique as estruturas gramaticais da semana.</p>
+              <p style={{ color:muted, fontSize:"13px", margin:0 }}>Leia em voz alta! Identifique as estruturas gramaticais da lição.</p>
               <button onClick={()=>setDlPy(v=>!v)} style={{
                 padding:"6px 12px", borderRadius:"8px", border:`2px solid ${dlPy?"#D97706":bdr}`,
                 background:dlPy?"#FFFBEB":"white", color:dlPy?"#92400E":muted,
@@ -1156,7 +1156,7 @@ export default function HSK3Completo() {
             <div style={{ background:"white", borderRadius:"14px", overflow:"hidden",
                           boxShadow:"0 2px 12px rgba(15,23,42,0.07)", border:`1px solid ${bdr}` }}>
               <div style={{ background:dc, color:"white", padding:"12px 18px" }}>
-                <div style={{ fontWeight:"800", fontSize:"15px" }}>💬 Diálogo — Semana {w.w}</div>
+                <div style={{ fontWeight:"800", fontSize:"15px" }}>💬 Diálogo — {w.phase}</div>
               </div>
               {w.dialogue.map((line,i)=>{
                 const isA=line.sp==="A";
@@ -1194,7 +1194,7 @@ export default function HSK3Completo() {
                 <div style={{ fontWeight:"800", fontSize:"20px",
                               color:correct>=4?"#065F46":"#92400E" }}>{correct}/5 corretas</div>
                 <div style={{ fontSize:"13px", color:muted, marginTop:"4px" }}>
-                  {correct===5?"Perfeito! Semana "+w.w+" dominada!":
+                  {correct===5?"Perfeito! Lição de "+w.phase+" dominada!":
                    correct>=3?"Bom! Revise os pontos que errou.":"Releia a gramática e tente novamente."}
                 </div>
                 <button onClick={resetQuiz} style={{ marginTop:"10px", padding:"7px 18px",
@@ -1261,15 +1261,15 @@ export default function HSK3Completo() {
           <button onClick={()=>{if(week>1){setWeek(w=>w-1);setTab("vocab");resetQuiz();}}}
             style={{ padding:"8px 16px", borderRadius:"9px", border:`2px solid ${bdr}`,
                      background:"white", color:muted, fontWeight:"700", fontSize:"13px",
-                     cursor:"pointer", opacity:week===1?0.3:1 }}>← Semana anterior</button>
+                     cursor:"pointer", opacity:week===1?0.3:1 }}>← Lição anterior</button>
           <div style={{ textAlign:"center" }}>
-            <div style={{ fontSize:"13px", fontWeight:"800", color:ink }}>Semana {week} / 16</div>
+            <div style={{ fontSize:"13px", fontWeight:"800", color:ink }}>{"Lição "+week+" de "+16+" · "+w.phase}</div>
             <div style={{ fontSize:"11px", color:muted }}>{w.phase} · {w.emoji}</div>
           </div>
           <button onClick={()=>{if(week<16){setWeek(w=>w+1);setTab("vocab");resetQuiz();}}}
             style={{ padding:"8px 16px", borderRadius:"9px", border:`2px solid ${dc}`,
                      background:dc, color:"white", fontWeight:"700", fontSize:"13px",
-                     cursor:"pointer", opacity:week===16?0.3:1 }}>Próxima semana →</button>
+                     cursor:"pointer", opacity:week===16?0.3:1 }}>Próxima lição →</button>
         </div>
 
         {/* Final banner */}
@@ -1279,7 +1279,7 @@ export default function HSK3Completo() {
             <div style={{ fontSize:"40px", marginBottom:"10px" }}>🏆</div>
             <div style={{ fontWeight:"900", fontSize:"20px", marginBottom:"8px" }}>HSK 3 — Programa Completo!</div>
             <div style={{ opacity:0.75, fontSize:"14px", lineHeight:"1.8", marginBottom:"12px" }}>
-              16 semanas · 500 palavras · 48 pontos gramaticais · 900 caracteres<br/>
+              16 lições · 500 palavras · 48 pontos gramaticais<br/>
               Você percorreu todo o caminho do HSK 2. 你真棒！Nǐ zhēn bàng!
             </div>
             <div style={{ fontSize:"22px", fontWeight:"900", color:"#FCD34D" }}>

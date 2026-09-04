@@ -4,46 +4,61 @@ const ink = "#0F172A"; const sand = "#FAFAF8"; const muted = "#64748B"; const bd
 const TC = ["#9CA3AF","#0891B2","#059669","#7C3AED","#DC2626"];
 
 // ══════════════════════════════════════════════════════════════════════════════
-// LAOSHI 老师 — HSK 2 PROGRAMA COMPLETO · Revisão Nov/2025
-// 200 palavras novas · 12 semanas · 36 pontos gramaticais
+// LAOSHI 老师 — HSK 2 PROGRAMA COMPLETO · Revisão v3
+// 200 entradas · 12 lições · 36 pontos gramaticais · 60 questões
 // Fonte: GF0025-2021 / Atualização 2025-11 (vigência Jul/2026)
 // ══════════════════════════════════════════════════════════════════════════════
 
 const WEEKS = [
   {
-    w:1, phase:"Funda\u00e7\u00e3o", emoji:"\ud83c\udf31", color:"#6366F1",
-    theme:"Revisão HSK 1 — Saudações, Negação e Passado",
+    w:1, phase:"Social", emoji:"🤝", color:"#6366F1",
+    theme:"Apresentar-se, Nomes e Fórmulas de Cortesia",
     built:false, builtNote:"",
-    stats:{words:"~80 revisadas (HSK 1)",newHSK2:"0",grammar:"是/有 · 没/不 · 过",chars:"revisão"},
+    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"认识/介绍 · 让 causativo · 跟…一起",chars:"+25 novos"},
     vocab:[
-      
+      {h:"不好意思",py:"bù hǎoyìsi",pt:"com licença; ficar sem jeito"},
+      {h:"没意思",py:"méi yìsi",pt:"sem graça; entediante"},
+      {h:"有意思",py:"yǒu yìsi",pt:"interessante; divertido"},
+      {h:"意思",py:"yìsi",pt:"significado; sentido"},
+      {h:"告诉",py:"gàosu",pt:"contar para; informar"},
+      {h:"介绍",py:"jièshào",pt:"apresentar; introduzir"},
+      {h:"姓",py:"xìng",pt:"sobrenome; ter sobrenome"},
+      {h:"姓名",py:"xìngmíng",pt:"nome completo"},
+      {h:"名",py:"míng",pt:"nome; famoso"},
+      {h:"让",py:"ràng",pt:"deixar; fazer (causativo)"},
+      {h:"跟",py:"gēn",pt:"com; seguir"},
+      {h:"等",py:"děng",pt:"esperar; etcétera"},
+      {h:"别",py:"bié",pt:"não (imperativo); outro"},
+      {h:"画",py:"huà",pt:"desenhar; pintar"},
+      {h:"离",py:"lí",pt:"distanciar-se de"},
+      {h:"事情",py:"shìqing",pt:"assunto; coisa"}
     ],
     grammar:[
-      {struct:"S + 是 + N / S + 很 + Adj",label:"Ser vs. Adjetivo",color:"#6366F1",exp:"是 = identidade (sou estudante). Adjetivos NUNCA usam 是 — usam 很 como ligação. Regra: 我是学生 ✅ / 我是高 ❌ / 我很高 ✅.",exs:[{cn:"她是老师，很忙。",py:"Tā shì lǎoshī, hěn máng.",pt:"Ela é professora e está muito ocupada."},{cn:"今天天气很好。",py:"Jīntiān tiānqì hěn hǎo.",pt:"O tempo hoje está muito bom."}]},
-      {struct:"S + 没有 + N / S + 没 + V",label:"Negação com 没",color:"#DC2626",exp:"没 nega 有 e ações passadas/concluídas. 不 nega hábitos, vontade e futuro. NUNCA: 不有 ❌.",exs:[{cn:"我没有时间，不去了。",py:"Wǒ méiyǒu shíjiān, bù qù le.",pt:"Não tenho tempo, não vou mais."},{cn:"他没来，也没打电话。",py:"Tā méi lái, yě méi dǎ diànhuà.",pt:"Ele não veio nem ligou."}]},
-      {struct:"V + 过 + O",label:"过 Experiencial",color:"#059669",exp:"过 após verbo = \"já fiz X na vida\". Negação: 没 + V + 过 (NUNCA 不+过 para experiência).",exs:[{cn:"你去过北京吗？",py:"Nǐ qù guò Běijīng ma?",pt:"Você já foi a Pequim?"},{cn:"我没吃过日本菜。",py:"Wǒ méi chī guò Rìběn cài.",pt:"Nunca comi comida japonesa."}]}
+      {struct:"认识 / 知道",label:"Conhecer Pessoa vs. Saber Fato",color:"#6366F1",exp:"认识 = conhecer alguém ou reconhecer um caractere (contato direto). 知道 = saber uma informação. ❌我知道他，我们是朋友。 ✅我认识他。 Para caracteres: 这个字我不认识 (não reconheço).",exs:[{cn:"我认识他，但是不知道他的电话。",py:"Wǒ rènshi tā, dànshì bù zhīdào tā de diànhuà.",pt:"Eu o conheço, mas não sei o telefone dele."},{cn:"这个字我不认识，你能教我吗？",py:"Zhège zì wǒ bú rènshi, nǐ néng jiāo wǒ ma?",pt:"Não reconheço este caractere, pode me ensinar?"},{cn:"你知道洗手间在哪儿吗？",py:"Nǐ zhīdào xǐshǒujiān zài nǎr ma?",pt:"Você sabe onde fica o banheiro?"}]},
+      {struct:"S + 让 + 人 + V",label:"Causativo com 让",color:"#0891B2",exp:"让 + pessoa + verbo = fazer/deixar alguém fazer algo. A pessoa vem SEMPRE entre 让 e o verbo. Negação: 别让 / 不让. É o padrão para pedidos, permissões e ordens no dia a dia.",exs:[{cn:"妈妈让我早点儿回家。",py:"Māma ràng wǒ zǎo diǎnr huí jiā.",pt:"Minha mãe mandou eu voltar cedo para casa."},{cn:"不好意思，让你等了这么久。",py:"Bù hǎoyìsi, ràng nǐ děng le zhème jiǔ.",pt:"Desculpe por ter feito você esperar tanto."},{cn:"别让孩子一个人出门。",py:"Bié ràng háizi yí gè rén chūmén.",pt:"Não deixe a criança sair sozinha."}]},
+      {struct:"S + 跟 + 人 + 一起 + V",label:"Fazer Junto com Alguém",color:"#059669",exp:"跟 introduz o acompanhante e vem ANTES do verbo, nunca depois. 跟…一起 = junto com. 跟 também significa \"seguir\". ❌我去跟他一起。 ✅我跟他一起去。",exs:[{cn:"我跟朋友一起去饭馆吃饭。",py:"Wǒ gēn péngyou yìqǐ qù fànguǎn chīfàn.",pt:"Vou ao restaurante comer com um amigo."},{cn:"你跟谁一起来的？",py:"Nǐ gēn shéi yìqǐ lái de?",pt:"Com quem você veio?"},{cn:"请跟我来，我给你介绍一下。",py:"Qǐng gēn wǒ lái, wǒ gěi nǐ jièshào yíxià.",pt:"Venha comigo, vou fazer uma apresentação."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你好久不见！最近怎么样？",py:"Nǐ hǎo jiǔ bú jiàn! Zuìjìn zěnmeyàng?",pt:"Há tanto tempo! Como você está ultimamente?"},
-      {sp:"B",cn:"还不错！你呢？工作忙吗？",py:"Hái búcuò! Nǐ ne? Gōngzuò máng ma?",pt:"Está bem! E você? O trabalho está corrido?"},
-      {sp:"A",cn:"最近挺忙的，但没有上个月那么忙。你去过上海吗？",py:"Zuìjìn tǐng máng de, dàn méiyǒu shàng gè yuè nàme máng. Nǐ qù guò Shànghǎi ma?",pt:"Ultimamente está bem corrido, mas não tanto quanto o mês passado. Você já foi a Xangai?"},
-      {sp:"B",cn:"去过！非常漂亮。你有时间的话，一定要去看看。",py:"Qù guò! Fēicháng piàoliang. Nǐ yǒu shíjiān de huà, yīdìng yào qù kàn kàn.",pt:"Já! É lindo. Se tiver tempo, deve ir lá ver."},
-      {sp:"A",cn:"好的！我没去过，想去。什么时候有空一起去？",py:"Hǎo de! Wǒ méi qù guò, xiǎng qù. Shénme shíhou yǒu kòng yīqǐ qù?",pt:"Ótimo! Nunca fui, quero ir. Quando você tem tempo de irmos juntos?"},
-      {sp:"B",cn:"下个月吧，我已经订好酒店了！",py:"Xià gè yuè ba, wǒ yǐjīng dìng hǎo jiǔdiàn le!",pt:"No mês que vem! Já reservei o hotel!"}
+      {sp:"A",cn:"你好！我叫玛丽，很高兴认识你。",py:"Nǐ hǎo! Wǒ jiào Mǎlì, hěn gāoxìng rènshi nǐ.",pt:"Olá! Me chamo Mari, muito prazer em conhecê-lo."},
+      {sp:"B",cn:"你好！我姓王，叫王明。",py:"Nǐ hǎo! Wǒ xìng Wáng, jiào Wáng Míng.",pt:"Olá! Meu sobrenome é Wang, me chamo Wang Ming."},
+      {sp:"A",cn:"不好意思，让你等了很久吧？",py:"Bù hǎoyìsi, ràng nǐ děng le hěn jiǔ ba?",pt:"Desculpe, fiz você esperar muito, não é?"},
+      {sp:"B",cn:"没关系，我也刚到。我跟朋友一起来的。",py:"Méi guānxi, wǒ yě gāng dào. Wǒ gēn péngyou yìqǐ lái de.",pt:"Sem problema, também acabei de chegar. Vim com um amigo."},
+      {sp:"A",cn:"那你给我介绍一下吧！",py:"Nà nǐ gěi wǒ jièshào yíxià ba!",pt:"Então me apresente a ele!"},
+      {sp:"B",cn:"好啊，他就在外面，我让他进来。",py:"Hǎo a, tā jiù zài wàimiàn, wǒ ràng tā jìnlái.",pt:"Claro, ele está lá fora, vou pedir que entre."}
     ],
     quiz:[
-      {q:"Como dizer \"Ela é professora e está bem ocupada\"?",opts:["她很老师，很忙。","她是老师，很忙。","她是老师，是忙。","她很老师，是忙。"],ans:1,exp:"✅ 她是老师，很忙 — 是 para identidade (老师 = substantivo), 很 antes de adjetivo (忙). Nunca 是+adj ou 很+substantivo!"},
-      {q:"Qual frase usa 没有 corretamente?",opts:["我没有去。","我没有吃过。","我没有书。","A e C estão corretas."],ans:3,exp:"✅ A, B e C são todas corretas! 没有+V (não foi/não comeu), 没有+N (não tem livro). Apenas 没有去 (A) não precisa do 有 — pode ser só 没去."},
-      {q:"过 indica:",opts:["Ação futura","Ação em andamento","Experiência de vida","Ação habitual"],ans:2,exp:"✅ 过 = experiência de vida (\"já fiz X em algum momento da vida\"). 正在 = em andamento. 经常 = habitual. 要 = futuro."},
-      {q:"Qual é o uso ERRADO?",opts:["我去过中国。","我没去过中国。","我不去过中国。","她吃过日本菜。"],ans:2,exp:"✅ 我不去过中国 ❌ — 过 experiencial nega com 没, NUNCA com 不. A forma correta é: 我没去过中国."},
-      {q:"完整: 你汉语说___很好！",opts:["得","的","了","着"],ans:0,exp:"✅ 说得很好 — 得 conecta o verbo ao complemento de grau. Estrutura: V + 得 + Adj. Diferente de 的 (possessivo) e 了 (completivo)."}
+      {q:"\"Eu o conheço, mas não sei o telefone dele\" usa:",opts:["知道…知道","认识…知道","知道…认识","认识…认识"],ans:1,exp:"✅ 认识他(conhecer pessoa) + 不知道电话(saber informação). 认识 é contato direto; 知道 é informação."},
+      {q:"Onde vai a pessoa na estrutura com 让?",opts:["Depois do verbo","Entre 让 e o verbo","No fim da frase","Antes de 让"],ans:1,exp:"✅ 妈妈让我回家 — a pessoa fica sempre entre 让 e o verbo que ela vai executar."},
+      {q:"\"Vou com um amigo\" =",opts:["我去跟朋友一起。","我跟朋友一起去。","我一起跟朋友去。","跟我朋友去一起。"],ans:1,exp:"✅ 跟…一起 vem ANTES do verbo. Em chinês, o acompanhante nunca aparece depois da ação."},
+      {q:"不好意思 é usado para:",opts:["Agradecer","Pedir desculpa leve / constrangimento","Elogiar","Despedir-se"],ans:1,exp:"✅ 不好意思 é uma desculpa branda ou sinal de constrangimento — mais leve que 对不起, que marca falta séria."},
+      {q:"\"Meu sobrenome é Wang\" =",opts:["我是姓王。","我姓王。","我叫姓王。","我的姓王。"],ans:1,exp:"✅ 我姓王 — 姓 já É o verbo, então não leva 是. ❌我是姓王 é agramatical."}
     ],
   },
   {
-    w:2, phase:"Movimentos", emoji:"\ud83d\udeb6", color:"#0891B2",
-    theme:"Verbos Direcionais — Entrar, Sair, Subir, Descer e Andar",
+    w:2, phase:"Movimento", emoji:"🚶", color:"#0891B2",
+    theme:"Verbos Direcionais — Entrar, Sair, Subir, Descer",
     built:false, builtNote:"",
-    stats:{words:"18 novas (HSK 2)",newHSK2:"18",grammar:"V+来/去 · 走/跑/飞 · 起来 resultativo",chars:"+10 novos"},
+    stats:{words:"18 novas (HSK 2)",newHSK2:"18",grammar:"V + 来/去 · 进出上下 · 起来 figurado",chars:"+25 novos"},
     vocab:[
       {h:"出",py:"chū",pt:"sair"},
       {h:"出来",py:"chūlái",pt:"sair (para cá)"},
@@ -65,31 +80,31 @@ const WEEKS = [
       {h:"走路",py:"zǒulù",pt:"andar a pé"}
     ],
     grammar:[
-      {struct:"V + 来/去",label:"Complemento Direcional Simples",color:"#7C3AED",exp:"来 = movimento em direção ao falante. 去 = movimento afastando-se. 进来/进去 = entrar (cá/lá). 出来/出去 = sair (cá/lá).",exs:[{cn:"快进来！外面很冷。",py:"Kuài jìn lái! Wàimiàn hěn lěng.",pt:"Entre rápido! Lá fora está frio."},{cn:"他出去了，一会儿回来。",py:"Tā chū qù le, yíhuìr huí lái.",pt:"Ele saiu, volta daqui a pouco."}]},
-      {struct:"走 vs 跑 vs 飞",label:"Verbos de Movimento",color:"#0891B2",exp:"走 = andar (a pé, neutro). 走路 = andar (ênfase no ato). 跑/跑步 = correr. 飞 = voar. Lembre: 走 também = \"ir embora\".",exs:[{cn:"我们走路去，不打车。",py:"Wǒmen zǒulù qù, bù dǎchē.",pt:"Vamos a pé, não pego táxi."},{cn:"他跑步跑得很快。",py:"Tā pǎobù pǎo de hěn kuài.",pt:"Ele corre muito rápido."}]},
-      {struct:"起来 (sentido figurado)",label:"起来 Resultativo Metafórico",color:"#D97706",exp:"起来 após verbo pode indicar início ou resultado: 想起来 = lembrar, 看起来 = parecer, 高兴起来 = começar a ficar feliz.",exs:[{cn:"我想起来了！他叫李明。",py:"Wǒ xiǎng qǐlái le! Tā jiào Lǐ Míng.",pt:"Me lembrei! O nome dele é Li Ming."},{cn:"听到音乐，她高兴起来了。",py:"Tīng dào yīnyuè, tā gāoxìng qǐlái le.",pt:"Ao ouvir a música, ela ficou feliz."}]}
+      {struct:"V + 来 / 去",label:"Direcional Simples",color:"#6366F1",exp:"来 = movimento em direção ao falante. 去 = afastando-se dele. A escolha depende de ONDE o falante está: quem está dentro diz 进来; quem está fora diz 进去. É o eixo de todo o sistema direcional.",exs:[{cn:"快进来！外面很冷。",py:"Kuài jìnlái! Wàimiàn hěn lěng.",pt:"Entre rápido! Está frio lá fora."},{cn:"他出去了，一会儿就回来。",py:"Tā chūqù le, yíhuìr jiù huílái.",pt:"Ele saiu, volta daqui a pouco."},{cn:"你上来吧，我在楼上等你。",py:"Nǐ shànglái ba, wǒ zài lóushàng děng nǐ.",pt:"Suba, estou te esperando lá em cima."}]},
+      {struct:"进/出/上/下 + 来/去",label:"Os Oito Direcionais",color:"#0891B2",exp:"Combine a direção (进entrar 出sair 上subir 下descer 回voltar 过atravessar) com a perspectiva (来cá 去lá). Resultado: 进来/进去, 出来/出去, 上来/上去, 下来/下去, 回来/回去, 过来/过去.",exs:[{cn:"请下来一下，有人找你。",py:"Qǐng xiàlái yíxià, yǒu rén zhǎo nǐ.",pt:"Desça um instante, alguém procura por você."},{cn:"他回去拿书包了。",py:"Tā huíqù ná shūbāo le.",pt:"Ele voltou para pegar a mochila."},{cn:"你过来看看这个。",py:"Nǐ guòlái kànkan zhège.",pt:"Venha cá ver isto."}]},
+      {struct:"想/看/站 + 起来",label:"起来 em Sentido Figurado",color:"#059669",exp:"Além de \"levantar\", 起来 marca início ou percepção: 想起来(lembrar-se), 看起来(parecer), 说起来(por falar nisso). Este uso abstrato é muito mais frequente na fala que o literal.",exs:[{cn:"我想起来了！他叫李明。",py:"Wǒ xiǎng qǐlái le! Tā jiào Lǐ Míng.",pt:"Me lembrei! O nome dele é Li Ming."},{cn:"你看起来有点儿累。",py:"Nǐ kàn qǐlái yǒudiǎnr lèi.",pt:"Você parece um pouco cansado."},{cn:"听到这个消息，大家都笑起来了。",py:"Tīngdào zhège xiāoxi, dàjiā dōu xiào qǐlái le.",pt:"Ao ouvir a notícia, todos começaram a rir."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你出去了吗？我刚才进来没看到你。",py:"Nǐ chū qù le ma? Wǒ gāngcái jìnlái méi kàndào nǐ.",pt:"Você saiu? Quando entrei não vi você."},
-      {sp:"B",cn:"对，我出去走了一圈儿，刚回来。",py:"Duì, wǒ chū qù zǒu le yī quānr, gāng huí lái.",pt:"É, saí para dar uma volta e acabei de voltar."},
-      {sp:"A",cn:"起来活动活动是好的。你跑步了吗？",py:"Qǐlái huódòng huódòng shì hǎo de. Nǐ pǎobù le ma?",pt:"Levantar e se mexer é bom. Você correu?"},
-      {sp:"B",cn:"没有，只是走路。跑步我还不太会。",py:"Méiyǒu, zhǐshì zǒulù. Pǎobù wǒ hái bú tài huì.",pt:"Não, só caminhei. Ainda não sei correr muito bem."},
-      {sp:"A",cn:"我们一起学吧！下午出去跑一会儿。",py:"Wǒmen yīqǐ xué ba! Xiàwǔ chū qù pǎo yīhuìr.",pt:"Vamos aprender juntos! À tarde saímos para correr um pouco."},
-      {sp:"B",cn:"好！我先回去换衣服，一会儿下来。",py:"Hǎo! Wǒ xiān huí qù huàn yīfu, yīhuìr xià lái.",pt:"Ótimo! Primeiro subo para trocar de roupa e desço daqui a pouco."}
+      {sp:"A",cn:"你出去了吗？我刚才进来没看见你。",py:"Nǐ chūqù le ma? Wǒ gāngcái jìnlái méi kànjiàn nǐ.",pt:"Você saiu? Quando entrei não te vi."},
+      {sp:"B",cn:"对，我出门走了走，刚回来。",py:"Duì, wǒ chūmén zǒu le zǒu, gāng huílái.",pt:"Sim, saí para caminhar um pouco e acabei de voltar."},
+      {sp:"A",cn:"你看起来很累。",py:"Nǐ kàn qǐlái hěn lèi.",pt:"Você parece cansado."},
+      {sp:"B",cn:"走了一个小时，从公园回来的。",py:"Zǒu le yí gè xiǎoshí, cóng gōngyuán huílái de.",pt:"Andei uma hora, voltei do parque."},
+      {sp:"A",cn:"那快上来休息吧，我在楼上等你。",py:"Nà kuài shànglái xiūxi ba, wǒ zài lóushàng děng nǐ.",pt:"Então suba para descansar, estou te esperando lá em cima."},
+      {sp:"B",cn:"好，我先下去拿一下书包，马上过来。",py:"Hǎo, wǒ xiān xiàqù ná yíxià shūbāo, mǎshàng guòlái.",pt:"Certo, primeiro desço para pegar a mochila e já subo."}
     ],
     quiz:[
-      {q:"进来 significa:",opts:["Entrar (indo para longe)","Entrar (vindo para cá)","Sair para cá","Voltar"],ans:1,exp:"✅ 进来 = entrar (vindo em direção ao falante). 进去 = entrar (indo para longe do falante). 出来 = sair para cá."},
-      {q:"Qual verbo usar para movimento a pé tranquilo?",opts:["跑","飞","走","起来"],ans:2,exp:"✅ 走 = andar, caminhar (neutro). 跑 = correr. 飞 = voar. 起来 = levantar/começar a."},
-      {q:"Complete: 快______！火车要开了！",opts:["上去","上来","下来","出去"],ans:1,exp:"✅ 快上来！= Sobe rápido! (vindo para cá, onde está o falante). 上去 seria \"sobe\" indo para longe. O contexto (火车 = trem, você está no trem) pede 上来."},
-      {q:"\"Me lembrei!\" em chinês é:",opts:["我想起来了！","我走起来了！","我飞起来了！","我回来了！"],ans:0,exp:"✅ 想起来了 = lembrei (起来 indica resultado cognitivo positivo). 走起来 = começar a andar. 飞起来 = começar a voar."},
-      {q:"走路 ≠ 走, porque:",opts:["走路 = correr; 走 = andar","走路 enfatiza o ato de caminhar; 走 pode = ir embora","走 = voar; 走路 = nadar","Não há diferença"],ans:1,exp:"✅ 走路 enfatiza o ato de caminhar a pé (走路去 = ir a pé). 走 sozinho pode significar \"ir embora/partir\" além de caminhar."}
+      {q:"Quem está DENTRO da casa diz, para chamar alguém:",opts:["进去","进来","出来","上去"],ans:1,exp:"✅ 进来 — 来 marca movimento em direção ao falante. Quem está fora diria 进去."},
+      {q:"回去 significa:",opts:["Voltar para cá","Voltar para lá (longe do falante)","Sair","Entrar"],ans:1,exp:"✅ 回(voltar) + 去(afastando-se). 回来 seria voltar para onde o falante está."},
+      {q:"想起来了 significa:",opts:["Comecei a pensar","Me lembrei","Levantei","Quero levantar"],ans:1,exp:"✅ 起来 aqui é figurado: marca a emergência de uma lembrança. Uso muito mais comum que o literal."},
+      {q:"看起来 significa:",opts:["Olhar para cima","Parecer","Começar a ver","Terminar de ver"],ans:1,exp:"✅ 你看起来很累 = você parece cansado. 起来 expressa impressão a partir da aparência."},
+      {q:"Qual está ERRADA?",opts:["他出去了。","他进来了。","他来出了。","他回来了。"],ans:2,exp:"✅ ❌他来出了 — a ordem é sempre DIREÇÃO + 来/去, nunca invertida."}
     ],
   },
   {
-    w:3, phase:"Cidades", emoji:"\ud83d\ude87", color:"#059669",
-    theme:"Lugares, Transporte, Bebidas e Exterior",
+    w:3, phase:"Cidade", emoji:"🚇", color:"#059669",
+    theme:"Transporte, Lugares e Trajetos",
     built:false, builtNote:"",
-    stats:{words:"18 novas (HSK 2)",newHSK2:"18",grammar:"从...到 · 坐+transporte · 往+direção",chars:"+12 novos"},
+    stats:{words:"17 novas (HSK 2)",newHSK2:"17",grammar:"从…到… · 坐+transporte · 往+direção",chars:"+25 novos"},
     vocab:[
       {h:"地铁",py:"dìtiě",pt:"metrô"},
       {h:"车站",py:"chēzhàn",pt:"ponto/estação de transporte"},
@@ -104,38 +119,37 @@ const WEEKS = [
       {h:"路上",py:"lùshang",pt:"no caminho"},
       {h:"从",py:"cóng",pt:"de; desde"},
       {h:"往",py:"wǎng",pt:"ir em direção a; para"},
-      {h:"红茶",py:"hóngchá",pt:"chá preto"},
-      {h:"绿茶",py:"lǜchá",pt:"chá verde"},
-      {h:"奶茶",py:"nǎichá",pt:"milk tea; chá com leite"},
-      {h:"咖啡",py:"kāfēi",pt:"café (bebida)"},
-      {h:"外国",py:"wàiguó",pt:"país estrangeiro"}
+      {h:"打车",py:"dǎchē",pt:"pegar táxi"},
+      {h:"站",py:"zhàn",pt:"estação; parada; ficar em pé"},
+      {h:"外国",py:"wàiguó",pt:"país estrangeiro"},
+      {h:"出国",py:"chūguó",pt:"ir ao exterior"}
     ],
     grammar:[
-      {struct:"从 A 到 B + V",label:"De A até B",color:"#6366F1",exp:"Padrão completo para trajetórias. 从 = desde/de (ponto inicial). 到 = até (destino). O verbo vem depois.",exs:[{cn:"从这里到机场要多长时间？",py:"Cóng zhèlǐ dào jīchǎng yào duō cháng shíjiān?",pt:"De aqui até o aeroporto, quanto tempo leva?"},{cn:"从北京到上海可以坐火车。",py:"Cóng Běijīng dào Shànghǎi kěyǐ zuò huǒchē.",pt:"De Pequim a Xangai dá para ir de trem."}]},
-      {struct:"坐/乘 + transporte",label:"Meio de Transporte",color:"#059669",exp:"坐 = sentar / usar (transporte de massa). 乘 = mais formal. 打车 = pegar táxi (colloquial). 骑 = andar de bicicleta.",exs:[{cn:"你怎么来的？坐地铁来的。",py:"Nǐ zěnme lái de? Zuò dìtiě lái de.",pt:"Como você veio? De metrô."},{cn:"我每天坐公交车上班。",py:"Wǒ měitiān zuò gōngjiāochē shàngbān.",pt:"Pego ônibus para o trabalho todo dia."}]},
-      {struct:"往 + direção + V",label:"往 Direcional",color:"#DC2626",exp:"往 = em direção a (indica rumo, não destino fixo). Use antes do verbo. Não confunda com 去 (que indica destino).",exs:[{cn:"往左走，就到了。",py:"Wǎng zuǒ zǒu, jiù dào le.",pt:"Vire à esquerda e chegou."},{cn:"这条路往前走是地铁站。",py:"Zhè tiáo lù wǎng qián zǒu shì dìtiě zhàn.",pt:"Seguindo essa rua em frente fica a estação de metrô."}]}
+      {struct:"从 A 到 B",label:"De A até B",color:"#6366F1",exp:"从 marca o ponto de partida e 到 o destino. Ambos vêm ANTES do verbo. Serve para lugar e para tempo: 从八点到十点. ❌我走从家到学校。 ✅我从家到学校走路。",exs:[{cn:"从这里到机场要多长时间？",py:"Cóng zhèlǐ dào jīchǎng yào duō cháng shíjiān?",pt:"Quanto tempo leva daqui até o aeroporto?"},{cn:"我从早上八点工作到下午五点。",py:"Wǒ cóng zǎoshang bā diǎn gōngzuò dào xiàwǔ wǔ diǎn.",pt:"Trabalho das oito da manhã às cinco da tarde."},{cn:"从酒店到商场走路十分钟。",py:"Cóng jiǔdiàn dào shāngchǎng zǒulù shí fēnzhōng.",pt:"Do hotel ao shopping são dez minutos a pé."}]},
+      {struct:"坐 / 打 + 交通工具",label:"Meios de Transporte",color:"#0891B2",exp:"坐 = usar transporte onde se senta (地铁, 公交车, 飞机). 打车 = pegar táxi (verbo separável: 打了一辆车). 走路 = a pé. O meio de transporte vem antes do verbo principal.",exs:[{cn:"我每天坐公交车上班。",py:"Wǒ měitiān zuò gōngjiāochē shàngbān.",pt:"Vou de ônibus para o trabalho todo dia."},{cn:"时间来不及了，我们打车去吧。",py:"Shíjiān láibují le, wǒmen dǎchē qù ba.",pt:"Não vai dar tempo, vamos de táxi."},{cn:"你是坐地铁来的还是走路来的？",py:"Nǐ shì zuò dìtiě lái de háishi zǒulù lái de?",pt:"Você veio de metrô ou a pé?"}]},
+      {struct:"往 + 方向 + V",label:"Rumo com 往",color:"#059669",exp:"往 indica a direção do movimento, não o destino final: 往前走(siga em frente), 往左拐(vire à esquerda). Sempre antes do verbo. Para destino, use 到 ou 去.",exs:[{cn:"往前走，车站就在右边。",py:"Wǎng qián zǒu, chēzhàn jiù zài yòubian.",pt:"Siga em frente, a estação fica à direita."},{cn:"从这个路口往左走五分钟。",py:"Cóng zhège lùkǒu wǎng zuǒ zǒu wǔ fēnzhōng.",pt:"Deste cruzamento, cinco minutos à esquerda."},{cn:"这条路往哪边走？",py:"Zhè tiáo lù wǎng nǎ biān zǒu?",pt:"Para que lado vai esta rua?"}]}
     ],
     dialogue:[
-      {sp:"A",cn:"请问，从这里到地铁站怎么走？",py:"Qǐngwèn, cóng zhèlǐ dào dìtiě zhàn zěnme zǒu?",pt:"Com licença, como chego à estação de metrô daqui?"},
-      {sp:"B",cn:"往前走，然后往右转，走五分钟就到了。",py:"Wǎng qián zǒu, ránhòu wǎng yòu zhuǎn, zǒu wǔ fēnzhōng jiù dào le.",pt:"Siga em frente, depois vire à direita, são cinco minutos a pé."},
-      {sp:"A",cn:"坐地铁去机场，多长时间？",py:"Zuò dìtiě qù jīchǎng, duō cháng shíjiān?",pt:"De metrô ao aeroporto, quanto tempo leva?"},
-      {sp:"B",cn:"大概四十分钟。你要出国吗？",py:"Dàgài sìshí fēnzhōng. Nǐ yào chū guó ma?",pt:"Mais ou menos quarenta minutos. Você vai viajar para o exterior?"},
-      {sp:"A",cn:"是的，去巴西。机票已经买好了。",py:"Shì de, qù Bāxī. Jīpiào yǐjīng mǎi hǎo le.",pt:"É, vou ao Brasil. A passagem já está comprada."},
-      {sp:"B",cn:"太好了！记得买回来的机票。一路平安！",py:"Tài hǎo le! Jìde mǎi huí lái de jīpiào. Yī lù píng ān!",pt:"Que ótimo! Lembre de comprar a passagem de volta. Boa viagem!"}
+      {sp:"A",cn:"请问，从这里到机场怎么走？",py:"Qǐngwèn, cóng zhèlǐ dào jīchǎng zěnme zǒu?",pt:"Com licença, como vou daqui ao aeroporto?"},
+      {sp:"B",cn:"往前走，车站就在右边，坐地铁最快。",py:"Wǎng qián zǒu, chēzhàn jiù zài yòubian, zuò dìtiě zuì kuài.",pt:"Siga em frente, a estação fica à direita; de metrô é o mais rápido."},
+      {sp:"A",cn:"要多长时间？",py:"Yào duō cháng shíjiān?",pt:"Quanto tempo leva?"},
+      {sp:"B",cn:"大概四十分钟。时间来不及就打车吧。",py:"Dàgài sìshí fēnzhōng. Shíjiān láibují jiù dǎchē ba.",pt:"Uns quarenta minutos. Se não der tempo, pegue um táxi."},
+      {sp:"A",cn:"我要出国，机票已经买好了。",py:"Wǒ yào chūguó, jīpiào yǐjīng mǎi hǎo le.",pt:"Vou para o exterior, já comprei a passagem."},
+      {sp:"B",cn:"那祝你一路平安！",py:"Nà zhù nǐ yí lù píng ān!",pt:"Então boa viagem!"}
     ],
     quiz:[
-      {q:"Complete: ___这里___地铁站要走五分钟。",opts:["往...往","从...到","到...从","在...在"],ans:1,exp:"✅ 从...到 = de...até (trajetória). 从这里到地铁站 = daqui até a estação de metrô."},
-      {q:"Qual preposição de transporte faz mais sentido em: ___公交车去？",opts:["往","从","坐","在"],ans:2,exp:"✅ 坐公交车 = de ônibus / andar de ônibus. 坐 é o verbo/preposição padrão para transporte de massa."},
-      {q:"往 indica:",opts:["Destino fixo","Rumo/direção","Origem","Duração"],ans:1,exp:"✅ 往 = em direção a (rumo, não necessariamente destino final). 往左走 = vá na direção da esquerda. Destino fixo = 去/到."},
-      {q:"\"Me diga onde fica o banheiro\" = ?",opts:["告诉我洗手间在哪里。","告诉洗手间在我哪里。","我告诉洗手间哪里。","洗手间告诉我在哪里。"],ans:0,exp:"✅ 告诉 + pessoa + conteúdo. Estrutura: 告诉我 (me diga) + 洗手间在哪里 (onde fica o banheiro). Ordem S-V-O mantida."},
-      {q:"Qual NÃO é lugar?",opts:["饭馆","商场","往","地铁"],ans:2,exp:"✅ 往 é preposição direcional, não lugar. 饭馆 = restaurante, 商场 = shopping, 地铁 = metrô."}
+      {q:"\"Daqui até o aeroporto\" =",opts:["从这里到机场","到这里从机场","这里从机场到","从到这里机场"],ans:0,exp:"✅ 从(partida) + 到(destino), ambos antes do verbo."},
+      {q:"打车 significa:",opts:["Bater no carro","Pegar táxi","Dirigir","Consertar carro"],ans:1,exp:"✅ 打车 = pegar táxi. É verbo separável: 打了一辆车."},
+      {q:"\"Siga em frente\" =",opts:["走往前","往前走","前往走","走前往"],ans:1,exp:"✅ 往 + direção + verbo. A preposição sempre antecede o verbo de movimento."},
+      {q:"往 difere de 到 porque:",opts:["往 = rumo; 到 = destino alcançado","São iguais","到 é informal","往 vai depois do verbo"],ans:0,exp:"✅ 往前走 indica a direção seguida; 到机场 indica o ponto de chegada."},
+      {q:"Qual NÃO é meio de transporte?",opts:["地铁","公交车","洗手间","飞机"],ans:2,exp:"✅ 洗手间 = banheiro. Os demais são metrô, ônibus e avião."}
     ],
   },
   {
-    w:4, phase:"Espa\u00e7o", emoji:"\ud83d\udccd", color:"#7C3AED",
-    theme:"Posição Espacial — Dentro, Fora, Cima, Baixo e Lados",
+    w:4, phase:"Espaço", emoji:"📍", color:"#7C3AED",
+    theme:"Posição, Lados e Classificadores de Lugar",
     built:false, builtNote:"",
-    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"在+posição · 左/右边 · 这/那边",chars:"+10 novos"},
+    stats:{words:"17 novas (HSK 2)",newHSK2:"17",grammar:"方位词 · 在+lugar · 量词 间/位",chars:"+25 novos"},
     vocab:[
       {h:"里面",py:"lǐmiàn",pt:"dentro (de)"},
       {h:"外面",py:"wàimiàn",pt:"lá fora; exterior"},
@@ -150,35 +164,37 @@ const WEEKS = [
       {h:"右边",py:"yòubian",pt:"lado direito"},
       {h:"门",py:"mén",pt:"porta; portão"},
       {h:"门口",py:"ménkǒu",pt:"entrada; portão"},
-      {h:"床",py:"chuáng",pt:"cama"},
       {h:"间",py:"jiān",pt:"(classif. cômodos)"},
-      {h:"位",py:"wèi",pt:"(classif. pessoas - respeitoso)"}
+      {h:"位",py:"wèi",pt:"(classif. pessoas - respeitoso)"},
+      {h:"床",py:"chuáng",pt:"cama"},
+      {h:"面",py:"miàn",pt:"rosto; macarrão; farinha"}
     ],
     grammar:[
-      {struct:"在 + lugar + 里/外/上/下/前/后/旁边",label:"Preposição de Posição",color:"#6366F1",exp:"Palavras de posição (位置词) sempre vêm APÓS o substantivo de referência. 书在桌子上 ✅ / 书在上桌子 ❌",exs:[{cn:"书包在椅子旁边。",py:"Shūbāo zài yǐzi pángbiān.",pt:"A mochila está ao lado da cadeira."},{cn:"门口有一个人在等你。",py:"Ménkǒu yǒu yí gè rén zài děng nǐ.",pt:"Tem alguém na entrada te esperando."}]},
-      {struct:"左边 / 右边 / 前面 / 后面",label:"Referências de Direção",color:"#059669",exp:"As direções em chinês são relativas ao falante (não ao objeto). 左边 = do lado esquerdo (de quem olha).",exs:[{cn:"银行在超市的右边。",py:"Yínháng zài chāoshì de yòubian.",pt:"O banco fica à direita do supermercado."},{cn:"我坐在老师前面。",py:"Wǒ zuò zài lǎoshī qiánmiàn.",pt:"Fico sentado na frente do professor."}]},
-      {struct:"这/那 + 边/里/儿",label:"Demonstrativos de Posição",color:"#D97706",exp:"这边/这里/这儿 = aqui/este lado. 那边/那里/那儿 = ali/aquele lado. 哪里/哪儿 = onde? No norte da China, 儿化 é muito comum.",exs:[{cn:"请坐，就坐那边吧。",py:"Qǐng zuò, jiù zuò nàbiān ba.",pt:"Por favor sente-se, sente ali."},{cn:"厕所在哪儿？在里面。",py:"Cèsuǒ zài nǎr? Zài lǐmiàn.",pt:"Onde fica o banheiro? É lá dentro."}]}
+      {struct:"N + 里面/外面/上面/下面",label:"Palavras de Posição",color:"#6366F1",exp:"O locativo vem SEMPRE depois do substantivo de referência: 书包里面, 桌子上面. Em português é o inverso (\"dentro da mochila\"). ❌在里面书包。 ✅在书包里面。",exs:[{cn:"我的手表在书包里面。",py:"Wǒ de shǒubiǎo zài shūbāo lǐmiàn.",pt:"Meu relógio está dentro da mochila."},{cn:"门口外面有人在等你。",py:"Ménkǒu wàimiàn yǒu rén zài děng nǐ.",pt:"Tem alguém esperando por você lá fora."},{cn:"床下面有一双鞋。",py:"Chuáng xiàmiàn yǒu yì shuāng xié.",pt:"Tem um par de sapatos embaixo da cama."}]},
+      {struct:"S + 在 + 地点 + V",label:"Lugar Antes do Verbo",color:"#0891B2",exp:"Diferente do português, a expressão de lugar precede o verbo: 我在教室学习. ❌我学习在教室。 Como verbo pleno, porém, 在 fica sozinho: 我在教室(estou na sala).",exs:[{cn:"我在教室里等你。",py:"Wǒ zài jiàoshì lǐ děng nǐ.",pt:"Espero você na sala de aula."},{cn:"他在旁边的饭馆吃饭。",py:"Tā zài pángbiān de fànguǎn chīfàn.",pt:"Ele está comendo no restaurante ao lado."},{cn:"孩子们在外面跑来跑去。",py:"Háizimen zài wàimiàn pǎo lái pǎo qù.",pt:"As crianças correm de um lado para o outro lá fora."}]},
+      {struct:"量词: 间 / 位 / 条",label:"Classificadores Específicos",color:"#059669",exp:"间 conta cômodos (一间教室). 位 conta pessoas com respeito (三位老师) — nunca use 位 para si mesmo. 条 conta coisas longas e flexíveis (一条路, 一条裤子, 一条鱼).",exs:[{cn:"这里有三间教室和一间洗手间。",py:"Zhèlǐ yǒu sān jiān jiàoshì hé yì jiān xǐshǒujiān.",pt:"Aqui há três salas de aula e um banheiro."},{cn:"今天来了两位老师。",py:"Jīntiān lái le liǎng wèi lǎoshī.",pt:"Hoje vieram dois professores."},{cn:"我买了一条裤子。",py:"Wǒ mǎi le yì tiáo kùzi.",pt:"Comprei uma calça."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你的书包放在哪里了？",py:"Nǐ de shūbāo fàng zài nǎlǐ le?",pt:"Onde você colocou sua mochila?"},
-      {sp:"B",cn:"在床旁边的椅子上。对了，我的手表呢？",py:"Zài chuáng pángbiān de yǐzi shàng. Duì le, wǒ de shǒubiǎo ne?",pt:"Na cadeira ao lado da cama. Aliás, e meu relógio?"},
-      {sp:"A",cn:"在里面，书包里面。左边的口袋。",py:"Zài lǐmiàn, shūbāo lǐmiàn. Zuǒbiān de kǒudài.",pt:"Está dentro da mochila. No bolso do lado esquerdo."},
-      {sp:"B",cn:"找到了！谢谢。门口那边有什么？",py:"Zhǎodào le! Xièxie. Ménkǒu nàbiān yǒu shénme?",pt:"Achei! Obrigado. O que tem ali na entrada?"},
-      {sp:"A",cn:"是我买的东西，放在外面吧，进来的时候带进来。",py:"Shì wǒ mǎi de dōngxi, fàng zài wàimiàn ba, jìn lái de shíhou dài jìn lái.",pt:"São compras minhas, deixa lá fora, traz para dentro quando entrar."}
+      {sp:"A",cn:"我的手表你看见了吗？",py:"Wǒ de shǒubiǎo nǐ kànjiàn le ma?",pt:"Você viu meu relógio?"},
+      {sp:"B",cn:"在书包里面吧，我刚才放进去了。",py:"Zài shūbāo lǐmiàn ba, wǒ gāngcái fàng jìnqù le.",pt:"Deve estar dentro da mochila, acabei de guardar."},
+      {sp:"A",cn:"找到了！书包在床下面。",py:"Zhǎodào le! Shūbāo zài chuáng xiàmiàn.",pt:"Achei! A mochila estava embaixo da cama."},
+      {sp:"B",cn:"门口外面还有两位老师在等你。",py:"Ménkǒu wàimiàn hái yǒu liǎng wèi lǎoshī zài děng nǐ.",pt:"Ainda tem dois professores esperando por você na entrada."},
+      {sp:"A",cn:"是在哪间教室？",py:"Shì zài nǎ jiān jiàoshì?",pt:"Em qual sala de aula?"},
+      {sp:"B",cn:"就在洗手间旁边那间。",py:"Jiù zài xǐshǒujiān pángbiān nà jiān.",pt:"Naquela ao lado do banheiro."}
     ],
     quiz:[
-      {q:"\"A mochila está em cima da mesa\" =",opts:["书包在桌子的上面。","书包在上面桌子。","书包上面在桌子。","书包桌子在上面。"],ans:0,exp:"✅ 书包在桌子的上面 — palavras de posição SEMPRE vêm DEPOIS do substantivo de referência (桌子 + 的 + 上面). Nunca antes!"},
-      {q:"Complete: 厕所在___。",opts:["上里面","里面","里上","面里"],ans:1,exp:"✅ 里面 = dentro (de). Palavras de posição são compostas: 里+面, 上+面, 下+面, 前+面, 后+面. 里面 é a mais comum para \"dentro\"."},
-      {q:"O que significa 旁边？",opts:["Embaixo","Em cima","Ao lado","Na frente"],ans:2,exp:"✅ 旁边 = ao lado de; perto. 上面 = em cima. 下面 = embaixo. 前面 = na frente."},
-      {q:"Meu quarto fica à esquerda do banheiro:",opts:["我的房间在洗手间左边。","我的房间在左边洗手间。","洗手间我的房间在左边。","左边在我的房间洗手间。"],ans:0,exp:"✅ Estrutura: sujeito + 在 + referência + palavra de posição. 我的房间在洗手间左边 = meu quarto está no lado esquerdo do banheiro."},
-      {q:"这边 e 那边 são:",opts:["Verbos de direção","Expressões de posição demonstrativa","Classificadores","Advérbios de tempo"],ans:1,exp:"✅ 这边/这里/这儿 = aqui, este lado. 那边/那里/那儿 = ali, aquele lado. São pronomes demonstrativos de lugar."}
+      {q:"\"O relógio está dentro da mochila\" =",opts:["手表在里面书包。","手表在书包里面。","手表里面在书包。","书包在手表里面。"],ans:1,exp:"✅ O locativo vem DEPOIS da referência: 书包里面. Em português é o inverso."},
+      {q:"\"Espero você na sala de aula\" =",opts:["我等你在教室。","我在教室等你。","我等在教室你。","在我教室等你。"],ans:1,exp:"✅ Lugar antes do verbo — regra estrutural do chinês, oposta à do português."},
+      {q:"O classificador para salas/cômodos é:",opts:["条","位","间","张"],ans:2,exp:"✅ 间 conta cômodos: 一间教室, 三间房子."},
+      {q:"位 é usado para:",opts:["Objetos planos","Pessoas, com respeito","Livros","Roupas"],ans:1,exp:"✅ 两位老师 — 位 é o classificador respeitoso. Não se usa para si mesmo."},
+      {q:"Qual usa 条 corretamente?",opts:["一条老师","一条裤子","一条书","一条教室"],ans:1,exp:"✅ 条 serve para objetos longos e flexíveis: 裤子, 路, 鱼."}
     ],
   },
   {
-    w:5, phase:"Compara\u00e7\u00e3o", emoji:"\u2696\ufe0f", color:"#D97706",
-    theme:"比, 最 e Negação Comparativa",
+    w:5, phase:"Comparação", emoji:"⚖️", color:"#D97706",
+    theme:"比, 最 e Graus de Qualidade",
     built:false, builtNote:"",
-    stats:{words:"17 novas (HSK 2)",newHSK2:"17",grammar:"比+adj · 最+adj · 没有...那么",chars:"+12 novos"},
+    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"A 比 B + adj · 最 · A 没有 B 那么",chars:"+25 novos"},
     vocab:[
       {h:"比",py:"bǐ",pt:"comparar; do que (comparação)"},
       {h:"最",py:"zuì",pt:"o mais; super"},
@@ -190,39 +206,39 @@ const WEEKS = [
       {h:"近",py:"jìn",pt:"perto; próximo"},
       {h:"不错",py:"búcuò",pt:"não está mal; bom"},
       {h:"坏",py:"huài",pt:"ruim; estragado"},
+      {h:"错",py:"cuò",pt:"errado; errar"},
       {h:"就",py:"jiù",pt:"então; logo; apenas"},
       {h:"那么",py:"nàme",pt:"então; assim"},
       {h:"那样",py:"nàyàng",pt:"desse jeito; assim"},
       {h:"这么",py:"zhème",pt:"assim; tão"},
-      {h:"这样",py:"zhèyàng",pt:"desse jeito; assim"},
-      {h:"快乐",py:"kuàilè",pt:"feliz"},
-      {h:"累",py:"lèi",pt:"cansado"}
+      {h:"这样",py:"zhèyàng",pt:"desse jeito; assim"}
     ],
     grammar:[
-      {struct:"A + 比 + B + Adj",label:"Estrutura Comparativa 比",color:"#7C3AED",exp:"NUNCA use 很 com 比! ❌ 他比我很高。 ✅ 他比我高/高多了/高一点儿. Negação: A 没有 B + adj (= A não é tão...quanto B).",exs:[{cn:"今天比昨天热多了。",py:"Jīntiān bǐ zuótiān rè duō le.",pt:"Hoje está muito mais quente que ontem."},{cn:"这个不错，但那个比这个更好。",py:"Zhège búcuò, dàn nàge bǐ zhège gèng hǎo.",pt:"Este está bom, mas aquele é melhor."}]},
-      {struct:"最 + Adj",label:"Superlativo",color:"#DC2626",exp:"最 = o mais. Vem antes do adjetivo. Não precisa de 了 (ao contrário de 太). 最快 = o mais rápido.",exs:[{cn:"这是世界上最长的桥。",py:"Zhè shì shìjiè shàng zuì cháng de qiáo.",pt:"Esta é a ponte mais longa do mundo."},{cn:"她跑得最快，比我们都快。",py:"Tā pǎo de zuì kuài, bǐ wǒmen dōu kuài.",pt:"Ela corre mais rápido que todos nós."}]},
-      {struct:"A + 没有 + B + Adj",label:"Negação de Comparação",color:"#0891B2",exp:"A 没有 B + adj = A não é tão...quanto B. Oposto de 比. Muito natural em fala: 没有你那么高 = não sou tão alto quanto você.",exs:[{cn:"今天没有昨天那么冷。",py:"Jīntiān méiyǒu zuótiān nàme lěng.",pt:"Hoje não está tão frio quanto ontem."},{cn:"这里没有上海那么远。",py:"Zhèlǐ méiyǒu Shànghǎi nàme yuǎn.",pt:"Daqui não é tão longe quanto Xangai."}]}
+      {struct:"A + 比 + B + Adj",label:"Comparação com 比",color:"#6366F1",exp:"A regra que mais derruba alunos: NUNCA use 很 no 比句. ❌今天比昨天很热。 ✅今天比昨天热 / 热多了 / 热一点儿. Para intensificar, use 更/还 antes ou 多了/一点儿 depois.",exs:[{cn:"今天比昨天热多了。",py:"Jīntiān bǐ zuótiān rè duō le.",pt:"Hoje está muito mais quente que ontem."},{cn:"这个包比那个贵一点儿。",py:"Zhège bāo bǐ nàge guì yìdiǎnr.",pt:"Esta bolsa é um pouco mais cara que aquela."},{cn:"他跑得比我快。",py:"Tā pǎo de bǐ wǒ kuài.",pt:"Ele corre mais rápido que eu."}]},
+      {struct:"最 + Adj",label:"Superlativo com 最",color:"#0891B2",exp:"最 = o mais (superlativo absoluto). Vem antes do adjetivo ou verbo de sentimento: 最好, 最喜欢. Não precisa de 很 nem de 了. Frequente com 中/里面: 我们中最高的.",exs:[{cn:"这是我最喜欢的运动。",py:"Zhè shì wǒ zuì xǐhuan de yùndòng.",pt:"Este é meu esporte favorito."},{cn:"他是我们班里跑得最快的。",py:"Tā shì wǒmen bān lǐ pǎo de zuì kuài de.",pt:"Ele é o que corre mais rápido da nossa turma."},{cn:"这条路最近，走这边吧。",py:"Zhè tiáo lù zuì jìn, zǒu zhèbiān ba.",pt:"Este caminho é o mais curto, vamos por aqui."}]},
+      {struct:"A + 没有 + B + (那么) + Adj",label:"Negar a Comparação",color:"#059669",exp:"A negação de 比 NÃO é 不比 (que soa como refutação), e sim A 没有 B + adj = A não é tão…quanto B. O 那么/这么 é opcional mas muito natural na fala.",exs:[{cn:"今天没有昨天那么冷。",py:"Jīntiān méiyǒu zuótiān nàme lěng.",pt:"Hoje não está tão frio quanto ontem."},{cn:"这个饭馆没有那个好。",py:"Zhège fànguǎn méiyǒu nàge hǎo.",pt:"Este restaurante não é tão bom quanto aquele."},{cn:"我的汉语没有他那么好。",py:"Wǒ de Hànyǔ méiyǒu tā nàme hǎo.",pt:"Meu chinês não é tão bom quanto o dele."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"这两家饭馆，你觉得哪个比较好？",py:"Zhè liǎng jiā fànguǎn, nǐ juéde nǎge bǐjiào hǎo?",pt:"Desses dois restaurantes, qual você acha melhor?"},
-      {sp:"B",cn:"左边那家比右边那家好多了，而且便宜。",py:"Zuǒbiān nà jiā bǐ yòubiān nà jiā hǎo duō le, érqiě piányí.",pt:"O da esquerda é muito melhor que o da direita, e ainda é mais barato."},
-      {sp:"A",cn:"但是右边那家离我们最近。",py:"Dànshì yòubiān nà jiā lí wǒmen zuì jìn.",pt:"Mas o da direita é o mais perto de nós."},
-      {sp:"B",cn:"没有我家附近那家近。那家最好，最快，也不贵。",py:"Méiyǒu wǒ jiā fùjìn nà jiā jìn. Nà jiā zuì hǎo, zuì kuài, yě bú guì.",pt:"Não é tão perto quanto o que fica perto da minha casa. Aquele é o melhor, mais rápido e não é caro."},
-      {sp:"A",cn:"好，那就去你家附近那家！",py:"Hǎo, nà jiù qù nǐ jiā fùjìn nà jiā!",pt:"Ótimo, então vamos ao que fica perto da sua casa!"}
+      {sp:"A",cn:"这两个饭馆，你觉得哪个好？",py:"Zhè liǎng gè fànguǎn, nǐ juéde nǎge hǎo?",pt:"Destes dois restaurantes, qual você acha melhor?"},
+      {sp:"B",cn:"左边那个比右边的好多了。",py:"Zuǒbian nàge bǐ yòubian de hǎo duō le.",pt:"O da esquerda é bem melhor que o da direita."},
+      {sp:"A",cn:"可是右边那个最近。",py:"Kěshì yòubian nàge zuì jìn.",pt:"Mas o da direita é o mais perto."},
+      {sp:"B",cn:"近是近，可是没有左边那个好吃。",py:"Jìn shì jìn, kěshì méiyǒu zuǒbian nàge hǎochī.",pt:"Perto ele é, mas não é tão gostoso quanto o da esquerda."},
+      {sp:"A",cn:"那走过去要多久？",py:"Nà zǒu guòqù yào duō jiǔ?",pt:"Então quanto tempo leva a pé?"},
+      {sp:"B",cn:"慢慢走十分钟，不算远。",py:"Mànmàn zǒu shí fēnzhōng, bú suàn yuǎn.",pt:"Devagar, dez minutos; não é longe."}
     ],
     quiz:[
-      {q:"\"Hoje está muito mais quente que ontem\" =",opts:["今天比昨天很热。","今天比昨天热多了。","今天比昨天最热。","今天比昨天热很。"],ans:1,exp:"✅ 热多了 = muito mais quente. NUNCA: 比...很... ❌. Opções: 比+adj (simplesmente mais), 比+adj+多了 (muito mais), 比+adj+一点儿 (um pouquinho mais)."},
-      {q:"Qual é o superlativo de 快？",opts:["很快","比快","最快","太快了"],ans:2,exp:"✅ 最快 = o mais rápido (superlativo). 很快 = muito rápido. 太快了 = rápido demais. 比快 não existe."},
-      {q:"\"Xangai não é tão longe quanto Pequim\" =",opts:["上海没有北京那么远。","上海比北京远。","上海没有远北京。","上海最远。"],ans:0,exp:"✅ A没有B那么/这么+adj = A não é tão...quanto B. Formato de negação da comparação: 没有...那么."},
-      {q:"Complete: 他跑得___快，真厉害！",opts:["很","比","最","没有"],ans:0,exp:"✅ 很快 após complemento de grau (得). Estrutura: 跑得很快. Não é comparação aqui (sem 比), então 很 é o intensificador correto."},
-      {q:"就 neste contexto: \"那就去吧！\" significa:",opts:["Só; apenas","Então; nesse caso","Logo; em seguida","E também"],ans:1,exp:"✅ 就 = então; nesse caso (resolve/concorda). 你说去，那就去吧 = Se você diz para ir, então vamos. É um conector decisivo de consequência."}
+      {q:"Qual está ERRADA?",opts:["今天比昨天热。","今天比昨天很热。","今天比昨天热多了。","今天比昨天更热。"],ans:1,exp:"✅ ❌比…很… — o erro mais frequente do nível. Use 更/还 antes ou 多了/一点儿 depois."},
+      {q:"\"Não está tão frio quanto ontem\" =",opts:["今天不比昨天冷。","今天没有昨天那么冷。","今天比昨天不冷。","今天很不比昨天冷。"],ans:1,exp:"✅ A 没有 B 那么 + adj é a negação padrão da comparação."},
+      {q:"最 significa:",opts:["Muito","O mais (superlativo)","Um pouco","Menos"],ans:1,exp:"✅ 最好, 最快, 最喜欢 — grau máximo absoluto, sem precisar de 很."},
+      {q:"\"Um pouco mais caro\" =",opts:["一点儿贵","贵一点儿","很贵一点儿","有点儿贵一点儿"],ans:1,exp:"✅ Na comparação, 一点儿 vem DEPOIS do adjetivo: 贵一点儿."},
+      {q:"Complete: 他跑得___我快。",opts:["很","比","最","没有"],ans:1,exp:"✅ 他跑得比我快 — o 比 pode aparecer dentro do complemento de grau."}
     ],
   },
   {
-    w:6, phase:"Tempo", emoji:"\u23f0", color:"#0891B2",
-    theme:"Frequência, Iminência e Aspecto Contínuo 着",
+    w:6, phase:"Aspecto", emoji:"⏳", color:"#DC2626",
+    theme:"Tempo, Frequência e as Partículas 了/过/着",
     built:false, builtNote:"",
-    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"V+着 · 快要...了 · 经常/有时",chars:"+10 novos"},
+    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"了 · 过 experiencial · 着 · 快要…了",chars:"+25 novos"},
     vocab:[
       {h:"经常",py:"jīngcháng",pt:"frequentemente; habitualmente"},
       {h:"已经",py:"yǐjīng",pt:"já (completo)"},
@@ -236,36 +252,37 @@ const WEEKS = [
       {h:"着",py:"zhe",pt:"(part. de ação contínua)"},
       {h:"开始",py:"kāishǐ",pt:"começar; início"},
       {h:"完",py:"wán",pt:"terminar; acabar"},
-      {h:"生日",py:"shēngrì",pt:"aniversário"},
-      {h:"出国",py:"chūguó",pt:"ir ao exterior"},
-      {h:"过年",py:"guònián",pt:"celebrar o Ano Novo Chinês"},
-      {h:"开学",py:"kāixué",pt:"início do semestre"}
+      {h:"每",py:"měi",pt:"cada; todo(s)"},
+      {h:"过",py:"guò",pt:"passar; atravessar; celebrar — verbo"},
+      {h:"过",py:"guo",pt:"partícula de experiência (já fez alguma vez)"},
+      {h:"一起",py:"yìqǐ",pt:"juntos"}
     ],
     grammar:[
-      {struct:"V + 着",label:"Aspecto Contínuo (着)",color:"#6366F1",exp:"着 (zhe) indica ação ou estado contínuo. Diferente do progressivo 在+V: 着 = estado resultante, não ação em andamento.",exs:[{cn:"门开着，请进来。",py:"Mén kāi zhe, qǐng jìn lái.",pt:"A porta está aberta, pode entrar."},{cn:"她笑着说了再见。",py:"Tā xiào zhe shuō le zàijiàn.",pt:"Ela disse tchau sorrindo."}]},
-      {struct:"快要 / 要...了",label:"Iminência",color:"#059669",exp:"Indica que algo está para acontecer. 快要 = quase. 要...了 = vai...em breve. 都要...了 = já vai. Sempre com 了 no final.",exs:[{cn:"火车快要开了，快上来！",py:"Huǒchē kuàiyào kāi le, kuài shànglái!",pt:"O trem vai sair, sobe logo!"},{cn:"他要回国了，我们去送送他。",py:"Tā yào huí guó le, wǒmen qù sòng song tā.",pt:"Ele vai voltar ao país, vamos despedir."}]},
-      {struct:"经常 / 有时 / 从来不",label:"Frequência",color:"#D97706",exp:"总是 (sempre) > 经常 (frequentemente) > 有时 (às vezes) > 很少 (raramente) > 从来不 (nunca). Posição: antes do verbo.",exs:[{cn:"我经常喝绿茶，有时喝咖啡。",py:"Wǒ jīngcháng hē lǜchá, yǒushí hē kāfēi.",pt:"Costumo beber chá verde, às vezes café."},{cn:"他从来不迟到。",py:"Tā cónglái bù chídào.",pt:"Ele nunca se atrasa."}]}
+      {struct:"V + 了 / 句尾 + 了",label:"As Duas Faces de 了",color:"#6366F1",exp:"了 após o verbo = ação concluída (我吃了饭). 了 no fim da frase = mudança de estado (下雨了 = começou a chover). Negação com 没, e o 了 DESAPARECE: ❌我没吃了饭。 ✅我没吃饭。",exs:[{cn:"我已经买了机票。",py:"Wǒ yǐjīng mǎi le jīpiào.",pt:"Já comprei a passagem aérea."},{cn:"外面下雨了，带伞吧。",py:"Wàimiàn xià yǔ le, dài sǎn ba.",pt:"Começou a chover lá fora, leve guarda-chuva."},{cn:"他还没来，我们再等一会儿。",py:"Tā hái méi lái, wǒmen zài děng yíhuìr.",pt:"Ele ainda não veio, vamos esperar mais um pouco."}]},
+      {struct:"V + 过 (guo)",label:"Experiência de Vida",color:"#0891B2",exp:"过 átono = \"já fiz isso alguma vez na vida\". Negação: 没 + V + 过. Cuidado: 过 também existe como VERBO tônico guò (passar, atravessar, celebrar) — 过年, 过来. Mesma grafia, funções distintas.",exs:[{cn:"我去过中国两次。",py:"Wǒ qù guo Zhōngguó liǎng cì.",pt:"Já estive na China duas vezes."},{cn:"你吃过北京烤鸭吗？——还没吃过。",py:"Nǐ chī guo Běijīng kǎoyā ma? —— Hái méi chī guo.",pt:"Já comeu pato de Pequim? —— Ainda não."},{cn:"我们在中国过过年，很热闹。",py:"Wǒmen zài Zhōngguó guò guo nián, hěn rènao.",pt:"Já passamos o Ano Novo na China, foi muito animado."}]},
+      {struct:"V + 着 / 快要 … 了",label:"Estado Contínuo e Iminência",color:"#059669",exp:"着 marca estado persistente: 门开着(a porta está aberta) — diferente de 在+V (ação em curso). 快要…了 indica algo prestes a acontecer, sempre com 了 no fim.",exs:[{cn:"门开着呢，你进来吧。",py:"Mén kāi zhe ne, nǐ jìnlái ba.",pt:"A porta está aberta, pode entrar."},{cn:"他笑着说：“不客气。”",py:"Tā xiào zhe shuō: \"Bú kèqi.\"",pt:"Ele disse sorrindo: \"De nada\"."},{cn:"快要上课了，我们进教室吧。",py:"Kuàiyào shàngkè le, wǒmen jìn jiàoshì ba.",pt:"A aula vai começar, vamos entrar na sala."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你经常几点起床？",py:"Nǐ jīngcháng jǐ diǎn qǐchuáng?",pt:"Que horas você costuma acordar?"},
-      {sp:"B",cn:"我经常七点起来，但今天有点儿晚，快要八点了。",py:"Wǒ jīngcháng qī diǎn qǐlái, dàn jīntiān yǒudiǎnr wǎn, kuàiyào bā diǎn le.",pt:"Costumo acordar às sete, mas hoje foi um pouco tarde, já quase oito."},
-      {sp:"A",cn:"已经开始上课了！你快点儿来。",py:"Yǐjīng kāishǐ shàngkè le! Nǐ kuài diǎnr lái.",pt:"A aula já começou! Venha rápido."},
-      {sp:"B",cn:"好的，我正在出门。着呢！今天又迟到了。",py:"Hǎo de, wǒ zhèngzài chūmén. Zhe ne! Jīntiān yòu chídào le.",pt:"Já estou saindo. Hoje me atrasei de novo."},
-      {sp:"A",cn:"下次早点儿睡，这周你已经迟到两次了。",py:"Xià cì zǎo diǎnr shuì, zhè zhōu nǐ yǐjīng chídào liǎng cì le.",pt:"Da próxima vez durma mais cedo, essa semana você já se atrasou duas vezes."}
+      {sp:"A",cn:"你吃了吗？",py:"Nǐ chī le ma?",pt:"Você já comeu?"},
+      {sp:"B",cn:"还没有，我经常忘记吃午饭。",py:"Hái méiyǒu, wǒ jīngcháng wàngjì chī wǔfàn.",pt:"Ainda não, esqueço de almoçar com frequência."},
+      {sp:"A",cn:"你吃过这家的饺子吗？",py:"Nǐ chī guo zhè jiā de jiǎozi ma?",pt:"Já comeu o guioza daqui?"},
+      {sp:"B",cn:"没吃过。好吃吗？",py:"Méi chī guo. Hǎochī ma?",pt:"Nunca comi. É bom?"},
+      {sp:"A",cn:"非常好吃！门开着，我们进去吧。",py:"Fēicháng hǎochī! Mén kāi zhe, wǒmen jìnqù ba.",pt:"Muito bom! A porta está aberta, vamos entrar."},
+      {sp:"B",cn:"好，快要一点了，我已经很饿了。",py:"Hǎo, kuàiyào yì diǎn le, wǒ yǐjīng hěn è le.",pt:"Vamos, já é quase uma hora e estou com muita fome."}
     ],
     quiz:[
-      {q:"\"A porta está aberta\" (estado) =",opts:["门开了。","门在开。","门开着。","门要开了。"],ans:2,exp:"✅ 门开着 = a porta está aberta (estado contínuo). 着 = estado resultante. 门开了 = a porta foi aberta (ação completada). 门要开了 = a porta vai abrir."},
-      {q:"快要...了 indica:",opts:["Ação habitual","Ação em andamento agora","Algo prestes a acontecer","Experiência de vida"],ans:2,exp:"✅ 快要...了 = iminência (vai acontecer logo). 快要下雨了 = vai chover logo. Sempre com 了 no final."},
-      {q:"Qual frase usa corretamente 经常？",opts:["我经常了去跑步。","我经常去跑步。","经常我去跑步。","我去经常跑步。"],ans:1,exp:"✅ 经常 vai antes do verbo (não depois): 我经常去跑步. Advérbios de frequência ficam antes do verbo em chinês."},
-      {q:"\"Já começou!\" =",opts:["已经开始了！","开始已经了！","了已经开始！","开始了已经！"],ans:0,exp:"✅ 已经 + verbo + 了. Estrutura: sujeito + 已经 + V + 了. A combinação já经...了 = já (aconteceu/mudou)."},
-      {q:"正 nesta frase: \"我正在看书\" significa:",opts:["Exatamente/justamente","Está (em andamento)","Já","Logo"],ans:1,exp:"✅ 正在 = estar fazendo agora (progressivo). 正 + 在 + V. Só 在 também funciona. 正 sem 在 pode = exatamente/justamente."}
+      {q:"了 no FIM da frase indica:",opts:["Ação concluída","Mudança de estado","Experiência","Estado contínuo"],ans:1,exp:"✅ 下雨了 = começou a chover (situação nova). Após o verbo, 了 marca conclusão: 我吃了饭."},
+      {q:"Negação de 我吃了饭 é:",opts:["我没吃了饭。","我没吃饭。","我不吃了饭。","我吃没了饭。"],ans:1,exp:"✅ Ao negar com 没, o 了 DESAPARECE. Manter os dois é agramatical."},
+      {q:"过 (guo) átono indica:",opts:["Ação em curso","Experiência de vida","Futuro","Obrigação"],ans:1,exp:"✅ 我去过中国 = já estive na China. Negação: 没去过."},
+      {q:"门开着 significa:",opts:["A porta abriu","A porta está aberta","A porta vai abrir","A porta já abriu antes"],ans:1,exp:"✅ 着 marca estado persistente. 门开了 seria o evento de abrir."},
+      {q:"过年 usa qual 过?",opts:["过 guo (partícula)","过 guò (verbo)","Nenhum","Os dois"],ans:1,exp:"✅ 过年 usa 过 guò tônico, verbo pleno = passar/celebrar. Diferente do 过 guo átono de experiência."}
     ],
   },
   {
-    w:7, phase:"Sa\u00fade", emoji:"\ud83d\udc8a", color:"#DC2626",
-    theme:"Corpo, Saúde, Grau com 得 e Intensidade",
+    w:7, phase:"Bem-estar", emoji:"💊", color:"#059669",
+    theme:"Corpo, Saúde e o Complemento de Grau 得",
     built:false, builtNote:"",
-    stats:{words:"15 novas (HSK 2)",newHSK2:"15",grammar:"V+得+adj · 有点儿 · 太...了",chars:"+10 novos"},
+    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"V + 得 + adj · 有点儿 · 太…了",chars:"+25 novos"},
     vocab:[
       {h:"身体",py:"shēntǐ",pt:"corpo; saúde"},
       {h:"头",py:"tóu",pt:"cabeça"},
@@ -273,42 +290,43 @@ const WEEKS = [
       {h:"眼睛",py:"yǎnjing",pt:"olhos"},
       {h:"疼",py:"téng",pt:"doer; dor"},
       {h:"药",py:"yào",pt:"remédio; medicamento"},
-      {h:"舒服",py:"shūfu",pt:"confortável; bem"},
       {h:"药店",py:"yàodiàn",pt:"farmácia"},
-      {h:"告诉",py:"gàosu",pt:"contar para; informar"},
+      {h:"舒服",py:"shūfu",pt:"confortável; bem"},
+      {h:"累",py:"lèi",pt:"cansado"},
+      {h:"快乐",py:"kuàilè",pt:"feliz"},
+      {h:"笑",py:"xiào",pt:"rir; sorrir"},
       {h:"帮",py:"bāng",pt:"ajudar"},
       {h:"帮忙",py:"bāngmáng",pt:"ajudar, dar uma mão"},
-      {h:"笑",py:"xiào",pt:"rir; sorrir"},
-      {h:"错",py:"cuò",pt:"errado; errar"},
-      {h:"高中",py:"gāozhōng",pt:"ensino médio"},
-      {h:"懂",py:"dǒng",pt:"entender"}
+      {h:"希望",py:"xīwàng",pt:"esperar; esperança"},
+      {h:"晴",py:"qíng",pt:"ensolarado; bom tempo"},
+      {h:"阴",py:"yīn",pt:"nublado; sombra"}
     ],
     grammar:[
-      {struct:"V + 得 + Adj",label:"Complemento de Grau (得)",color:"#DC2626",exp:"Indica como bem/intensamente algo é feito. 得 separa verbo do complemento. Se houver objeto, o verbo se repete: 他中文说得很好 ✅.",exs:[{cn:"她唱歌唱得很好听。",py:"Tā chànggē chàng de hěn hǎotīng.",pt:"Ela canta muito bem."},{cn:"你汉语说得不错！",py:"Nǐ Hànyǔ shuō de búcuò!",pt:"Você fala chinês muito bem!"}]},
-      {struct:"有点儿 + Adj",label:"Leve Intensidade Negativa",color:"#7C3AED",exp:"有点儿 = um pouco (geralmente com conotação negativa ou de reclamação). 一点儿 = um pouco (neutro, após comparação). Diferença crucial!",exs:[{cn:"今天有点儿冷，你穿多点儿吧。",py:"Jīntiān yǒudiǎnr lěng, nǐ chuān duō diǎnr ba.",pt:"Hoje está um pouco frio, vista mais."},{cn:"这个药有点儿苦，但是很有用。",py:"Zhège yào yǒudiǎnr kǔ, dànshì hěn yǒuyòng.",pt:"Este remédio é um pouco amargo, mas eficaz."}]},
-      {struct:"太 + Adj + 了",label:"Excesso (太...了)",color:"#059669",exp:"太 + adj + 了 = excessivamente (às vezes positivo na fala cotidiana: 太好了！= Que ótimo!). Sem 了 também é possível em contexto comparativo.",exs:[{cn:"头太疼了，我需要吃药。",py:"Tóu tài téng le, wǒ xūyào chī yào.",pt:"Minha cabeça dói demais, preciso tomar remédio."},{cn:"太棒了！你的汉语太好了！",py:"Tài bàng le! Nǐ de Hànyǔ tài hǎo le!",pt:"Incrível! Seu chinês é excelente!"}]}
+      {struct:"V + 得 + Adj",label:"Complemento de Grau",color:"#6366F1",exp:"得 avalia COMO a ação é feita: 跑得很快. Havendo objeto, o verbo se repete: 他说汉语说得很好. Negação DEPOIS de 得: 说得不好 (não ❌不说得好).",exs:[{cn:"你汉语说得很不错！",py:"Nǐ Hànyǔ shuō de hěn búcuò!",pt:"Você fala chinês muito bem!"},{cn:"他昨天睡得不太好。",py:"Tā zuótiān shuì de bú tài hǎo.",pt:"Ele não dormiu muito bem ontem."},{cn:"这个孩子跑得真快。",py:"Zhège háizi pǎo de zhēn kuài.",pt:"Esta criança corre muito rápido."}]},
+      {struct:"有点儿 + Adj",label:"Leve Incômodo",color:"#0891B2",exp:"有点儿 vem ANTES do adjetivo e carrega tom de queixa: 有点儿贵(caro demais para meu gosto). Já 一点儿 vem DEPOIS e é neutro: 便宜一点儿(um pouco mais barato). Posição e valência diferem.",exs:[{cn:"我今天有点儿累，想早点儿休息。",py:"Wǒ jīntiān yǒudiǎnr lèi, xiǎng zǎo diǎnr xiūxi.",pt:"Hoje estou meio cansado, quero descansar cedo."},{cn:"这件裤子有点儿贵，便宜一点儿行吗？",py:"Zhè jiàn kùzi yǒudiǎnr guì, piányí yìdiǎnr xíng ma?",pt:"Esta calça está meio cara, pode fazer um pouco mais barato?"},{cn:"我头有点儿疼，想去药店买药。",py:"Wǒ tóu yǒudiǎnr téng, xiǎng qù yàodiàn mǎi yào.",pt:"Minha cabeça dói um pouco, quero ir à farmácia."}]},
+      {struct:"太 + Adj + 了",label:"Excesso e Exclamação",color:"#059669",exp:"太…了 marca excesso, mas na fala cotidiana vira exclamação positiva: 太好了！(que ótimo!), 太快乐了！O 了 final é praticamente obrigatório. O contexto define se é elogio ou reclamação.",exs:[{cn:"太好了！你终于来了！",py:"Tài hǎo le! Nǐ zhōngyú lái le!",pt:"Que ótimo! Você finalmente chegou!"},{cn:"这个包太贵了，我买不起。",py:"Zhège bāo tài guì le, wǒ mǎi bu qǐ.",pt:"Esta bolsa é cara demais, não posso comprar."},{cn:"今天太累了，我想休息。",py:"Jīntiān tài lèi le, wǒ xiǎng xiūxi.",pt:"Hoje estou cansadíssimo, quero descansar."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你哪里不舒服？",py:"Nǐ nǎlǐ bù shūfu?",pt:"O que você está sentindo?"},
-      {sp:"B",cn:"头很疼，身体也有点儿不舒服。",py:"Tóu hěn téng, shēntǐ yě yǒudiǎnr bù shūfu.",pt:"Minha cabeça dói muito, o corpo também está meio mal."},
-      {sp:"A",cn:"告诉你，不要一直看手机。眼睛也会疼的。",py:"Gàosu nǐ, bù yào yīzhí kàn shǒujī. Yǎnjing yě huì téng de.",pt:"Deixa eu te dizer, não fique olhando para o celular. Os olhos também podem doer."},
-      {sp:"B",cn:"你说得对。我需要买一点儿药。药店在哪儿？",py:"Nǐ shuō de duì. Wǒ xūyào mǎi yīdiǎnr yào. Yàodiàn zài nǎr?",pt:"Você tem razão. Preciso comprar remédio. Onde fica a farmácia?"},
-      {sp:"A",cn:"就在前面，走路五分钟。帮你买吧！",py:"Jiù zài qiánmiàn, zǒulù wǔ fēnzhōng. Bāng nǐ mǎi ba!",pt:"É bem em frente, cinco minutos a pé. Vou buscar para você!"},
-      {sp:"B",cn:"太感谢了，你真好！",py:"Tài gǎnxiè le, nǐ zhēn hǎo!",pt:"Muito obrigado, você é muito legal!"}
+      {sp:"A",cn:"你今天看起来有点儿累。",py:"Nǐ jīntiān kàn qǐlái yǒudiǎnr lèi.",pt:"Hoje você parece um pouco cansado."},
+      {sp:"B",cn:"是啊，头有点儿疼，昨天睡得不太好。",py:"Shì a, tóu yǒudiǎnr téng, zuótiān shuì de bú tài hǎo.",pt:"Pois é, minha cabeça dói um pouco, dormi mal ontem."},
+      {sp:"A",cn:"眼睛也红红的，别看手机了。",py:"Yǎnjing yě hóng hóng de, bié kàn shǒujī le.",pt:"Seus olhos estão vermelhos também, pare de olhar o celular."},
+      {sp:"B",cn:"你说得对。药店远吗？",py:"Nǐ shuō de duì. Yàodiàn yuǎn ma?",pt:"Você tem razão. A farmácia é longe?"},
+      {sp:"A",cn:"不远，就在前面。我帮你去买药吧。",py:"Bù yuǎn, jiù zài qiánmiàn. Wǒ bāng nǐ qù mǎi yào ba.",pt:"Não, é logo ali. Vou comprar o remédio para você."},
+      {sp:"B",cn:"太好了，谢谢你的帮忙！",py:"Tài hǎo le, xièxie nǐ de bāngmáng!",pt:"Que ótimo, obrigado pela ajuda!"}
     ],
     quiz:[
-      {q:"\"Ela canta muito bem\" com complemento de grau:",opts:["她唱歌很好听。","她唱歌唱得很好听。","她得唱歌很好听。","她唱歌好听得。"],ans:1,exp:"✅ Quando há objeto (歌), o verbo se repete: 唱歌+唱+得+很好听. Estrutura: V+O + V+得+adj. Se sem objeto: 她唱得很好听."},
-      {q:"\"Minha cabeça dói um pouco\" =",opts:["我头太疼。","我头很疼。","我头有点儿疼。","我头疼得很。"],ans:2,exp:"✅ 有点儿 = um pouco (geralmente conotação negativa/reclamação). 有点儿疼 = dói um pouco. 太疼 = dói demais. 很疼 = dói muito."},
-      {q:"Qual é a diferença principal entre 有点儿 e 一点儿？",opts:["Não há diferença","有点儿 vem antes do adj (geralmente neg.); 一点儿 vem depois do adj (comparação)","一点儿 vem antes; 有点儿 depois","Ambos só após verbo"],ans:1,exp:"✅ 有点儿 + adj (conotação negativa, antes do adj). 比...一点儿 (um pouquinho mais, após adj na comparação). Exemplos: 有点儿贵 vs. 便宜一点儿."},
-      {q:"太棒了 (tài bàng le) expressa:",opts:["Crítica: é bom demais","Entusiasmo: que incrível!","Dúvida","Surpresa negativa"],ans:1,exp:"✅ 太...了 em linguagem cotidiana pode ser positivo: 太好了 = Que ótimo! 太棒了 = Que incrível! Só é negativo quando o contexto indica excesso real."},
-      {q:"\"Preciso tomar remédio\" =",opts:["我需要吃药。","我需要买药。","我需要喝药。","A e C estão certas."],ans:3,exp:"✅ 吃药 (comer remédio) E 喝药 (beber remédio) são ambas corretas em mandarim! Tabletes = 吃药, líquidos = 喝药. Então A e C estão corretas."}
+      {q:"\"Ele fala chinês muito bem\" =",opts:["他说汉语得很好。","他汉语说得很好。","他得说汉语很好。","他很好说得汉语。"],ans:1,exp:"✅ Com objeto, o verbo se repete antes de 得: 说汉语说得很好 ou 汉语说得很好."},
+      {q:"A negação do complemento de grau fica:",opts:["Antes do verbo","Depois de 得","Antes de 得","No fim da frase"],ans:1,exp:"✅ 说得不好 — a negação incide sobre o complemento, não sobre o verbo."},
+      {q:"有点儿 vs 一点儿:",opts:["São iguais","有点儿 antes do adj (queixa); 一点儿 depois (neutro)","一点儿 antes; 有点儿 depois","Ambos vão depois"],ans:1,exp:"✅ 有点儿贵(caro demais) vs 便宜一点儿(um pouco mais barato). Posição e tom diferem."},
+      {q:"太好了！expressa:",opts:["Reclamação","Entusiasmo","Dúvida","Recusa"],ans:1,exp:"✅ Apesar de 太 significar \"excesso\", na fala 太好了/太棒了 são exclamações positivas."},
+      {q:"Qual está ERRADA?",opts:["我有点儿累。","这个有点儿贵。","便宜一点儿。","我一点儿累。"],ans:3,exp:"✅ ❌我一点儿累 — antes do adjetivo, o correto é 有点儿累."}
     ],
   },
   {
-    w:8, phase:"Compras", emoji:"\ud83d\udecd", color:"#059669",
+    w:8, phase:"Compras", emoji:"🛍", color:"#6366F1",
     theme:"Objetos, Cores, Preços e Classificadores",
     built:false, builtNote:"",
-    stats:{words:"18 novas (HSK 2)",newHSK2:"18",grammar:"一共 · 量词(条/张/本) · 送 vs 给",chars:"+12 novos"},
+    stats:{words:"18 novas (HSK 2)",newHSK2:"18",grammar:"量词 条/张 · 多少钱 · 送 vs 给",chars:"+25 novos"},
     vocab:[
       {h:"包",py:"bāo",pt:"embrulhar; bolsa; pacote"},
       {h:"本子",py:"běnzi",pt:"caderno"},
@@ -330,31 +348,31 @@ const WEEKS = [
       {h:"送",py:"sòng",pt:"enviar; presentear; levar"}
     ],
     grammar:[
-      {struct:"一共 + 多少 钱？",label:"Perguntar Preço Total",color:"#6366F1",exp:"Perguntas de preço: 多少钱？(quanto custa?), 一共多少钱？(quanto é o total?). Números grandes: 十万 = cem mil.",exs:[{cn:"这条裤子多少钱？一共两百元。",py:"Zhè tiáo kùzi duōshao qián? Yígòng liǎng bǎi yuán.",pt:"Quanto custa essa calça? São duzentos yuan no total."},{cn:"一共三张票，一万块。",py:"Yígòng sān zhāng piào, yī wàn kuài.",pt:"São três ingressos no total, dez mil yuan."}]},
-      {struct:"量词 (Classificadores)",label:"Classificadores Nominais",color:"#059669",exp:"条 = coisas longas e flexíveis (calça, rua, rio). 张 = coisas planas (papel, bilhete, foto). 本 = livros. 块 = peças/yuan. Lembre: 一条裤子 / 一张票.",exs:[{cn:"我买了三条裤子和两本书。",py:"Wǒ mǎi le sān tiáo kùzi hé liǎng běn shū.",pt:"Comprei três calças e dois livros."},{cn:"给我一张机票，谢谢。",py:"Gěi wǒ yī zhāng jīpiào, xièxie.",pt:"Me dê uma passagem aérea, obrigado."}]},
-      {struct:"送 vs 给",label:"Dar/Presentear vs. Dar",color:"#D97706",exp:"送 = dar de presente/enviar/acompanhar. 给 = dar (transferência). 送给 = dar de presente para. 送人 = acompanhar alguém.",exs:[{cn:"这是我送你的生日礼物。",py:"Zhè shì wǒ sòng nǐ de shēngrì lǐwù.",pt:"Este é o presente de aniversário que te dou."},{cn:"我去机场送她。",py:"Wǒ qù jīchǎng sòng tā.",pt:"Vou ao aeroporto me despedir dela."}]}
+      {struct:"数 + 量词 + 名",label:"Classificadores Obrigatórios",color:"#6366F1",exp:"Entre número e substantivo o classificador é obrigatório. 条(longos e flexíveis: 裤子, 路, 鱼), 张(planos: 票, 照片), 本(livros), 个(genérico). ❌两裤子。 ✅两条裤子。",exs:[{cn:"我买了两条裤子和三张票。",py:"Wǒ mǎi le liǎng tiáo kùzi hé sān zhāng piào.",pt:"Comprei duas calças e três ingressos."},{cn:"请给我一张机票。",py:"Qǐng gěi wǒ yì zhāng jīpiào.",pt:"Me dê uma passagem aérea, por favor."},{cn:"桌子上有一个本子和两支笔。",py:"Zhuōzi shàng yǒu yí gè běnzi hé liǎng zhī bǐ.",pt:"Sobre a mesa há um caderno e duas canetas."}]},
+      {struct:"多少钱？/ 一共",label:"Perguntar Preço",color:"#0891B2",exp:"多少钱？= quanto custa. 一共多少钱？= quanto é no total. Unidades: 块(fala) = 元(escrita); 毛 = 角 = 0,1. Números grandes: 万 = 10.000 — atenção, não existe \"cem mil\" como palavra única.",exs:[{cn:"这条裤子多少钱？——两百块。",py:"Zhè tiáo kùzi duōshao qián? —— Liǎng bǎi kuài.",pt:"Quanto custa esta calça? —— Duzentos yuan."},{cn:"一共多少钱？——一共三百五。",py:"Yígòng duōshao qián? —— Yígòng sān bǎi wǔ.",pt:"Quanto é no total? —— Trezentos e cinquenta."},{cn:"这个手表要一万块。",py:"Zhège shǒubiǎo yào yí wàn kuài.",pt:"Este relógio custa dez mil yuan."}]},
+      {struct:"送 vs 给",label:"Presentear vs. Entregar",color:"#059669",exp:"给 = dar/entregar (transferência neutra). 送 = presentear, ou acompanhar alguém até algum lugar (送你回家). 送给 combina os dois: presentear a alguém.",exs:[{cn:"我送给妈妈一条围巾。",py:"Wǒ sòng gěi māma yì tiáo wéijīn.",pt:"Dei um cachecol de presente para minha mãe."},{cn:"请给我一杯咖啡。",py:"Qǐng gěi wǒ yì bēi kāfēi.",pt:"Me traga um café, por favor."},{cn:"我去机场送朋友。",py:"Wǒ qù jīchǎng sòng péngyou.",pt:"Vou ao aeroporto me despedir de um amigo."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"我想买一条裤子，有黑色的吗？",py:"Wǒ xiǎng mǎi yī tiáo kùzi, yǒu hēisè de ma?",pt:"Quero comprar uma calça, tem na cor preta?"},
-      {sp:"B",cn:"有，黑色、白色和红色都有。",py:"Yǒu, hēisè, báisè hé hóngsè dōu yǒu.",pt:"Tem, tem preta, branca e vermelha."},
-      {sp:"A",cn:"这条黑色的多少钱？",py:"Zhè tiáo hēisè de duōshao qián?",pt:"Quanto custa essa preta?"},
-      {sp:"B",cn:"两百八十元。那条绿色的也很好看，更便宜。",py:"Liǎng bǎi bāshí yuán. Nà tiáo lǜsè de yě hěn hǎokàn, gèng piányí.",pt:"Duzentos e oitenta yuan. Aquela verde também é bonita e mais barata."},
-      {sp:"A",cn:"我要黑色的，送给我妈妈当生日礼物。一共多少钱？",py:"Wǒ yào hēisè de, sòng gěi wǒ māma dāng shēngrì lǐwù. Yígòng duōshao qián?",pt:"Quero a preta, é um presente de aniversário para minha mãe. Quanto é no total?"},
-      {sp:"B",cn:"一共两百八十元，谢谢您！",py:"Yígòng liǎng bǎi bāshí yuán, xièxie nín!",pt:"No total são duzentos e oitenta yuan, obrigado!"}
+      {sp:"A",cn:"我想买一条裤子，有黑色的吗？",py:"Wǒ xiǎng mǎi yì tiáo kùzi, yǒu hēisè de ma?",pt:"Quero comprar uma calça, tem preta?"},
+      {sp:"B",cn:"有，白色、红色、绿色都有。",py:"Yǒu, báisè, hóngsè, lǜsè dōu yǒu.",pt:"Temos preta, branca, vermelha e verde."},
+      {sp:"A",cn:"这条多少钱？",py:"Zhè tiáo duōshao qián?",pt:"Quanto custa esta?"},
+      {sp:"B",cn:"两百八十块。这个颜色最好看。",py:"Liǎng bǎi bāshí kuài. Zhège yánsè zuì hǎokàn.",pt:"Duzentos e oitenta. Esta cor é a mais bonita."},
+      {sp:"A",cn:"我要黑色的，送给妈妈。一共多少钱？",py:"Wǒ yào hēisè de, sòng gěi māma. Yígòng duōshao qián?",pt:"Quero a preta, é presente para minha mãe. Quanto é no total?"},
+      {sp:"B",cn:"一共两百八十块，请拿好。",py:"Yígòng liǎng bǎi bāshí kuài, qǐng ná hǎo.",pt:"Duzentos e oitenta no total, aqui está."}
     ],
     quiz:[
-      {q:"\"Ao todo são trezentos yuan\" =",opts:["一共三百元。","总共三百元。","三百元一共。","A e B estão certas."],ans:3,exp:"✅ 一共 e 总共 são sinônimos para \"ao todo/no total\". Ambas corretas. Estrutura: 一共 + número + 元/块."},
-      {q:"Qual classificador para \"uma calça\"?",opts:["一本裤子","一张裤子","一条裤子","一块裤子"],ans:2,exp:"✅ 条 = classificador para coisas longas e flexíveis (裤子 calça, 鱼 peixe, 路 rua). 本 = livros. 张 = coisas planas. 块 = pedaços/yuan."},
-      {q:"\"Vou dar de presente para minha mãe\" =",opts:["我给我妈妈送一个礼物。","我送给我妈妈一个礼物。","我妈妈送给我一个礼物。","送给我妈妈我一个礼物。"],ans:1,exp:"✅ 送给 + pessoa + coisa. 我送给我妈妈一个礼物 = Vou dar um presente para minha mãe. Note: não confunda com 我给我妈妈送 (também correto)."},
-      {q:"万 (wàn) equivale a:",opts:["Mil","Cem mil","Dez mil","Um milhão"],ans:2,exp:"✅ 万 = dez mil (10.000). Sistema numérico chinês: 百=100, 千=1.000, 万=10.000, 亿=100.000.000. Exemplo: 三万 = 30.000."},
-      {q:"Complete: 她______她妈妈去机场了。",opts:["送","拿","找","开"],ans:0,exp:"✅ 送 = acompanhar (para se despedir). 送她妈妈去机场 = acompanhar/levar sua mãe ao aeroporto. 拿 = pegar/segurar. 找 = procurar."}
+      {q:"\"Duas calças\" =",opts:["两裤子","两条裤子","两张裤子","两本裤子"],ans:1,exp:"✅ 条 para objetos longos e flexíveis. O classificador é obrigatório entre número e substantivo."},
+      {q:"O classificador para ingressos e fotos é:",opts:["条","张","本","间"],ans:1,exp:"✅ 张 conta objetos planos: 票, 照片, 纸, 桌子."},
+      {q:"万 equivale a:",opts:["Mil","Dez mil","Cem mil","Um milhão"],ans:1,exp:"✅ 万 = 10.000. 一万块 = dez mil yuan."},
+      {q:"\"Dei um presente para minha mãe\" =",opts:["我给妈妈送一个礼物。","我送给妈妈一个礼物。","我妈妈送给一个礼物。","A e B estão corretas."],ans:3,exp:"✅ 送给妈妈 e 给妈妈送 são ambas naturais. O que importa é que o destinatário venha antes do objeto."},
+      {q:"送 difere de 给 porque:",opts:["送 = presentear ou acompanhar; 给 = entregar","给 é mais formal","São idênticos","送 só se usa com dinheiro"],ans:0,exp:"✅ 送朋友去机场 = acompanhar ao aeroporto. 给我一杯水 = me dê um copo d'água."}
     ],
   },
   {
-    w:9, phase:"Lazer", emoji:"\u26bd", color:"#6366F1",
+    w:9, phase:"Lazer", emoji:"⚽", color:"#0891B2",
     theme:"Esportes, Hobbies e Internet",
     built:false, builtNote:"",
-    stats:{words:"15 novas (HSK 2)",newHSK2:"15",grammar:"会/能/可以 · 打/踢 esportes · 喜欢+V",chars:"+10 novos"},
+    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"会/能/可以 · 打/踢 · 喜欢 + V",chars:"+25 novos"},
     vocab:[
       {h:"跑",py:"pǎo",pt:"correr"},
       {h:"跑步",py:"pǎobù",pt:"correr; jogging"},
@@ -370,34 +388,35 @@ const WEEKS = [
       {h:"爱好",py:"àihào",pt:"hobby, interesse"},
       {h:"上网",py:"shàngwǎng",pt:"usar a internet"},
       {h:"网上",py:"wǎngshang",pt:"online; na internet"},
-      {h:"动",py:"dòng",pt:"mover-se"}
+      {h:"动",py:"dòng",pt:"mover-se"},
+      {h:"飞",py:"fēi",pt:"voar"}
     ],
     grammar:[
-      {struct:"会 vs 能 vs 可以",label:"Auxiliares de Capacidade/Permissão",color:"#6366F1",exp:"会 = saber fazer (habilidade adquirida). 能 = conseguir (capacidade/condição). 可以 = ter permissão / É possível.",exs:[{cn:"我会游泳，但今天不能游。",py:"Wǒ huì yóuyǒng, dàn jīntiān bù néng yóu.",pt:"Sei nadar, mas hoje não consigo."},{cn:"这里可以踢足球吗？",py:"Zhèlǐ kěyǐ tī zúqiú ma?",pt:"É permitido jogar futebol aqui?"}]},
-      {struct:"打 + esporte vs 踢 + esporte",label:"Verbos de Esporte",color:"#059669",exp:"打 = esportes com as mãos ou implemento (篮球/羽毛球/排球/乒乓球). 踢 = esportes com o pé (足球). 游 = nadar. 跑 = correr.",exs:[{cn:"他会打篮球，也喜欢踢足球。",py:"Tā huì dǎ lánqiú, yě xǐhuan tī zúqiú.",pt:"Ele joga basquete e também gosta de futebol."},{cn:"你有什么爱好？我喜欢游泳和跳舞。",py:"Nǐ yǒu shénme àihào? Wǒ xǐhuan yóuyǒng hé tiàowǔ.",pt:"Quais são seus hobbies? Gosto de nadar e dançar."}]},
-      {struct:"喜欢 + V/N",label:"Gostar de (Preferências)",color:"#DC2626",exp:"喜欢 + verbo (gostar de fazer) ou + substantivo (gostar de algo). Para intensidade: 非常喜欢 / 很喜欢 / 有点儿喜欢 / 不太喜欢.",exs:[{cn:"我很喜欢在网上看电影。",py:"Wǒ hěn xǐhuan zài wǎngshang kàn diànyǐng.",pt:"Gosto muito de assistir filmes online."},{cn:"她不太喜欢运动，但喜欢旅游。",py:"Tā bú tài xǐhuan yùndòng, dàn xǐhuan lǚyóu.",pt:"Ela não gosta muito de esporte, mas adora viajar."}]}
+      {struct:"会 / 能 / 可以",label:"Três Modais de Capacidade",color:"#6366F1",exp:"会 = saber fazer (habilidade aprendida). 能 = conseguir agora (condição física ou circunstancial). 可以 = ter permissão. 我会游泳，但今天不能游 — sei nadar, mas hoje não posso.",exs:[{cn:"我会游泳，但是今天不能游。",py:"Wǒ huì yóuyǒng, dànshì jīntiān bù néng yóu.",pt:"Sei nadar, mas hoje não posso."},{cn:"这里可以踢足球吗？",py:"Zhèlǐ kěyǐ tī zúqiú ma?",pt:"É permitido jogar futebol aqui?"},{cn:"他会跳舞，跳得很好。",py:"Tā huì tiàowǔ, tiào de hěn hǎo.",pt:"Ele sabe dançar, e dança muito bem."}]},
+      {struct:"打 / 踢 / 游 + 运动",label:"Verbos de Esporte",color:"#0891B2",exp:"O verbo muda conforme a parte do corpo: 打(mãos) para 篮球; 踢(pés) para 足球; 游 para 泳; 跑 para 步. Errar o verbo é um dos deslizes mais notados por falantes nativos.",exs:[{cn:"他喜欢打篮球，我喜欢踢足球。",py:"Tā xǐhuan dǎ lánqiú, wǒ xǐhuan tī zúqiú.",pt:"Ele gosta de jogar basquete, eu de futebol."},{cn:"我每天早上跑步半个小时。",py:"Wǒ měitiān zǎoshang pǎobù bàn gè xiǎoshí.",pt:"Corro meia hora toda manhã."},{cn:"周末我们去游泳吧。",py:"Zhōumò wǒmen qù yóuyǒng ba.",pt:"No fim de semana vamos nadar."}]},
+      {struct:"喜欢 + V / N",label:"Gostar de Fazer",color:"#059669",exp:"喜欢 aceita verbo ou substantivo diretamente, sem preposição. Graus: 非常喜欢 > 很喜欢 > 比较喜欢 > 不太喜欢 > 不喜欢. Note que 不太喜欢 é mais educado que 不喜欢.",exs:[{cn:"我很喜欢在网上看电影。",py:"Wǒ hěn xǐhuan zài wǎngshang kàn diànyǐng.",pt:"Gosto muito de ver filmes na internet."},{cn:"她不太喜欢运动，但喜欢旅游。",py:"Tā bú tài xǐhuan yùndòng, dàn xǐhuan lǚyóu.",pt:"Ela não gosta muito de esporte, mas adora viajar."},{cn:"你有什么爱好？",py:"Nǐ yǒu shénme àihào?",pt:"Quais são seus hobbies?"}]}
     ],
     dialogue:[
-      {sp:"A",cn:"周末你有什么爱好？",py:"Zhōumò nǐ yǒu shénme àihào?",pt:"O que você gosta de fazer no fim de semana?"},
-      {sp:"B",cn:"我喜欢踢足球，也经常去游泳。你呢？",py:"Wǒ xǐhuan tī zúqiú, yě jīngcháng qù yóuyǒng. Nǐ ne?",pt:"Gosto de jogar futebol e costumo ir nadar. E você?"},
-      {sp:"A",cn:"我在学跳舞，还喜欢上网看视频。",py:"Wǒ zài xué tiàowǔ, hái xǐhuan shàngwǎng kàn shìpín.",pt:"Estou aprendendo a dançar, também gosto de assistir vídeos online."},
-      {sp:"B",cn:"跳舞很好！我不会，但是想学。",py:"Tiàowǔ hěn hǎo! Wǒ bú huì, dànshì xiǎng xué.",pt:"Dançar é ótimo! Não sei, mas quero aprender."},
-      {sp:"A",cn:"我可以教你！你踢足球踢得好吗？",py:"Wǒ kěyǐ jiāo nǐ! Nǐ tī zúqiú tī de hǎo ma?",pt:"Posso te ensinar! Você joga futebol bem?"},
-      {sp:"B",cn:"不太好，但是我跑得很快！",py:"Bú tài hǎo, dànshì wǒ pǎo de hěn kuài!",pt:"Não muito, mas corro muito rápido!"}
+      {sp:"A",cn:"你周末有什么爱好？",py:"Nǐ zhōumò yǒu shénme àihào?",pt:"Quais são seus hobbies no fim de semana?"},
+      {sp:"B",cn:"我喜欢踢足球，也经常去游泳。",py:"Wǒ xǐhuan tī zúqiú, yě jīngcháng qù yóuyǒng.",pt:"Gosto de jogar futebol e costumo ir nadar."},
+      {sp:"A",cn:"我会打篮球，但是不会游泳。",py:"Wǒ huì dǎ lánqiú, dànshì bú huì yóuyǒng.",pt:"Sei jogar basquete, mas não sei nadar."},
+      {sp:"B",cn:"我可以教你！你跑得快吗？",py:"Wǒ kěyǐ jiāo nǐ! Nǐ pǎo de kuài ma?",pt:"Posso te ensinar! Você corre rápido?"},
+      {sp:"A",cn:"跑得还可以。我每天早上跑步。",py:"Pǎo de hái kěyǐ. Wǒ měitiān zǎoshang pǎobù.",pt:"Corro razoavelmente. Corro toda manhã."},
+      {sp:"B",cn:"那太好了，明天我们一起去运动吧！",py:"Nà tài hǎo le, míngtiān wǒmen yìqǐ qù yùndòng ba!",pt:"Que ótimo, amanhã vamos nos exercitar juntos!"}
     ],
     quiz:[
-      {q:"\"Sei jogar basquete\" (habilidade aprendida) =",opts:["我能打篮球。","我可以打篮球。","我会打篮球。","我打篮球。"],ans:2,exp:"✅ 会 = habilidade aprendida (sei como fazer). 能 = conseguir (condição/capacidade física). 可以 = permissão. 会打篮球 = sei jogar basquete."},
-      {q:"Qual verbo para \"jogar futebol\"?",opts:["打足球","踢足球","游足球","跳足球"],ans:1,exp:"✅ 踢 = chutar, usado para esportes de pé (足球). 打 = bater/usar as mãos/implemento (篮球, 羽毛球, 乒乓球). 游 = nadar. 跳 = pular."},
-      {q:"\"Ele nada muito bem\" com complemento de grau:",opts:["他游泳游得很好。","他游泳得很好。","他很好游泳。","他游泳很好。"],ans:0,exp:"✅ 游泳+游+得+很好. Com objeto (泳 implícito no composto), repete-se o verbo antes do 得. Também aceito: 他游得很好."},
-      {q:"Qual a diferença entre 上网 e 网上？",opts:["São sinônimos","上网 = usar a internet (verbo); 网上 = online (locativo)","网上 = verbo; 上网 = lugar","Não há diferença prática"],ans:1,exp:"✅ 上网 = usar/acessar a internet (ação). 网上 = na internet, online (localização). 上网看视频 = assistir vídeos online. 在网上找 = procurar na internet."},
-      {q:"\"Não gosto muito de esporte\" =",opts:["我很不喜欢运动。","我不喜欢很运动。","我不太喜欢运动。","我从来不喜欢运动。"],ans:2,exp:"✅ 不太 = não muito (moderado). 很不 = muito não (mais enfático). 从来不 = nunca. 不太喜欢 é a expressão mais natural para \"não gosto muito\"."}
+      {q:"\"Sei nadar, mas hoje não posso\" =",opts:["我能游泳，但今天不会游。","我会游泳，但今天不能游。","我可以游泳，但今天不会游。","我会游泳，但今天不可以游。"],ans:1,exp:"✅ 会 = habilidade adquirida; 能 = condição do momento. A troca inverte o sentido."},
+      {q:"O verbo para futebol é:",opts:["打","踢","游","跑"],ans:1,exp:"✅ 踢足球 — 踢 é chutar (pés). 打 serve para esportes de mão: 打篮球."},
+      {q:"可以 expressa principalmente:",opts:["Habilidade","Permissão","Obrigação","Vontade"],ans:1,exp:"✅ 这里可以踢足球吗？= é permitido? Para habilidade use 会; para condição, 能."},
+      {q:"\"Ela não gosta muito de esporte\" =",opts:["她很不喜欢运动。","她不太喜欢运动。","她不喜欢很运动。","她太不喜欢运动。"],ans:1,exp:"✅ 不太喜欢 = não gosta muito (educado). 很不喜欢 é bem mais forte."},
+      {q:"上网 vs 网上:",opts:["上网 = ação (acessar); 网上 = lugar (online)","São iguais","网上 é verbo","上网 é substantivo"],ans:0,exp:"✅ 上网看电影(acessar para ver) vs 在网上买(comprar online)."}
     ],
   },
   {
-    w:10, phase:"Fam\u00edlia", emoji:"\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67", color:"#D97706",
-    theme:"Família Ampliada, Identidade e Infância",
+    w:10, phase:"Família", emoji:"👨‍👩‍👧", color:"#D97706",
+    theme:"Parentesco, Identidade e Infância",
     built:false, builtNote:"",
-    stats:{words:"17 novas (HSK 2)",newHSK2:"17",grammar:"已经...了 · 从小/小时候 · 姓 vs 叫",chars:"+10 novos"},
+    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"已经…了 · 从小/小时候 · 姓 vs 叫",chars:"+25 novos"},
     vocab:[
       {h:"奶奶",py:"nǎinai",pt:"avó (paterna)"},
       {h:"爷爷",py:"yéye",pt:"avô (paterno)"},
@@ -409,47 +428,45 @@ const WEEKS = [
       {h:"小时候",py:"xiǎoshíhou",pt:"quando criança; infância"},
       {h:"从小",py:"cóngxiǎo",pt:"desde pequeno"},
       {h:"个子",py:"gèzi",pt:"estatura"},
-      {h:"名",py:"míng",pt:"nome; famoso"},
-      {h:"姓",py:"xìng",pt:"sobrenome; ter sobrenome"},
-      {h:"姓名",py:"xìngmíng",pt:"nome completo"},
+      {h:"自己",py:"zìjǐ",pt:"si mesmo; próprio"},
       {h:"鸟",py:"niǎo",pt:"pássaro"},
-      {h:"肉",py:"ròu",pt:"carne"},
       {h:"鱼",py:"yú",pt:"peixe"},
-      {h:"飞",py:"fēi",pt:"voar"}
+      {h:"肉",py:"ròu",pt:"carne"},
+      {h:"花",py:"huā",pt:"gastar (dinheiro/tempo) — verbo"},
+      {h:"花",py:"huā",pt:"flor — substantivo"}
     ],
     grammar:[
-      {struct:"已经 + Adj/V + 了",label:"Mudança de Estado (了 Sentencial)",color:"#7C3AED",exp:"了 no final da frase = nova situação ou mudança. 已经...了 = já (com mudança implícita). Diferente do 了 completivo após verbo.",exs:[{cn:"奶奶已经八十岁了！",py:"Nǎinai yǐjīng bāshí suì le!",pt:"Minha avó já tem oitenta anos!"},{cn:"你的孩子已经这么大了！",py:"Nǐ de háizi yǐjīng zhème dà le!",pt:"Seu filho já ficou tão grande assim!"}]},
-      {struct:"从小 / 小时候",label:"Tempo na Infância",color:"#059669",exp:"从小 = desde pequeno (advérbio, antes do verbo). 小时候 = quando era criança (expressão de tempo, pode vir antes ou depois de sujeito).",exs:[{cn:"她从小就会说英语。",py:"Tā cóngxiǎo jiù huì shuō Yīngyǔ.",pt:"Ela fala inglês desde criança."},{cn:"小时候，爷爷经常带我去公园。",py:"Xiǎoshíhou, yéye jīngcháng dài wǒ qù gōngyuán.",pt:"Quando criança, meu avô me levava ao parque frequentemente."}]},
-      {struct:"姓 vs 叫",label:"Nome vs. Sobrenome",color:"#D97706",exp:"姓 = ter o sobrenome X (não usar 是!). 叫 = chamar-se X (nome completo ou apelido). Formal: 您贵姓？(Qual é o seu sobrenome ilustre?)",exs:[{cn:"您贵姓？我姓李，叫李明。",py:"Nín guì xìng? Wǒ xìng Lǐ, jiào Lǐ Míng.",pt:"Como se chama? Me chamo Li, Li Ming."},{cn:"他姓张，大家叫他小张。",py:"Tā xìng Zhāng, dàjiā jiào tā Xiǎo Zhāng.",pt:"O sobrenome dele é Zhang, todo mundo o chama de Xiao Zhang."}]}
+      {struct:"已经 … 了",label:"Mudança já Ocorrida",color:"#6366F1",exp:"已经 + V/Adj + 了 = já (com ênfase na mudança de estado). O 了 final é parte da estrutura e raramente cai. Negação: 还没 (ainda não), nunca ❌不已经.",exs:[{cn:"奶奶已经八十岁了。",py:"Nǎinai yǐjīng bāshí suì le.",pt:"Minha avó já tem oitenta anos."},{cn:"你的孩子已经这么高了！",py:"Nǐ de háizi yǐjīng zhème gāo le!",pt:"Seu filho já está tão alto!"},{cn:"他已经回去了，你晚了一步。",py:"Tā yǐjīng huíqù le, nǐ wǎn le yí bù.",pt:"Ele já voltou, você chegou tarde."}]},
+      {struct:"从小 / 小时候",label:"Falar da Infância",color:"#0891B2",exp:"从小 é advérbio e vai antes do verbo, geralmente com 就: 我从小就喜欢. 小时候 é expressão de tempo e abre a frase: 小时候，我住在农村. Não são intercambiáveis.",exs:[{cn:"她从小就会说两种语言。",py:"Tā cóngxiǎo jiù huì shuō liǎng zhǒng yǔyán.",pt:"Ela fala duas línguas desde pequena."},{cn:"小时候，爷爷经常带我去公园。",py:"Xiǎoshíhou, yéye jīngcháng dài wǒ qù gōngyuán.",pt:"Na infância, meu avô me levava sempre ao parque."},{cn:"我从小个子就不高。",py:"Wǒ cóngxiǎo gèzi jiù bù gāo.",pt:"Desde pequeno eu não fui alto."}]},
+      {struct:"姓 vs 叫",label:"Sobrenome vs. Nome",color:"#059669",exp:"姓 é VERBO: 我姓王 (não ❌我是姓王). 叫 apresenta o nome completo ou apelido: 我叫王芳. Pergunta formal: 您贵姓？— e a resposta nunca inclui o nome completo, só o sobrenome.",exs:[{cn:"您贵姓？——我姓李，叫李明。",py:"Nín guì xìng? —— Wǒ xìng Lǐ, jiào Lǐ Míng.",pt:"Qual seu sobrenome? —— Meu sobrenome é Li, me chamo Li Ming."},{cn:"他姓张，大家都叫他小张。",py:"Tā xìng Zhāng, dàjiā dōu jiào tā Xiǎo Zhāng.",pt:"O sobrenome dele é Zhang, todos o chamam de Xiao Zhang."},{cn:"请写一下你的姓名。",py:"Qǐng xiě yíxià nǐ de xìngmíng.",pt:"Escreva seu nome completo, por favor."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"你家有几口人？",py:"Nǐ jiā yǒu jǐ kǒu rén?",pt:"Quantas pessoas tem na sua família?"},
-      {sp:"B",cn:"六口人：爷爷、奶奶、爸爸、妈妈、我和我妻子。",py:"Liù kǒu rén: yéye, nǎinai, bàba, māma, wǒ hé wǒ qīzi.",pt:"Seis: meu avô, avó, pai, mãe, eu e minha esposa."},
-      {sp:"A",cn:"你们住在一起吗？",py:"Nǐmen zhù zài yīqǐ ma?",pt:"Vocês moram juntos?"},
-      {sp:"B",cn:"爷爷奶奶住在旁边那栋楼，我们经常一起吃饭。",py:"Yéye nǎinai zhù zài pángbiān nà dòng lóu, wǒmen jīngcháng yīqǐ chīfàn.",pt:"Meus avós moram no prédio ao lado, jantamos juntos frequentemente."},
-      {sp:"A",cn:"真好！你小时候和他们住在一起吗？",py:"Zhēn hǎo! Nǐ xiǎoshíhou hé tāmen zhù zài yīqǐ ma?",pt:"Que bom! Na infância você morava com eles?"},
-      {sp:"B",cn:"是的，我从小就和爷爷奶奶住在一起，他们教了我很多。",py:"Shì de, wǒ cóngxiǎo jiù hé yéye nǎinai zhù zài yīqǐ, tāmen jiāo le wǒ hěn duō.",pt:"É, desde pequeno morei com meus avós, eles me ensinaram muito."}
+      {sp:"A",cn:"你家有几口人？",py:"Nǐ jiā yǒu jǐ kǒu rén?",pt:"Quantas pessoas há na sua família?"},
+      {sp:"B",cn:"六口：爷爷、奶奶、爸爸、妈妈、我和妻子。",py:"Liù kǒu: yéye, nǎinai, bàba, māma, wǒ hé qīzi.",pt:"Seis: avô, avó, pai, mãe, eu e minha esposa."},
+      {sp:"A",cn:"爷爷奶奶多大年纪了？",py:"Yéye nǎinai duō dà niánjì le?",pt:"Que idade têm seus avós?"},
+      {sp:"B",cn:"奶奶已经八十岁了，身体还很好。",py:"Nǎinai yǐjīng bāshí suì le, shēntǐ hái hěn hǎo.",pt:"Minha avó já tem oitenta anos e ainda está bem de saúde."},
+      {sp:"A",cn:"你小时候跟他们一起住吗？",py:"Nǐ xiǎoshíhou gēn tāmen yìqǐ zhù ma?",pt:"Na infância você morava com eles?"},
+      {sp:"B",cn:"对，我从小就跟爷爷奶奶一起住。",py:"Duì, wǒ cóngxiǎo jiù gēn yéye nǎinai yìqǐ zhù.",pt:"Sim, desde pequeno morei com meus avós."}
     ],
     quiz:[
-      {q:"\"Minha avó já tem oitenta anos\" =",opts:["我奶奶八十岁。","我奶奶已经八十岁了。","我奶奶是八十岁。","我奶奶很八十岁。"],ans:1,exp:"✅ 已经...了 = já (com mudança de estado). Para idades: N + 岁 (sem 是). 了 indica que atingiu esse estágio. 我奶奶八十岁 também é correto mas sem a nuance \"já\"."},
-      {q:"\"Qual é seu sobrenome?\" (formal) =",opts:["你叫什么名字？","您贵姓？","你姓什么名字？","您的姓是什么？"],ans:1,exp:"✅ 您贵姓？= Qual é o seu sobrenome ilustre? (forma respeitosa). 你叫什么名字 = Como você se chama? (nome completo/informal)."},
-      {q:"\"Desde criança ela sabe falar inglês\" =",opts:["小时候她会说英语。","她从小就会说英语。","她会从小说英语。","从小她就英语说。"],ans:1,exp:"✅ 从小 + 就 + verbo = desde pequeno/infância já... O 就 enfatiza que a habilidade está lá desde então. Ambas as posições de 从小 (antes do sujeito ou depois) são possíveis."},
-      {q:"O classificador para contar pessoas respeitosamente é:",opts:["个","名","位","口"],ans:2,exp:"✅ 位 = classificador de cortesia para pessoas (三位客人 = três convidados). 名 = contagem neutra (三名学生). 个 = genérico. 口 = membros da família."},
-      {q:"Complete: 你___什么？我___王，叫王芳。",opts:["叫/叫","姓/姓","叫/姓","姓/叫"],ans:2,exp:"✅ 你叫什么 = como você se chama? 我姓王，叫王芳 = meu sobrenome é Wang, meu nome é Wang Fang. 姓 para sobrenome, 叫 para nome completo."}
+      {q:"\"Minha avó já tem 80 anos\" =",opts:["奶奶已经八十岁了。","奶奶八十岁已经。","已经奶奶八十岁。","奶奶是已经八十岁。"],ans:0,exp:"✅ 已经 + idade + 了. Idade não leva 是: ❌她是八十岁."},
+      {q:"从小 fica:",opts:["Depois do verbo","Antes do verbo, geralmente com 就","No fim da frase","Depois do objeto"],ans:1,exp:"✅ 她从小就会说 — 从小 é advérbio e pede 就 com frequência."},
+      {q:"小时候 é:",opts:["Advérbio antes do verbo","Expressão de tempo que abre a frase","Classificador","Verbo"],ans:1,exp:"✅ 小时候，我住在农村 — funciona como expressão temporal, não como advérbio."},
+      {q:"\"Qual seu sobrenome?\" (formal) =",opts:["你叫什么名字？","您贵姓？","你的姓名是什么？","你姓名叫什么？"],ans:1,exp:"✅ 您贵姓？— fórmula respeitosa. A resposta dá só o sobrenome: 我姓李."},
+      {q:"Qual está ERRADA?",opts:["我姓王。","我叫王明。","我是姓王。","我的姓名是王明。"],ans:2,exp:"✅ ❌我是姓王 — 姓 já é verbo e dispensa 是."}
     ],
   },
   {
-    w:11, phase:"Estudo", emoji:"\ud83d\udcda", color:"#7C3AED",
-    theme:"Aprender, Ensinar, Resultados e Obrigação",
+    w:11, phase:"Estudo", emoji:"📚", color:"#7C3AED",
+    theme:"Aprender, Ensinar e Complementos de Resultado",
     built:false, builtNote:"",
-    stats:{words:"16 novas (HSK 2)",newHSK2:"16",grammar:"教 causativo · V+错/完 · 得(děi)",chars:"+10 novos"},
+    stats:{words:"17 novas (HSK 2)",newHSK2:"17",grammar:"教 + 人 + V · V+错/完/开 · 得(děi)",chars:"+25 novos"},
     vocab:[
       {h:"词",py:"cí",pt:"palavra; léxico"},
       {h:"教",py:"jiāo",pt:"ensinar"},
       {h:"教室",py:"jiàoshì",pt:"sala de aula"},
       {h:"考",py:"kǎo",pt:"fazer prova; examinar"},
       {h:"考试",py:"kǎoshì",pt:"prova; fazer prova"},
-      {h:"介绍",py:"jièshào",pt:"apresentar; introduzir"},
       {h:"题",py:"tí",pt:"questão; problema"},
       {h:"得",py:"de",pt:"conseguir; ganhar"},
       {h:"地",py:"de",pt:"terra; chão"},
@@ -457,89 +474,76 @@ const WEEKS = [
       {h:"忘",py:"wàng",pt:"esquecer"},
       {h:"洗",py:"xǐ",pt:"lavar"},
       {h:"打",py:"dǎ",pt:"bater; ligar (telefone); jogar"},
-      {h:"打车",py:"dǎchē",pt:"pegar táxi"},
       {h:"打开",py:"dǎkāi",pt:"abrir; ligar"},
-      {h:"班",py:"bān",pt:"turma; período"}
+      {h:"班",py:"bān",pt:"turma; período"},
+      {h:"高中",py:"gāozhōng",pt:"ensino médio"},
+      {h:"开学",py:"kāixué",pt:"início do semestre"},
+      {h:"懂",py:"dǒng",pt:"entender"}
     ],
     grammar:[
-      {struct:"教 + Pessoa + V / 学 + V",label:"Ensinar e Aprender",color:"#6366F1",exp:"教 = ensinar (quem ensina → para quem → o quê). 学 = aprender. 教室 = sala de aula. 考试 = fazer prova. Ordem: 教我中文 (me ensina chinês).",exs:[{cn:"老师教我们写汉字。",py:"Lǎoshī jiāo wǒmen xiě Hànzì.",pt:"O professor nos ensina a escrever caracteres."},{cn:"她正在学做饭。",py:"Tā zhèngzài xué zuò fàn.",pt:"Ela está aprendendo a cozinhar."}]},
-      {struct:"V + 错/对/完/到",label:"Complemento Resultativo",color:"#DC2626",exp:"Indica resultado do verbo. 错 = errou. 对 = acertou. 完 = terminou. 到 = chegou a/conseguiu. Negativar: 没 + V + 结果.",exs:[{cn:"我写错了，请给我一支新笔。",py:"Wǒ xiě cuò le, qǐng gěi wǒ yī zhī xīn bǐ.",pt:"Escrevi errado, me dê uma caneta nova."},{cn:"作业做完了吗？还没做完。",py:"Zuòyè zuò wán le ma? Hái méi zuò wán.",pt:"Terminou o dever de casa? Ainda não."}]},
-      {struct:"得 (děi) vs 要 vs 需要",label:"Obrigação e Necessidade",color:"#059669",exp:"得 (děi) = ter que (necessidade prática). 要 = querer/ter que. 需要 = precisar (necessidade). 必须 = dever (mais formal/obrigatório).",exs:[{cn:"明天考试，我得复习。",py:"Míngtiān kǎoshì, wǒ děi fùxí.",pt:"Amanhã tem prova, tenho que estudar."},{cn:"你需要带什么？带笔和本子就行了。",py:"Nǐ xūyào dài shénme? Dài bǐ hé běnzi jiù xíng le.",pt:"O que você precisa trazer? Só caneta e caderno."}]}
+      {struct:"教 + 人 + V/N",label:"Ensinar Alguém Algo",color:"#6366F1",exp:"教 leva dois objetos: primeiro a pessoa, depois o conteúdo. 教我汉语 / 教我们写字. A pessoa NUNCA vem depois do conteúdo. ❌教汉语我。",exs:[{cn:"老师教我们写汉字。",py:"Lǎoshī jiāo wǒmen xiě Hànzì.",pt:"O professor nos ensina a escrever caracteres."},{cn:"你能教我这个词的意思吗？",py:"Nǐ néng jiāo wǒ zhège cí de yìsi ma?",pt:"Pode me ensinar o sentido desta palavra?"},{cn:"他在教室里教学生们唱歌。",py:"Tā zài jiàoshì lǐ jiāo xuéshengmen chànggē.",pt:"Ele ensina os alunos a cantar na sala de aula."}]},
+      {struct:"V + 错 / 完 / 开",label:"Complemento de Resultado",color:"#0891B2",exp:"O complemento indica o desfecho da ação: 错(errado), 完(terminado), 开(aberto), 到(alcançado). Negação com 没, não 不: 没写完 (não terminei de escrever).",exs:[{cn:"我写错了一个字，请再给我一张纸。",py:"Wǒ xiě cuò le yí gè zì, qǐng zài gěi wǒ yì zhāng zhǐ.",pt:"Escrevi um caractere errado, me dê outra folha."},{cn:"作业还没做完呢。",py:"Zuòyè hái méi zuò wán ne.",pt:"Ainda não terminei o dever."},{cn:"请打开书，看第十课。",py:"Qǐng dǎkāi shū, kàn dì-shí kè.",pt:"Abram o livro na lição dez."}]},
+      {struct:"得 (děi) + V",label:"Ter Que",color:"#059669",exp:"得 lido děi = ter que (necessidade prática). Cuidado com a leitura: 得 de é partícula de grau; 得 dé é obter. Negação de 得(děi) é 不用, não ❌不得.",exs:[{cn:"明天有考试，我得复习。",py:"Míngtiān yǒu kǎoshì, wǒ děi fùxí.",pt:"Amanhã tem prova, tenho que revisar."},{cn:"你得记得带书包。",py:"Nǐ děi jìde dài shūbāo.",pt:"Você tem que lembrar de levar a mochila."},{cn:"不用洗，这件还很干净。",py:"Bú yòng xǐ, zhè jiàn hái hěn gānjìng.",pt:"Não precisa lavar, esta ainda está limpa."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"老师教的内容你都懂了吗？",py:"Lǎoshī jiāo de nèiróng nǐ dōu dǒng le ma?",pt:"Você entendeu tudo que o professor ensinou?"},
-      {sp:"B",cn:"大部分懂了，但有几个词还没记住。",py:"Dà bùfen dǒng le, dàn yǒu jǐ gè cí hái méi jì zhù.",pt:"A maior parte sim, mas ainda não memorizei algumas palavras."},
-      {sp:"A",cn:"你汉字写得怎么样？",py:"Nǐ Hànzì xiě de zěnmeyàng?",pt:"Como estão os seus caracteres?"},
-      {sp:"B",cn:"写得不太好，经常写错。你呢？",py:"Xiě de bú tài hǎo, jīngcháng xiě cuò. Nǐ ne?",pt:"Não muito bem, frequentemente erro. E você?"},
-      {sp:"A",cn:"我每天练习，所以写得好了很多。你得每天打开书练习。",py:"Wǒ měitiān liànxí, suǒyǐ xiě de hǎo le hěn duō. Nǐ děi měitiān dǎkāi shū liànxí.",pt:"Pratico todo dia, então melhorei bastante. Você tem que abrir o livro e praticar todo dia."},
-      {sp:"B",cn:"你说得对，我明天开始认真学！",py:"Nǐ shuō de duì, wǒ míngtiān kāishǐ rènzhēn xué!",pt:"Você tem razão, começo a estudar sério amanhã!"}
+      {sp:"A",cn:"老师教的你都懂了吗？",py:"Lǎoshī jiāo de nǐ dōu dǒng le ma?",pt:"Você entendeu tudo que o professor ensinou?"},
+      {sp:"B",cn:"大部分懂了，可是有几个词我忘了。",py:"Dà bùfen dǒng le, kěshì yǒu jǐ gè cí wǒ wàng le.",pt:"A maior parte sim, mas esqueci algumas palavras."},
+      {sp:"A",cn:"你的汉字写得怎么样？",py:"Nǐ de Hànzì xiě de zěnmeyàng?",pt:"Como está sua escrita de caracteres?"},
+      {sp:"B",cn:"写得不太好，经常写错。",py:"Xiě de bú tài hǎo, jīngcháng xiě cuò.",pt:"Não muito boa, erro com frequência."},
+      {sp:"A",cn:"明天有考试，你得早点儿复习。",py:"Míngtiān yǒu kǎoshì, nǐ děi zǎo diǎnr fùxí.",pt:"Amanhã tem prova, você tem que revisar cedo."},
+      {sp:"B",cn:"我知道，我现在就打开书看第十课。",py:"Wǒ zhīdào, wǒ xiànzài jiù dǎkāi shū kàn dì-shí kè.",pt:"Eu sei, já vou abrir o livro na lição dez."}
     ],
     quiz:[
-      {q:"\"Me ensine a escrever caracteres\" =",opts:["学我写汉字。","告诉我写汉字。","教我写汉字。","让我写汉字。"],ans:2,exp:"✅ 教 + pessoa + verbo = ensinar alguém a fazer algo. 教我写汉字 = me ensina a escrever caracteres. 学 = aprender (sujeito aprende, não ensina)."},
-      {q:"Complemento resultativo: \"escrevi errado\" =",opts:["我写了错。","我错写了。","我写错了。","我写得错。"],ans:2,exp:"✅ V + 错 = resultado negativo (errou). 写错了 = escrevi errado. Note: com complemento resultativo usa-se 了 (completivo), NÃO 得 (que é de grau)."},
-      {q:"\"Não terminei o dever\" =",opts:["我没有写完作业。","我不写完作业。","我写了不完作业。","我没写作业完。"],ans:0,exp:"✅ 没 + V + 结果 (negação de resultado). 没有写完 = não terminou de escrever. Também aceito: 还没写完 (ainda não terminou)."},
-      {q:"得 (děi) vs 要: qual a diferença em \"tenho que estudar\"?",opts:["Não há diferença","我得复习 = necessidade prática; 我要复习 = intenção/plano","我要复习 = mais urgente","得 é mais formal"],ans:1,exp:"✅ 得 (děi) = necessidade prática/situacional. 要 = intenção ou necessidade geral. 我得复习 (a situação me obriga) vs. 我要复习 (pretendo/planejo estudar)."},
-      {q:"O que 打开 significa?",opts:["Fechar","Abrir / Ligar (app, luz, etc.)","Sair","Entrar"],ans:1,exp:"✅ 打开 = abrir / ligar (algo fechado). 打开书 = abrir o livro. 打开手机 = ligar o celular. Oposto: 关上 = fechar."}
+      {q:"\"Me ensine a escrever\" =",opts:["教写我。","教我写。","写教我。","我教写。"],ans:1,exp:"✅ 教 + pessoa + conteúdo. A pessoa vem sempre primeiro."},
+      {q:"\"Escrevi errado\" =",opts:["我错写了。","我写错了。","我写了错。","我不写对。"],ans:1,exp:"✅ V + 错 = complemento de resultado. Sempre depois do verbo."},
+      {q:"Negação de 写完 é:",opts:["不写完","没写完","写不完了","别写完"],ans:1,exp:"✅ 没写完 — complementos de resultado negam com 没. (写不完 existe, mas significa \"não dá para terminar\".)"},
+      {q:"得 lido děi significa:",opts:["Obter","Partícula de grau","Ter que","Chegar"],ans:2,exp:"✅ 我得复习 = tenho que revisar. Mesma grafia de 得(de) partícula e 得(dé) obter — três leituras."},
+      {q:"A negação de 得 (děi) é:",opts:["不得","不用","没得","别得"],ans:1,exp:"✅ 不用 = não precisa. ❌不得 não é usado nesse sentido."}
     ],
   },
   {
-    w:12, phase:"Revis\u00e3o", emoji:"\ud83c\udfc6", color:"#DC2626",
-    theme:"Conectivos Complexos, Causativo 让 e Consolidação Final",
+    w:12, phase:"Conectivos", emoji:"🏆", color:"#DC2626",
+    theme:"Orações Complexas e Revisão Final",
     built:false, builtNote:"",
-    stats:{words:"32 novas (HSK 2)",newHSK2:"32",grammar:"虽然/因为...所以 · 让 causativo · 复习 aspectos",chars:"+15 novos"},
+    stats:{words:"17 novas (HSK 2)",newHSK2:"17",grammar:"虽然…但是 · 因为…所以 · 复习",chars:"+25 novos"},
     vocab:[
-      {h:"啊",py:"a",pt:"(part. exclamativa)"},
-      {h:"别",py:"bié",pt:"não (imperativo); outro"},
-      {h:"不好意思",py:"bù hǎoyìsi",pt:"com licença; ficar sem jeito"},
+      {h:"虽然",py:"suīrán",pt:"embora; apesar de"},
       {h:"但",py:"dàn",pt:"mas, porém"},
       {h:"但是",py:"dànshì",pt:"mas, porém"},
-      {h:"等",py:"děng",pt:"esperar; etcétera"},
-      {h:"点",py:"diǎn",pt:"ponto; hora (medida de tempo); um pouco"},
-      {h:"跟",py:"gēn",pt:"com; seguir"},
-      {h:"过",py:"guò",pt:"passar; (indica experiência)"},
-      {h:"还是",py:"háishi",pt:"ou; ainda"},
-      {h:"花",py:"huā",pt:"flor; gastar"},
-      {h:"画",py:"huà",pt:"desenhar; pintar"},
-      {h:"可能",py:"kěnéng",pt:"possível; talvez"},
-      {h:"离",py:"lí",pt:"distanciar-se de"},
-      {h:"没意思",py:"méi yìsi",pt:"sem graça; entediante"},
-      {h:"每",py:"měi",pt:"cada; todo(s)"},
-      {h:"面",py:"miàn",pt:"rosto; macarrão; farinha"},
-      {h:"晴",py:"qíng",pt:"ensolarado; bom tempo"},
-      {h:"让",py:"ràng",pt:"deixar; fazer (causativo)"},
-      {h:"事情",py:"shìqing",pt:"assunto; coisa"},
-      {h:"虽然",py:"suīrán",pt:"embora; apesar de"},
-      {h:"所以",py:"suǒyǐ",pt:"por isso; portanto"},
-      {h:"为什么",py:"wèi shénme",pt:"por quê; por qual razão"},
-      {h:"希望",py:"xīwàng",pt:"esperar; esperança"},
-      {h:"一起",py:"yìqǐ",pt:"juntos"},
-      {h:"意思",py:"yìsi",pt:"significado; sentido"},
-      {h:"阴",py:"yīn",pt:"nublado; sombra"},
       {h:"因为",py:"yīnwèi",pt:"porque; por causa de"},
-      {h:"有意思",py:"yǒu yìsi",pt:"interessante; divertido"},
-      {h:"站",py:"zhàn",pt:"estação; parada; ficar em pé"},
+      {h:"所以",py:"suǒyǐ",pt:"por isso; portanto"},
+      {h:"还是",py:"háishi",pt:"ou; ainda"},
+      {h:"啊",py:"a",pt:"ah! (exclamação)"},
+      {h:"点",py:"diǎn",pt:"ponto; hora (medida de tempo); um pouco"},
+      {h:"可能",py:"kěnéng",pt:"possível; talvez"},
       {h:"准备",py:"zhǔnbèi",pt:"preparar; se preparar"},
-      {h:"自己",py:"zìjǐ",pt:"si mesmo; próprio"}
+      {h:"为什么",py:"wèi shénme",pt:"por quê; por qual razão"},
+      {h:"生日",py:"shēngrì",pt:"aniversário"},
+      {h:"过年",py:"guònián",pt:"celebrar o Ano Novo Chinês"},
+      {h:"红茶",py:"hóngchá",pt:"chá preto"},
+      {h:"绿茶",py:"lǜchá",pt:"chá verde"},
+      {h:"奶茶",py:"nǎichá",pt:"milk tea; chá com leite"},
+      {h:"咖啡",py:"kāfēi",pt:"café (bebida)"}
     ],
     grammar:[
-      {struct:"虽然...但是... / 因为...所以...",label:"Conectivos Complexos",color:"#6366F1",exp:"虽然...但是... = embora...mas... (adversativo). 因为...所以... = porque...por isso... (causal). NUNCA misture: ❌虽然...所以 / ❌因为...但是.",exs:[{cn:"虽然很累，但是我还是去跑步了。",py:"Suīrán hěn lèi, dànshì wǒ háishi qù pǎobù le.",pt:"Embora estivesse cansado, ainda assim fui correr."},{cn:"因为下雨，所以我没出门。",py:"Yīnwèi xià yǔ, suǒyǐ wǒ méi chūmén.",pt:"Por causa da chuva, não saí de casa."}]},
-      {struct:"让 (causativo) / 叫 (causativo)",label:"Verbos Causativos",color:"#D97706",exp:"让 + pessoa + verbo = mandar/deixar alguém fazer algo. 叫 = similar (mais informal). 别让我等！= Não me faça esperar!",exs:[{cn:"妈妈让我早点儿回家。",py:"Māma ràng wǒ zǎo diǎnr huí jiā.",pt:"Minha mãe me mandou voltar cedo para casa."},{cn:"别让孩子一个人在外面等。",py:"Bié ràng háizi yí gè rén zài wàimiàn děng.",pt:"Não deixe a criança esperando sozinha lá fora."}]},
-      {struct:"复习：了 / 过 / 着 / 得",label:"Os Quatro Marcadores Aspectuais",color:"#DC2626",exp:"了 = completivo. 过 = experiência de vida. 着 = estado contínuo. 得 = complemento de grau. Tabela mnemônica: 动作+了, 经历+过, 状态+着, 程度+得.",exs:[{cn:"他学过中文，现在说得很好，一直在用。",py:"Tā xué guò Zhōngwén, xiànzài shuō de hěn hǎo, yīzhí zài yòng.",pt:"Ele estudou chinês, hoje fala muito bem e continua usando."},{cn:"门开着，里面坐着一个老师。",py:"Mén kāi zhe, lǐmiàn zuò zhe yí gè lǎoshī.",pt:"A porta está aberta, um professor está sentado lá dentro."}]}
+      {struct:"虽然 … 但是 …",label:"Concessiva",color:"#6366F1",exp:"Par FIXO: 虽然 pede 但是/可是. Diferente do português, as duas conjunções aparecem juntas — não se omite uma delas. ❌虽然很累，我去了。 ✅虽然很累，但是我去了。",exs:[{cn:"虽然有点儿累，但是我还是去跑步了。",py:"Suīrán yǒudiǎnr lèi, dànshì wǒ háishi qù pǎobù le.",pt:"Embora estivesse cansado, ainda assim fui correr."},{cn:"虽然这个包很贵，但是很好看。",py:"Suīrán zhège bāo hěn guì, dànshì hěn hǎokàn.",pt:"Embora esta bolsa seja cara, é muito bonita."},{cn:"虽然他是外国人，但是汉语说得很好。",py:"Suīrán tā shì wàiguórén, dànshì Hànyǔ shuō de hěn hǎo.",pt:"Embora seja estrangeiro, ele fala chinês muito bem."}]},
+      {struct:"因为 … 所以 …",label:"Causal",color:"#0891B2",exp:"Outro par fixo: 因为(porque) + 所以(por isso). Nunca misture os pares: ❌因为…但是 / ❌虽然…所以. A causa vem primeiro, o efeito depois.",exs:[{cn:"因为下雨，所以我没出门。",py:"Yīnwèi xià yǔ, suǒyǐ wǒ méi chūmén.",pt:"Por causa da chuva, não saí de casa."},{cn:"因为快要考试了，所以他每天学习到很晚。",py:"Yīnwèi kuàiyào kǎoshì le, suǒyǐ tā měitiān xuéxí dào hěn wǎn.",pt:"Como a prova está chegando, ele estuda até tarde todo dia."},{cn:"你为什么没来？——因为身体不舒服。",py:"Nǐ wèi shénme méi lái? —— Yīnwèi shēntǐ bù shūfu.",pt:"Por que você não veio? —— Porque não estava bem."}]},
+      {struct:"了 / 过 / 着 — 对比",label:"Revisão dos Três Aspectos",color:"#059669",exp:"A tabela decisiva do HSK 2: 了 = ação concluída ou mudança. 过 = experiência de vida. 着 = estado persistente. Um mesmo verbo muda de sentido conforme a partícula.",exs:[{cn:"他来了。（chegou） / 他来过。（já veio antes）",py:"Tā lái le. / Tā lái guo.",pt:"Ele chegou. / Ele já veio aqui antes."},{cn:"门开了。（abriu） / 门开着。（está aberta）",py:"Mén kāi le. / Mén kāi zhe.",pt:"A porta abriu. / A porta está aberta."},{cn:"我在中国过过年，现在已经回来了。",py:"Wǒ zài Zhōngguó guò guo nián, xiànzài yǐjīng huílái le.",pt:"Já passei o Ano Novo na China, e agora já voltei."}]}
     ],
     dialogue:[
-      {sp:"A",cn:"虽然今天很累，但是我还是要跑步。",py:"Suīrán jīntiān hěn lèi, dànshì wǒ háishi yào pǎobù.",pt:"Embora esteja cansado hoje, ainda assim vou correr."},
-      {sp:"B",cn:"你怎么这么自律？让我也跟着去吧！",py:"Nǐ zěnme zhème zìlǜ? Ràng wǒ yě gēnzhe qù ba!",pt:"Como você é tão disciplinado? Me deixa ir junto também!"},
-      {sp:"A",cn:"好！因为下周有比赛，所以得认真练习。",py:"Hǎo! Yīnwèi xià zhōu yǒu bǐsài, suǒyǐ děi rènzhēn liànxí.",pt:"Ótimo! Porque semana que vem tem uma competição, então tenho que praticar sério."},
-      {sp:"B",cn:"原来如此！那你已经准备好了吗？",py:"Yuánlái rúcǐ! Nà nǐ yǐjīng zhǔnbèi hǎo le ma?",pt:"Ah entendo! Então você já está preparado?"},
-      {sp:"A",cn:"差不多了。别忘了带水，等我一下，我去换鞋子。",py:"Chàbuduō le. Bié wàng le dài shuǐ, děng wǒ yīxià, wǒ qù huàn xiézi.",pt:"Mais ou menos. Não esqueça de trazer água, espera um segundo, vou trocar o sapato."},
-      {sp:"B",cn:"好，但是快点儿！你刚才说要跑的。",py:"Hǎo, dànshì kuài diǎnr! Nǐ gāngcái shuō yào pǎo de.",pt:"Tudo bem, mas rápido! Você acabou de dizer que ia correr."}
+      {sp:"A",cn:"虽然今天很累，但是我还是想去跑步。",py:"Suīrán jīntiān hěn lèi, dànshì wǒ háishi xiǎng qù pǎobù.",pt:"Embora esteja cansado hoje, ainda quero correr."},
+      {sp:"B",cn:"为什么这么努力？",py:"Wèi shénme zhème nǔlì?",pt:"Por que tanto esforço?"},
+      {sp:"A",cn:"因为下个月有比赛，所以我得每天准备。",py:"Yīnwèi xià gè yuè yǒu bǐsài, suǒyǐ wǒ děi měitiān zhǔnbèi.",pt:"Porque no mês que vem tem uma competição, então preciso treinar todo dia."},
+      {sp:"B",cn:"你参加过这样的比赛吗？",py:"Nǐ cānjiā guo zhèyàng de bǐsài ma?",pt:"Você já participou de uma competição assim?"},
+      {sp:"A",cn:"参加过一次，那次跑得还不错。",py:"Cānjiā guo yí cì, nà cì pǎo de hái búcuò.",pt:"Já participei uma vez, e fui bem."},
+      {sp:"B",cn:"那我跟你一起去，外面还下着雨呢，带伞吧！",py:"Nà wǒ gēn nǐ yìqǐ qù, wàimiàn hái xià zhe yǔ ne, dài sǎn ba!",pt:"Então vou com você; ainda está chovendo lá fora, leve guarda-chuva!"}
     ],
     quiz:[
-      {q:"虽然...但是 vs 因为...所以: como escolher?",opts:["São intercambiáveis","虽然...但是 = concessão (embora...mas); 因为...所以 = causa-efeito","因为...但是 = mais comum","虽然...所以 é mais formal"],ans:1,exp:"✅ Nunca misture: ❌虽然下雨，所以... ❌因为下雨，但是... As conjunções são pares fixos. 虽然...但是 (concessão) / 因为...所以 (causa-consequência)."},
-      {q:"\"Minha mãe me mandou voltar cedo\" =",opts:["妈妈让我早点儿回家。","妈妈叫回家我早点儿。","我让妈妈早点儿回家。","妈妈我早点儿让回家。"],ans:0,exp:"✅ 让 + pessoa + verbo = mandar/deixar fazer. 妈妈让我... = minha mãe me mandou... Ordem: causador (妈妈) + 让 + receptor (我) + verbo (回家)."},
-      {q:"Qual aspecto está em \"他学过中文\"?",opts:["了 completivo","过 experiencial","着 contínuo","Nenhum"],ans:1,exp:"✅ 过 = experiência de vida (já estudou chinês em algum momento). Diferente de 了 (completou o estudo) e 着 (está estudando continuamente)."},
-      {q:"\"Não esqueça de trazer água\" =",opts:["别忘了带水。","不要忘记了水带。","忘了不别带水。","别带忘了水。"],ans:0,exp:"✅ 别 + V = não faça (imperativo). 别忘了 = não esqueça. Estrutura: 别+忘了+带+水. 别 é imperativo negativo mais suave que 不要."},
-      {q:"O que significa 准备好了？",opts:["Está se preparando","Ainda não está pronto","Já está pronto/preparado","Vai se preparar"],ans:2,exp:"✅ 准备好了 = já está pronto/preparado (complemento resultativo 好 = ficou bom/pronto + 了 = estado atual). Diferente de 在准备 (está se preparando, em andamento)."}
+      {q:"虽然 exige o par:",opts:["所以","但是/可是","因为","而且"],ans:1,exp:"✅ 虽然…但是… é par fixo. Diferente do português, as duas conjunções aparecem juntas."},
+      {q:"Qual combinação está ERRADA?",opts:["因为…所以","虽然…但是","因为…但是","虽然…可是"],ans:2,exp:"✅ ❌因为…但是 — cada conjunção tem parceiro fixo. Misturar é o erro clássico."},
+      {q:"他来了 vs 他来过:",opts:["Iguais","来了 = chegou; 来过 = já veio antes","来过 = vai vir","来了 = experiência"],ans:1,exp:"✅ 了 marca conclusão/mudança; 过 marca experiência de vida."},
+      {q:"门开了 vs 门开着:",opts:["开了 = evento de abrir; 开着 = estado aberto","Iguais","开着 = vai abrir","开了 = está aberta"],ans:0,exp:"✅ 了 marca o acontecimento; 着 descreve o estado que permanece."},
+      {q:"\"Porque choveu, não saí\" =",opts:["虽然下雨，所以我没出门。","因为下雨，所以我没出门。","因为下雨，但是我没出门。","所以下雨，因为我没出门。"],ans:1,exp:"✅ 因为(causa) + 所以(efeito), nessa ordem."}
     ],
   }
 ];
@@ -554,7 +558,7 @@ export default function HSK2Completo() {
   const [revealed,setRevealed]= useState({});
   const [linePy,  setLinePy]  = useState({});
 
-  const w = WEEKS.find(x => x.x === week) || WEEKS[week - 1];
+  const w = WEEKS.find(x => x.w === week) || WEEKS[week - 1];
   const dc = w.color;
 
   const correct  = Object.entries(answers).filter(([i,a]) => a === w.quiz[+i].ans).length;
@@ -577,11 +581,11 @@ export default function HSK2Completo() {
               🇨🇳 Novo HSK 2 · Programa Completo
             </span>
             <span style={{ background:"rgba(255,255,255,0.12)", borderRadius:"6px", padding:"3px 12px", fontSize:"12px", fontWeight:"600" }}>
-              12 Semanas · ~772 Palavras · 41 Pontos Gramaticais
+              12 lições · 200 palavras · 36 pontos gramaticais
             </span>
           </div>
           <h1 style={{ margin:"0 0 14px", fontSize:"clamp(18px,3.5vw,28px)", fontWeight:"900" }}>
-            老师 · Cronograma HSK 2 — Todas as 12 Semanas
+            老师 · HSK 2 em 12 lições
           </h1>
 
           {/* Week selector — phases */}
@@ -596,7 +600,7 @@ export default function HSK2Completo() {
                          whiteSpace:"nowrap", transition:"all 0.15s", flexShrink:0,
                          display:"flex", flexDirection:"column", alignItems:"center", gap:"2px" }}>
                 <span style={{ fontSize:"16px" }}>{wx.emoji}</span>
-                <span>S{wx.w}</span>
+                <span style={{ maxWidth:"92px", overflow:"hidden", textOverflow:"ellipsis" }}>{wx.phase}</span>
               </button>
             ))}
           </div>
@@ -614,7 +618,7 @@ export default function HSK2Completo() {
             <div style={{ width:"48px", height:"48px", borderRadius:"12px", background:dc,
                           color:"white", display:"flex", flexDirection:"column",
                           alignItems:"center", justifyContent:"center", flexShrink:0 }}>
-              <span style={{ fontSize:"10px", fontWeight:"700", opacity:0.8 }}>SEM</span>
+              <span style={{ fontSize:"10px", fontWeight:"700", opacity:0.8 }}>LIÇÃO</span>
               <span style={{ fontSize:"20px", fontWeight:"900", lineHeight:1 }}>{w.w}</span>
             </div>
             <div style={{ flex:1 }}>
@@ -729,7 +733,7 @@ export default function HSK2Completo() {
         {tab==="dialogue" && (
           <div style={{ paddingTop:"16px" }}>
             <div style={{ display:"flex", justifyContent:"space-between", marginBottom:"12px", flexWrap:"wrap", gap:"8px" }}>
-              <p style={{ color:muted, fontSize:"13px", margin:0 }}>Leia em voz alta! Identifique as estruturas gramaticais da semana.</p>
+              <p style={{ color:muted, fontSize:"13px", margin:0 }}>Leia em voz alta! Identifique as estruturas gramaticais da lição.</p>
               <button onClick={()=>setDlPy(v=>!v)} style={{
                 padding:"6px 12px", borderRadius:"8px", border:`2px solid ${dlPy?"#D97706":bdr}`,
                 background:dlPy?"#FFFBEB":"white", color:dlPy?"#92400E":muted,
@@ -740,7 +744,7 @@ export default function HSK2Completo() {
             <div style={{ background:"white", borderRadius:"14px", overflow:"hidden",
                           boxShadow:"0 2px 12px rgba(15,23,42,0.07)", border:`1px solid ${bdr}` }}>
               <div style={{ background:dc, color:"white", padding:"12px 18px" }}>
-                <div style={{ fontWeight:"800", fontSize:"15px" }}>💬 Diálogo — Semana {w.w}</div>
+                <div style={{ fontWeight:"800", fontSize:"15px" }}>💬 Diálogo — {w.phase}</div>
               </div>
               {w.dialogue.map((line,i)=>{
                 const isA=line.sp==="A";
@@ -778,7 +782,7 @@ export default function HSK2Completo() {
                 <div style={{ fontWeight:"800", fontSize:"20px",
                               color:correct>=4?"#065F46":"#92400E" }}>{correct}/5 corretas</div>
                 <div style={{ fontSize:"13px", color:muted, marginTop:"4px" }}>
-                  {correct===5?"Perfeito! Semana "+w.w+" dominada!":
+                  {correct===5?"Perfeito! Lição de "+w.phase+" dominada!":
                    correct>=3?"Bom! Revise os pontos que errou.":"Releia a gramática e tente novamente."}
                 </div>
                 <button onClick={resetQuiz} style={{ marginTop:"10px", padding:"7px 18px",
@@ -845,15 +849,15 @@ export default function HSK2Completo() {
           <button onClick={()=>{if(week>1){setWeek(w=>w-1);setTab("vocab");resetQuiz();}}}
             style={{ padding:"8px 16px", borderRadius:"9px", border:`2px solid ${bdr}`,
                      background:"white", color:muted, fontWeight:"700", fontSize:"13px",
-                     cursor:"pointer", opacity:week===1?0.3:1 }}>← Semana anterior</button>
+                     cursor:"pointer", opacity:week===1?0.3:1 }}>← Lição anterior</button>
           <div style={{ textAlign:"center" }}>
-            <div style={{ fontSize:"13px", fontWeight:"800", color:ink }}>Semana {week} / 12</div>
+            <div style={{ fontSize:"13px", fontWeight:"800", color:ink }}>{"Lição "+week+" de "+12+" · "+w.phase}</div>
             <div style={{ fontSize:"11px", color:muted }}>{w.phase} · {w.emoji}</div>
           </div>
           <button onClick={()=>{if(week<12){setWeek(w=>w+1);setTab("vocab");resetQuiz();}}}
             style={{ padding:"8px 16px", borderRadius:"9px", border:`2px solid ${dc}`,
                      background:dc, color:"white", fontWeight:"700", fontSize:"13px",
-                     cursor:"pointer", opacity:week===12?0.3:1 }}>Próxima semana →</button>
+                     cursor:"pointer", opacity:week===12?0.3:1 }}>Próxima lição →</button>
         </div>
 
         {/* Final banner */}
@@ -863,7 +867,7 @@ export default function HSK2Completo() {
             <div style={{ fontSize:"40px", marginBottom:"10px" }}>🏆</div>
             <div style={{ fontWeight:"900", fontSize:"20px", marginBottom:"8px" }}>HSK 2 — Programa Completo!</div>
             <div style={{ opacity:0.75, fontSize:"14px", lineHeight:"1.8", marginBottom:"12px" }}>
-              12 semanas · ~772 palavras · 41 pontos gramaticais · 300 caracteres<br/>
+              12 lições · 200 palavras · 36 pontos gramaticais<br/>
               Você percorreu todo o caminho do HSK 2. 你真棒！Nǐ zhēn bàng!
             </div>
             <div style={{ fontSize:"22px", fontWeight:"900", color:"#FCD34D" }}>
