@@ -5,6 +5,7 @@ import Layout from './components/Layout.jsx'
 
 // Lazy loading: cada módulo carrega apenas quando acessado
 const LaoshiVocab   = lazy(() => import('./components/LaoshiVocab.jsx'))
+const HSK1Completo  = lazy(() => import('./components/HSK1Completo.jsx'))
 const HSK2Completo  = lazy(() => import('./components/HSK2Completo.jsx'))
 const HSK3Completo  = lazy(() => import('./components/HSK3Completo.jsx'))
 const HSK4Completo  = lazy(() => import('./components/HSK4Completo.jsx'))
@@ -33,8 +34,16 @@ export default function App() {
 
         <Route path="/vocab" element={
           <Suspense fallback={<Loading />}>
-            <Layout title="Vocabulário Completo HSK 1–9">
+            <Layout title="Vocabulário HSK 1–9">
               <LaoshiVocab />
+            </Layout>
+          </Suspense>
+        } />
+
+        <Route path="/hsk1" element={
+          <Suspense fallback={<Loading />}>
+            <Layout title="HSK 1 · Programa Completo">
+              <HSK1Completo />
             </Layout>
           </Suspense>
         } />
