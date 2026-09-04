@@ -1,4 +1,4 @@
-import{r as t,j as a}from"./index-xlpvJ4bk.js";const H=`
+import{r as t,j as a}from"./index-CND9W7-9.js";const H=`
 爱|ài|动|1|amar
 八|bā|数|1|oito
 爸爸|bàba|名|1|pai
