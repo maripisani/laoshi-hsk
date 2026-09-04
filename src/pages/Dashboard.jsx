@@ -7,11 +7,23 @@ const MODULES = [
     emoji: '📖',
     title: '词汇大纲',
     subtitle: 'Vocabulário Completo',
-    desc: 'Browser de todos os vocábulos oficiais com pinyin colorido por tom, filtros por nível (HSK 1–9) e busca integrada.',
-    stats: ['HSK 1 ao 9', '~11.000 palavras', 'GF0025-2021'],
+    desc: 'Browser de todos os vocábulos oficiais com pinyin colorido por tom, filtros por nível (HSK 1–9) e busca por caractere, pinyin ou tradução.',
+    stats: ['HSK 1 ao 9', '11.000 palavras', '5.400 traduzidas'],
     gradient: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)',
     accent: '#3b82f6',
     badge: '📚 Vocabulário',
+  },
+  {
+    id: 'hsk1',
+    path: '/hsk1',
+    emoji: '一',
+    title: 'HSK 1',
+    subtitle: 'Programa Completo',
+    desc: 'Do zero ao primeiro diálogo: os quatro tons, saudações, família, números e a ordem básica da frase chinesa.',
+    stats: ['12 lições', '300 palavras', '36 pontos gramaticais'],
+    gradient: 'linear-gradient(135deg, #164e63 0%, #0891B2 100%)',
+    accent: '#0891B2',
+    badge: '📔 Programa',
   },
   {
     id: 'hsk2',
@@ -19,8 +31,8 @@ const MODULES = [
     emoji: '二',
     title: 'HSK 2',
     subtitle: 'Programa Completo',
-    desc: '12 semanas estruturadas do nível básico: vocabulário, gramática com exemplos, diálogos bilíngues e quizzes corrigidos.',
-    stats: ['12 semanas', '~772 palavras novas', '41 pontos gramaticais'],
+    desc: 'Nível básico consolidado: verbos direcionais, comparação com 比, aspectos 了/过/着 e complemento de grau.',
+    stats: ['12 lições', '200 palavras', '36 pontos gramaticais'],
     gradient: 'linear-gradient(135deg, #1e1b4b 0%, #4f46e5 100%)',
     accent: '#6366F1',
     badge: '📗 Programa',
@@ -31,8 +43,8 @@ const MODULES = [
     emoji: '三',
     title: 'HSK 3',
     subtitle: 'Programa Completo',
-    desc: '12 semanas do elementar ao pré-intermediário: estrutura 把, linguagem abstrata e opinião em mandarim.',
-    stats: ['12 semanas', '~973 palavras novas', '44 pontos gramaticais'],
+    desc: 'Do elementar ao pré-intermediário: estrutura 把, voz passiva 被, os três complementos e orações complexas.',
+    stats: ['16 lições', '500 palavras', '48 pontos gramaticais'],
     gradient: 'linear-gradient(135deg, #2e1065 0%, #7c3aed 100%)',
     accent: '#7C3AED',
     badge: '📘 Programa',
@@ -43,8 +55,8 @@ const MODULES = [
     emoji: '四',
     title: 'HSK 4',
     subtitle: 'Programa Completo',
-    desc: '12 semanas intermediário: conectivos formais, 成语 iniciais e primeiro contato com registro escrito culto.',
-    stats: ['12 semanas', '~1.000 palavras novas', '45+ pontos gramaticais'],
+    desc: 'Intermediário: conectivos formais, 进行 e 通过, descontos e proporções, e o primeiro contato com o registro escrito.',
+    stats: ['20 lições', '1.000 palavras', '60 pontos gramaticais'],
     gradient: 'linear-gradient(135deg, #1e1b4b 0%, #4338CA 100%)',
     accent: '#4338CA',
     badge: '📙 Programa',
@@ -55,8 +67,8 @@ const MODULES = [
     emoji: '五',
     title: 'HSK 5',
     subtitle: 'Programa Completo',
-    desc: '12 semanas avançado: literatura, argumentação sofisticada, 成语 complexos e retórica formal.',
-    stats: ['12 semanas', '~1.140 palavras novas', 'Nível avançado'],
+    desc: 'Avançado: linguagem de imprensa e negócios, verbos com sufixo 于, fórmulas com 以 e argumentação escrita.',
+    stats: ['24 lições', '1.600 palavras', '72 pontos gramaticais'],
     gradient: 'linear-gradient(135deg, #7f1d1d 0%, #dc2626 100%)',
     accent: '#dc2626',
     badge: '📕 Programa',
@@ -67,8 +79,8 @@ const MODULES = [
     emoji: '六',
     title: 'HSK 6',
     subtitle: 'Programa Completo',
-    desc: '12 semanas quase-nativo: filosofia clássica, literatura 文言文 e domínio de registro acadêmico e jornalístico.',
-    stats: ['12 semanas', '~1.140 palavras novas', 'Quase-nativo'],
+    desc: 'Quase-nativo: registro escrito culto, passiva literária 为…所…, verbos vicários 予以/加以 e leitura acadêmica.',
+    stats: ['24 lições', '1.800 palavras', '72 pontos gramaticais'],
     gradient: 'linear-gradient(135deg, #0f172a 0%, #374151 100%)',
     accent: '#6b7280',
     badge: '🏆 Programa',
@@ -76,10 +88,10 @@ const MODULES = [
 ]
 
 const STATS_GLOBAIS = [
-  { v: '5', l: 'Programas' },
-  { v: '60', l: 'Semanas' },
-  { v: '~5.000', l: 'Palavras nos programas' },
-  { v: '215+', l: 'Pontos gramaticais' },
+  { v: '6', l: 'Programas' },
+  { v: '108', l: 'Lições' },
+  { v: '5.400', l: 'Palavras nos programas' },
+  { v: '324', l: 'Pontos gramaticais' },
 ]
 
 export default function Dashboard() {
@@ -116,7 +128,7 @@ export default function Dashboard() {
           老师 · Laoshi
         </h1>
         <p style={{ margin: '0 0 28px', color: '#94a3b8', fontSize: 'clamp(0.85rem,2vw,1rem)' }}>
-          Seu programa completo de mandarim — HSK 2 ao HSK 6
+          Seu programa completo de mandarim — HSK 1 ao HSK 6
         </p>
 
         {/* Stats globais */}
@@ -159,7 +171,7 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* Nota HSK 1 */}
+        {/* Nota HSK 7–9 */}
         <div style={{
           marginTop: '22px',
           background: '#FEF9C3',
@@ -172,7 +184,9 @@ export default function Dashboard() {
         }}>
           <span style={{ fontSize: '1.1rem', flexShrink: 0 }}>📌</span>
           <p style={{ margin: 0, fontSize: '0.82rem', color: '#713f12', lineHeight: 1.5 }}>
-            <strong>HSK 1:</strong> Disponível no módulo <em>Vocabulário Completo</em> — use o filtro &quot;HSK 1&quot; para explorar todas as 500 palavras com pinyin e tradução. Programa de 12 semanas HSK 1 em desenvolvimento.
+            <strong>HSK 7–9:</strong> As 5.600 palavras da faixa avançada já estão no módulo{' '}
+            <em>Vocabulário Completo</em>, com hanzi, pinyin e classe gramatical. As traduções
+            estão sendo acrescentadas aos poucos — use o filtro &quot;HSK 7–9&quot; para explorar.
           </p>
         </div>
       </div>
